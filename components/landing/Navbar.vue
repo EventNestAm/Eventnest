@@ -16,8 +16,7 @@ const menuitems = [
 	{
 		title: "Խանութ",
 		path: "/shop",
-	},
-	{
+	}	{
 		title: "Կապ",
 		path: "/contact",
 	},
@@ -36,7 +35,7 @@ const handleClick = (path) => {
 		<header class="flex flex-col lg:flex-row justify-between items-center my-5">
 			<div class="flex w-full lg:w-auto items-center justify-between">
 				<NuxtLink href="/" class="inline-block">
-					<img src="/favicon.ico" width="100" height="100" alt="Home Logo" />
+					<img src="/eventnest.png" width="100" height="100" alt="Home Logo" class="w-20 h-20 object-contain" />
 				</NuxtLink>
 
 				<div class="block lg:hidden">
