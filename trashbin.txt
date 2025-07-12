@@ -1,3 +1,5 @@
+full
+ 
 /assets/fonts/montserrat-armenian/Montserratarm-Regular.otf
  
 40

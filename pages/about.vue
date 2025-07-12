@@ -16,8 +16,6 @@ const team = [
 		title: "CEO & Founder",
 		avatar: {
 			src: TeamImg1,
-			width: 480,
-			height: 560,
 		},
 	},
 	{
@@ -25,8 +23,6 @@ const team = [
 		title: "Creative Director",
 		avatar: {
 			src: TeamImg2,
-			width: 580,
-			height: 580,
 		},
 	},
 	{
@@ -34,8 +30,6 @@ const team = [
 		title: "Սպասումենք քո առաջարկին",
 		avatar: {
 			src: TeamImg3,
-			width: 580,
-			height: 580,
 		},
 	},
 ];
@@ -62,13 +56,11 @@ const team = [
 				makes our team so special.
 			</p>
 		</div>
-		<div class="grid md:grid-cols-3 gap-[13rem] mx-auto max-w-[80rem] mt-12">
+		<div class="grid md:grid-cols-3 gap-10 md:gap-[13rem] mx-auto max-w-[80rem] mt-12">
 			<div v-for="item of team" class="group">
 				<div class="w-full aspect-square">
 					<img
 						:src="item.avatar.src"
-						:width="item.avatar.width"
-						:height="item.avatar.height"
 						format="avif"
 						alt="Team"
 						class="w-full h-full object-cover rounded-lg transition group-hover:-translate-y-1 group-hover:shadow-xl"

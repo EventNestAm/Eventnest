@@ -17,7 +17,6 @@ const events = [
 		image: Football,
 		description:
 			"Ճանաչիր ֆուտբոլը՝ հետաքրքիր հարցերի և թիմային խաղերի միջոցով։ Մասնակցության վճար՝ 3000 AMD։",
-		slug: "football-quiz",
 		category: "Վիկտորինա",
 	},
 	{
@@ -29,7 +28,6 @@ const events = [
 		image: Mafia,
 		description:
 			"Հատուկ մաֆիա երեկո՝ պրոֆեսիոնալ վարողներով ու DJ-ով։ Տեղերի սահմանափակ քանակ։",
-		slug: "mafia-night",
 		category: "Մաֆիա",
 	},
 ];
@@ -180,8 +178,8 @@ const filteredEvents = computed(() => {
 						</p>
 						<div class="mt-auto">
 							<NuxtLink
-								:to="`/events/${event.slug}`"
-								class="inline-block bg-purple-600 text-black px-5 py-2.5 rounded-lg hover:bg-purple-700 transition font-medium text-sm shadow-md hover:shadow-lg"
+								:to="`/contact`"
+								class="inline-block bg-purple-600 text-white px-5 py-2.5 rounded-lg hover:bg-purple-700 transition font-medium text-sm shadow-md hover:shadow-lg"
 							>
 								Գրանցվել →
 							</NuxtLink>
@@ -195,7 +193,7 @@ const filteredEvents = computed(() => {
 			<div class="max-w-md max-h-md mx-auto">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
-					class="h-5 w-5 mx-auto text-gray-400"
+					class="h-10 w-10 mx-auto text-gray-400"
 					fill="none"
 					viewBox="0 0 24 24"
 					stroke="currentColor"
@@ -225,7 +223,7 @@ const filteredEvents = computed(() => {
 		</section>
 
 		<!-- Load More (hidden when filtered) -->
-		<div
+		<!-- <div
 			v-if="selectedCategory === 'Բոլորը' && !searchQuery && !selectedDate"
 			class="text-center mt-8 mb-12"
 		>
@@ -234,7 +232,7 @@ const filteredEvents = computed(() => {
 			>
 				Ցուցադրել ավելին
 			</button>
-		</div>
+		</div> -->
 	</LandingContainer>
 </template>
 
