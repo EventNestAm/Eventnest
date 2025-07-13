@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-	<main class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-8">
+	<main class="grid lg:grid-cols-2 place-items-center pt-4 pb-8 md:pt-8">
 		<div class="mb-5 sm:mb-0 md:p-24 md:order-1">
 			<img
 				class="rounded-full transition-transform transform md:hover:scale-125"
