@@ -10,11 +10,17 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ['@nuxt/ui', '@nuxt/image'],
+  modules: ['@nuxt/ui', '@nuxt/image',],
+  //  '@nuxtjs/gtm'
   // , '@nuxtjs/sitemap'
   // sitemap: {
   //   hostname: 'https://eventnest.am',
   //   gzip: true,
+  // },
+  // gtm: {
+  //   id: 'GTM-TZDK52SP',
+  //   debug: false,
+  //   enabled: true,
   // },
   image: {
     format: ['webp'],

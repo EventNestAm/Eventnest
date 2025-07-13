@@ -65,7 +65,7 @@ const team = [
 			</p>
 		</div>
 		<div
-			class="grid md:grid-cols-3 gap-x-10 md:gap-x-[13rem] gap-y-20 mx-auto max-w-[80rem] mt-12"
+			class="grid md:grid-cols-3 gap-x-10 md:gap-x-[13rem] gap-y-20  mx-auto max-w-[80rem] mt-12"
 		>
 			<div v-for="item of team" class="group">
 				<div class="w-full aspect-square">
