@@ -28,6 +28,7 @@ const team = [
 	{
 		name: "Հենց ԴՈՒ",
 		title: "Սպասումենք քո առաջարկին",
+		link: "/contact",
 		avatar: {
 			src: TeamImg3,
 		},
@@ -49,7 +50,6 @@ const team = [
 		</LandingSectionhead>
 
 		<div class="flex flex-col gap-3 mx-auto max-w-7xl mt-16">
-			<h2 class="font-bold text-3xl text-gray-800">Empowering the world with Nuxt.</h2>
 			<p class="text-lg leading-relaxed text-slate-500">
 				We're a multi-cultural team from around the world! We come from diverse backgrounds,
 				bringing different personalities, experiences and skills to the job. This is what

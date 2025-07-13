@@ -10,6 +10,7 @@
 				loading="eager"
 				width="512"
 				height="512"
+				fetchpriority="high"
 			/>
 		</div>
 
