@@ -7,27 +7,40 @@ import whatWhere from "@/assets/img/whatWhere.png?url";
 import Football from "@/assets/img/football.png?url";
 import Movie from "@/assets/img/movie.png?url";
 import Music from "@/assets/img/music.png?url";
+import Kargin2 from "@/assets/img/kargin2.jpg?url";
+
 const events = [
 	{
 		id: 1,
-		title: "Ֆուտբոլային վիկտորինա",
-		date: "2025-07-15",
-		time: "19:00",
+		title: "Կարգին հաղորդման վիկտորինա",
+		date: "2025-07-18",
+		time: "20:30",
 		location: "73 Club, Երևան, Խանջյան փողոց, 33",
-		image: Football,
+		image: Kargin2,
 		description:
-			"Ճանաչիր ֆուտբոլը՝ հետաքրքիր հարցերի և թիմային խաղերի միջոցով։ Մասնակցության վճար՝ 3000 AMD։",
+			" Հումորային վիկտորինա, ներշնչված է լեգենդար և շատ սիրված «Կարգին հաղորդում» կատակերգական շոուից։  Մասնակցության վճար՝ 2000 AMD։",
 		category: "Վիկտորինա",
 	},
 	{
 		id: 2,
+		title: "Ֆուտբոլային վիկտորինա",
+		date: "2025-07-17",
+		time: "19:00",
+		location: "73 Club, Երևան, Խանջյան փողոց, 33",
+		image: Football,
+		description:
+			"Ճանաչիր ֆուտբոլը՝ հետաքրքիր հարցերի և թիմային խաղի միջոցով։ Մասնակցության վճար՝ 3000 AMD։",
+		category: "Վիկտորինա",
+	},
+	{
+		id: 3,
 		title: "Մաֆիա գիշեր",
-		date: "2025-07-20",
+		date: "2025-07-19",
 		time: "20:30",
 		location: "73 Club, Երևան, Խանջյան փողոց, 33",
 		image: Mafia,
 		description:
-			"Հատուկ մաֆիա երեկո՝ պրոֆեսիոնալ վարողներով ու DJ-ով։ Տեղերի սահմանափակ քանակ։",
+			"Հատուկ մաֆիա երեկո՝ պրոֆեսիոնալ վարողներով, և սիրողական և պրոֆեսիոնալ մակարդակով։ Տեղերի սահմանափակ քանակ։",
 		category: "Մաֆիա",
 	},
 ];
