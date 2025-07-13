@@ -26,6 +26,13 @@ const team = [
 		},
 	},
 	{
+		name: "Անահիտ Ալոյան",
+		title: "Designer",
+		avatar: {
+			src: TeamImg1,
+		},
+	},
+	{
 		name: "Հենց ԴՈՒ",
 		title: "Սպասումենք քո առաջարկին",
 		link: "/contact",
@@ -57,7 +64,9 @@ const team = [
 				Մենք դեռ փոքր ենք, բայց մեծ քայլերով գնում ենք դեպի մեծանալը՝ ձեր հետ ու ձեր համար։
 			</p>
 		</div>
-		<div class="grid md:grid-cols-3 gap-10 md:gap-[13rem] mx-auto max-w-[80rem] mt-12">
+		<div
+			class="grid md:grid-cols-3 gap-x-10 md:gap-x-[13rem] gap-y-20 mx-auto max-w-[80rem] mt-12"
+		>
 			<div v-for="item of team" class="group">
 				<div class="w-full aspect-square">
 					<img
