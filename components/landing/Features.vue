@@ -20,7 +20,7 @@ const swiperImages = [
 		title: "Մաֆիա",
 		src: Mafia,
 		description:
-			"Մաֆիա՝ պրոֆեսիոնալ մակարդակով․ սպորտային և դասական։ Կարող եք մասնակցել ինչպես թիմով, այնպես էլ անհատապես։",
+			"«Մաֆիա» կամ «Կարմիր, թե՞ սև»: Եվ´սպորտային, և´ դասական, որին կարող ես մասնակցել անհատապես կամ հենց քո թիմով:",
 	},
 	{
 		title: "Ինչ, որտեղ, երբ",
@@ -32,19 +32,19 @@ const swiperImages = [
 		title: "Կինո վիկտորինա",
 		src: Movie,
 		description:
-			"Ճանաչու՞մ եք հայտնի ֆիլմերը՝ միայն մի կադրից կամ երաժշտությունից։ Այս խաղը ձեզ համար է։",
+			"Տեսարանն ու երաժշտությունը բավարա՞ր են ճանաչելու ֆիլմը , ուրեմն սա Ձեզ համար է:Կինո-վիկտորինան օգնելու է ավելի շատ բան իմանալ կինոաշխարհի մասին:",
 	},
 	{
 		title: "Երաժշտական ​​վիկտորինա",
 		src: Music,
 		description:
-			"Ձայնագրությունների, երգերի և կատարողների ճանաչման վրա հիմնված վիկտորինա՝ զվարճալի և հումորով լի մթնոլորտում։",
+			"«Ես գիտե՜մ պատասխանը» ավելի հաճախ կասեք Դուք, եթե երգերն ու կատարողներին ճանաչում եք առաջին ելևէջներից:Սա զվարճալի ու ջերմ մթնոլորտում անցկացվող վիկտորինա է:",
 	},
 	{
 		title: "Ֆուտբոլային վիկտորինա",
 		src: Football,
 		description:
-			"Ֆուտբոլի սիրահարների համար՝ թիմեր, խաղացողներ, մունդիալներ ու լիգաներ. տեսնենք՝ որքան լավ եք ճանաչում խաղը։",
+			"Ֆուտբոլի սիրահարների համար՝ թիմեր, խաղացողներ ու լիգաներ. տեսնենք՝ որքան լավ եք ճանաչում խաղը։",
 	},
 ];
 
@@ -55,7 +55,9 @@ const onSlideChange = (swiper) => {
 
 <template>
 	<div class="mt-16 md:mt-0">
-		<h2 class="text-3xl font-bold sm:text-4xl lg:tracking-tight text-black uppercase text-center">
+		<h2
+			class="text-3xl font-bold sm:text-4xl lg:tracking-tight text-black uppercase text-center"
+		>
 			Ինչ կարող եք տեսնել Մեզ մոտ
 		</h2>
 		<!-- <p class="text-lg mt-4 text-slate-600">
@@ -64,7 +66,7 @@ const onSlideChange = (swiper) => {
 		</p> -->
 	</div>
 
-	<div class="flex flex-col md:flex-row gap-8 items-center mt-16 ">
+	<div class="flex flex-col md:flex-row gap-8 items-center mt-16">
 		<div class="w-full md:w-1/2 flex justify-center">
 			<Swiper
 				effect="cards"
@@ -73,10 +75,7 @@ const onSlideChange = (swiper) => {
 				class="w-[17.5rem] h-[23.75rem]"
 				@slideChange="onSlideChange"
 			>
-				<SwiperSlide
-					v-for="(item, index) in swiperImages"
-					:key="index"
-				>
+				<SwiperSlide v-for="(item, index) in swiperImages" :key="index">
 					<img
 						:src="item.src"
 						:alt="item.title"
@@ -105,6 +104,4 @@ const onSlideChange = (swiper) => {
 	overflow: hidden;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
-
-
 </style>

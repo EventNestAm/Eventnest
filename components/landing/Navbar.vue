@@ -96,8 +96,8 @@ const handleClick = (path) => {
 			</nav>
 			<div>
 				<div class="hidden lg:flex items-center gap-4">
-					<a href="#">Մուտք</a>
-					<LandingLink href="#" size="md">Գրանցվել</LandingLink>
+					<a class="cursor-not-allowed">Մուտք</a>
+					<LandingLink class="cursor-not-allowed" size="md">Գրանցվել</LandingLink>
 				</div>
 			</div>
 		</header>
