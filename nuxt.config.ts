@@ -11,6 +11,11 @@ export default defineNuxtConfig({
   },
 
   modules: ['@nuxt/ui', '@nuxt/image'],
+  // , '@nuxtjs/sitemap'
+  // sitemap: {
+  //   hostname: 'https://eventnest.am',
+  //   gzip: true,
+  // },
   image: {
     format: ['webp'],
     screens: {
