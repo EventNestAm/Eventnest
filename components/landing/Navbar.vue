@@ -41,7 +41,7 @@ const handleClick = (path) => {
 						width="100"
 						height="100"
 						alt="Home Logo"
-						class="w-20 h-20 object-contain"
+						class="w-24 h-24 object-cover"
 					/>
 				</NuxtLink>
 
