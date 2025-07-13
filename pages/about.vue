@@ -51,9 +51,10 @@ const team = [
 
 		<div class="flex flex-col gap-3 mx-auto max-w-7xl mt-16">
 			<p class="text-lg leading-relaxed text-slate-500">
-				We're a multi-cultural team from around the world! We come from diverse backgrounds,
-				bringing different personalities, experiences and skills to the job. This is what
-				makes our team so special.
+				Մենք փոքր, բայց մեծ երազանքներով թիմ ենք։ EventNest-ում մենք հավատում ենք, որ
+				յուրաքանչյուր պահ կարող է դառնալ անմոռանալի։ Մեր նպատակը պարզ է՝ ստեղծել դրական,
+				ջերմ ու ոգեշնչող մթնոլորտներ, որոնք մարդկանց կմիավորեն ու կլցնեն լավ еմոցիաներով։
+				Մենք դեռ փոքր ենք, բայց մեծ քայլերով գնում ենք դեպի մեծանալը՝ ձեր հետ ու ձեր համար։
 			</p>
 		</div>
 		<div class="grid md:grid-cols-3 gap-10 md:gap-[13rem] mx-auto max-w-[80rem] mt-12">
