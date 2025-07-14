@@ -1,4 +1,5 @@
 <script setup>
+const route = useRoute();
 const menuitems = [
 	{
 		title: "Գլխավոր էջ",
@@ -74,13 +75,13 @@ const handleClick = (path) => {
 				:class="{ block: open, hidden: !open }"
 			>
 				<ul class="flex flex-col lg:flex-row lg:gap-3">
-					<li v-for="item of menuitems">
+					<li v-for="item of menuitems" :key="item.path">
 						<NuxtLink
 							:to="item.path"
 							@click="handleClick(item.path)"
 							:class="[
 								'flex lg:px-3 py-2 text-black hover:text-[#00308F] font-bold',
-								clickedPath === item.path
+								route.path === item.path
 									? 'underline underline-offset-8 decoration-2 decoration-[#00308F]'
 									: '',
 							]"
