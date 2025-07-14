@@ -7,7 +7,7 @@ import whatWhere from "@/assets/img/whatWhere.png?url";
 import Football from "@/assets/img/football.png?url";
 import Movie from "@/assets/img/movie.png?url";
 import Music from "@/assets/img/music.png?url";
-import Kargin2 from "@/assets/img/kargin2.jpg?url";
+import Kargin from "@/assets/img/kargin.jpeg?url";
 
 const events = [
 	{
@@ -16,7 +16,7 @@ const events = [
 		date: "2025-07-18",
 		time: "20:30",
 		location: "73 Club, Երևան, Խանջյան փողոց, 33",
-		image: Kargin2,
+		image: Kargin,
 		description:
 			" Հումորային վիկտորինա, ներշնչված է լեգենդար և շատ սիրված «Կարգին հաղորդում» կատակերգական շոուից։  Մասնակցության վճար՝ 2000 AMD։",
 		category: "Վիկտորինա",

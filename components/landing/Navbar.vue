@@ -33,7 +33,7 @@ const handleClick = (path) => {
 
 <template>
 	<LandingContainer>
-		<header class="flex flex-col lg:flex-row justify-between items-center my-5">
+		<header class="flex flex-col lg:flex-row justify-between items-center mdmy-5">
 			<div class="flex w-full lg:w-auto items-center justify-between">
 				<NuxtLink href="/" class="inline-block">
 					<img
