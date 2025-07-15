@@ -65,11 +65,11 @@ onMounted(() => {
 				type="text"
 				placeholder="Անուն ազգանուն"
 				required
-				class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-full outline-none border-black focus:border-[#00308F] "
+				class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-full outline-none border-black focus:border-[#00308F]"
 				name="name"
 			/>
 			<div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
-				Please provide your full name.
+				Խնդրում ենք տրամադրել ձեր լրիվ անունը։
 			</div>
 		</div>
 		<div class="mb-5">
@@ -80,13 +80,13 @@ onMounted(() => {
 				placeholder="Էլ․ հասցե"
 				name="email"
 				required
-				class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-full outline-none  border-black focus:border-[#00308F] "
+				class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-full outline-none border-black focus:border-[#00308F]"
 			/>
-			<div class="empty-feedback text-red-400 text-sm mt-1">x
-				Please provide your email address.
+			<div class="empty-feedback text-red-400 text-sm mt-1">
+				Խնդրում ենք տրամադրել ձեր էլեկտրոնային փոստի հասցեն։
 			</div>
 			<div class="invalid-feedback text-red-400 text-sm mt-1">
-				Please provide a valid email address.
+				Խնդրում ենք տրամադրել վավեր էլեկտրոնային հասցե։
 			</div>
 		</div>
 		<div class="mb-3">
@@ -94,13 +94,15 @@ onMounted(() => {
 				name="message"
 				required
 				placeholder="Ձեր հաղորդագրությունը"
-				class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-xl outline-none h-36  border-black focus:border-[#00308F] "
+				class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-xl outline-none h-36 border-black focus:border-[#00308F]"
 			></textarea>
 			<div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
-				Please enter your message.
+				Խնդրում ենք մուտքագրել ձեր հաղորդագրությունը։
 			</div>
 		</div>
-		<LandingButton type="submit" size="lg" block class="rounded-full">Ուղարկել հաղորդագրություն</LandingButton>
+		<LandingButton type="submit" size="lg" block class="rounded-full"
+			>Ուղարկել հաղորդագրություն</LandingButton
+		>
 		<div id="result" class="mt-3 text-center"></div>
 	</form>
 </template>

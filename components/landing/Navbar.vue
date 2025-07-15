@@ -46,7 +46,7 @@ const handleClick = (path) => {
 					/>
 				</NuxtLink>
 
-				<div class="block lg:hidden">
+				<div class="lg:hidden w-24 h-24 flex items-center justify-center">
 					<button @click="open = !open" class="text-gray-800">
 						<svg
 							fill="currentColor"
