@@ -58,7 +58,7 @@ const onSlideChange = (swiper) => {
 		<h2
 			class="text-3xl font-bold sm:text-4xl lg:tracking-tight text-black uppercase text-center"
 		>
-			Ինչ կարող եք տեսնել Մեզ մոտ
+			Մեզ մոտ կգտնեք
 		</h2>
 		<!-- <p class="text-lg mt-4 text-slate-600">
 			EventNest-ը մի վայր է, որտեղ ամեն հանդիպում դառնում է արկած՝ խաղեր, մտքեր, մրցույթներ և
