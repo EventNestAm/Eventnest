@@ -29,6 +29,7 @@ const clickedPath = ref(null);
 
 const handleClick = (path) => {
 	clickedPath.value = path;
+	open.value = false;	
 };
 </script>
 
