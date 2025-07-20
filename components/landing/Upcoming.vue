@@ -71,7 +71,7 @@
 							:to="`/contact`"
 							class="inline-block bg-purple-600 text-white px-5 py-2.5 rounded-lg hover:bg-purple-700 transition font-medium text-sm shadow-md hover:shadow-lg"
 						>
-							Գրանցվել →
+							Գրանցվել  →
 						</NuxtLink>
 					</div>
 				</div>
