@@ -1,0 +1,76 @@
+ mt-2 
+ 
+20
+ 
+գտնել
+ 
+ class=""
+ 
+20
+ 
+եր
+ 
+մունդիալներ
+ 
+20
+ 
+full
+ 
+/assets/fonts/montserrat-armenian/Montserratarm-Regular.otf
+ 
+40
+ 
+52
+ 
+32
+ 
+30
+ 
+36
+ 
+24
+ 
+xl
+ 
+28
+ 
+40
+ 
+/img/73club.jpeg
+ 
+/music.png?url
+ 
+full
+ 
+6 
+ 
+bold
+ 
+slate-400
+ 
+				
+ 
+16
+ 
+I am here to help.
+ 
+_blank
+ 
+iew Repo
+ 
+2xl
+ 
+Automatic sitemaps, RSS feeds, pagination and collections take the pain out of SEO and syndication. It just works!
+ 
+LandingContactform
+ 
+xl
+ 
+<NuxtImg
+					src="/public/favicon.ico"
+					width="300"
+				/>
+ 
+       <ULink href="/" class="text-2xl font-bold text-gray-800">Nuxtship</ULink>
+
+ 
