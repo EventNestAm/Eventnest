@@ -4,7 +4,7 @@
 	<main class="grid lg:grid-cols-2 place-items-center pb-8 pt-32 sm:pt-28 lg:pt-8">
 		<div class="mb-5 sm:mb-0 md:p-24 md:order-1">
 			<img
-				class="rounded-full transition-transform transform md:hover:scale-125"
+				class="rounded-full transition-transform transform md:hover:scale-110"
 				src="~/assets/img/ourPicture.jpg"
 				alt="Starship starts the engine"
 				loading="eager"
@@ -25,7 +25,7 @@
 			</p>
 			<div class="mt-6">
 				<LandingLink
-					class="rounded-full bg-transparent border-black text-black hover:bg-black hover:text-white font-bold"
+					class="rounded-full bg-transparent border-black text-black hover:bg-black hover:text-white font-bold transition-colors duration-300"
 					size="lg"
 					styleName="outline"
 					rel="noopener"
