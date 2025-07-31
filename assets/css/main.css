@@ -7,6 +7,7 @@
     0% {
       transform: translateX(0);
     }
+
     100% {
       transform: translateX(-50%);
     }
@@ -19,4 +20,9 @@
 
 body {
   font-family: "Montserratarm", sans-serif;
+}
+
+.swiper-slide {
+  height: auto !important;
+  display: flex;
 }

@@ -12,9 +12,7 @@ defineProps({
 </script>
 
 <template>
-	<div
-		class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all overflow-hidden hover:-translate-y-1 h-full flex flex-col"
-	>
+	<div class="rounded-2xl overflow-hidden h-full flex flex-col">
 		<div class="relative">
 			<img
 				:src="event.image"
@@ -78,7 +76,7 @@ defineProps({
 			<div class="mt-auto">
 				<NuxtLink
 					:to="`/contact`"
-					class="inline-block bg-purple-600 text-white px-5 py-2.5 rounded-lg hover:bg-purple-700 transition font-medium text-sm shadow-md hover:shadow-lg"
+					class="inline-block bg-purple-600 text-white px-5 py-2.5 rounded-lg hover:bg-purple-700 transition font-medium text-sm"
 				>
 					Գրանցվել →
 				</NuxtLink>
