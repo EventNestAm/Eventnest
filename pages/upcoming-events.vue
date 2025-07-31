@@ -101,35 +101,35 @@ const filteredEvents = computed(() => {
 	<LandingSectionhead>
 		<template #title>
 			<h1 class="text-black uppercase text-3xl font-bold pt-32 sm:pt-28">
-					Մոտակա միջոցառումներ
-				</h1>
-			</template>
-		</LandingSectionhead>
-		
-		<section
-		class="bg-gradient-to-r from-purple-500 to-indigo-600 py-12 px-4 text-center text-white my-10"
-		>
-			<h2 class="text-2xl font-bold mb-4">Գտեք Ձեր ցանկալի միջոցառումը</h2>
-			<p class="text-lg text-purple-100 max-w-2xl mx-auto">
-				Միացիր մեզ և անցկացրու անմոռանալի երեկոներ EventNest-ում։
-			</p>
-			<div class="mt-8 flex flex-wrap justify-center gap-4">
-				<input
-					v-model="searchQuery"
-					type="text"
-					placeholder="Որոնել միջոցառման անվանումով"
-					class="px-4 py-3 rounded-xl border-0 shadow-md w-72 focus:ring-2 focus:ring-purple-300 focus:outline-none text-black"
-				/>
-				<input
-					v-model="selectedDate"
-					type="date"
-					class="px-4 py-3 rounded-xl border-0 shadow-md focus:ring-2 focus:ring-purple-300 focus:outline-none text-black"
-				/>
-			</div>
-		</section>
+				Մոտակա միջոցառումներ
+			</h1>
+		</template>
+	</LandingSectionhead>
 
-		<LandingContainer>
-		<!-- Category Filters -->
+	<section
+		class="bg-gradient-to-r from-purple-500 to-indigo-600 py-12 px-4 text-center text-white my-10"
+	>
+		<h2 class="text-2xl font-bold mb-4">Գտեք Ձեր ցանկալի միջոցառումը</h2>
+		<p class="text-lg text-purple-100 max-w-2xl mx-auto">
+			Միացիր մեզ և անցկացրու անմոռանալի երեկոներ EventNest-ում։
+		</p>
+		<div class="mt-8 flex flex-wrap justify-center gap-4">
+			<input
+				v-model="searchQuery"
+				type="text"
+				placeholder="Որոնել միջոցառման անվանումով"
+				class="px-4 py-3 rounded-xl border-0 shadow-md w-72 focus:ring-2 focus:ring-purple-300 focus:outline-none text-black"
+			/>
+			<input
+				v-model="selectedDate"
+				type="date"
+				class="px-4 py-3 rounded-xl border-0 shadow-md focus:ring-2 focus:ring-purple-300 focus:outline-none text-black"
+			/>
+		</div>
+	</section>
+
+	<!-- Category Filters -->
+	<div class="container mx-auto">
 		<div class="flex flex-wrap gap-3 justify-center my-8 px-4 mb-10">
 			<button
 				v-for="cat in categories"
@@ -148,7 +148,7 @@ const filteredEvents = computed(() => {
 
 		<div
 			v-if="filteredEvents.length > 0"
-			class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+			class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 lg:px-0"
 		>
 			<EventCard
 				v-for="event in filteredEvents"
@@ -189,23 +189,10 @@ const filteredEvents = computed(() => {
 				</button>
 			</div>
 		</section>
-
-		<!-- Load More (hidden when filtered) -->
-		<!-- <div
-			v-if="selectedCategory === 'Բոլորը' && !searchQuery && !selectedDate"
-			class="text-center mt-8 mb-12"
-		>
-			<button
-				class="bg-purple-600 text-white px-8 py-3 rounded-lg text-base hover:bg-purple-700 transition font-medium shadow-md hover:shadow-lg"
-			>
-				Ցուցադրել ավելին
-			</button>
-		</div> -->
-	</LandingContainer>
+	</div>
 </template>
 
 <style>
-/* Smooth transitions for interactive elements */
 button,
 a,
 input {
@@ -216,8 +203,6 @@ input {
 input:focus,
 button:focus {
 	outline: none;
-	/* ring: 2px;
-  ring-purple-300; */
 }
 
 /* Card hover effect */
