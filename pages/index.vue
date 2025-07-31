@@ -53,7 +53,10 @@ const modules = [Navigation, Pagination, Autoplay];
 			>
 		</div>
 		<LandingLogos></LandingLogos>
-		<LandingCompanies></LandingCompanies>
+	</LandingContainer>
+
+	<LandingCompanies></LandingCompanies>
+	<LandingContainer>
 		<LandingCta></LandingCta>
 	</LandingContainer>
 </template>

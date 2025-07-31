@@ -115,7 +115,7 @@ const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
 		Մեր գործընկերները
 	</h2>
 
-	<div class="overflow-hidden py-5 sm:py-10 bg-[#00308F] group mt-10">
+	<div class="overflow-hidden py-5 sm:py-10 bg-[#00308F] group mt-10 ">
 		<div
 			class="flex gap-10 whitespace-nowrap group-hover:[animation-play-state:paused] animate-slide"
 		>
