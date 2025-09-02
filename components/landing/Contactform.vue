@@ -65,7 +65,7 @@ onMounted(() => {
 				type="text"
 				placeholder="Անուն ազգանուն"
 				required
-				class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-full outline-none border-black focus:border-[#00308F]"
+				class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-xl outline-none border-black focus:border-[#00308F]"
 				name="name"
 			/>
 			<div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
@@ -80,7 +80,7 @@ onMounted(() => {
 				placeholder="Էլ․ հասցե"
 				name="email"
 				required
-				class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-full outline-none border-black focus:border-[#00308F]"
+				class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-xl outline-none border-black focus:border-[#00308F]"
 			/>
 			<div class="empty-feedback text-red-400 text-sm mt-1">
 				Խնդրում ենք տրամադրել ձեր էլեկտրոնային փոստի հասցեն։

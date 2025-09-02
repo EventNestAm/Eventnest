@@ -115,7 +115,7 @@ const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
 		Մեր գործընկերները
 	</h2>
 
-	<div class="overflow-hidden py-5 sm:py-10 bg-[#00308F] group mt-10 ">
+	<div class="overflow-hidden py-5 sm:py-10 bg-[#00308F] group mt-10">
 		<div
 			class="flex gap-10 whitespace-nowrap group-hover:[animation-play-state:paused] animate-slide"
 		>
@@ -181,7 +181,7 @@ const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
 			</SwiperSlide>
 		</Swiper>
 	</div>
-	<p class="my-10 text-black lg:px-40 w-full mx-auto font-medium">
+	<p class="my-10 text-black lg:px-40 w-full mx-auto font-medium px-5 md:px-none">
 		EventNest-ում անցկացվող ամեն մի իրադարձություն՝ լինի դա «Ի՞նչ, Որտե՞ղ, Ե՞րբ» խաղը,
 		ֆուտբոլային վիկտորինա, ֆուտբոլային մրցաշար, «Մաֆիա» խաղը կամ որևէ այլ խելացի ու զվարճալի
 		ինտելեկտուալ խաղ, մի նպատակ ունի՝ համախմբել, ոգեշնչել և ստեղծել հիշարժան ու ջերմ երեկոներ։
@@ -190,7 +190,7 @@ const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
 		ստեղծելով յուրօրինակ փորձառություն բոլորի համար։
 	</p>
 
-	<p class="my-10 text-black lg:px-40 w-full mx-auto font-medium">
+	<p class="my-10 text-black lg:px-40 w-full mx-auto font-medium px-5 md:px-none">
 		Մեր «Ի՞նչ, Որտե՞ղ, Ե՞րբ» խաղում Trendi Salon-ը տրամադրում է նվեր քարտեր՝ իրենց գեղեցկության
 		սրահի ծառայություններից օգտվելու համար։ Trendi Bijoux-ը պարգևատրում է առաջին տեղը զբաղեցրած
 		թիմին՝ ոճային և շքեղ զարդերով։ Karaoke Duo Battle Rush Pub-ում Մեր գործընկեր Kechi House 132
