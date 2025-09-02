@@ -21,7 +21,7 @@ const modules = [Navigation, Pagination, Autoplay];
 	<LandingContainer>
 		<LandingHero></LandingHero>
 		<LandingFeatures></LandingFeatures>
-		<div v-if="filteredEvents.length > 0" class="mt-20 lg:px-16 max-w-screen-[99.75rem]">
+		<div v-if="filteredEvents.length > 0" class="mt-20 lg:px-16 max-w-screen-[99.75rem] !bg-transparent">
 			<Swiper
 				:modules="modules"
 				:spaceBetween="20"
@@ -33,7 +33,7 @@ const modules = [Navigation, Pagination, Autoplay];
 					768: { slidesPerView: 2 },
 					1024: { slidesPerView: 3 },
 				}"
-				class="mySwiper w-full"
+				class="mySwiper w-full !shadow-none"
 			>
 				<SwiperSlide v-for="event in filteredEvents" :key="event.id" class="w-full">
 					<EventCard :event="event" :formatDate="formatDate" class="w-full" />

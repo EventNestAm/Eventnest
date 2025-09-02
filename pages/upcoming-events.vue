@@ -145,18 +145,16 @@ const filteredEvents = computed(() => {
 				{{ cat }}
 			</button>
 		</div>
-
-		<div
-			v-if="filteredEvents.length > 0"
-			class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 lg:px-0"
-		>
-			<EventCard
-				v-for="event in filteredEvents"
-				:key="event.id"
-				:event="event"
-				:formatDate="formatDate"
-			/>
-		</div>
+		<LandingContainer v-if="filteredEvents.length > 0">
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 lg:px-0 ">
+				<EventCard
+					v-for="event in filteredEvents"
+					:key="event.id"
+					:event="event"
+					:formatDate="formatDate"
+				/>
+			</div>
+		</LandingContainer>
 		<section v-else class="py-16 text-center">
 			<div class="max-w-md max-h-md mx-auto">
 				<svg

@@ -12,7 +12,7 @@ defineProps({
 </script>
 
 <template>
-	<div class="rounded-2xl overflow-hidden h-full flex flex-col">
+	<div class="rounded-2xl overflow-hidden h-full flex flex-col !shadow-none">
 		<div class="relative">
 			<img
 				:src="event.image"

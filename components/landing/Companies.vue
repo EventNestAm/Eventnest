@@ -15,13 +15,15 @@ import when4 from "@/assets/img/whatWhereWhen/when4.jpg";
 import when5 from "@/assets/img/whatWhereWhen/when5.jpg";
 
 import { Swiper, SwiperSlide } from "swiper/vue";
+
+import { Navigation, Pagination, Scrollbar, FreeMode } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/effect-cube";
+import "swiper/css/free-mode";
+import "swiper/css/scrollbar";
 import "swiper/css/pagination";
+import "swiper/css/navigation";
 
-import { EffectCube, Pagination } from "swiper/modules";
-
-const modules = [EffectCube, Pagination];
+const modules = [Navigation, Pagination, Scrollbar, FreeMode];
 const swiperImages = [
 	{
 		src: what8,
@@ -135,48 +137,56 @@ const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
 			</a>
 		</div>
 	</div>
+	<div class="grid gap-10 mt-10 overflow-hidden">
+		<h2 class="text-3xl font-semibold text-black mx-auto">Մաֆիա</h2>
 
-	<div class="grid grid-cols-1 lg:grid-cols-2 mt-10 gap-10 overflow-hidden">
 		<Swiper
-			:effect="'cube'"
-			:grab-cursor="true"
-			class="w-full sm:w-[27rem] h-[30rem]"
-			:cube-effect="{
-				shadow: true,
-				slideShadows: true,
-				shadowOffset: 20,
-				shadowScale: 0.94,
+			:slidesPerView="1.5"
+			:breakpoints="{
+				501: { slidesPerView: 2.2 },
+				769: { slidesPerView: 2.4 },
+				1025: { slidesPerView: 3.2 },
 			}"
-			:pagination="true"
+			:spaceBetween="30"
+			:freeMode="true"
+			:grab-cursor="true"
+			:pagination="{
+				clickable: true,
+			}"
 			:modules="modules"
+			class="w-full sm:w-full h-[30rem]"
 		>
 			<SwiperSlide v-for="(item, index) in swiperImages" :key="index">
 				<img
 					:src="item.src"
 					:alt="item.title"
-					class="object-cover w-full h-full rounded-lg pointer-events-auto"
+					class="object-cover w-full h-full pointer-events-auto"
 				/>
 			</SwiperSlide>
 		</Swiper>
+		<h2 class="text-3xl font-semibold text-black mx-auto">Ինչ որտեղ երբ</h2>
 
 		<Swiper
-			:effect="'cube'"
-			:grab-cursor="true"
-			class="w-full sm:w-[27rem] h-[30rem]"
-			:cube-effect="{
-				shadow: true,
-				slideShadows: true,
-				shadowOffset: 20,
-				shadowScale: 0.94,
+			:slidesPerView="1.5"
+			:breakpoints="{
+				501: { slidesPerView: 2.2 },
+				769: { slidesPerView: 2.4 },
+				1025: { slidesPerView: 3.2 },
 			}"
-			:pagination="true"
+			:spaceBetween="30"
+			:freeMode="true"
+			:grab-cursor="true"
+			:pagination="{
+				clickable: true,
+			}"
 			:modules="modules"
+			class="w-full sm:w-full h-[30rem]"
 		>
 			<SwiperSlide v-for="(item, index) in swiperImages2" :key="index">
 				<img
 					:src="item.src"
 					:alt="item.title"
-					class="object-cover w-full h-full rounded-lg pointer-events-auto"
+					class="object-cover w-full h-full pointer-events-auto"
 				/>
 			</SwiperSlide>
 		</Swiper>
