@@ -151,7 +151,7 @@ const filteredEvents = computed(() => {
 
 	<!-- Category Filters -->
 	<div class="container mx-auto">
-		<div class="w-full flex justify-center">
+		<div class="w-full flex flex-col md:flex-row justify-center">
 			<div class="w-full flex justify-center flex-wrap gap-3 my-8 px-4 mb-10">
 				<button
 					v-for="cat in categories"
@@ -167,10 +167,10 @@ const filteredEvents = computed(() => {
 					{{ cat }}
 				</button>
 			</div>
-			<div class="my-auto">
+			<div class="my-auto mb-10 h-full flex justify-end mr-4 md:mr-0">
 				<button
 					@click="sortOrder = sortOrder === 'asc' ? 'desc' : 'asc'"
-					class="w-fit px-3 py-1 bg-purple-600 text-white rounded-md whitespace-nowrap"
+					class="w-fit px-3 py-1.5 bg-purple-600 text-white rounded-md whitespace-nowrap"
 				>
 					Դասավորել: {{ sortOrder === "asc" ? "Հին → Նոր" : "Նոր → Հին" }}
 				</button>
