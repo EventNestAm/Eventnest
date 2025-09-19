@@ -68,10 +68,31 @@ const events = [
 	},
 ];
 
+const sortOrder = ref("desc");
+const sortedEvents = computed(() =>
+	[...events].sort((a, b) => {
+		return sortOrder.value === "asc"
+			? new Date(a.date) - new Date(b.date)
+			: new Date(b.date) - new Date(a.date);
+	})
+);
+const displayedEvents = computed(() => {
+	return [...filteredEvents.value].sort((a, b) =>
+		sortOrder.value === "asc"
+			? new Date(a.date) - new Date(b.date)
+			: new Date(b.date) - new Date(a.date)
+	);
+});
+
 const categories = ["Բոլորը", "Վիկտորինա", "Ի՞նչ որտե՞ղ ե՞րբ", "Ֆուտբոլ", "Մաֆիա"];
 const selectedCategory = ref("Բոլորը");
 const searchQuery = ref("");
+
 const selectedDate = ref("");
+onMounted(() => {
+	const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+	selectedDate.value = isMobile ? new Date().toISOString().split("T")[0] : "";
+});
 
 function formatDate(dateStr) {
 	const options = { year: "numeric", month: "long", day: "numeric", weekday: "long" };
@@ -130,25 +151,35 @@ const filteredEvents = computed(() => {
 
 	<!-- Category Filters -->
 	<div class="container mx-auto">
-		<div class="flex flex-wrap gap-3 justify-center my-8 px-4 mb-10">
-			<button
-				v-for="cat in categories"
-				:key="cat"
-				@click="selectedCategory = cat"
-				:class="[
-					'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200',
-					selectedCategory === cat
-						? 'bg-purple-600 text-white shadow-md'
-						: 'bg-gray-100 text-gray-700 hover:bg-purple-100 hover:text-purple-700',
-				]"
-			>
-				{{ cat }}
-			</button>
+		<div class="w-full flex justify-center">
+			<div class="w-full flex justify-center flex-wrap gap-3 my-8 px-4 mb-10">
+				<button
+					v-for="cat in categories"
+					:key="cat"
+					@click="selectedCategory = cat"
+					:class="[
+						'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200',
+						selectedCategory === cat
+							? 'bg-purple-600 text-white shadow-md'
+							: 'bg-gray-100 text-gray-700 hover:bg-purple-100 hover:text-purple-700',
+					]"
+				>
+					{{ cat }}
+				</button>
+			</div>
+			<div class="my-auto">
+				<button
+					@click="sortOrder = sortOrder === 'asc' ? 'desc' : 'asc'"
+					class="px-10 py-1 bg-purple-600 text-white rounded-md"
+				>
+					Դասավորել: {{ sortOrder === "asc" ? "Հին → Նոր" : "Նոր → Հին" }}
+				</button>
+			</div>
 		</div>
 		<LandingContainer v-if="filteredEvents.length > 0">
-			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 lg:px-0 ">
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 lg:px-0">
 				<EventCard
-					v-for="event in filteredEvents"
+					v-for="event in displayedEvents"
 					:key="event.id"
 					:event="event"
 					:formatDate="formatDate"

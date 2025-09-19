@@ -9,6 +9,8 @@ defineProps({
 		required: true,
 	},
 });
+
+const eventDate = ref(true);
 </script>
 
 <template>
@@ -28,7 +30,10 @@ defineProps({
 		</div>
 		<div class="p-6 flex-grow">
 			<h3 class="text-xl font-bold mb-2 text-gray-800">{{ event.title }}</h3>
-			<div class="flex items-center text-gray-500 text-sm mb-3">
+			<div
+				class="flex items-center text-gray-500 text-sm mb-3"
+				:class="eventDate ? 'line-through' : ''"
+			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					class="h-4 w-4 mr-1"

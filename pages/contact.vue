@@ -7,10 +7,14 @@ definePageMeta({
 <template>
 	<LandingContainer>
 		<LandingSectionhead>
-			<template v-slot:title><h1 class="text-black uppercase text-3xl font-bold pt-32 sm:pt-28">Կապ մեզ հետ</h1></template>
+			<template v-slot:title
+				><h1 class="text-black uppercase text-3xl font-bold pt-32 sm:pt-28">
+					Կապ մեզ հետ
+				</h1></template
+			>
 		</LandingSectionhead>
 
-		<div class="grid md:grid-cols-2 gap-10 mx-auto max-w-[99.75rem] mt-16">
+		<div class="grid md:grid-cols-2 gap-10 mx-auto max-w-[99.75rem] mt-4 md:mt-12 lg:mt-16">
 			<div>
 				<h2 class="font-medium text-2xl text-gray-800"></h2>
 				<p class="text-lg leading-relaxed text-black mt-3 max-w-2xl">
@@ -18,16 +22,13 @@ definePageMeta({
 					հարցումը հիմա, և մենք կպատասխանենք շուտով։
 				</p>
 				<div class="mt-5">
-					<!-- <div class="flex items-center mt-2 space-x-2 text-gray-600">
-						<Icon class="text-gray-400 w-4 h-4" name="uil:map-marker" />
-						<span>Coming Soon</span>
-					</div> -->
 					<div class="flex items-center mt-2 space-x-2 text-gray-600">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width="2em"
 							height="2em"
 							viewBox="0 0 24 24"
+							class="text-black"
 						>
 							<path
 								fill="currentColor"
@@ -45,6 +46,7 @@ definePageMeta({
 							width="2em"
 							height="2em"
 							viewBox="0 0 24 24"
+							class="text-black"
 						>
 							<path
 								fill="currentColor"
