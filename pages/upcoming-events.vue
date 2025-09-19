@@ -170,7 +170,7 @@ const filteredEvents = computed(() => {
 			<div class="my-auto">
 				<button
 					@click="sortOrder = sortOrder === 'asc' ? 'desc' : 'asc'"
-					class="px-10 py-1 bg-purple-600 text-white rounded-md"
+					class="w-fit px-3 py-1 bg-purple-600 text-white rounded-md whitespace-nowrap"
 				>
 					Դասավորել: {{ sortOrder === "asc" ? "Հին → Նոր" : "Նոր → Հին" }}
 				</button>
