@@ -11,10 +11,11 @@ defineProps({
 });
 
 const eventDate = ref(true);
+const isDisabled = ref(true)
 </script>
 
 <template>
-	<div class="rounded-2xl overflow-hidden h-full flex flex-col !shadow-none">
+	<div class="flex flex-col rounded-2xl h-full">
 		<div class="relative">
 			<img
 				:src="event.image"
@@ -80,8 +81,13 @@ const eventDate = ref(true);
 			</p>
 			<div class="mt-auto">
 				<NuxtLink
-					:to="`/contact`"
-					class="inline-block bg-purple-600 text-white px-5 py-2.5 rounded-lg hover:bg-purple-700 transition font-medium text-sm"
+					:to="isDisabled ? null : '/contact'"
+					:class="[
+						'inline-block px-5 py-2.5 rounded-lg transition font-medium text-sm',
+						isDisabled
+							? 'bg-gray-400 text-gray-200 pointer-events-none cursor-not-allowed'
+							: 'bg-purple-600 text-white hover:bg-purple-700',
+					]"
 				>
 					Գրանցվել →
 				</NuxtLink>

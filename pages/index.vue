@@ -21,10 +21,15 @@ const modules = [Navigation, Pagination, Autoplay];
 	<LandingContainer>
 		<LandingHero></LandingHero>
 		<LandingFeatures></LandingFeatures>
-		<div v-if="filteredEvents.length > 0" class="mt-20 lg:px-16 max-w-screen-[99.75rem] !bg-transparent">
+		
+		<div
+			v-if="filteredEvents.length > 0"
+			class="mt-20 lg:px-16 max-w-screen-[99.75rem] !bg-transparent"
+		>
 			<Swiper
 				:modules="modules"
 				:spaceBetween="20"
+				:loop="true"
 				:slidesPerView="1.2"
 				grabCursor="true"
 				:autoplay="{ delay: 3000, disableOnInteraction: false }"
@@ -33,13 +38,14 @@ const modules = [Navigation, Pagination, Autoplay];
 					768: { slidesPerView: 2 },
 					1024: { slidesPerView: 3 },
 				}"
-				class="mySwiper w-full !shadow-none"
+				class="mySwiper w-full p-5 swiperUnset"
 			>
-				<SwiperSlide v-for="event in filteredEvents" :key="event.id" class="w-full">
+				<SwiperSlide v-for="event in filteredEvents" :key="event.id" class="w-full sasas">
 					<EventCard :event="event" :formatDate="formatDate" class="w-full" />
 				</SwiperSlide>
 			</Swiper>
 		</div>
+
 		<div class="flex justify-center w-full mt-10">
 			<LandingLink
 				class="rounded-full bg-transparent border-black hover:border-white text-black hover:bg-purple-600 hover:text-white font-bold w-fit transition-colors duration-300"
@@ -59,3 +65,15 @@ const modules = [Navigation, Pagination, Autoplay];
 		<LandingCta></LandingCta>
 	</LandingContainer>
 </template>
+<style>
+.swiper-wrapper{
+	padding: 20px;
+}
+
+.swiperUnset {
+  .swiper-wrapper,
+  .swiper-slide {
+    height: unset !important;
+  }
+}
+</style>
