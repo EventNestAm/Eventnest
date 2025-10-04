@@ -54,13 +54,13 @@ onMounted(() => {
 
 function closeModal() {
 	showModal.value = false;
-	router.push("/upcoming-events"); // перенаправление на страницу со всеми событиями
+	router.push("/upcoming-events"); 
 }
 </script>
 
 <template>
-        <div class="bg-gradient-to-r from-purple-50 to-indigo-50 p-6 rounded-3xl shadow-lg">
-          <h2 class="text-xl font-bold text-purple-700 mb-4 text-center">Միջոցառման Գրանցում</h2>
+	<div class="bg-gradient-to-r from-purple-50 to-indigo-50 p-6 rounded-3xl shadow-lg">
+		<h2 class="text-xl font-bold text-purple-700 mb-4 text-center">Միջոցառման Գրանցում</h2>
 
 		<form id="form" class="space-y-5 needs-validation" novalidate>
 			<input type="hidden" name="access_key" value="3e1280a2-2fcd-4743-9230-5520ed1b4548" />

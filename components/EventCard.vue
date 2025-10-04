@@ -14,7 +14,6 @@ defineProps({
 	},
 });
 
-// const eventDate = ref(true);
 const isDisabled = ref(true);
 </script>
 
@@ -86,14 +85,19 @@ const isDisabled = ref(true);
 			<div class="mt-auto">
 				<NuxtLink
 					:to="event.eventDate ? `/events/${event.id}` : null"
-					:class="[
-						'inline-block px-5 py-2.5 rounded-lg transition font-medium text-sm',
+					class="group inline-flex items-center gap-2 px-5 py-2 rounded-full font-semibold shadow-lg transition-all duration-300 ease-in-out relative"
+					:class="
 						!event.eventDate
-							? 'bg-gray-400 text-gray-200 pointer-events-none cursor-not-allowed'
-							: 'bg-purple-600 text-white hover:bg-purple-700',
-					]"
+							? 'bg-gray-400 text-gray-200 pointer-events-none cursor-not-allowed shadow-none'
+							: 'bg-gradient-to-r from-purple-500 to-purple-700 text-white hover:from-purple-600 hover:to-purple-800 hover:shadow-xl hover:-translate-y-0.5'
+					"
 				>
-					Գրանցվել →
+					<span>Գրանցվել</span>
+					<span
+						class="transform transition-transform duration-300 group-hover:translate-x-1"
+					>
+						→
+					</span>
 				</NuxtLink>
 			</div>
 		</div>

@@ -106,10 +106,6 @@ const selectedCategory = ref("Բոլորը");
 const searchQuery = ref("");
 
 const selectedDate = ref("");
-onMounted(() => {
-	const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-	selectedDate.value = isMobile ? new Date().toISOString().split("T")[0] : "";
-});
 
 function formatDate(dateStr) {
 	const options = { year: "numeric", month: "long", day: "numeric", weekday: "long" };
@@ -133,7 +129,6 @@ const filteredEvents = computed(() => {
 		return matchesCategory && matchesSearch && matchesDate;
 	});
 });
-
 </script>
 
 <template>
