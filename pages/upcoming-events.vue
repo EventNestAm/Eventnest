@@ -21,6 +21,7 @@ const events = [
 		description:
 			" Հումորային վիկտորինա, ներշնչված է լեգենդար և շատ սիրված «Կարգին հաղորդում» կատակերգական շոուից։  Մասնակցության վճար՝ 2000 AMD։",
 		category: "Վիկտորինա",
+		eventDate: false,
 	},
 	{
 		id: 2,
@@ -32,6 +33,7 @@ const events = [
 		description:
 			"Ճանաչիր ֆուտբոլը՝ հետաքրքիր հարցերի և թիմային խաղի միջոցով։ Մասնակցության վճար՝ 2000 AMD։",
 		category: "Ֆուտբոլ",
+		eventDate: false,
 	},
 	{
 		id: 3,
@@ -43,6 +45,7 @@ const events = [
 		description:
 			"Պատրա՞ստ ես ապացուցել, որ ճանաչում ես բոլոր երգերն առաջին նոտայից։ Երաժշտական վիկտորինան սպասում է միայն ամենախելացի ականջներին։ Մասնակցության վճար՝ 2000 AMD։",
 		category: "Վիկտորինա",
+		eventDate: false,
 	},
 	{
 		id: 4,
@@ -54,6 +57,7 @@ const events = [
 		description:
 			"Միացիր ամենախելացի ակումբին։«Ի՞նչ, Որտե՞ղ, Ե՞րբ» խաղը քեզ մարտահրավեր է նետում՝ վերլուծելու, մտածելու ու հաղթելու։ Մասնակցության վճար՝ 3000 AMD։",
 		category: "Ի՞նչ որտե՞ղ ե՞րբ",
+		eventDate: false,
 	},
 	{
 		id: 5,
@@ -65,6 +69,19 @@ const events = [
 		description:
 			"Քո ուղեղը IMDb-ից լավն է՞։Դե ապացուցիր՝ որքա՞ն լավ ես ճանաչում կինոաշխարհը՝ կատակներով, դերերով ու սաունդթրեքներով։Մասնակցության վճար՝ 2000 AMD",
 		category: "Վիկտորինա",
+		eventDate: false,
+	},
+	{
+		id: 6,
+		title: "Կարգին հաղորդման վիկտորինա #2",
+		date: "2025-10-12",
+		time: "20:00",
+		location: "Layers Yerevan, Երևան, Մեսրոպ Մաշտոցի պողոտա 37",
+		image: Kargin,
+		description:
+			"Հումորային վիկտորինա, ներշնչված է լեգենդար և շատ սիրված «Կարգին հաղորդում» կատակերգական շոուից։  Մասնակցության վճար՝ 2000 AMD։",
+		category: "Վիկտորինա",
+		eventDate: true,
 	},
 ];
 
@@ -116,6 +133,7 @@ const filteredEvents = computed(() => {
 		return matchesCategory && matchesSearch && matchesDate;
 	});
 });
+
 </script>
 
 <template>
@@ -149,7 +167,6 @@ const filteredEvents = computed(() => {
 		</div>
 	</section>
 
-	<!-- Category Filters -->
 	<div class="container mx-auto">
 		<div class="w-full flex flex-col md:flex-row justify-center">
 			<div class="w-full flex justify-center flex-wrap gap-3 my-8 px-4 mb-10">

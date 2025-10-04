@@ -8,10 +8,14 @@ defineProps({
 		type: Function,
 		required: true,
 	},
+	eventDate: {
+		type: Boolean,
+		required: true,
+	},
 });
 
-const eventDate = ref(true);
-const isDisabled = ref(true)
+// const eventDate = ref(true);
+const isDisabled = ref(true);
 </script>
 
 <template>
@@ -33,7 +37,7 @@ const isDisabled = ref(true)
 			<h3 class="text-xl font-bold mb-2 text-gray-800">{{ event.title }}</h3>
 			<div
 				class="flex items-center text-gray-500 text-sm mb-3"
-				:class="eventDate ? 'line-through' : ''"
+				:class="event.eventDate ? '' : 'line-through'"
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -81,10 +85,10 @@ const isDisabled = ref(true)
 			</p>
 			<div class="mt-auto">
 				<NuxtLink
-					:to="isDisabled ? null : '/contact'"
+					:to="event.eventDate ? `/events/${event.id}` : null"
 					:class="[
 						'inline-block px-5 py-2.5 rounded-lg transition font-medium text-sm',
-						isDisabled
+						!event.eventDate
 							? 'bg-gray-400 text-gray-200 pointer-events-none cursor-not-allowed'
 							: 'bg-purple-600 text-white hover:bg-purple-700',
 					]"
