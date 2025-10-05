@@ -137,7 +137,7 @@ const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
 			</a>
 		</div>
 	</div>
-	<div class="grid gap-10 mt-10 overflow-hidden">
+	<div class="grid gap-10 mt-10 overflow-hidden pb-2">
 		<h2 class="text-3xl font-semibold text-black mx-auto">Մաֆիա</h2>
 
 		<Swiper
@@ -152,9 +152,10 @@ const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
 			:grab-cursor="true"
 			:pagination="{
 				clickable: true,
+				el: '.swiper-pagination-mafia',
 			}"
 			:modules="modules"
-			class="w-full sm:w-full h-[30rem]"
+			class="w-full sm:w-full h-[20rem] sm:h-[25rem] md:h-[30rem] !pb-5"
 		>
 			<SwiperSlide v-for="(item, index) in swiperImages" :key="index">
 				<img
@@ -164,6 +165,9 @@ const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
 				/>
 			</SwiperSlide>
 		</Swiper>
+
+		<div class="swiper-pagination-mafia flex justify-center"></div>
+
 		<h2 class="text-3xl font-semibold text-black mx-auto">Ինչ որտեղ երբ</h2>
 
 		<Swiper
@@ -178,9 +182,10 @@ const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
 			:grab-cursor="true"
 			:pagination="{
 				clickable: true,
+				el: '.swiper-pagination-when',
 			}"
 			:modules="modules"
-			class="w-full sm:w-full h-[30rem]"
+			class="w-full sm:w-full h-[20rem] sm:h-[25rem] md:h-[30rem] !pb-5"
 		>
 			<SwiperSlide v-for="(item, index) in swiperImages2" :key="index">
 				<img
@@ -190,6 +195,8 @@ const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
 				/>
 			</SwiperSlide>
 		</Swiper>
+
+		<div class="swiper-pagination-when flex justify-center"></div>
 	</div>
 	<p class="my-10 text-black lg:px-40 w-full mx-auto font-medium px-5 md:px-none">
 		EventNest-ում անցկացվող ամեն մի իրադարձություն՝ լինի դա «Ի՞նչ, Որտե՞ղ, Ե՞րբ» խաղը,
@@ -208,13 +215,28 @@ const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
 		EventNest-ին՝ մասնակցիր, հաղթիր և վայելիր բացառիկ նվերներ մեր գործընկերների կողմից։
 	</p>
 </template>
-<style>
-.swiper-slide {
+<style scoped>
+:deep(.swiper-slide) {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	border-radius: 18px;
 	overflow: hidden;
-	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+:deep(.swiper-pagination-bullet) {
+	background-color: #6b21a8 !important;
+	opacity: 0.4;
+	transition: all 0.3s ease;
+}
+
+:deep(.swiper-pagination-bullet-active) {
+	background-color: #9333ea !important;
+	opacity: 1;
+	transform: scale(1.2);
+}
+
+:deep(.swiper-wrapper) {
+	padding: 0px !important;
 }
 </style>
