@@ -1,4 +1,5 @@
 <script setup>
+import { Analytics } from '@vercel/analytics/nuxt'
 useSeoMeta({
 	title: "EventNest — Fun, Smart & Social Events",
 	description: "Join our quizzes, mafia games, and win great prizes!",
