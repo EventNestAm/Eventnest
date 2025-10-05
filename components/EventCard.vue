@@ -13,8 +13,6 @@ defineProps({
 		required: true,
 	},
 });
-
-const isDisabled = ref(true);
 </script>
 
 <template>
