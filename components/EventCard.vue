@@ -17,7 +17,7 @@ defineProps({
 
 <template>
 	<div
-		class="relative flex flex-col rounded-2xl overflow-hidden shadow-md transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
+		class="relative h-full flex flex-col rounded-2xl overflow-hidden shadow-md transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
 	>
 		<div class="relative">
 			<img
