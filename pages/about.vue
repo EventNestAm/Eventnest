@@ -4,6 +4,7 @@ import JoinUs from "~/assets/img/joinUs.png";
 import MiqoPhoto from "~/assets/img/Miqophoto.jpg";
 import Artphoto from "~/assets/img/Artphoto.jpg";
 import Davophoto from "~/assets/img/Davophoto.jpg";
+import Anahitphoto from "~/assets/img/Anahitphoto.jpg";
 
 definePageMeta({
 	layout: "landing",
@@ -39,7 +40,7 @@ const team = [
 		name: "Անահիտ Ալոյան",
 		title: "Designer",
 		avatar: {
-			src: TeamImg1,
+			src: Anahitphoto,
 		},
 	},
 	{
@@ -77,7 +78,7 @@ const team = [
 			</p>
 		</div>
 		<div
-			class="grid md:grid-cols-3 gap-x-10 md:gap-x-[13rem] gap-y-20 mx-auto max-w-[80rem] mt-12"
+			class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-10 md:gap-x-[13rem] gap-y-10 sm:gap-y-20 mx-auto max-w-[80rem] mt-12"
 		>
 			<div v-for="item of team" class="group">
 				<div class="w-full aspect-square">
@@ -85,7 +86,7 @@ const team = [
 						:src="item.avatar.src"
 						format="avif"
 						alt="Team"
-						class="w-full h-full object-cover rounded-lg transition group-hover:-translate-y-1 group-hover:shadow-xl"
+						class="w-full h-full md:h-[14rem] lg:h-[20rem] object-cover rounded-lg transition group-hover:-translate-y-1 group-hover:shadow-xl"
 					/>
 				</div>
 
