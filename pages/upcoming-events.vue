@@ -81,7 +81,7 @@ const events = [
 		description:
 			"Հումորային վիկտորինա, ներշնչված է լեգենդար և շատ սիրված «Կարգին հաղորդում» կատակերգական շոուից։  Մասնակցության վճար՝ 2000 AMD։",
 		category: "Վիկտորինա",
-		eventDate: true,
+		eventDate: false,
 	},
 ];
 
@@ -240,7 +240,6 @@ input {
 	transition: all 0.2s ease;
 }
 
-/* Better focus states */
 input:focus,
 button:focus {
 	outline: none;

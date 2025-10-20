@@ -67,7 +67,7 @@ const onSlideChange = (swiper) => {
 	<div class="flex flex-col md:flex-row gap-8 items-center justify-center mt-16 overflow-hidden">
 		<div class="relative w-full md:w-1/2 flex justify-center items-center pb-5">
 			<button
-				class="swiper-button-prev-custom absolute left-0 md:-left-0 xl:left-32 z-10 bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-md hover:bg-purple-700 transition-all duration-300"
+				class="swiper-button-prev-custom absolute left-0 md:-left-0 xl:left-32 z-10 bg-[#00308F] text-white w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-all duration-300"
 			>
 				←
 			</button>
@@ -93,7 +93,7 @@ const onSlideChange = (swiper) => {
 			</Swiper>
 
 			<button
-				class="swiper-button-next-custom absolute right-0 md:-right-0 xl:right-32 z-10 bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-md hover:bg-purple-700 transition-all duration-300"
+				class="swiper-button-next-custom absolute right-0 md:-right-0 xl:right-32 z-10 bg-[#00308F] text-white w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-all duration-300"
 			>
 				→
 			</button>

@@ -1,6 +1,9 @@
 <script setup>
 import CommingSoon from "~/assets/img/commingSoon.jpg";
 import JoinUs from "~/assets/img/joinUs.png";
+import MiqoPhoto from "~/assets/img/Miqophoto.jpg";
+import Artphoto from "~/assets/img/Artphoto.jpg";
+import Davophoto from "~/assets/img/Davophoto.jpg";
 
 definePageMeta({
 	layout: "landing",
@@ -15,14 +18,21 @@ const team = [
 		name: "Միքայել Գուբրյան",
 		title: "CEO & Founder",
 		avatar: {
-			src: TeamImg1,
+			src: MiqoPhoto,
 		},
 	},
 	{
 		name: "Արթուր Դերձյան",
 		title: "Creative Director",
 		avatar: {
-			src: TeamImg2,
+			src: Artphoto,
+		},
+	},
+	{
+		name: "Դավիթ Գուբրյան",
+		title: "Event Assistant",
+		avatar: {
+			src: Davophoto,
 		},
 	},
 	{
@@ -58,11 +68,11 @@ const team = [
 			<template v-slot:desc>We are a small passionate team.</template>
 		</LandingSectionhead>
 
-		<div class="flex flex-col gap-3 mx-auto max-w-7xl mt-16">
-			<p class="text-lg leading-relaxed text-slate-500">
+		<div class="flex flex-col gap-3 mx-auto mt-16">
+			<p class="text-lg leading-relaxed mx-auto max-w-7xl text-black">
 				Մենք փոքր, բայց մեծ երազանքներով թիմ ենք։ EventNest-ում մենք հավատում ենք, որ
 				յուրաքանչյուր պահ կարող է դառնալ անմոռանալի։ Մեր նպատակը պարզ է՝ ստեղծել դրական,
-				ջերմ ու ոգեշնչող մթնոլորտներ, որոնք մարդկանց կմիավորեն ու կլցնեն լավ еմոցիաներով։
+				ջերմ ու ոգեշնչող մթնոլորտներ, որոնք մարդկանց կմիավորեն ու կլցնեն լավ էմոցիաներով։
 				Մենք դեռ փոքր ենք, բայց մեծ քայլերով գնում ենք դեպի մեծանալը՝ ձեր հետ ու ձեր համար։
 			</p>
 		</div>
