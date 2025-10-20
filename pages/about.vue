@@ -69,13 +69,19 @@ const team = [
 			<template v-slot:desc>We are a small passionate team.</template>
 		</LandingSectionhead>
 
-		<div class="flex flex-col gap-3 mx-auto mt-16">
-			<p class="text-lg leading-relaxed mx-auto max-w-7xl text-black">
-				Մենք փոքր, բայց մեծ երազանքներով թիմ ենք։ EventNest-ում մենք հավատում ենք, որ
-				յուրաքանչյուր պահ կարող է դառնալ անմոռանալի։ Մեր նպատակը պարզ է՝ ստեղծել դրական,
-				ջերմ ու ոգեշնչող մթնոլորտներ, որոնք մարդկանց կմիավորեն ու կլցնեն լավ էմոցիաներով։
-				Մենք դեռ փոքր ենք, բայց մեծ քայլերով գնում ենք դեպի մեծանալը՝ ձեր հետ ու ձեր համար։
-			</p>
+		<div class="flex flex-col gap-3 mx-auto mt-4">
+			<div class="text-center text-black">
+				<p class="text-lg leading-relaxed font-medium max-w-5xl mx-auto">
+					Մենք հավատում ենք, որ յուրաքանչյուր պահ կարող է դառնալ հիշարժան։ <strong class="text-purple-600">EventNest</strong>-ը
+					ստեղծում է ջերմ, ոգեշնչող մթնոլորտներ՝ որտեղ խաղը միավորում է մարդկանց ու լցնում
+					լավ էմոցիաներով։
+				</p>
+
+				<p class="text-lg font-medium mt-6">
+					Մենք աճում ենք
+					<span class="text-purple-600 font-semibold">ձեր հետ և ձեր համար։</span>
+				</p>
+			</div>
 		</div>
 		<div
 			class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-10 md:gap-x-[13rem] gap-y-10 sm:gap-y-20 mx-auto max-w-[80rem] mt-12"

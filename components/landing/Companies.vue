@@ -88,6 +88,10 @@ const swiperImages2 = [
 
 const logos = [
 	{
+		src: "partners/layersYerevan.jpg",
+		link: "https://www.facebook.com/73clubevn",
+	},
+	{
 		src: "partners/73club.jpeg",
 		link: "https://www.facebook.com/73clubevn",
 	},
@@ -198,21 +202,21 @@ const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
 
 		<div class="swiper-pagination-when flex justify-center"></div>
 	</div>
-	<p class="my-10 text-black lg:px-40 w-full mx-auto font-medium px-5 md:px-none">
-		EventNest-ում անցկացվող ամեն մի իրադարձություն՝ լինի դա «Ի՞նչ, Որտե՞ղ, Ե՞րբ» խաղը,
-		ֆուտբոլային վիկտորինա, ֆուտբոլային մրցաշար, «Մաֆիա» խաղը կամ որևէ այլ խելացի ու զվարճալի
-		ինտելեկտուալ խաղ, մի նպատակ ունի՝ համախմբել, ոգեշնչել և ստեղծել հիշարժան ու ջերմ երեկոներ։
-		Մեր սիրված առաջին գործընկերը՝ 73 Club-ը, դարձավ այն հարթակը, որտեղ EventNest-ը մեկնարկեց իր
-		պատմությունը։ Այստեղ ծնվեց մթնոլորտ, որտեղ միախառնվում են խաղը, խելքը և ընկերությունը՝
-		ստեղծելով յուրօրինակ փորձառություն բոլորի համար։
+	<p class="my-5 text-gray-800 lg:px-40 w-full mx-auto font-medium px-5">
+		EventNest-ի յուրաքանչյուր իրադարձություն՝ լինի դա «Ի՞նչ, Որտե՞ղ, Ե՞րբ», ֆուտբոլային
+		վիկտորինա, «Մաֆիա» կամ այլ խելացի խաղ, միավորում է մարդկանց՝ ստեղծելով հիշարժան և ջերմ
+		երեկոներ։ Մեր առաջին գործընկերը՝
+		<span class="text-purple-600 font-semibold">73 Club</span>-ը, դարձավ այն վայրը, որտեղ ծնվեց
+		EventNest-ի յուրահատուկ մթնոլորտը՝ խաղի, խելքի և ընկերության համադրությամբ։
 	</p>
 
-	<p class="my-10 text-black lg:px-40 w-full mx-auto font-medium px-5 md:px-none">
-		Մեր «Ի՞նչ, Որտե՞ղ, Ե՞րբ» խաղում Trendi Salon-ը տրամադրում է նվեր քարտեր՝ իրենց գեղեցկության
-		սրահի ծառայություններից օգտվելու համար։ Trendi Bijoux-ը պարգևատրում է առաջին տեղը զբաղեցրած
-		թիմին՝ ոճային և շքեղ զարդերով։ Karaoke Duo Battle Rush Pub-ում Մեր գործընկեր Kechi House 132
-		հյուրանոցը նվիրել է հաղթող զույգին հանգիստ Ծաղկաձորի իրենց հյուրանոցում։ Միացիր
-		EventNest-ին՝ մասնակցիր, հաղթիր և վայելիր բացառիկ նվերներ մեր գործընկերների կողմից։
+	<p class="my-5 text-gray-800 lg:px-40 w-full mx-auto font-medium px-5">
+		Մեր խաղերին միանում են գործընկերներ, որոնք հաճելի անակնկալներ են պարգևում հաղթողներին։
+		<span class="text-purple-600 font-semibold">Trendi Salon</span>-ը տրամադրում է նվեր քարտեր,
+		<span class="text-purple-600 font-semibold">Trendi Bijoux</span>-ը պարգևատրում է ոճային
+		զարդերով, իսկ <span class="text-purple-600 font-semibold">Kechi House 132</span>-ը
+		հյուրասիրում է հանգիստ Ծաղկաձորում։ Միացիր EventNest-ին՝ մասնակցիր, հաղթիր և վայելիր բացառիկ
+		նվերներ։
 	</p>
 </template>
 <style scoped>
