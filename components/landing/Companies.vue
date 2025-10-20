@@ -89,7 +89,7 @@ const swiperImages2 = [
 const logos = [
 	{
 		src: "partners/layersYerevan.jpg",
-		link: "https://www.facebook.com/73clubevn",
+		link: "https://www.facebook.com/p/Layers-Bar-Yerevan-61574750327761/",
 	},
 	{
 		src: "partners/73club.jpeg",
