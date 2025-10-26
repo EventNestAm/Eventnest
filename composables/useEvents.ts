@@ -5,6 +5,8 @@ import Football from "@/assets/img/football.png?url";
 import Movie from "@/assets/img/movie.png?url";
 import Music from "@/assets/img/music.png?url";
 import Kargin from "@/assets/img/kargin.jpeg?url";
+import Kargin2 from "@/assets/img/kargin2.jpeg?url";
+
 
 export function useEvents() {
 	const searchQuery = ref("");
@@ -12,17 +14,6 @@ export function useEvents() {
 	const selectedCategory = ref("Բոլորը");
 
 	const events = [
-		{
-			id: 6,
-			title: "Կարգին հաղորդման վիկտորինա #2",
-			date: "2025-10-12",
-			time: "20:00",
-			location: "Layers Yerevan, Երևան, Մեսրոպ Մաշտոցի պողոտա 37",
-			image: Kargin,
-			description:
-				"Հումորային վիկտորինա, ներշնչված է լեգենդար և շատ սիրված «Կարգին հաղորդում» կատակերգական շոուից։  Մասնակցության վճար՝ 2000 AMD։",
-			category: "Վիկտորինա",
-		},
 		{
 			id: 1,
 			title: "Կարգին հաղորդման վիկտորինա",
@@ -32,6 +23,8 @@ export function useEvents() {
 			image: Kargin,
 			description:
 				" Հումորային վիկտորինա, ներշնչված է լեգենդար և շատ սիրված «Կարգին հաղորդում» կատակերգական շոուից։  Մասնակցության վճար՝ 2000 AMD։",
+			category: "Վիկտորինա",
+			eventDate: false,
 		},
 		{
 			id: 2,
@@ -42,6 +35,8 @@ export function useEvents() {
 			image: Football,
 			description:
 				"Ճանաչիր ֆուտբոլը՝ հետաքրքիր հարցերի և թիմային խաղի միջոցով։ Մասնակցության վճար՝ 2000 AMD։",
+			category: "Ֆուտբոլ",
+			eventDate: false,
 		},
 		{
 			id: 3,
@@ -52,6 +47,8 @@ export function useEvents() {
 			image: Music,
 			description:
 				"Պատրա՞ստ ես ապացուցել, որ ճանաչում ես բոլոր երգերն առաջին նոտայից։ Երաժշտական վիկտորինան սպասում է միայն ամենախելացի ականջներին։ Մասնակցության վճար՝ 2000 AMD։",
+			category: "Վիկտորինա",
+			eventDate: false,
 		},
 		{
 			id: 4,
@@ -62,6 +59,8 @@ export function useEvents() {
 			image: whatWhere,
 			description:
 				"Միացիր ամենախելացի ակումբին։«Ի՞նչ, Որտե՞ղ, Ե՞րբ» խաղը քեզ մարտահրավեր է նետում՝ վերլուծելու, մտածելու ու հաղթելու։ Մասնակցության վճար՝ 3000 AMD։",
+			category: "Ի՞նչ որտե՞ղ ե՞րբ",
+			eventDate: false,
 		},
 		{
 			id: 5,
@@ -72,8 +71,33 @@ export function useEvents() {
 			image: Movie,
 			description:
 				"Քո ուղեղը IMDb-ից լավն է՞։Դե ապացուցիր՝ որքա՞ն լավ ես ճանաչում կինոաշխարհը՝ կատակներով, դերերով ու սաունդթրեքներով։Մասնակցության վճար՝ 2000 AMD",
+			category: "Վիկտորինա",
+			eventDate: false,
 		},
-
+		{
+			id: 6,
+			title: "Կարգին հաղորդման վիկտորինա #2",
+			date: "2025-10-12",
+			time: "20:00",
+			location: "Layers Yerevan, Երևան, Մեսրոպ Մաշտոցի պողոտա 37",
+			image: Kargin,
+			description:
+				"Հումորային վիկտորինա, ներշնչված է լեգենդար և շատ սիրված «Կարգին հաղորդում» կատակերգական շոուից։  Մասնակցության վճար՝ 2000 AMD։",
+			category: "Վիկտորինա",
+			eventDate: false,
+		},
+		{
+			id: 7,
+			title: "Կարգին հաղորդման վիկտորինա #3",
+			date: "2025-11-07",
+			time: "20:00",
+			location: "Layers Yerevan, Երևան, Մեսրոպ Մաշտոցի պողոտա 37",
+			image: Kargin2,
+			description:
+				"Հումորային վիկտորինա, ներշնչված է լեգենդար և շատ սիրված «Կարգին հաղորդում» կատակերգական շոուից։  Մասնակցության վճար՝ 2000 AMD։",
+			category: "Վիկտորինա",
+			eventDate: true,
+		},
 	];
 
 

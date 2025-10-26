@@ -15,32 +15,9 @@ import Movie from "@/assets/img/movie.png?url";
 import Music from "@/assets/img/music.png?url";
 import Kargin from "@/assets/img/kargin.jpeg?url";
 
-const events = [
-	{
-		id: 6,
-		title: "Կարգին հաղորդման վիկտորինա #2",
-		date: "2025-10-12",
-		time: "20:00",
-		location: "Layers Yerevan, Երևան, Մեսրոպ Մաշտոցի պողոտա 37",
-		image: Kargin,
-		description:
-			"Հումորային վիկտորինա, ներշնչված է լեգենդար և շատ սիրված «Կարգին հաղորդում» կատակերգական շոուից։  Մասնակցության վճար՝ 2000 AMD։",
-		category: "Վիկտորինա",
-		eventDate: true,
-	},
-	{
-		id: 7,
-		title: "Կարգին հաղորդման վիկտորինա #3",
-		date: "2025-11-07",
-		time: "20:00",
-		location: "Layers Yerevan, Երևան, Մեսրոպ Մաշտոցի պողոտա 37",
-		image: Kargin,
-		description:
-			"Հումորային վիկտորինա, ներշնչված է լեգենդար և շատ սիրված «Կարգին հաղորդում» կատակերգական շոուից։  Մասնակցության վճար՝ 2000 AMD։",
-		category: "Վիկտորինա",
-		eventDate: true,
-	},
-];
+import { useEvents } from "@/composables/useEvents";
+const { events } = useEvents();
+
 
 const event = events.find((e) => e.id === Number(eventId));
 
