@@ -54,7 +54,7 @@ onMounted(() => {
 
 function closeModal() {
 	showModal.value = false;
-	router.push("/upcoming-events"); 
+	router.push("/upcoming-events");
 }
 </script>
 
@@ -66,24 +66,22 @@ function closeModal() {
 			<input type="hidden" name="access_key" value="3e1280a2-2fcd-4743-9230-5520ed1b4548" />
 			<input type="checkbox" class="hidden" name="botcheck" />
 
-			<div>
+			<div class="grid sm:grid-cols-2 gap-5">
 				<input
 					type="text"
 					name="name"
-					placeholder="Անուն"
+					placeholder="Անուն *"
 					required
 					class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-purple-500 outline-none transition"
 				/>
 				<div class="invalid-feedback text-red-500 text-sm mt-1">
 					Խնդրում ենք մուտքագրել անունը
 				</div>
-			</div>
 
-			<div>
 				<input
 					type="text"
 					name="surname"
-					placeholder="Ազգանուն"
+					placeholder="Ազգանուն *"
 					required
 					class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-purple-500 outline-none transition"
 				/>
@@ -96,7 +94,7 @@ function closeModal() {
 				<input
 					type="tel"
 					name="phone"
-					placeholder="Հեռախոսահամար"
+					placeholder="Հեռախոսահամար *"
 					required
 					class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-purple-500 outline-none transition"
 				/>
@@ -109,7 +107,7 @@ function closeModal() {
 				<input
 					type="text"
 					name="groupName"
-					placeholder="Խմբի անուն"
+					placeholder="Խմբի անուն (ըստ ցանկության)"
 					class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-purple-500 outline-none transition"
 				/>
 			</div>
@@ -118,7 +116,7 @@ function closeModal() {
 				<input
 					type="number"
 					name="peopleCount"
-					placeholder="Քանի հոգի եք գալիս"
+					placeholder="Քանի հոգի եք գալիս *"
 					min="1"
 					required
 					class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-purple-500 outline-none transition"

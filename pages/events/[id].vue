@@ -8,13 +8,6 @@ const route = useRoute();
 const router = useRouter();
 const eventId = route.params.id;
 
-import Mafia from "@/assets/img/mafia.png?url";
-import whatWhere from "@/assets/img/whatWhere.png?url";
-import Football from "@/assets/img/football.png?url";
-import Movie from "@/assets/img/movie.png?url";
-import Music from "@/assets/img/music.png?url";
-import Kargin from "@/assets/img/kargin.jpeg?url";
-
 import { useEvents } from "@/composables/useEvents";
 const { events } = useEvents();
 
@@ -39,7 +32,6 @@ const goBack = () => {
 		</button>
 
 		<div v-if="event" class="grid md:grid-cols-2 gap-10 items-start">
-			<!-- Left: Event Image -->
 			<div class="overflow-hidden rounded-2xl shadow-lg">
 				<img
 					:src="event.image"
@@ -48,7 +40,6 @@ const goBack = () => {
 				/>
 			</div>
 
-			<!-- Right: Event Info -->
 			<div class="flex flex-col gap-6">
 				<div>
 					<h1 class="text-4xl font-extrabold text-gray-900 mb-3">
@@ -68,27 +59,6 @@ const goBack = () => {
 				</div>
 
 				<EventRegistrationForm />
-				<!-- <div class="bg-gray-50 p-6 rounded-xl shadow-inner">
-					<h2 class="text-xl font-bold mb-4">Գրանցվել միջոցառմանը</h2>
-					<form class="space-y-4">
-						<input
-							type="text"
-							placeholder="Անուն"
-							class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-purple-400"
-						/>
-						<input
-							type="email"
-							placeholder="Էլ. հասցե"
-							class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-purple-400"
-						/>
-						<button
-							type="submit"
-							class="w-full px-5 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition"
-						>
-							Գրանցվել →
-						</button>
-					</form>
-				</div> -->
 			</div>
 		</div>
 
