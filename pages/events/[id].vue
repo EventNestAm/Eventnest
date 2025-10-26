@@ -28,6 +28,18 @@ const events = [
 		category: "Վիկտորինա",
 		eventDate: true,
 	},
+	{
+		id: 7,
+		title: "Կարգին հաղորդման վիկտորինա #3",
+		date: "2025-11-07",
+		time: "20:00",
+		location: "Layers Yerevan, Երևան, Մեսրոպ Մաշտոցի պողոտա 37",
+		image: Kargin,
+		description:
+			"Հումորային վիկտորինա, ներշնչված է լեգենդար և շատ սիրված «Կարգին հաղորդում» կատակերգական շոուից։  Մասնակցության վճար՝ 2000 AMD։",
+		category: "Վիկտորինա",
+		eventDate: true,
+	},
 ];
 
 const event = events.find((e) => e.id === Number(eventId));
