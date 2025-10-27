@@ -90,8 +90,8 @@ const swiperImages2 = [
 <template>
 
 	
-	<div class="grid gap-10 mt-10 overflow-hidden pb-2">
-		<h2 class="text-3xl font-semibold text-black mx-auto">Մաֆիա</h2>
+	<div class="grid gap-5 sm:gap-7 md:gap-10 mt-10 overflow-hidden pb-2">
+		<h2 class="sm:text-xl text-2xl md:text-3xl font-semibold text-black mx-auto">Մաֆիա</h2>
 
 		<Swiper
 			:slidesPerView="1.5"
@@ -121,7 +121,7 @@ const swiperImages2 = [
 
 		<div class="swiper-pagination-mafia flex justify-center"></div>
 
-		<h2 class="text-3xl font-semibold text-black mx-auto">Ինչ որտեղ երբ</h2>
+		<h2 class="sm:text-xl text-2xl md:text-3xl font-semibold text-black mx-auto">Ինչ որտեղ երբ</h2>
 
 		<Swiper
 			:slidesPerView="1.5"

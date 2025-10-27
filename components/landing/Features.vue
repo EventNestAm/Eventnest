@@ -57,14 +57,14 @@ const onSlideChange = (swiper) => {
 	<LandingSectionhead>
 		<template #title>
 			<h1
-				class="text-3xl font-bold sm:text-4xl lg:tracking-tight text-black uppercase text-center"
+				class="sm:text-xl text-2xl md:text-3xl font-bold lg:tracking-tight text-black uppercase text-center"
 			>
 				Մեզ մոտ կգտնեք
 			</h1>
 		</template>
 	</LandingSectionhead>
 
-	<div class="flex flex-col md:flex-row gap-8 items-center justify-center mt-16 overflow-hidden">
+	<div class="flex flex-col md:flex-row gap-8 items-center justify-center mt-8 sm:mt-12 md:mt-16 overflow-hidden">
 		<div class="relative w-full md:w-1/2 flex justify-center items-center pb-5">
 			<button
 				class="swiper-button-prev-custom absolute left-0 md:-left-0 xl:left-32 z-10 bg-[#00308F] text-white w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-all duration-300"

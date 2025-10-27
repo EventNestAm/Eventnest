@@ -25,11 +25,11 @@ const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
 
 <template>
 	<section>
-		<h2 class="text-3xl font-bold lg:tracking-tight text-black uppercase text-center">
+		<h2 class="sm:text-xl text-2xl md:text-3xl font-bold lg:tracking-tight text-black uppercase text-center">
 			Մեր գործընկերները
 		</h2>
 
-		<div class="overflow-hidden py-5 sm:py-10 bg-[#00308F] group mt-10">
+		<div class="overflow-hidden py-5 sm:py-10 bg-[#00308F] group mt-5 sm:mt-7 md:mt-10">
 			<div
 				class="flex gap-10 whitespace-nowrap group-hover:[animation-play-state:paused] animate-slide"
 			>
