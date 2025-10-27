@@ -33,11 +33,11 @@ const handleClick = (path) => {
 };
 
 const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  })
-}
+	window.scrollTo({
+		top: 0,
+		behavior: "smooth",
+	});
+};
 </script>
 
 <template>
@@ -100,14 +100,16 @@ const scrollToTop = () => {
 						</li>
 					</ul>
 					<div class="lg:hidden flex items-center mt-3 gap-4">
-						<LandingLink href="#" styleName="muted" block size="md">Մուտք</LandingLink>
-						<LandingLink href="#" size="md" block>Գրանցվել</LandingLink>
+						<LandingLink href="/login" styleName="muted" block size="md"
+							>Մուտք</LandingLink
+						>
+						<LandingLink href="/register" size="md" block>Գրանցվել</LandingLink>
 					</div>
 				</nav>
 				<div>
 					<div class="hidden lg:flex items-center gap-4">
-						<a class="cursor-not-allowed">Մուտք</a>
-						<LandingLink class="cursor-not-allowed" size="md">Գրանցվել</LandingLink>
+						<a href="/login">Մուտք</a>
+						<LandingLink size="md" href="/register">Գրանցվել</LandingLink>
 					</div>
 				</div>
 			</header>
