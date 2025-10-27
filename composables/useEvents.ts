@@ -6,7 +6,7 @@ import Movie from "@/assets/img/movie.png?url";
 import Music from "@/assets/img/music.png?url";
 import Kargin from "@/assets/img/kargin.jpeg?url";
 import Kargin2 from "@/assets/img/kargin2.jpeg?url";
-import Kargin3 from "@/assets/img/kargin3.jpeg?url";
+// import Kargin3 from "@/assets/img/kargin3.jpeg?url";
 export function useEvents() {
 	const searchQuery = ref("");
 	const selectedDate = ref("");
@@ -91,7 +91,7 @@ export function useEvents() {
 			date: "2025-11-07",
 			time: "20:00",
 			location: "Layers Yerevan, Երևան, Մեսրոպ Մաշտոցի պողոտա 37",
-			image: Kargin3,
+			image: Kargin2,
 			description:
 				"Հումորային վիկտորինա, ներշնչված է լեգենդար և շատ սիրված «Կարգին հաղորդում» կատակերգական շոուից։  Մասնակցության վճար՝ 2000 AMD։",
 			category: "Վիկտորինա",
