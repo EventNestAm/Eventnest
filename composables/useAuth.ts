@@ -1,49 +1,50 @@
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 
 const tokenKey = 'auth_token'
 
 export const useAuth = () => {
-	const router = useRouter()
-	const token = ref<string | null>(null)
+  const token = ref<string | null>(null)
+  let router: ReturnType<typeof useRouter> | null = null
 
-	// Only access localStorage on the client
-	if (process.client) {
-		token.value = localStorage.getItem(tokenKey)
-	}
+  // Only access localStorage on the client
+  if (process.client) {
+    token.value = localStorage.getItem(tokenKey)
+    router = useRouter() // safe to use on client
+  }
 
-	const login = async (email: string, password: string) => {
-		const res = await $fetch('/api/auth/login', {
-			method: 'POST',
-			body: { email, password },
-		})
+  const login = async (email: string, password: string) => {
+    const res = await $fetch('/api/auth/login', {
+      method: 'POST',
+      body: { email, password },
+    })
 
-		if (!res.success) throw new Error(res.message)
+    if (!res.success) throw new Error(res.message)
 
-		token.value = res.token
-		if (process.client) {
-			localStorage.setItem(tokenKey, res.token)
-		}
-	}
+    token.value = res.token
+    if (process.client) {
+      localStorage.setItem(tokenKey, res.token)
+    }
+  }
 
-	const register = async (name: string, email: string, password: string) => {
-		const res = await $fetch('/api/auth/register', {
-			method: 'POST',
-			body: { name, email, password },
-		})
+  const register = async (name: string, email: string, password: string) => {
+    const res = await $fetch('/api/auth/register', {
+      method: 'POST',
+      body: { name, email, password },
+    })
 
-		if (!res.success) throw new Error(res.message)
-	}
+    if (!res.success) throw new Error(res.message)
+  }
 
-	const logout = () => {
-		token.value = null
-		if (process.client) {
-			localStorage.removeItem(tokenKey)
-		}
-		router.push('/login')
-	}
+  const logout = () => {
+    token.value = null
+    if (process.client) {
+      localStorage.removeItem(tokenKey)
+      router?.push('/login')
+    }
+  }
 
-	const isLoggedIn = () => !!token.value
+  const isLoggedIn = () => !!token.value
 
-	return { token, login, register, logout, isLoggedIn }
+  return { token, login, register, logout, isLoggedIn }
 }
