@@ -1,12 +1,10 @@
 <template>
   <div class="min-h-screen flex flex-col items-center justify-center bg-[#e0ebff] text-center px-6">
-    <!-- Animated background circles -->
     <div class="absolute inset-0 flex justify-center items-center -z-10">
       <div class="circle animate-pulse bg-[#00308f] opacity-20"></div>
       <div class="circle animate-ping bg-[#00308f] opacity-10"></div>
     </div>
 
-    <!-- Error content -->
     <h1 class="text-6xl md:text-8xl font-extrabold text-[#00308f] mb-6">404</h1>
     <h2 class="text-2xl md:text-4xl font-semibold text-[#00308f]/90 mb-4">
       Oops! Page not found
@@ -15,7 +13,6 @@
       The page you are looking for does not exist, or has been moved. Don’t worry, you can go back to the homepage and continue exploring Eventnest.
     </p>
 
-    <!-- Button -->
     <NuxtLink
       to="/"
       class="px-6 py-3 bg-[#00308f] text-white font-semibold rounded-xl hover:bg-[#002060] transition-all duration-300 shadow-lg"

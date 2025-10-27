@@ -20,7 +20,7 @@
 
 		<NuxtLink
 			to="/"
-			class="px-6 py-3 bg-[#00308f] text-black font-semibold rounded-xl hover:bg-[#002060] transition-all duration-300 shadow-lg mt-10"
+			class="px-6 py-3 bg-[#00308f] text-white font-semibold rounded-xl hover:bg-[#002060] transition-all duration-300 shadow-lg mt-10"
 		>
 			Go to Homepage
 		</NuxtLink>
