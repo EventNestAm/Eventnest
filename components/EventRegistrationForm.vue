@@ -67,26 +67,29 @@ function closeModal() {
 			<input type="checkbox" class="hidden" name="botcheck" />
 
 			<div class="grid sm:grid-cols-2 gap-5">
-				<input
-					type="text"
-					name="name"
-					placeholder="Անուն *"
-					required
-					class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-purple-500 outline-none transition"
-				/>
-				<div class="invalid-feedback text-red-500 text-sm mt-1">
-					Խնդրում ենք մուտքագրել անունը
+				<div class="flex flex-col">
+					<input
+						type="text"
+						name="name"
+						placeholder="Անուն *"
+						required
+						class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-purple-500 outline-none transition"
+					/>
+					<div class="invalid-feedback text-red-500 text-sm mt-1">
+						Խնդրում ենք մուտքագրել անունը
+					</div>
 				</div>
-
-				<input
-					type="text"
-					name="surname"
-					placeholder="Ազգանուն *"
-					required
-					class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-purple-500 outline-none transition"
-				/>
-				<div class="invalid-feedback text-red-500 text-sm mt-1">
-					Խնդրում ենք մուտքագրել ազգանունը
+				<div class="flex flex-col">
+					<input
+						type="text"
+						name="surname"
+						placeholder="Ազգանուն *"
+						required
+						class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-purple-500 outline-none transition"
+					/>
+					<div class="invalid-feedback text-red-500 text-sm mt-1">
+						Խնդրում ենք մուտքագրել ազգանունը
+					</div>
 				</div>
 			</div>
 
