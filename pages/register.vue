@@ -1,24 +1,35 @@
 <script setup lang="ts">
-import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { useAuth } from "~/composables/useAuth";
 
 const router = useRouter();
-const { register } = useAuth();
+// const { register } = useAuth();
+const { supabase } = useSupabase()
 
 const name = ref("");
 const email = ref("");
 const password = ref("");
 
+// const handleRegister = async () => {
+// 	try {
+// 		await register(name.value, email.value, password.value);
+// 		alert("Registered successfully!");
+// 		router.push("/login");
+// 	} catch (err: any) {
+// 		alert(err.message);
+// 	}
+// };
+
 const handleRegister = async () => {
-	try {
-		await register(name.value, email.value, password.value);
-		alert("Registered successfully!");
-		router.push("/login");
-	} catch (err: any) {
-		alert(err.message);
-	}
-};
+  const { data, error } = await supabase.auth.signUp({
+    email: email.value,
+    password: password.value,
+    options: { data: { name: name.value } },
+  })
+  if (error) return alert(error.message)
+  alert('✅ Registered successfully!')
+  router.push('/login')
+}
 </script>
 
 <template>

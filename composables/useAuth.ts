@@ -7,10 +7,9 @@ export const useAuth = () => {
   const token = ref<string | null>(null)
   let router: ReturnType<typeof useRouter> | null = null
 
-  // Only access localStorage on the client
   if (process.client) {
     token.value = localStorage.getItem(tokenKey)
-    router = useRouter() // safe to use on client
+    router = useRouter() 
   }
 
   const login = async (email: string, password: string) => {

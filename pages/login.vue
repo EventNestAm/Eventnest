@@ -4,19 +4,28 @@ import { useRouter } from "vue-router";
 import { useAuth } from "~/composables/useAuth";
 
 const router = useRouter();
-const { login } = useAuth();
-
+// const { login } = useAuth();
+const { supabase } = useSupabase()
 const email = ref("");
 const password = ref("");
 
+// const handleLogin = async () => {
+// 	try {
+// 		await login(email.value, password.value);
+// 		router.push("/");
+// 	} catch (err: any) {
+// 		alert(err.message);
+// 	}
+// };
 const handleLogin = async () => {
-	try {
-		await login(email.value, password.value);
-		router.push("/");
-	} catch (err: any) {
-		alert(err.message);
-	}
-};
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email: email.value,
+    password: password.value,
+  })
+  if (error) return alert(error.message)
+  alert('🎉 Login successful!')
+  router.push('/')
+}
 </script>
 
 <template>
