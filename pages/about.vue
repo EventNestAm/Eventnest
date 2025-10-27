@@ -60,10 +60,10 @@ const team = [
 		<LandingFeatures></LandingFeatures>
 		<div class="mt-10"></div>
 	</LandingContainer>
-	<LandingCompanies></LandingCompanies>
+
+	<LandingCompanies />
 	<LandingContainer>
 		<div class="mt-10"></div>
-
 		<LandingSectionhead>
 			<template v-slot:title>Մեր մասին</template>
 			<template v-slot:desc>We are a small passionate team.</template>
@@ -72,9 +72,9 @@ const team = [
 		<div class="flex flex-col gap-3 mx-auto mt-4">
 			<div class="text-center text-black">
 				<p class="text-lg leading-relaxed font-medium max-w-5xl mx-auto">
-					Մենք հավատում ենք, որ յուրաքանչյուր պահ կարող է դառնալ հիշարժան։ <strong class="text-purple-600">EventNest</strong>-ը
-					ստեղծում է ջերմ, ոգեշնչող մթնոլորտներ՝ որտեղ խաղը միավորում է մարդկանց ու լցնում
-					լավ էմոցիաներով։
+					Մենք հավատում ենք, որ յուրաքանչյուր պահ կարող է դառնալ հիշարժան։
+					<strong class="text-purple-600">EventNest</strong>-ը ստեղծում է ջերմ, ոգեշնչող
+					մթնոլորտներ՝ որտեղ խաղը միավորում է մարդկանց ու լցնում լավ էմոցիաներով։
 				</p>
 
 				<p class="text-lg font-medium mt-6">

@@ -31,6 +31,13 @@ const handleClick = (path) => {
 	clickedPath.value = path;
 	open.value = false;
 };
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
+}
 </script>
 
 <template>
@@ -38,7 +45,7 @@ const handleClick = (path) => {
 		<LandingContainer>
 			<header class="flex flex-col lg:flex-row justify-between items-center">
 				<div class="flex w-full lg:w-auto items-center justify-between">
-					<NuxtLink href="/" class="inline-block">
+					<NuxtLink href="/" class="inline-block" @click="scrollToTop">
 						<img
 							src="/eventnest.png"
 							width="100"

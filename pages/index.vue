@@ -21,7 +21,7 @@ const modules = [Navigation, Pagination, Autoplay];
 	<LandingContainer>
 		<LandingHero></LandingHero>
 		<LandingFeatures></LandingFeatures>
-		
+
 		<div
 			v-if="filteredEvents.length > 0"
 			class="mt-20 lg:px-16 max-w-screen-[99.75rem] !bg-transparent"
@@ -61,19 +61,21 @@ const modules = [Navigation, Pagination, Autoplay];
 	</LandingContainer>
 
 	<LandingCompanies></LandingCompanies>
+	<LandingEvent></LandingEvent>
+
 	<LandingContainer>
 		<LandingCta></LandingCta>
 	</LandingContainer>
 </template>
 <style>
-.swiper-wrapper{
+.swiper-wrapper {
 	padding: 20px;
 }
 
 .swiperUnset {
-  .swiper-wrapper,
-  .swiper-slide {
-    height: unset !important;
-  }
+	.swiper-wrapper,
+	.swiper-slide {
+		height: unset !important;
+	}
 }
 </style>
