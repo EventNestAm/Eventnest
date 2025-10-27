@@ -20,8 +20,10 @@
 			>
 				EventNest
 			</h1>
-			<p class="text-lg mt-2 sm:mt-4 text-black max-w-xl font-medium">
-				EventNest – միայն ջերմ ու դրական զգացողություններ՝ մեզ հետ։
+			<p class="text-lg mt-2 sm:mt-4 text-black max-w-xl font-medium uppercase">
+				EventNest – <span class="text-[#d000d8] font-bold text-xl">Remember</span>
+				<span class="text-[#00308f] ml-1 font-semibold">you are the</span>
+				<span class="text-[#d000d8] ml-1 font-bold text-xl">Best</span>
 			</p>
 			<div class="mt-6">
 				<LandingLink
