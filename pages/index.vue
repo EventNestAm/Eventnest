@@ -72,10 +72,8 @@ const modules = [Navigation, Pagination, Autoplay];
 	padding: 20px;
 }
 
-.swiperUnset {
-	.swiper-wrapper,
-	.swiper-slide {
-		height: unset !important;
-	}
+.swiperUnset .swiper-wrapper,
+.swiperUnset .swiper-slide {
+	height: unset !important;
 }
 </style>
