@@ -8,7 +8,6 @@ import Kargin from "@/assets/img/kargin.jpeg?url";
 import Kargin2 from "@/assets/img/kargin2.jpeg?url";
 import Kargin3 from "@/assets/img/kargin3.jpeg?url";
 
-
 export function useEvents() {
 	const searchQuery = ref("");
 	const selectedDate = ref("");
