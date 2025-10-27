@@ -121,10 +121,10 @@ defineProps({
 					:class="[
 						event.eventDate
 							? 'bg-gradient-to-r from-purple-500 to-purple-700 text-white hover:from-purple-600 hover:to-purple-800 hover:shadow-lg hover:-translate-y-0.5'
-							: 'bg-gray-300 text-gray-400 cursor-not-allowed'
+							: 'bg-gray-300 text-gray-400 cursor-not-allowed',
 					]"
 				>
-					<span>{{ event.eventDate ? 'Գրանցվել' : 'Փակված է' }}</span>
+					<span>{{ event.eventDate ? "Գրանցվել" : "Փակված է" }}</span>
 					<span
 						v-if="event.eventDate"
 						class="transform transition-transform duration-300 group-hover:translate-x-1"

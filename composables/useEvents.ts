@@ -100,9 +100,13 @@ export function useEvents() {
 		},
 	];
 
+	const sortedEvents = computed(() => {
+		return [...events].sort((a, b) => new Date(b.date) - new Date(a.date));
+	});
+
 
 	const filteredEvents = computed(() => {
-		return events.filter((event) => {
+		return sortedEvents.value.filter((event) => {
 			const matchesCategory =
 				selectedCategory.value === "Բոլորը" ||
 				event.title.includes(selectedCategory.value) ||
@@ -120,9 +124,39 @@ export function useEvents() {
 	});
 
 	function formatDate(dateStr) {
-		const options = { year: "numeric", month: "long", day: "numeric", weekday: "long" };
-		return new Date(dateStr).toLocaleDateString("hy-AM", options);
+		const date = new Date(dateStr);
+		const weekdays = [
+			"Կիրակի",
+			"Երկուշաբթի",
+			"Երեքշաբթի",
+			"Չորեքշաբթի",
+			"Հինգշաբթի",
+			"Ուրբաթ",
+			"Շաբաթ",
+		];
+		const months = [
+			"հունվարի",
+			"փետրվարի",
+			"մարտի",
+			"ապրիլի",
+			"մայիսի",
+			"հունիսի",
+			"հուլիսի",
+			"օգոստոսի",
+			"սեպտեմբերի",
+			"հոկտեմբերի",
+			"նոյեմբերի",
+			"դեկտեմբերի",
+		];
+
+		const weekday = weekdays[date.getDay()];
+		const day = date.getDate();
+		const month = months[date.getMonth()];
+		const year = date.getFullYear();
+
+		return `${weekday}, ${day} ${month}, ${year} թ․`;
 	}
+
 
 	return {
 		events,

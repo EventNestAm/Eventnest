@@ -2,16 +2,11 @@
 definePageMeta({
 	layout: "landing",
 });
-import Mafia from "@/assets/img/mafia.png?url";
-import whatWhere from "@/assets/img/whatWhere.png?url";
-import Football from "@/assets/img/football.png?url";
-import Movie from "@/assets/img/movie.png?url";
-import Music from "@/assets/img/music.png?url";
-import Kargin from "@/assets/img/kargin.jpeg?url";
-import EventCard from "@/components/EventCard.vue";
 
+import EventCard from "@/components/EventCard.vue";
 import { useEvents } from "@/composables/useEvents";
-const { events } = useEvents();
+
+const { events, formatDate } = useEvents();
 
 const sortOrder = ref("desc");
 const sortedEvents = computed(() =>
@@ -34,11 +29,6 @@ const selectedCategory = ref("Բոլորը");
 const searchQuery = ref("");
 
 const selectedDate = ref("");
-
-function formatDate(dateStr) {
-	const options = { year: "numeric", month: "long", day: "numeric", weekday: "long" };
-	return new Date(dateStr).toLocaleDateString("hy-AM", options);
-}
 
 const filteredEvents = computed(() => {
 	return events.filter((event) => {
@@ -173,7 +163,6 @@ button:focus {
 	outline: none;
 }
 
-/* Card hover effect */
 .shadow-md {
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
