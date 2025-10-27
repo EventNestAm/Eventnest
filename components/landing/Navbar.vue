@@ -99,17 +99,33 @@ const scrollToTop = () => {
 							</NuxtLink>
 						</li>
 					</ul>
-					<div class="lg:hidden flex items-center mt-3 gap-4 mb-5 ">
-						<LandingLink href="/login" styleName="muted" block size="md" class="rounded-full"
+					<div class="lg:hidden flex items-center mt-3 gap-4 mb-5">
+						<LandingLink
+							href="/login"
+							styleName="muted"
+							block
+							size="md"
+							class="rounded-full"
 							>Մուտք</LandingLink
 						>
-						<LandingLink href="/register" size="md" block class="rounded-full">Գրանցվել</LandingLink>
+						<LandingLink href="/register" size="md" block class="rounded-full"
+							>Գրանցվել</LandingLink
+						>
 					</div>
 				</nav>
 				<div>
 					<div class="hidden lg:flex items-center gap-4">
-						<a href="/login" class="rounded-full">Մուտք</a>
-						<LandingLink size="md" href="/register" class="rounded-full">Գրանցվել</LandingLink>
+						<LandingLink
+							href="/login"
+							styleName="muted"
+							block
+							size="md"
+							class="rounded-full"
+							>Մուտք</LandingLink
+						>
+						<LandingLink size="md" href="/register" class="rounded-full"
+							>Գրանցվել</LandingLink
+						>
 					</div>
 				</div>
 			</header>
