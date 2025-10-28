@@ -31,7 +31,7 @@ const searchQuery = ref("");
 const selectedDate = ref("");
 
 const filteredEvents = computed(() => {
-	return events.filter((event) => {
+	return events.value.filter((event) => {
 		const matchesCategory =
 			selectedCategory.value === "Բոլորը" ||
 			event.title.includes(selectedCategory.value) ||

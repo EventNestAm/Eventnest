@@ -12,7 +12,7 @@ export function useEvents() {
 	const selectedDate = ref("");
 	const selectedCategory = ref("Բոլորը");
 
-	const events = [
+	const events = ref([
 		{
 			id: 1,
 			title: "Կարգին հաղորդման վիկտորինա",
@@ -97,12 +97,67 @@ export function useEvents() {
 			category: "Վիկտորինա",
 			eventDate: true,
 		},
-	];
+		{
+			id: 8,
+			title: "Կարգին հաղորդման վիկտորինա #4",
+			date: "2025-11-07",
+			time: "20:00",
+			location: "Layers Yerevan, Երևան, Մեսրոպ Մաշտոցի պողոտա 37",
+			image: Kargin2,
+			description:
+				"Հումորային վիկտորինա, ներշնչված է լեգենդար և շատ սիրված «Կարգին հաղորդում» կատակերգական շոուից։  Մասնակցության վճար՝ 2000 AMD։",
+			category: "Վիկտորինա",
+			eventDate: true,
+		},
+	]);
+
+	async function addEvent(newEvent) {
+		events.value.push(newEvent);
+
+		try {
+			await $fetch("/api/sendEventEmail", {
+				method: "POST",
+				body: {
+					title: newEvent.title,
+					date: newEvent.date,
+					location: newEvent.location,
+				},
+			});
+			console.log("📧 Email sent successfully for:", newEvent.title);
+		} catch (error) {
+			console.error("❌ Error sending event email:", error);
+		}
+	}
+
+	watch(
+		events,
+		async (newEvents, oldEvents) => {
+			if (oldEvents && newEvents.length > oldEvents.length) {
+				// detect last added event
+				const newEvent = newEvents[newEvents.length - 1];
+				try {
+					await $fetch("/api/sendEventEmail", {
+						method: "POST",
+						body: {
+							title: newEvent.title,
+							date: newEvent.date,
+							location: newEvent.location,
+						},
+					});
+					console.log("📧 Email sent successfully for:", newEvent.title);
+				} catch (err) {
+					console.error("❌ Error sending event email:", err);
+				}
+			}
+		},
+		{ deep: true }
+	);
+
+
 
 	const sortedEvents = computed(() => {
-		return [...events].sort((a, b) => new Date(b.date) - new Date(a.date));
+		return [...events.value].sort((a, b) => new Date(b.date) - new Date(a.date));
 	});
-
 
 	const filteredEvents = computed(() => {
 		return sortedEvents.value.filter((event) => {
@@ -147,13 +202,7 @@ export function useEvents() {
 			"նոյեմբերի",
 			"դեկտեմբերի",
 		];
-
-		const weekday = weekdays[date.getDay()];
-		const day = date.getDate();
-		const month = months[date.getMonth()];
-		const year = date.getFullYear();
-
-		return `${weekday}, ${day} ${month}, ${year} թ․`;
+		return `${weekdays[date.getDay()]}, ${date.getDate()} ${months[date.getMonth()]}, ${date.getFullYear()} թ․`;
 	}
 
 
@@ -163,6 +212,7 @@ export function useEvents() {
 		formatDate,
 		searchQuery,
 		selectedDate,
-		selectedCategory
+		selectedCategory,
+		addEvent,
 	};
 }
