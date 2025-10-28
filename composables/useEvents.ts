@@ -23,7 +23,7 @@ export function useEvents() {
 			description:
 				" Հումորային վիկտորինա, ներշնչված է լեգենդար և շատ սիրված «Կարգին հաղորդում» կատակերգական շոուից։  Մասնակցության վճար՝ 2000 AMD։",
 			category: "Վիկտորինա",
-			eventDate: false,
+			eventDate: false, emailSent: true,
 		},
 		{
 			id: 2,
@@ -35,7 +35,7 @@ export function useEvents() {
 			description:
 				"Ճանաչիր ֆուտբոլը՝ հետաքրքիր հարցերի և թիմային խաղի միջոցով։ Մասնակցության վճար՝ 2000 AMD։",
 			category: "Ֆուտբոլ",
-			eventDate: false,
+			eventDate: false, emailSent: true,
 		},
 		{
 			id: 3,
@@ -47,7 +47,7 @@ export function useEvents() {
 			description:
 				"Պատրա՞ստ ես ապացուցել, որ ճանաչում ես բոլոր երգերն առաջին նոտայից։ Երաժշտական վիկտորինան սպասում է միայն ամենախելացի ականջներին։ Մասնակցության վճար՝ 2000 AMD։",
 			category: "Վիկտորինա",
-			eventDate: false,
+			eventDate: false, emailSent: true,
 		},
 		{
 			id: 4,
@@ -59,7 +59,7 @@ export function useEvents() {
 			description:
 				"Միացիր ամենախելացի ակումբին։«Ի՞նչ, Որտե՞ղ, Ե՞րբ» խաղը քեզ մարտահրավեր է նետում՝ վերլուծելու, մտածելու ու հաղթելու։ Մասնակցության վճար՝ 3000 AMD։",
 			category: "Ի՞նչ որտե՞ղ ե՞րբ",
-			eventDate: false,
+			eventDate: false, emailSent: true,
 		},
 		{
 			id: 5,
@@ -71,7 +71,7 @@ export function useEvents() {
 			description:
 				"Քո ուղեղը IMDb-ից լավն է՞։Դե ապացուցիր՝ որքա՞ն լավ ես ճանաչում կինոաշխարհը՝ կատակներով, դերերով ու սաունդթրեքներով։Մասնակցության վճար՝ 2000 AMD",
 			category: "Վիկտորինա",
-			eventDate: false,
+			eventDate: false, emailSent: true,
 		},
 		{
 			id: 6,
@@ -83,7 +83,7 @@ export function useEvents() {
 			description:
 				"Հումորային վիկտորինա, ներշնչված է լեգենդար և շատ սիրված «Կարգին հաղորդում» կատակերգական շոուից։  Մասնակցության վճար՝ 2000 AMD։",
 			category: "Վիկտորինա",
-			eventDate: false,
+			eventDate: false, emailSent: true,
 		},
 		{
 			id: 7,
@@ -95,7 +95,7 @@ export function useEvents() {
 			description:
 				"Հումորային վիկտորինա, ներշնչված է լեգենդար և շատ սիրված «Կարգին հաղորդում» կատակերգական շոուից։  Մասնակցության վճար՝ 2000 AMD։",
 			category: "Վիկտորինա",
-			eventDate: true,
+			eventDate: true, emailSent: true,
 		},
 		{
 			id: 8,
@@ -107,7 +107,7 @@ export function useEvents() {
 			description:
 				"Հումորային վիկտորինա, ներշնչված է լեգենդար և շատ սիրված «Կարգին հաղորդում» կատակերգական շոուից։  Մասնակցության վճար՝ 2000 AMD։",
 			category: "Վիկտորինա",
-			eventDate: true,
+			eventDate: true, emailSent: false,
 		},
 	]);
 
@@ -129,30 +129,24 @@ export function useEvents() {
 		}
 	}
 
-	watch(
-		events,
-		async (newEvents, oldEvents) => {
-			if (oldEvents && newEvents.length > oldEvents.length) {
-				// detect last added event
-				const newEvent = newEvents[newEvents.length - 1];
-				try {
-					await $fetch("/api/sendEventEmail", {
-						method: "POST",
-						body: {
-							title: newEvent.title,
-							date: newEvent.date,
-							location: newEvent.location,
-						},
-					});
-					console.log("📧 Email sent successfully for:", newEvent.title);
-				} catch (err) {
-					console.error("❌ Error sending event email:", err);
-				}
+	events.value.forEach(async (event) => {
+		if (!event.emailSent) {
+			try {
+				await $fetch("/api/sendEventEmail", {
+					method: "POST",
+					body: {
+						title: event.title,
+						date: event.date,
+						location: event.location,
+					},
+				});
+				console.log("📧 Email sent for:", event.title);
+				event.emailSent = true; // mark as sent
+			} catch (err) {
+				console.error("❌ Failed to send email:", err);
 			}
-		},
-		{ deep: true }
-	);
-
+		}
+	});
 
 
 	const sortedEvents = computed(() => {
