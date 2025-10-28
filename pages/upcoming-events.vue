@@ -10,7 +10,7 @@ const { events, formatDate } = useEvents();
 
 const sortOrder = ref("desc");
 const sortedEvents = computed(() =>
-	[...events].sort((a, b) => {
+	[...events.value].sort((a, b) => {
 		return sortOrder.value === "asc"
 			? new Date(a.date) - new Date(b.date)
 			: new Date(b.date) - new Date(a.date);

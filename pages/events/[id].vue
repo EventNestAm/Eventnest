@@ -12,7 +12,7 @@ import { useEvents } from "@/composables/useEvents";
 const { events } = useEvents();
 
 
-const event = events.find((e) => e.id === Number(eventId));
+const event = events.value.find((e) => e.id === Number(eventId));
 
 const goBack = () => {
 	router.back();
