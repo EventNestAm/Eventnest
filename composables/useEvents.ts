@@ -141,7 +141,7 @@ export function useEvents() {
 					},
 				});
 				console.log("📧 Email sent for:", event.title);
-				event.emailSent = true; // mark as sent
+				event.emailSent = true; 	
 			} catch (err) {
 				console.error("❌ Failed to send email:", err);
 			}
