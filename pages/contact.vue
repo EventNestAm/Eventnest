@@ -8,7 +8,7 @@ definePageMeta({
 	<LandingContainer>
 		<LandingSectionhead>
 			<template v-slot:title
-				><h1 class="text-black uppercase text-3xl font-bold pt-32 sm:pt-28">
+				><h1 class="text-black uppercase text-xl sm:text-2xl md:text-3xl  font-bold pt-32 sm:pt-28">
 					Կապ մեզ հետ
 				</h1></template
 			>

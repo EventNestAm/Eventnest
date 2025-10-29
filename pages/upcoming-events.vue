@@ -52,7 +52,9 @@ const filteredEvents = computed(() => {
 <template>
 	<LandingSectionhead>
 		<template #title>
-			<h1 class="text-black uppercase text-3xl font-bold pt-32 sm:pt-28">
+			<h1
+				class="text-black uppercase text-xl sm:text-2xl md:text-3xl font-bold pt-32 sm:pt-28"
+			>
 				Մոտակա միջոցառումներ
 			</h1>
 		</template>
@@ -61,7 +63,7 @@ const filteredEvents = computed(() => {
 	<section
 		class="bg-gradient-to-r from-purple-500 to-indigo-600 py-12 px-4 text-center text-white my-10"
 	>
-		<h2 class="sm:text-xl text-2xl md:text-3xl font-bold mb-4">Գտեք Ձեր ցանկալի միջոցառումը</h2>
+		<h2 class="text-xl sm:text-2xl md:text-3xl  font-bold mb-4">Գտեք Ձեր ցանկալի միջոցառումը</h2>
 		<p class="text-lg text-purple-100 max-w-2xl mx-auto">
 			Միացիր մեզ և անցկացրու անմոռանալի երեկոներ EventNest-ում։
 		</p>
