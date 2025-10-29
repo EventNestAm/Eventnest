@@ -1,4 +1,3 @@
-// // server/api/events/create.post.ts
 // import { createClient } from '@supabase/supabase-js'
 // import nodemailer from 'nodemailer'
 

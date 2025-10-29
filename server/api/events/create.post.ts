@@ -1,4 +1,7 @@
 // server/api/events/create.post.ts
+console.log("🚀 /api/events/create endpoint loaded")
+import { defineEventHandler, readBody, createError } from 'h3'
+
 import { createClient } from '@supabase/supabase-js'
 import nodemailer from 'nodemailer'
 
@@ -49,7 +52,7 @@ export default defineEventHandler(async (event) => {
 		// ✅ 4. Email message
 		const mailOptions = {
 			from: `"Eventnest" <${process.env.MAIL_USER}>`,
-			to: recipients.join(','),
+			bcc: recipients,
 			subject: `📢 Նոր միջոցառում՝ ${title}`,
 			html: `
         <h2>Նոր միջոցառում է ավելացվել!</h2>

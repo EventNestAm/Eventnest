@@ -1,4 +1,3 @@
-import { ref, computed } from 'vue'
 import Mafia from "@/assets/img/mafia.png?url"
 import whatWhere from "@/assets/img/whatWhere.png?url"
 import Football from "@/assets/img/football.png?url"
@@ -104,6 +103,19 @@ export function useEvents() {
       eventDate: true,
       emailSent: true,
     },
+    {
+      id: 8,
+      title: "Կարգին հաղորդման վիկտորինա #4",
+      date: "2025-11-07",
+      time: "20:00",
+      location: "Layers Yerevan, Երևան, Մեսրոպ Մաշտոցի պողոտա 37",
+      image: Kargin2,
+      description:
+        "Նոր ձևաչափով «Կարգին հաղորդման» վիկտորինա՝ հումորով ու հիշողություններով։ Մասնակցության վճար՝ 2000 AMD։",
+      category: "Վիկտորինա",
+      eventDate: true,
+      emailSent: false,
+    },
   ])
 
   async function addEvent(newEvent) {
@@ -123,10 +135,12 @@ export function useEvents() {
     } catch (error) {
       console.error("❌ Error creating event or sending email:", error)
     }
+
   }
 
   events.value.forEach(async (event) => {
     if (!event.emailSent) {
+      console.log('Hello')
       try {
         const res = await $fetch("/api/events/create", {
           method: "POST",
