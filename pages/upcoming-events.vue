@@ -63,7 +63,7 @@ const filteredEvents = computed(() => {
 	<section
 		class="bg-gradient-to-r from-purple-500 to-indigo-600 py-12 px-4 text-center text-white my-10"
 	>
-		<h2 class="text-xl sm:text-2xl md:text-3xl  font-bold mb-4">Գտեք Ձեր ցանկալի միջոցառումը</h2>
+		<h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-4">Գտեք Ձեր ցանկալի միջոցառումը</h2>
 		<p class="text-lg text-purple-100 max-w-2xl mx-auto">
 			Միացիր մեզ և անցկացրու անմոռանալի երեկոներ EventNest-ում։
 		</p>
@@ -99,7 +99,10 @@ const filteredEvents = computed(() => {
 					{{ cat }}
 				</button>
 			</div>
-			<div class="my-auto mb-10 h-full flex justify-end mr-4 md:mr-0">
+			<div
+				class="my-auto mb-10 h-full flex justify-end mr-4 md:mr-0"
+				v-if="filteredEvents.length > 0"
+			>
 				<button
 					@click="sortOrder = sortOrder === 'asc' ? 'desc' : 'asc'"
 					class="w-fit px-3 py-1.5 bg-purple-600 text-white rounded-md whitespace-nowrap"

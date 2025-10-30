@@ -120,7 +120,6 @@ const onSlideChange = (swiper) => {
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Disable default Swiper nav styles */
 .swiper-button-next,
 .swiper-button-prev {
 	display: none !important;
