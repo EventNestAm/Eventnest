@@ -3,19 +3,23 @@ definePageMeta({
 	layout: "landing",
 });
 import EventRegistrationForm from "@/components/EventRegistrationForm.vue";
+import { useEvents } from "@/composables/useEvents";
 
 const route = useRoute();
 const router = useRouter();
 const eventId = route.params.id;
 
-import { useEvents } from "@/composables/useEvents";
 const { events } = useEvents();
 
 
 const event = events.value.find((e) => e.id === Number(eventId));
 
 const goBack = () => {
-	router.back();
+	if (window.history.length > 1) {
+		router.back();
+	} else {
+		router.push("/upcoming-events");
+	}
 };
 </script>
 
