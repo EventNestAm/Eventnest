@@ -6,6 +6,8 @@ import Artphoto from "~/assets/img/Artphoto.jpg";
 import Davophoto from "~/assets/img/Davophoto.jpg";
 import Anahitphoto from "~/assets/img/Anahitphoto.jpg";
 
+const router = useRouter();
+
 definePageMeta({
 	layout: "landing",
 });
@@ -86,7 +88,12 @@ const team = [
 		<div
 			class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-10 md:gap-x-[13rem] gap-y-10 sm:gap-y-20 mx-auto max-w-[80rem] mt-12"
 		>
-			<div v-for="item of team" class="group">
+			<div
+				v-for="item in team"
+				:key="item.name"
+				class="group cursor-pointer"
+				@click="item.link ? router.push(item.link) : null"
+			>
 				<div class="w-full aspect-square">
 					<img
 						:src="item.avatar.src"
