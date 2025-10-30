@@ -61,9 +61,9 @@ const filteredEvents = computed(() => {
 	</LandingSectionhead>
 
 	<section
-		class="bg-gradient-to-r from-purple-500 to-indigo-600 py-12 px-4 text-center text-white my-10"
+		class="bg-gradient-to-r from-purple-500 to-indigo-600 py-6 sm:py-8 md:py-12 px-4 text-center text-white my-6 sm:my-8 md:my-10"
 	>
-		<h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-4">Գտեք Ձեր ցանկալի միջոցառումը</h2>
+		<h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-4">Գտեք Ձեր ցանկալի միջոցառումը</h2>
 		<p class="text-lg text-purple-100 max-w-2xl mx-auto">
 			Միացիր մեզ և անցկացրու անմոռանալի երեկոներ EventNest-ում։
 		</p>
@@ -84,7 +84,7 @@ const filteredEvents = computed(() => {
 
 	<div class="container mx-auto">
 		<div class="w-full flex flex-col md:flex-row justify-center">
-			<div class="w-full flex justify-center flex-wrap gap-3 my-8 px-4 mb-10">
+			<div class="w-full flex justify-center flex-wrap gap-3 my-2 sm:my-4 md:my-8 px-4 mb-10">
 				<button
 					v-for="cat in categories"
 					:key="cat"
