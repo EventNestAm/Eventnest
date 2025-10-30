@@ -55,7 +55,7 @@ defineProps({
 			</div>
 		</div>
 
-		<div class="p-6 flex flex-col flex-grow bg-white">
+		<div class="p-3 sm:p-6 flex flex-col flex-grow bg-white">
 			<h3
 				class="text-xl font-bold mb-2"
 				:class="event.eventDate ? 'text-gray-900' : 'text-gray-400 line-through'"
