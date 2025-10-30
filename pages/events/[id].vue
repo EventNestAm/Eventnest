@@ -46,7 +46,7 @@ const goBack = () => {
 
 			<div class="flex flex-col gap-6">
 				<div>
-					<h1 class="text-4xl font-extrabold text-gray-900 mb-3">
+					<h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">
 						{{ event.title }}
 					</h1>
 					<span
