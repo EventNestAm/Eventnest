@@ -100,7 +100,7 @@ const onSlideChange = (swiper) => {
 		</div>
 
 		<div class="w-full md:w-1/2 p-4 md:p-8 bg-[#00308F] rounded-3xl">
-			<h3 class="font-semibold text-4xl mb-4 text-white uppercase">
+			<h3 class="font-semibold text-2xl sm:text-3xl md:text-4xl mb-4 text-white uppercase">
 				{{ swiperImages[activeIndex].title }}
 			</h3>
 			<p class="text-white leading-relaxed text-lg">
