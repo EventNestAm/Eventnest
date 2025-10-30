@@ -101,7 +101,7 @@ const filteredEvents = computed(() => {
 			</div>
 			<div
 				class="my-auto mb-10 h-full flex justify-end mr-4 md:mr-0"
-				v-if="filteredEvents.length > 0"
+				v-if="filteredEvents.length > 1"
 			>
 				<button
 					@click="sortOrder = sortOrder === 'asc' ? 'desc' : 'asc'"
