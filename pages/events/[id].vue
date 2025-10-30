@@ -35,7 +35,7 @@ const goBack = () => {
 			Վերադառնալ
 		</button>
 
-		<div v-if="event" class="grid md:grid-cols-2 gap-10 items-start">
+		<div v-if="event" class="grid md:grid-cols-2 gap-5 sm:gap-7 md:gap-10 items-start">
 			<div class="overflow-hidden rounded-2xl shadow-lg">
 				<img
 					:src="event.image"
@@ -46,7 +46,7 @@ const goBack = () => {
 
 			<div class="flex flex-col gap-6">
 				<div>
-					<h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">
+					<h1 class="text-xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">
 						{{ event.title }}
 					</h1>
 					<span
