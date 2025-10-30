@@ -103,19 +103,19 @@ export function useEvents() {
       eventDate: true,
       emailSent: true,
     },
-    {
-      id: 8,
-      title: "Կարգին հաղորդման վիկտորինա #4",
-      date: "2025-11-07",
-      time: "20:00",
-      location: "Layers Yerevan, Երևան, Մեսրոպ Մաշտոցի պողոտա 37",
-      image: Kargin2,
-      description:
-        "Նոր ձևաչափով «Կարգին հաղորդման» վիկտորինա՝ հումորով ու հիշողություններով։ Մասնակցության վճար՝ 2000 AMD։",
-      category: "Վիկտորինա",
-      eventDate: true,
-      emailSent: false,
-    },
+    // {
+    //   id: 8,
+    //   title: "Կարգին հաղորդման վիկտորինա #4",
+    //   date: "2025-11-07",
+    //   time: "20:00",
+    //   location: "Layers Yerevan, Երևան, Մեսրոպ Մաշտոցի պողոտա 37",
+    //   image: Kargin2,
+    //   description:
+    //     "Նոր ձևաչափով «Կարգին հաղորդման» վիկտորինա՝ հումորով ու հիշողություններով։ Մասնակցության վճար՝ 2000 AMD։",
+    //   category: "Վիկտորինա",
+    //   eventDate: true,
+    //   emailSent: false,
+    // },
   ])
 
   async function addEvent(newEvent) {
