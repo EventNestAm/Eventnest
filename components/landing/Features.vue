@@ -4,7 +4,7 @@ import whatWhere from "@/assets/img/whatWhere.png?url";
 import Football from "@/assets/img/football.png?url";
 import Movie from "@/assets/img/movie.png?url";
 import Music from "@/assets/img/music.png?url";
-import kargincinema from "@/assets/img/kargincinema.jpeg?url";
+import Kargincinema from "@/assets/img/Kargincinema.jpeg?url";
 
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
@@ -19,7 +19,7 @@ const activeIndex = ref(0);
 const swiperImages = [
 	{
 		title: "Կարգին հաղորդում",
-		src: kargincinema,
+		src: Kargincinema,
 		description:
 			"Հումոր, սարկազմ և հայ իրականության ամենահասարակ, բայց ամենազվարճալի կողմերը՝ մեկ տեղում։ Սա է Կարգինը՝ այն հաղորդումը, որ միշտ հիշեցնում է՝ կյանքը պետք է ապրել ժպիտով։",
 	},
