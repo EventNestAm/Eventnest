@@ -4,7 +4,7 @@ import whatWhere from "@/assets/img/whatWhere.png?url";
 import Football from "@/assets/img/football.png?url";
 import Movie from "@/assets/img/movie.png?url";
 import Music from "@/assets/img/music.png?url";
-import Kargincinema from "@/assets/img/Kargincinema.jpeg?url";
+import Kargincinema from "@/assets/img/Kargincinema.png?url";
 
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
