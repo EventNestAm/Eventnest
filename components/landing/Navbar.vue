@@ -90,9 +90,7 @@ const scrollToTop = () => {
 								@click="handleClick(item.path)"
 								:class="[
 									'flex lg:px-3 py-2 text-black hover:text-[#00308F] font-bold',
-									route.path === item.path
-										? 'underline underline-offset-8 decoration-2 decoration-[#00308F]'
-										: '',
+									route.path === item.path ? '!text-[#00308F] font-bold' : '',
 								]"
 							>
 								{{ item.title }}
