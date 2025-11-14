@@ -100,7 +100,7 @@ export function useEvents() {
       description:
         "Նոր ձևաչափով «Կարգին հաղորդման» վիկտորինա՝ հումորով ու հիշողություններով։ Մասնակցության վճար՝ 2000 AMD։",
       category: "Վիկտորինա",
-      eventDate: true,
+      eventDate: false,
       emailSent: true,
     },
     // {
