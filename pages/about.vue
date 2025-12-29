@@ -5,6 +5,7 @@ import MiqoPhoto from "~/assets/img/Miqophoto.jpg";
 import Artphoto from "~/assets/img/Artphoto.jpg";
 import Davophoto from "~/assets/img/Davophoto.jpg";
 import Anahitphoto from "~/assets/img/Anahitphoto.jpg";
+import Asyaphoto from "~/assets/img/Asyaphoto.jpg";
 
 const router = useRouter();
 
@@ -33,9 +34,16 @@ const team = [
 	},
 	{
 		name: "Դավիթ Գուբրյան",
-		title: "Event Assistant",
+		title: "Events specialist",
 		avatar: {
 			src: Davophoto,
+		},
+	},
+	{
+		name: "Ասյա Գագինյան",
+		title: "Photographer",
+		avatar: {
+			src: Asyaphoto,
 		},
 	},
 	{
