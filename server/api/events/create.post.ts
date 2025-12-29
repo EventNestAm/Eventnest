@@ -1,5 +1,3 @@
-// server/api/events/create.post.ts
-console.log("🚀 /api/events/create endpoint loaded")
 import { defineEventHandler, readBody, createError } from 'h3'
 
 import { createClient } from '@supabase/supabase-js'
