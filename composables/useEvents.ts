@@ -103,19 +103,19 @@ export function useEvents() {
       eventDate: false,
       emailSent: true,
     },
-    // {
-    //   id: 8,
-    //   title: "Կարգին հաղորդման վիկտորինա #4",
-    //   date: "2025-11-07",
-    //   time: "20:00",
-    //   location: "Layers Yerevan, Երևան, Մեսրոպ Մաշտոցի պողոտա 37",
-    //   image: Kargin2,
-    //   description:
-    //     "Նոր ձևաչափով «Կարգին հաղորդման» վիկտորինա՝ հումորով ու հիշողություններով։ Մասնակցության վճար՝ 2000 AMD։",
-    //   category: "Վիկտորինա",
-    //   eventDate: true,
-    //   emailSent: false,
-    // },
+    {
+      id: 8,
+      title: "Կինո վիկտորինա",
+      date: "2026-01-08",
+      time: "19:00",
+      location: "30, 2 Պարոնյան փողոց, Երևան",
+      image: Movie,
+      description:
+        "Քո ուղեղը IMDb-ից լավն է՞։ Ապացուցիր՝ որքա՞ն լավ ես ճանաչում կինոաշխարհը։ Մասնակցության վճար՝ 3000 AMD։",
+      category: "Վիկտորինա",
+      eventDate: true,
+      emailSent: true,
+    },
   ])
 
   async function addEvent(newEvent) {
