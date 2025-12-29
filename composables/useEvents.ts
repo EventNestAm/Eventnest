@@ -105,7 +105,7 @@ export function useEvents() {
     },
     {
       id: 8,
-      title: "Կինո վիկտորինա",
+      title: "Կինո վիկտորինա #2",
       date: "2026-01-08",
       time: "19:00",
       location: "30, 2 Պարոնյան փողոց, Երևան",
