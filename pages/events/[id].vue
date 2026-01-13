@@ -71,7 +71,7 @@ const goBack = () => {
 					</button> -->
 				</div>
 				<EventRegistrationForm
-					class="absolute top-[30rem] sm:top-[18.75rem] lg:top-40 right-8 sm:-right-20 z-[20]"
+					class="absolute top-[30rem] sm:top-[18.75rem] lg:top-40 inset-x-0 sm:left-auto mx-auto sm:mx-0 right-0 sm:-right-20 z-[20]"
 				/>
 			</div>
 			<div
