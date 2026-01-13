@@ -106,8 +106,10 @@ export function useEvents() {
     {
       id: 8,
       title: "Կինո վիկտորինա #2",
-      date: "2026-01-08",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "Հունվարի 8",
       time: "19:00",
+      price: "3000 AMD",
       location: "Fresca, 30, 2 Պարոնյան փողոց, Երևան",
       image: Movie,
       description:

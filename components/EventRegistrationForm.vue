@@ -1,5 +1,9 @@
 <script setup>
 import { ref, onMounted } from "vue";
+import Person from "~/assets/icons/Person.vue";
+import Phone from "~/assets/icons/Phone.vue";
+import People from "~/assets/icons/People.vue";
+import CountPeople from "~/assets/icons/CountPeople.vue";
 
 const showModal = ref(false);
 const modalMessage = ref("");
@@ -59,82 +63,101 @@ function closeModal() {
 </script>
 
 <template>
-	<div class="bg-gradient-to-r from-purple-50 to-indigo-50 p-6 rounded-3xl shadow-lg">
-		<h2 class="text-xl font-bold text-purple-700 mb-4 text-center">Միջոցառման Գրանցում</h2>
+	<div
+		class="bg-gradient-to-br from-[#5B1F14]/90 via-[#7A2E1F]/85 to-[#E9C6BF]/80 backdrop-blur-xl rounded-3xl border border-white/20 shadow-[0_20px_60px_rgba(0,0,0,0.35)] p-6"
+	>
+		<h2 class="text-xl font-bold text-white mb-2 text-center">Միջոցառման Գրանցում</h2>
+
+		<p class="text-white text-center">Խելացի։ Սոցիալական։ Ինտերակտիվ։</p>
 
 		<form id="form" class="space-y-5 needs-validation" novalidate>
 			<input type="hidden" name="access_key" value="3e1280a2-2fcd-4743-9230-5520ed1b4548" />
 			<input type="checkbox" class="hidden" name="botcheck" />
 
-			<div class="grid sm:grid-cols-2 gap-5">
-				<div class="flex flex-col">
+			<div class="grid sm:grid-cols-2 gap-5 max-w-[30rem]">
+				<div class="relative w-full">
+					<Person
+						class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white pointer-events-none z-20"
+					/>
+
 					<input
 						type="text"
 						name="name"
 						placeholder="Անուն *"
 						required
-						class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-purple-500 outline-none transition"
+						class="w-full pl-12 pr-4 py-3 border border-gray-300 text-white placeholder:text-white rounded-xl outline-none transition relative z-10 bg-transparent"
 					/>
-					<div class="invalid-feedback text-red-500 text-sm mt-1">
+
+					<!-- <div class="invalid-feedback text-red-500 text-sm">
 						Խնդրում ենք մուտքագրել անունը
-					</div>
+					</div> -->
 				</div>
-				<div class="flex flex-col">
-					<input
-						type="text"
-						name="surname"
-						placeholder="Ազգանուն *"
-						required
-						class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-purple-500 outline-none transition"
-					/>
-					<div class="invalid-feedback text-red-500 text-sm mt-1">
+
+				<div class="w-full">
+					<div class="relative">
+						<Person
+							class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white pointer-events-none z-10"
+						/>
+
+						<input
+							type="text"
+							name="surname"
+							placeholder="Ազգանուն *"
+							required
+							class="w-full pl-12 pr-4 py-3 border border-gray-300 placeholder:text-white text-white rounded-xl outline-none transition bg-transparent"
+						/>
+					</div>
+
+					<div class="invalid-feedback text-red-500 text-sm ">
 						Խնդրում ենք մուտքագրել ազգանունը
 					</div>
 				</div>
 			</div>
 
-			<div>
-				<input
-					type="tel"
-					name="phone"
-					placeholder="Հեռախոսահամար *"
-					required
-					class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-purple-500 outline-none transition"
-				/>
-				<div class="invalid-feedback text-red-500 text-sm mt-1">
-					Խնդրում ենք մուտքագրել ձեր հեռախոսահամարը
+			<div class="w-full">
+				<div class="relative">
+					<Phone
+						class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white pointer-events-none z-10"
+					/>
+					<input
+						type="tel"
+						name="phone"
+						placeholder="Հեռախոսահամար *"
+						required
+						class="w-full pl-12 pr-4 py-3 border border-gray-300 placeholder:text-white text-white rounded-xl outline-none transition bg-transparent"
+					/>
+					<!-- <div class="invalid-feedback text-red-500 text-sm mt-1">
+						Խնդրում ենք մուտքագրել ձեր հեռախոսահամարը
+					</div> -->
 				</div>
 			</div>
 
-			<div>
-				<input
-					type="text"
-					name="groupName"
-					placeholder="Խմբի անուն (ըստ ցանկության)"
-					class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-purple-500 outline-none transition"
-				/>
-			</div>
-
-			<div>
-				<input
-					type="number"
-					name="peopleCount"
-					placeholder="Քանի հոգի եք գալիս *"
-					min="1"
-					required
-					class="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:border-purple-500 outline-none transition"
-				/>
-				<div class="invalid-feedback text-red-500 text-sm mt-1">
-					Խնդրում ենք նշել մարդկանց թիվը
+			<div class="w-full">
+				<div class="relative">
+					<count-people
+						class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white pointer-events-none z-10"
+					/>
+					<input
+						type="number"
+						name="peopleCount"
+						placeholder="Քանի հոգի եք գալիս *"
+						min="1"
+						required
+						class="w-full pl-12 pr-4 py-3 border border-gray-300 placeholder:text-white text-white rounded-xl outline-none transition bg-transparent"
+					/>
+					<!-- <div class="invalid-feedback text-red-500 text-sm mt-1">
+						Խնդրում ենք նշել մարդկանց թիվը
+					</div> -->
 				</div>
 			</div>
 
 			<button
 				type="submit"
-				class="w-full py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-full shadow-lg hover:scale-105 transition transform relative overflow-hidden"
+				class="py-3 px-5 flex justify-center items-center mx-auto bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-full shadow-lg hover:scale-105 transition transform relative overflow-hidden"
 			>
-				Գրանցվել
+				Հաստատել գրանցումը
 			</button>
+			<p class="text-white text-center">* Տեղերը Սահմանափակ են</p>
 		</form>
 
 		<!-- Modal -->
