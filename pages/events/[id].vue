@@ -86,11 +86,11 @@ const goBack = () => {
 					<div class="mt-8 grid gap-5">
 						<div class="flex gap-2">
 							<Checked />
-							<p>Վարում է մոդերատորը</p>
+							<p>Վարում է խաղավարը</p>
 						</div>
 						<div class="flex gap-2">
 							<Checked />
-							<p>Կենդանի փոխազդեցություն</p>
+							<p>Իրական հաղորդակցություն</p>
 						</div>
 						<div class="flex gap-2">
 							<Checked />

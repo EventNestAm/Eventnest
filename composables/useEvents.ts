@@ -113,7 +113,7 @@ export function useEvents() {
       location: "Fresca, 30, 2 Պարոնյան փողոց, Երևան",
       image: Movie,
       description:
-        "Քո ուղեղը IMDb-ից լավն է՞։ Ապացուցիր՝ որքա՞ն լավ ես ճանաչում կինոաշխարհը։ Մասնակցության վճար՝ 3000 AMD։",
+        "Քո ուղեղը IMDb-ից լավն է՞։ Ապացուցիր՝ որքա՞ն լավ ես ճանաչում կինոաշխարհը",
       category: "Վիկտորինա",
       eventDate: true,
       emailSent: true,

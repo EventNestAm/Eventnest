@@ -2,7 +2,6 @@
 import { ref, onMounted } from "vue";
 import Person from "~/assets/icons/Person.vue";
 import Phone from "~/assets/icons/Phone.vue";
-import People from "~/assets/icons/People.vue";
 import CountPeople from "~/assets/icons/CountPeople.vue";
 
 const showModal = ref(false);
