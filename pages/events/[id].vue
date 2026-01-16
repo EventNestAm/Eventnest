@@ -53,7 +53,7 @@ const goBack = () => {
 					</div>
 
 					<div class="text-white flex flex-col sm:flex-row flex-wrap gap-5 items-center">
-						<p class="flex items-center gap-2"><Calendar /> {{ event.date }}</p>
+						<p class="flex items-center gap-2"><Calendar /> {{ event.dateTitle }}</p>
 						<Circle />
 
 						<p class="flex items-center gap-2"><Clock />{{ event.time }}</p>
