@@ -4,7 +4,6 @@ definePageMeta({
 });
 import EventRegistrationForm from "@/components/EventRegistrationForm.vue";
 import { useEvents } from "@/composables/useEvents";
-import Quiz from "@/assets/img/quiz.png?url";
 import Calendar from "~/assets/icons/Calendar.vue";
 import Clock from "~/assets/icons/Clock.vue";
 import Ticket from "~/assets/icons/Ticket.vue";
@@ -36,7 +35,18 @@ const goBack = () => {
 	<div class="py-12 mt-10">
 		<div v-if="event">
 			<div class="relative md:mr-[8rem]">
-				<img :src="Quiz" :alt="event.title" class="w-full h-[820px] object-cover" />
+				<NuxtImg
+					src="/img/quiz.png"
+					:alt="event.title"
+					width="1920"
+					height="820"
+					sizes="100vw lg:80vw"
+					format="webp"
+					quality="100"
+					preload
+					priority
+					class="w-full h-[820px] object-cover"
+				/>
 
 				<div
 					class="absolute -bottom-[10px] lg:-bottom-[18.75rem] left-0 w-full h-full flex flex-col gap-6 p-6 md:p-10 z-[10] max-w-[54rem] xl:max-w-none"
