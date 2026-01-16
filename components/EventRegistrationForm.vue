@@ -139,7 +139,7 @@ function closeModal() {
 					<input
 						type="number"
 						name="peopleCount"
-						placeholder="Քանի հոգի եք գալիս *"
+						placeholder="Մասնակիցների քանակը *"
 						min="1"
 						required
 						class="w-full pl-12 pr-4 py-3 border border-gray-300 placeholder:text-white text-white rounded-xl outline-none transition bg-transparent"
