@@ -25,7 +25,7 @@ const participantsCount = useCountUp(2000);
 </script>
 
 <template>
-	<div class="flex gap-6 mt-8 flex-wrap">
+	<div class="flex gap-6 mt-8 flex-wrap justify-center sm:justify-normal">
 		<div class="card flex flex-col items-center p-6 transition hover:scale-[1.03]">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
