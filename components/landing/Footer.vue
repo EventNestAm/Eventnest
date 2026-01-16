@@ -22,10 +22,12 @@ const scrollToTop = () => {
 </script>
 
 <template>
-	<footer class="mt-20 bg-[#EADDFF]">
+	<footer
+		class="mt-20 relative before:absolute before:top-0 before:left-0 before:w-full before:h-px before:bg-gradient-to-r before:from-transparent before:via-black/20 before:to-transparent shadow-[0_-12px_30px_rgba(0,0,0,0.04)]"
+	>
 		<LandingContainer>
 			<div
-				class="grid gap-8 sm:gap-12 md:gap-16 pt-12 md:pt-20 lg:pt-32 pb-12 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 place-items-center sm:place-items-start"
+				class="grid gap-10 sm:gap-14 md:gap-20 pt-16 md:pt-24 lg:pt-32 pb-14 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 place-items-center sm:place-items-start"
 			>
 				<div
 					class="flex flex-col items-center sm:items-start border-b sm:border-b-0 border-b-[#d000d8] pb-5"
@@ -40,7 +42,7 @@ const scrollToTop = () => {
 						/>
 					</NuxtLink>
 					<p
-						class="mt-4 text-base sm:text-lg md:text-xl text-black max-w-xs md:max-w-sm font-medium uppercase"
+						class="mt-4 text-sm sm:text-base uppercase tracking-[0.25em] text-black/70 max-w-xs"
 					>
 						<span class="text-[#d000d8] font-bold text-lg sm:text-xl md:text-2xl"
 							>Remember</span
@@ -55,7 +57,9 @@ const scrollToTop = () => {
 				<div
 					class="flex flex-col items-center sm:items-start border-b sm:border-b-0 border-b-[#d000d8] pb-5"
 				>
-					<h2 class="text-black font-bold text-lg mb-6 sm:mb-8 md:mb-10">
+					<h2
+						class="text-black font-semibold tracking-wide text-lg mb-8 after:block after:w-10 after:h-px after:bg-black/20 after:mt-3"
+					>
 						Արագ հղումներ
 					</h2>
 					<nav>
@@ -67,8 +71,10 @@ const scrollToTop = () => {
 									:to="item.path"
 									@click="handleClick(item.path)"
 									:class="[
-										'flex py-1 sm:py-2 text-black hover:text-[#00308F]',
-										route.path === item.path ? '!text-[#00308F] font-bold' : '',
+										'flex py-1 sm:py-2 text-black transition-all duration-200 hover:translate-x-1 hover:opacity-100',
+										route.path === item.path
+											? '!text-black font-bold'
+											: 'opacity-70',
 									]"
 								>
 									{{ item.title }}
@@ -81,11 +87,15 @@ const scrollToTop = () => {
 				<div
 					class="flex flex-col items-center sm:items-start border-b sm:border-b-0 border-b-[#d000d8] pb-5"
 				>
-					<h2 class="text-black font-bold text-lg mb-6 sm:mb-8 md:mb-10">Կապ մեզ հետ</h2>
+					<h2
+						class="text-black font-semibold tracking-wide text-lg mb-8 after:block after:w-10 after:h-px after:bg-black/20 after:mt-3"
+					>
+						Կապ մեզ հետ
+					</h2>
 					<div class="flex flex-col gap-2 sm:gap-3 md:gap-4 items-center sm:items-start">
 						<a
 							href="tel:+37496000099"
-							class="flex gap-2 sm:gap-3 items-center py-1 sm:py-2"
+							class="flex gap-2 sm:gap-3 items-center py-1 sm:py-2 transition-all duration-200 hover:translate-x-1 hover:opacity-90"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -104,7 +114,7 @@ const scrollToTop = () => {
 
 						<a
 							href="mailto:eventnest.am@gmail.com"
-							class="flex gap-2 sm:gap-3 items-center py-1 sm:py-2"
+							class="flex gap-2 sm:gap-3 items-center py-1 sm:py-2 transition-all duration-200 hover:translate-x-1 hover:opacity-90"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +131,9 @@ const scrollToTop = () => {
 							eventnest.am@gmail.com
 						</a>
 
-						<p class="flex gap-2 sm:gap-3 items-center py-1 sm:py-2">
+						<p
+							class="flex gap-2 sm:gap-3 items-center py-1 sm:py-2 transition-all duration-200 hover:translate-x-1 hover:opacity-90"
+						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								width="15"
@@ -140,9 +152,14 @@ const scrollToTop = () => {
 				</div>
 
 				<div>
-					<h2 class="text-black font-bold text-lg mb-6 sm:mb-8 md:mb-10">Միացիր մեզ</h2>
+					<h2
+						class="text-black font-semibold tracking-wide text-lg mb-8 after:block after:w-10 after:h-px after:bg-black/20 after:mt-3"
+					>
+						Միացիր մեզ
+					</h2>
 					<div class="flex gap-5">
 						<NuxtLink
+							class="w-10 h-10 rounded-full border border-black/15 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
 							to="https://www.facebook.com/p/Eventnestam-61573604121906/"
 							target="_blank"
 							><svg
@@ -157,7 +174,10 @@ const scrollToTop = () => {
 									fill="#000000"
 								/></svg
 						></NuxtLink>
-						<NuxtLink target="_blank" to="https://www.instagram.com/eventnest.am/"
+						<NuxtLink
+							target="_blank"
+							to="https://www.instagram.com/eventnest.am/"
+							class="w-10 h-10 rounded-full border border-black/15 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
 							><svg
 								xmlns="http://www.w3.org/2000/svg"
 								width="27"
@@ -170,7 +190,11 @@ const scrollToTop = () => {
 									fill="#000000"
 								/></svg
 						></NuxtLink>
-						<NuxtLink target="_blank" to="https://www.tiktok.com/@eventnest.am">
+						<NuxtLink
+							target="_blank"
+							to="https://www.tiktok.com/@eventnest.am"
+							class="w-10 h-10 rounded-full border border-black/15 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								width="27"
@@ -188,7 +212,7 @@ const scrollToTop = () => {
 				</div>
 			</div>
 
-			<p class="text-sm text-center text-black pt-8 md:pt-10 pb-6 md:pb-10">
+			<p class="text-xs sm:text-sm text-center text-black/60 pt-10 pb-8 tracking-wide">
 				Հեղինակային իրավունք © Eventnest {{ new Date().getFullYear() }}. Բոլոր իրավունքները
 				պաշտպանված են.
 			</p>
