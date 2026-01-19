@@ -6,7 +6,7 @@
 			<img
 				class="rounded-full transition-transform transform md:hover:scale-110"
 				src="~/assets/img/ourPicture.jpg"
-				alt="Starship starts the engine"
+				alt="միջոցառումների կազմակերպում EventNest"
 				loading="eager"
 				width="512"
 				height="512"

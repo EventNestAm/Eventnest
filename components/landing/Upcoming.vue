@@ -1,5 +1,4 @@
 <script setup>
-
 const { events, filteredEvents, formatDate } = defineProps([
 	"events",
 	"filteredEvents",
@@ -17,7 +16,7 @@ const { events, filteredEvents, formatDate } = defineProps([
 				<div class="relative">
 					<img
 						:src="event.image"
-						:alt="event.title"
+						alt="միջոցառումների կազմակերպում EventNest"
 						class="w-20 h-20 object-cover"
 						loading="lazy"
 					/>

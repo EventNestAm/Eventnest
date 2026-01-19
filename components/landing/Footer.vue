@@ -37,7 +37,7 @@ const scrollToTop = () => {
 							src="/eventnestLogo.png"
 							width="100"
 							height="100"
-							alt="Home Logo"
+							alt="միջոցառումների կազմակերպում EventNest"
 							class="w-24 sm:w-28 md:w-32 lg:w-36 h-auto object-contain"
 						/>
 					</NuxtLink>

@@ -4,12 +4,16 @@ import { useWindowSize } from "@vueuse/core";
 const { width } = useWindowSize();
 
 useSeoMeta({
-	title: "EventNest — Fun, Smart & Social Events",
-	description: "Join our quizzes, mafia games, and win great prizes!",
-	ogTitle: "EventNest Armenia",
-	ogDescription: "Fun and smart games with cool gifts!",
+	title: "Միջոցառումների և կորպորատիվ կազմակերպում Երևանում | EventNest",
+	description:
+		"EventNest-ը ստեղծում է հիշվող փորձառություններ՝ առաջարկելով միջոցառումների և կորպորատիվների կազմակերպում բարձր պրոֆեսիոնալ մակարդակով։",
+
+	ogTitle: "Միջոցառումների և կորպորատիվ կազմակերպում | EventNest",
+	ogDescription:
+		"EventNest-ը ստեղծում է հիշվող փորձառություններ՝ առաջարկելով միջոցառումների և կորպորատիվների կազմակերպում բարձր պրոֆեսիոնալ մակարդակով։",
 	ogImage: "/eventnestLogo.jpg",
 	ogUrl: "https://eventnest.am",
+
 	twitterCard: "summary_large_image",
 });
 

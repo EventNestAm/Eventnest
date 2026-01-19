@@ -25,7 +25,9 @@ const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
 
 <template>
 	<section>
-		<h2 class="sm:text-xl text-2xl md:text-3xl font-bold lg:tracking-tight text-black uppercase text-center">
+		<h2
+			class="sm:text-xl text-2xl md:text-3xl font-bold lg:tracking-tight text-black uppercase text-center"
+		>
 			Մեր գործընկերները
 		</h2>
 
@@ -43,7 +45,7 @@ const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
 				>
 					<img
 						:src="logo.src"
-						alt="Partner Logo"
+						alt="միջոցառումների կազմակերպում EventNest"
 						class="w-full h-full object-cover rounded-2xl"
 					/>
 				</a>
