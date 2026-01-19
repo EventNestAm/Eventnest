@@ -10,18 +10,32 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ['@nuxt/ui', '@nuxt/image',],
-  //  '@nuxtjs/gtm'
-  // , '@nuxtjs/sitemap'
-  // sitemap: {
-  //   hostname: 'https://eventnest.am',
-  //   gzip: true,
-  // },
-  // gtm: {
-  //   id: 'GTM-TZDK52SP',
-  //   debug: false,
-  //   enabled: true,
-  // },
+  modules: ['@nuxt/ui', '@nuxt/image', 'nuxt-simple-sitemap'],
+  site: {
+    url: 'https://www.eventnest.am',
+
+    sitemap: {
+      routes: [
+        '/about',
+        '/upcoming-events',
+        '/shop',
+        '/contact',
+        '/events/1',
+        '/events/2',
+        '/events/3',
+        '/events/4',
+        '/events/5',
+        '/events/6',
+        '/events/7',
+        '/events/8'
+      ],
+      defaults: {
+        changefreq: 'weekly',
+        priority: 0.8
+      }
+    }
+  },
+
   image: {
     format: ['webp'],
     screens: {
