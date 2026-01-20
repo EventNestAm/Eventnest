@@ -46,4 +46,11 @@ export default defineNuxtConfig({
       'xl': 1441,
     },
   },
+
+  app: {
+    head: {
+      link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }
+      ]
+    }
+  }
 });
