@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const { t } = useI18n();
+</script>
 
 <template>
 	<main class="grid lg:grid-cols-2 place-items-center pb-8 pt-32 sm:pt-28 lg:pt-8">
@@ -33,7 +35,7 @@
 					rel="noopener"
 					href="/contact"
 					target=""
-					>Միացիր Մեզ</LandingLink
+					>{{ t("JOIN_US") }}</LandingLink
 				>
 			</div>
 		</div>

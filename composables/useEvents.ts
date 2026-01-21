@@ -116,7 +116,7 @@ export function useEvents() {
       description:
         "Քո ուղեղը IMDb-ից լավն է՞։ Ապացուցիր՝ որքա՞ն լավ ես ճանաչում կինոաշխարհը",
       category: "Վիկտորինա",
-      eventDate: false,
+      eventDate: true,
       emailSent: true,
     },
   ])

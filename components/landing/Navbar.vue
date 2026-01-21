@@ -1,28 +1,14 @@
 <script setup>
+const { t } = useI18n();
+const localePath = useLocalePath();
 const route = useRoute();
-const menuitems = [
-	{
-		title: "Գլխավոր էջ",
-		path: "/",
-	},
-
-	{
-		title: "Մեր Մասին",
-		path: "/about",
-	},
-	{
-		title: "Գալիք միջոցառումներ",
-		path: "/upcoming-events",
-	},
-	{
-		title: "Խանութ",
-		path: "/shop",
-	},
-	{
-		title: "Կապ",
-		path: "/contact",
-	},
-];
+const menuitems = computed(() => [
+	{ title: t("HOME_PAGE"), path: localePath("/") },
+	{ title: t("ABOUT"), path: localePath("/about") },
+	{ title: t("UPCOMING_EVENTS"), path: localePath("/upcoming-events") },
+	{ title: t("SHOP"), path: localePath("/shop") },
+	{ title: t("CONTACT"), path: localePath("/contact") },
+]);
 
 const open = ref(false);
 const clickedPath = ref(null);
@@ -55,7 +41,9 @@ const scrollToTop = () => {
 						/>
 					</NuxtLink>
 
-					<div class="lg:hidden w-24 h-24 flex items-center justify-center">
+					<div class="lg:hidden w-24 h-24 flex items-center justify-center gap-5">
+						<LanguageSwitcher />
+
 						<button @click="open = !open" class="text-gray-800">
 							<svg
 								fill="currentColor"
@@ -97,6 +85,7 @@ const scrollToTop = () => {
 							</NuxtLink>
 						</li>
 					</ul>
+
 					<div class="lg:hidden flex items-center mt-3 gap-4 mb-5">
 						<LandingLink
 							href="/login"
@@ -111,19 +100,22 @@ const scrollToTop = () => {
 						>
 					</div>
 				</nav>
-				<div>
-					<div class="hidden lg:flex items-center gap-4">
+
+				<div class="hidden lg:flex items-center gap-5">
+					<LanguageSwitcher />
+
+					<div class="flex items-center gap-4">
 						<LandingLink
 							href="/login"
 							styleName="muted"
 							block
 							size="md"
 							class="rounded-full"
-							>Մուտք</LandingLink
+							>{{ t("LOGIN") }}</LandingLink
 						>
-						<LandingLink size="md" href="/register" class="rounded-full"
-							>Գրանցվել</LandingLink
-						>
+						<LandingLink size="md" href="/register" class="rounded-full">{{
+							t("LOGOUT")
+						}}</LandingLink>
 					</div>
 				</div>
 			</header>

@@ -10,7 +10,7 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ['@nuxt/ui', '@nuxt/image', 'nuxt-simple-sitemap'],
+  modules: ['@nuxt/ui', '@nuxt/image', 'nuxt-simple-sitemap', "@nuxtjs/i18n"],
   site: {
     url: 'https://www.eventnest.am',
 
@@ -34,6 +34,23 @@ export default defineNuxtConfig({
         priority: 0.8
       }
     }
+  },
+
+  i18n: {
+    defaultLocale: "hy",
+    strategy: "prefix_except_default",
+    lazy: true,
+    langDir: "locales/",
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: "i18n_redirected",
+      redirectOn: "root",
+    },
+    locales: [
+      { code: "hy", iso: "hy-AM", name: "Հայերեն", file: "hy.json", },
+      { code: "en", iso: "en-US", name: "English", file: "en.json", },
+      { code: "ru", iso: "ru-RU", name: "Русский", file: "ru.json", },
+    ],
   },
 
   image: {
