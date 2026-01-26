@@ -117,7 +117,7 @@ defineProps({
 
 			<div class="mt-auto">
 				<NuxtLink
-					:to="event.eventDate ? `/events/${event.id}` : null"
+					:to="event.eventDate ? `/events/${event.slug}` : null"
 					class="group inline-flex items-center gap-2 px-5 py-2 rounded-full font-semibold shadow-md transition-all duration-300 relative"
 					:class="[
 						event.eventDate

@@ -18,9 +18,10 @@ const route = useRoute();
 const router = useRouter();
 const eventId = route.params.id;
 
-const { events } = useEvents();
+const eventSlug = route.params.slug;
 
-const event = events?.value?.find((e) => e.id === Number(eventId));
+const { events } = useEvents();
+const event = events.value.find((e) => e.slug === eventSlug);
 
 const goBack = () => {
 	if (window.history.length > 1) {

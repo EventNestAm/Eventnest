@@ -15,6 +15,7 @@ export function useEvents() {
     {
       id: 1,
       title: "Կարգին հաղորդման վիկտորինա",
+      slug: "kargin-haxordman-viktorina-1",
       date: "2025-08-01",
       time: "20:00",
       location: "73 Club, Երևան, Խանջյան փողոց, 33",
@@ -28,6 +29,7 @@ export function useEvents() {
     {
       id: 2,
       title: "Ֆուտբոլային վիկտորինա",
+      slug: "futbolayin-1",
       date: "2025-08-08",
       time: "20:00",
       location: "73 Club, Երևան, Խանջյան փողոց, 33",
@@ -41,6 +43,7 @@ export function useEvents() {
     {
       id: 3,
       title: "Երաժշտական վիկտորինա",
+      slug: "erajshtakan-1",
       date: "2025-08-15",
       time: "20:00",
       location: "73 Club, Երևան, Խանջյան փողոց, 33",
@@ -54,6 +57,7 @@ export function useEvents() {
     {
       id: 4,
       title: "Ի՞նչ որտե՞ղ ե՞րբ",
+      slug: "inch-vortex-erb-1",
       date: "2025-08-22",
       time: "20:00",
       location: "73 Club, Երևան, Խանջյան փողոց, 33",
@@ -67,6 +71,7 @@ export function useEvents() {
     {
       id: 5,
       title: "Կինո վիկտորինա",
+      slug: "kino-viktorina-1",
       date: "2025-08-29",
       time: "20:00",
       location: "73 Club, Երևան, Խանջյան փողոց, 33",
@@ -80,6 +85,7 @@ export function useEvents() {
     {
       id: 6,
       title: "Կարգին հաղորդման վիկտորինա #2",
+      slug: "kargin-haxordman-viktorina-2",
       date: "2025-10-12",
       time: "20:00",
       location: "Layers Yerevan, Երևան, Մեսրոպ Մաշտոցի պողոտա 37",
@@ -93,6 +99,7 @@ export function useEvents() {
     {
       id: 7,
       title: "Կարգին հաղորդման վիկտորինա #3",
+      slug: "kargin-haxordman-viktorina-3",
       date: "2025-11-07",
       time: "20:00",
       location: "Layers Yerevan, Երևան, Մեսրոպ Մաշտոցի պողոտա 37",
@@ -106,6 +113,7 @@ export function useEvents() {
     {
       id: 8,
       title: "Կինո վիկտորինա #2",
+      slug: "kino-viktorina-2",
       titleDesc: "An evening of strategy, emotions and people like you",
       date: "2026-01-07",
       dateTitle: "Հունվարի 8",
@@ -122,6 +130,7 @@ export function useEvents() {
     {
       id: 9,
       title: "Կարգին հաղորդման վիկտորինա #4",
+      slug: "kargin-haxordman-viktorina-4",
       titleDesc: "An evening of strategy, emotions and people like you",
       date: "2026-02-12",
       dateTitle: "Փետրվարի 12",
