@@ -116,6 +116,22 @@ export function useEvents() {
       description:
         "Քո ուղեղը IMDb-ից լավն է՞։ Ապացուցիր՝ որքա՞ն լավ ես ճանաչում կինոաշխարհը",
       category: "Վիկտորինա",
+      eventDate: false,
+      emailSent: true,
+    },
+    {
+      id: 9,
+      title: "Կարգին հաղորդման վիկտորինա #4",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-02-12",
+      dateTitle: "Փետրվարի 12",
+      time: "19:00",
+      price: "3000 AMD",
+      location: "Loft - Մոսկովյան 3Ա",
+      image: Kargin2,
+      description:
+        "Ֆանտաստիկադ լա՞վ է աշխատում, քեզ համար կարևո՞ր է հաճելի Լաուրան ու և բայց սակայն փնտրում ես ավելի՞ն..",
+      category: "Վիկտորինա",
       eventDate: true,
       emailSent: true,
     },
