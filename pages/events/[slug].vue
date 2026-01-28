@@ -16,7 +16,6 @@ import Heart from "~/assets/icons/Heart.vue";
 
 const route = useRoute();
 const router = useRouter();
-const eventId = route.params.id;
 
 const eventSlug = route.params.slug;
 
