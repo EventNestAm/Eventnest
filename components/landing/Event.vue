@@ -121,7 +121,7 @@ const swiperImages2 = [
 
 		<div class="swiper-pagination-mafia flex justify-center"></div>
 
-		<h2 class="sm:text-xl text-2xl md:text-3xl font-semibold text-black mx-auto">Ինչ որտեղ երբ</h2>
+		<h2 class="sm:text-xl text-2xl md:text-3xl font-semibold text-black mx-auto">Ի՞նչ Որտե՞ղ Ե՞րբ</h2>
 
 		<Swiper
 			:slidesPerView="1.5"
