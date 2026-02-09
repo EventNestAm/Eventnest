@@ -20,14 +20,15 @@ export default defineNuxtConfig({
         '/upcoming-events',
         '/shop',
         '/contact',
-        '/events/1',
-        '/events/2',
-        '/events/3',
-        '/events/4',
-        '/events/5',
-        '/events/6',
-        '/events/7',
-        '/events/8'
+        '/events/kargin-haxordman-viktorina-1',
+        '/events/futbolayin-1',
+        '/events/erajshtakan-1',
+        '/events/inch-vortex-erb-1',
+        '/events/kino-viktorina-1',
+        '/events/kargin-haxordman-viktorina-2',
+        '/events/kargin-haxordman-viktorina-3',
+        '/events/kino-viktorina-2',
+        '/events/kargin-haxordman-viktorina-4',
       ],
       defaults: {
         changefreq: 'weekly',
@@ -66,7 +67,12 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      link: [{ rel: 'icon', type: 'image/png', href: '/favicon.ico', sizes: 'any' }
+      link: [
+        {
+          rel: 'icon',
+          type: 'image/x-icon',
+          href: '/favicon.ico'
+        }
       ]
     }
   }
