@@ -6,6 +6,8 @@ definePageMeta({
 import EventCard from "@/components/EventCard.vue";
 import { useEvents } from "@/composables/useEvents";
 
+const { t } = useI18n();
+
 const { events, formatDate } = useEvents();
 
 const sortOrder = ref("desc");
@@ -14,18 +16,18 @@ const sortedEvents = computed(() =>
 		return sortOrder.value === "asc"
 			? new Date(a.date) - new Date(b.date)
 			: new Date(b.date) - new Date(a.date);
-	})
+	}),
 );
 const displayedEvents = computed(() => {
 	return [...filteredEvents.value].sort((a, b) =>
 		sortOrder.value === "asc"
 			? new Date(a.date) - new Date(b.date)
-			: new Date(b.date) - new Date(a.date)
+			: new Date(b.date) - new Date(a.date),
 	);
 });
 
-const categories = ["Բոլորը", "Վիկտորինա", "Ի՞նչ որտե՞ղ ե՞րբ", "Ֆուտբոլ", "Մաֆիա"];
-const selectedCategory = ref("Բոլորը");
+const categories = [t("ALL"), t("QUIZ"), t("WHAT_WHERE_WHEN"), t("FOOTBALL"), t("MAFIA")];
+const selectedCategory = ref( t("All"));
 const searchQuery = ref("");
 
 const selectedDate = ref("");
@@ -33,7 +35,7 @@ const selectedDate = ref("");
 const filteredEvents = computed(() => {
 	return events.value.filter((event) => {
 		const matchesCategory =
-			selectedCategory.value === "Բոլորը" ||
+			selectedCategory.value === t("All") ||
 			event.title.includes(selectedCategory.value) ||
 			event.description.includes(selectedCategory.value) ||
 			(event.category && event.category.includes(selectedCategory.value));
@@ -47,6 +49,8 @@ const filteredEvents = computed(() => {
 		return matchesCategory && matchesSearch && matchesDate;
 	});
 });
+
+const placeholder = computed(() => t("SEARCH_WITH"));
 </script>
 
 <template>
@@ -55,7 +59,7 @@ const filteredEvents = computed(() => {
 			<h1
 				class="text-black uppercase text-xl sm:text-2xl md:text-3xl font-bold pt-32 sm:pt-28"
 			>
-				Մոտակա միջոցառումներ
+				{{ t("UPCOMING_EVENTS") }}
 			</h1>
 		</template>
 	</LandingSectionhead>
@@ -63,15 +67,18 @@ const filteredEvents = computed(() => {
 	<section
 		class="bg-gradient-to-r from-purple-500 to-indigo-600 py-6 sm:py-8 md:py-12 px-4 text-center text-white my-6 sm:my-8 md:my-10"
 	>
-		<h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-4">Գտեք Ձեր ցանկալի միջոցառումը</h2>
+		<h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-4">
+			{{ t("FIND_YOUR_EVENT") }}
+		</h2>
 		<p class="text-lg text-purple-100 max-w-2xl mx-auto">
-			Միացիր մեզ և անցկացրու անմոռանալի երեկոներ EventNest-ում։
+			{{ t("JOIN_US_AND") }}
 		</p>
 		<div class="mt-8 flex flex-wrap justify-center gap-4">
 			<input
+				v-if="t('SEARCH_WITH')"
 				v-model="searchQuery"
 				type="text"
-				placeholder="Որոնել միջոցառման անվանումով"
+				:placeholder="placeholder"
 				class="px-4 py-3 rounded-xl border-0 shadow-md w-72 focus:ring-2 focus:ring-purple-300 focus:outline-none text-black"
 			/>
 			<input
@@ -107,7 +114,12 @@ const filteredEvents = computed(() => {
 					@click="sortOrder = sortOrder === 'asc' ? 'desc' : 'asc'"
 					class="w-fit px-3 py-1.5 bg-purple-600 text-white rounded-md whitespace-nowrap"
 				>
-					Դասավորել: {{ sortOrder === "asc" ? "Հին → Նոր" : "Նոր → Հին" }}
+					{{ t("SORT_BY") }}:
+					{{
+						sortOrder === "NEW"
+							? t("OLD") + " → " + t("NEW")
+							: t("NEW") + " → " + t("OLD")
+					}}
 				</button>
 			</div>
 		</div>
@@ -169,6 +181,8 @@ button:focus {
 }
 
 .shadow-md {
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	transition:
+		transform 0.3s ease,
+		box-shadow 0.3s ease;
 }
 </style>

@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from "vue";
-
+const { t } = useI18n();
 function useCountUp(target, duration = 1500) {
 	const display = ref(0);
 	onMounted(() => {
@@ -42,7 +42,7 @@ const participantsCount = useCountUp(2000);
 			</svg>
 
 			<p class="text-4xl font-semibold text-[#00308F]">{{ eventsCount }}+</p>
-			<p class="text-sm text-gray-600 text-center">միջոցառումներ կազմակերպված</p>
+			<p class="text-sm text-gray-600 text-center">{{ t("ORGANIZED_EVENTS") }}</p>
 		</div>
 
 		<div class="card flex flex-col items-center p-6 transition hover:scale-[1.03]">
@@ -61,7 +61,7 @@ const participantsCount = useCountUp(2000);
 			</svg>
 
 			<p class="text-4xl font-semibold text-[#00308F]">{{ participantsCount }}+</p>
-			<p class="text-sm text-gray-600 text-center">ուրախ մասնակիցներ</p>
+			<p class="text-sm text-gray-600 text-center">{{ t("ORGANIZED_EVENTS") }}</p>
 		</div>
 	</div>
 </template>

@@ -1,5 +1,4 @@
 <script setup>
-import CommingSoon from "~/assets/img/commingSoon.jpg";
 import JoinUs from "~/assets/img/joinUs.png";
 import MiqoPhoto from "~/assets/img/Miqophoto.jpg";
 import Artphoto from "~/assets/img/Artphoto.jpg";
@@ -13,50 +12,49 @@ definePageMeta({
 	layout: "landing",
 });
 
-const TeamImg1 = CommingSoon;
-const TeamImg2 = CommingSoon;
 const TeamImg3 = JoinUs;
-
+const { t } = useI18n();
+const localePath = useLocalePath();
 const team = [
 	{
 		name: "Միքայել Գուբրյան",
-		title: "CEO & Founder",
+		title: t("CEO_FOUNDER"),
 		avatar: {
 			src: MiqoPhoto,
 		},
 	},
 	{
 		name: "Արթուր Դերձյան",
-		title: "Creative Director",
+		title: t("CREATIVE_DIRECTOR"),
 		avatar: {
 			src: Artphoto,
 		},
 	},
 	{
 		name: "Դավիթ Գուբրյան",
-		title: "Events specialist",
+		title: t("EVENTS_SPECIALIST"),
 		avatar: {
 			src: Davophoto,
 		},
 	},
 	{
 		name: "Ասյա Գագինյան",
-		title: "Photographer",
+		title: t("PHOTOGRAPHER"),
 		avatar: {
 			src: Asyaphoto,
 		},
 	},
 	{
 		name: "Անահիտ Ալոյան",
-		title: "Designer",
+		title: t("DESIGNER"),
 		avatar: {
 			src: Anahitphoto,
 		},
 	},
 	{
-		name: "Հենց ԴՈՒ",
-		title: "Սպասումենք քո առաջարկին",
-		link: "/contact",
+		name: t("ITS_YOU"),
+		title: t("WAITING_FOR_YOU"),
+		link: localePath("/contact"),
 		avatar: {
 			src: TeamImg3,
 		},
@@ -75,21 +73,20 @@ const team = [
 	<LandingContainer>
 		<div class="mt-10"></div>
 		<LandingSectionhead>
-			<template v-slot:title>Մեր մասին</template>
+			<template v-slot:title>{{ t("ABOUT_US") }}</template>
 			<template v-slot:desc>We are a small passionate team.</template>
 		</LandingSectionhead>
 
 		<div class="flex flex-col gap-3 mx-auto mt-4">
 			<div class="text-center text-black">
 				<p class="text-lg leading-relaxed font-medium max-w-5xl mx-auto">
-					Մենք հավատում ենք, որ յուրաքանչյուր պահ կարող է դառնալ հիշարժան։
-					<strong class="text-purple-600">EventNest</strong>-ը ստեղծում է ջերմ, ոգեշնչող
-					մթնոլորտներ՝ որտեղ խաղը միավորում է մարդկանց ու լցնում լավ էմոցիաներով։
+					{{ t("WE_BELIEVE") }}
+					<strong class="text-purple-600">EventNest</strong> {{ t("WE_BELIEVE_SECOND") }}
 				</p>
 
 				<p class="text-lg font-medium mt-6">
-					Մենք աճում ենք
-					<span class="text-purple-600 font-semibold">ձեր հետ և ձեր համար։</span>
+					{{ t("WE_GROW") }}
+					<span class="text-purple-600 font-semibold">{{ t("WITH_YOU") }}</span>
 				</p>
 			</div>
 		</div>

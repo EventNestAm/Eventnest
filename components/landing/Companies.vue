@@ -1,35 +1,35 @@
 <script setup>
 const logos = [
 	{
-		src: "partners/loft.jpg",
+		src: "/partners/loft.jpg",
 		link: "https://www.instagram.com/loft.yerevan/",
 	},
 	{
-		src: "partners/rockfour.jpg",
+		src: "/partners/rockfour.jpg",
 		link: "https://www.rockfour.am/hy",
 	},
 	{
-		src: "partners/foresttea.jpg",
+		src: "/partners/foresttea.jpg",
 		link: "https://www.instagram.com/forest.teaa/",
 	},
 	{
-		src: "partners/layersYerevan.jpg",
+		src: "/partners/layersYerevan.jpg",
 		link: "https://www.facebook.com/p/Layers-Bar-Yerevan-61574750327761/",
 	},
-	{ src: "partners/73club.jpeg", link: "https://www.facebook.com/73clubevn" },
+	{ src: "/partners/73club.jpeg", link: "https://www.facebook.com/73clubevn" },
 	{
-		src: "partners/trendiSalon.jpeg",
+		src: "/partners/trendiSalon.jpeg",
 		link: "https://www.facebook.com/p/Trendi-Salon-100064029343784/",
 	},
 	{
-		src: "partners/trendibijoux.jpg",
+		src: "/partners/trendibijoux.jpg",
 		link: "https://www.facebook.com/TrendiBijouxJewellery/?locale=ru_RU",
 	},
 	{
-		src: "partners/kechiHouse.jpg",
+		src: "/partners/kechiHouse.jpg",
 		link: "https://www.facebook.com/p/Kechi-House-Tsaghkadzor_apartment-132-100077334251087/",
 	},
-	{ src: "partners/rush.jpg", link: "https://www.facebook.com/RushPubYVN/" },
+	{ src: "/partners/rush.jpg", link: "https://www.facebook.com/RushPubYVN/" },
 ];
 
 const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];

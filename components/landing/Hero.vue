@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n();
+const localePath = useLocalePath();
 </script>
 
 <template>
@@ -29,14 +30,10 @@ const { t } = useI18n();
 			</p>
 			<div class="mt-6">
 				<LandingLink
-					class="rounded-full bg-transparent border-black text-black hover:bg-black hover:text-white font-bold transition-colors duration-300"
-					size="lg"
-					styleName="outline"
-					rel="noopener"
-					href="/contact"
-					target=""
-					>{{ t("JOIN_US") }}</LandingLink
+					:to="localePath('/contact')"
 				>
+					{{ t("JOIN_US") }}
+				</LandingLink>
 			</div>
 		</div>
 	</main>

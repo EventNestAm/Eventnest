@@ -39,13 +39,15 @@ export default defineNuxtConfig({
 
   i18n: {
     defaultLocale: "hy",
-    strategy: "prefix_except_default",
-    lazy: true,
+    strategy: "prefix",
+    lazy: false,
     langDir: "locales/",
+    skipSettingLocaleOnNavigate: false,
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: "i18n_redirected",
       redirectOn: "root",
+      alwaysRedirect: true,
     },
     locales: [
       { code: "hy", iso: "hy-AM", name: "Հայերեն", file: "hy.json", },

@@ -24,6 +24,7 @@ const scrollToTop = () => {
 		behavior: "smooth",
 	});
 };
+
 </script>
 
 <template>

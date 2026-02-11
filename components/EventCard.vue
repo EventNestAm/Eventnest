@@ -1,4 +1,6 @@
 <script setup>
+const { t } = useI18n();
+const localePath = useLocalePath();
 defineProps({
 	event: {
 		type: Object,
@@ -117,7 +119,7 @@ defineProps({
 
 			<div class="mt-auto">
 				<NuxtLink
-					:to="event.eventDate ? `/events/${event.slug}` : null"
+					:to="event.eventDate ? localePath(`/events/${event.slug}`) : null"
 					class="group inline-flex items-center gap-2 px-5 py-2 rounded-full font-semibold shadow-md transition-all duration-300 relative"
 					:class="[
 						event.eventDate

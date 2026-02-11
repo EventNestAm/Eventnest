@@ -17,7 +17,7 @@ const localePath = useLocalePath();
 				size="lg"
 				styleName="outline"
 				rel="noopener"
-				href="/contact"
+				:to="localePath('/contact')"
 				target=""
 				>{{ t("JOIN_US") }}</LandingLink
 			>
