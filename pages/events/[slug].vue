@@ -29,6 +29,8 @@ const goBack = () => {
 		router.push("/upcoming-events");
 	}
 };
+
+const { t } = useI18n();
 </script>
 
 <template>
@@ -74,11 +76,6 @@ const goBack = () => {
 
 						<p class="flex items-center gap-2"><Gps />{{ event.location }}</p>
 					</div>
-					<!-- <button
-						class="max-w-[15.75rem] px-12 py-[14px] rounded-full text-white font-medium bg-gradient-to-r from-indigo-500/85 via-purple-500/85 to-pink-500/85 backdrop-blur-[14px] shadow-[0_8px_24px_rgba(99,102,241,0.35)] before:absolute before:inset-0 before:rounded-full before:shadow-[inset_0_1px_0_rgba(255,255,255,0.25)] relative"
-					>
-						Reserve Your Seat
-					</button> -->
 				</div>
 				<EventRegistrationForm
 					class="absolute top-[30rem] sm:top-[18.75rem] lg:top-40 inset-x-0 sm:left-auto mx-auto sm:mx-0 right-0 sm:-right-20 z-[20]"
@@ -90,63 +87,63 @@ const goBack = () => {
 				<div class="bg-[#E1E9FB] w-[326px] px-5 py-8 rounded-xl flex flex-col h-full">
 					<p class="flex gap-3 items-center justify-center">
 						<Microphone />
-						Ինչպես է այն աշխատում
+						{{ t("HOW_ITS_WORK") }}
 					</p>
 					<div class="border-[#000000] border opacity-5 mt-2"></div>
 					<div class="mt-8 grid gap-5">
 						<div class="flex gap-2">
 							<Checked />
-							<p>Վարում է խաղավարը</p>
+							<p>{{ t("HOW_IT_WORKS_FEATURES_FIRST") }}</p>
 						</div>
 						<div class="flex gap-2">
 							<Checked />
-							<p>Իրական հաղորդակցություն</p>
+							<p>{{ t("HOW_IT_WORKS_FEATURES_SECOND") }}</p>
 						</div>
 						<div class="flex gap-2">
 							<Checked />
-							<p>Որևէ փորձ անհրաժեշտ չէ</p>
+							<p>{{ t("HOW_IT_WORKS_FEATURES_THIRD") }}</p>
 						</div>
 					</div>
 				</div>
 				<div class="bg-[#E1E9FB] w-[326px] px-5 py-8 rounded-xl flex flex-col h-full">
 					<p class="flex gap-3 items-center justify-center">
 						<People />
-						Ում համար է այն
+						{{ t("FOR_WHOM") }}
 					</p>
 					<div class="border-[#000000] border opacity-5 mt-2"></div>
 					<div class="mt-8 grid gap-5">
 						<div class="flex gap-2">
 							<Checked />
-							<p>Փորձառություն որոնողներ</p>
+							<p>{{ t("FOR_WHOM_FEATURES_FIRST") }}</p>
 						</div>
 						<div class="flex gap-2">
 							<Checked />
-							<p>Ստրատեգներ և մտածողներ</p>
+							<p>{{ t("FOR_WHOM_FEATURES_SECOND") }}</p>
 						</div>
 						<div class="flex gap-2">
 							<Checked />
-							<p>Մենակատար կամ թմային խաղացողներ</p>
+							<p>{{ t("FOR_WHOM_FEATURES_THIRD") }}</p>
 						</div>
 					</div>
 				</div>
 				<div class="bg-[#E1E9FB] w-[326px] px-5 py-8 rounded-xl flex flex-col h-full">
 					<p class="flex gap-3 items-center justify-center">
 						<Heart />
-						Ինչու դուք կսիրեք այն
+						{{ t("WHY_YOU_WILL_LOVE_IT") }}
 					</p>
 					<div class="border-[#000000] border opacity-5 mt-2"></div>
 					<div class="mt-8 grid gap-5">
 						<div class="flex gap-2">
 							<Checked />
-							<p>Սոցիալական տրամադրություն</p>
+							<p>{{ t("WHY_YOU_WILL_LOVE_IT_FEATURES_FIRST") }}</p>
 						</div>
 						<div class="flex gap-2">
 							<Checked />
-							<p>Նոր մարդիկ</p>
+							<p>{{ t("WHY_YOU_WILL_LOVE_IT_FEATURES_SECOND") }}</p>
 						</div>
 						<div class="flex gap-2">
 							<Checked />
-							<p>Անմոռանալի խաղ</p>
+							<p>{{ t("WHY_YOU_WILL_LOVE_IT_FEATURES_THIRD") }}</p>
 						</div>
 					</div>
 				</div>
@@ -154,7 +151,7 @@ const goBack = () => {
 		</div>
 
 		<div v-else class="text-center py-20 text-gray-500 text-lg">
-			Այս միջոցառումը չի գտնվել 😕
+			{{ t("EVENT_NOT_FOUND") }}
 		</div>
 	</div>
 </template>
