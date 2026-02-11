@@ -1,7 +1,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
-  css: ['~/assets/css/main.css', '~/assets/css/nprogress.css'],
+  css: ['~/assets/css/main.css', '~/assets/css/nprogress.css', '@vuepic/vue-datepicker/dist/main.css'],
 
   postcss: {
     plugins: {

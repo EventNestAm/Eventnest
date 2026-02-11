@@ -5,19 +5,13 @@ definePageMeta({
 
 import EventCard from "@/components/EventCard.vue";
 import { useEvents } from "@/composables/useEvents";
+import { VueDatePicker } from "@vuepic/vue-datepicker";
 
 const { t } = useI18n();
 
 const { events, formatDate } = useEvents();
 
 const sortOrder = ref("desc");
-const sortedEvents = computed(() =>
-	[...events.value].sort((a, b) => {
-		return sortOrder.value === "asc"
-			? new Date(a.date) - new Date(b.date)
-			: new Date(b.date) - new Date(a.date);
-	}),
-);
 const displayedEvents = computed(() => {
 	return [...filteredEvents.value].sort((a, b) =>
 		sortOrder.value === "asc"
@@ -27,10 +21,9 @@ const displayedEvents = computed(() => {
 });
 
 const categories = [t("ALL"), t("QUIZ"), t("WHAT_WHERE_WHEN"), t("FOOTBALL"), t("MAFIA")];
-const selectedCategory = ref( t("All"));
+const selectedCategory = ref(t("All"));
 const searchQuery = ref("");
-
-const selectedDate = ref("");
+const selectedDate = ref(null);
 
 const filteredEvents = computed(() => {
 	return events.value.filter((event) => {
@@ -44,7 +37,9 @@ const filteredEvents = computed(() => {
 			event.title.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
 			event.description.toLowerCase().includes(searchQuery.value.toLowerCase());
 
-		const matchesDate = !selectedDate.value || event.date === selectedDate.value;
+		const matchesDate =
+			!selectedDate.value ||
+			new Date(event.date).toDateString() === new Date(selectedDate.value).toDateString();
 
 		return matchesCategory && matchesSearch && matchesDate;
 	});
@@ -73,19 +68,23 @@ const placeholder = computed(() => t("SEARCH_WITH"));
 		<p class="text-lg text-purple-100 max-w-2xl mx-auto">
 			{{ t("JOIN_US_AND") }}
 		</p>
-		<div class="mt-8 flex flex-wrap justify-center gap-4">
+		<div class="mt-8 flex flex-col justify-center items-center gap-4">
 			<input
 				v-if="t('SEARCH_WITH')"
 				v-model="searchQuery"
 				type="text"
-				:placeholder="placeholder"
+				:placeholder="`${placeholder}...`"
 				class="px-4 py-3 rounded-xl border-0 shadow-md w-72 focus:ring-2 focus:ring-purple-300 focus:outline-none text-black"
 			/>
-			<input
-				v-model="selectedDate"
-				type="date"
-				class="px-4 py-3 rounded-xl border-0 shadow-md focus:ring-2 focus:ring-purple-300 focus:outline-none text-black"
-			/>
+			<div class="w-42">
+				<VueDatePicker
+					v-model="selectedDate"
+					placeholder="MM/DD/YYYY"
+					format="MM/dd/yyyy"
+					:enable-time-picker="false"
+					auto-apply
+				/>
+			</div>
 		</div>
 	</section>
 
@@ -155,9 +154,9 @@ const placeholder = computed(() => t("SEARCH_WITH"));
 				</p>
 				<button
 					@click="
-						selectedCategory = 'Բոլորը';
+						selectedCategory = t('ALL');
 						searchQuery = '';
-						selectedDate = '';
+						selectedDate = null;
 					"
 					class="mt-4 bg-purple-600 text-white px-5 py-2 rounded-lg hover:bg-purple-700 transition font-medium text-sm"
 				>
