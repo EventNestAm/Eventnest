@@ -1,12 +1,15 @@
 <script setup>
 const route = useRoute();
-const menuitems = [
-	{ title: "Գլխավոր էջ", path: "/" },
-	{ title: "Մեր Մասին", path: "/about" },
-	{ title: "Գալիք միջոցառումներ", path: "/upcoming-events" },
-	{ title: "Խանութ", path: "/shop" },
-	{ title: "Կապ", path: "/contact" },
-];
+const { t } = useI18n();
+const localePath = useLocalePath();
+
+const menuitems = computed(() => [
+	{ title: t("HOME_PAGE"), path: localePath("/") },
+	{ title: t("ABOUT"), path: localePath("/about") },
+	{ title: t("UPCOMING_EVENTS"), path: localePath("/upcoming-events") },
+	{ title: t("SHOP"), path: localePath("/shop") },
+	{ title: t("CONTACT"), path: localePath("/contact") },
+]);
 
 const open = ref(false);
 const clickedPath = ref(null);
@@ -60,7 +63,7 @@ const scrollToTop = () => {
 					<h2
 						class="text-black font-semibold tracking-wide text-lg mb-8 after:block after:w-10 after:h-px after:bg-black/20 after:mt-3"
 					>
-						Արագ հղումներ
+						{{ t("QUICK_LINKS") }}
 					</h2>
 					<nav>
 						<ul
@@ -90,7 +93,7 @@ const scrollToTop = () => {
 					<h2
 						class="text-black font-semibold tracking-wide text-lg mb-8 after:block after:w-10 after:h-px after:bg-black/20 after:mt-3"
 					>
-						Կապ մեզ հետ
+						{{ t("CONTACT_US") }}
 					</h2>
 					<div class="flex flex-col gap-2 sm:gap-3 md:gap-4 items-center sm:items-start">
 						<a
@@ -155,7 +158,7 @@ const scrollToTop = () => {
 					<h2
 						class="text-black font-semibold tracking-wide text-lg mb-8 after:block after:w-10 after:h-px after:bg-black/20 after:mt-3"
 					>
-						Միացիր մեզ
+						{{ t("JOIN_US") }}
 					</h2>
 					<div class="flex gap-5">
 						<NuxtLink

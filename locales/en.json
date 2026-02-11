@@ -68,5 +68,6 @@
 	"VALID_EMAIL_PROMPT": "Please enter a valid email address.",
 	"MESSAGE_PROMPT": "Please enter your message.",
 	"SEND_MESSAGE": "Send message",
-	"YOUR_MESSAGE": "Your message"
+	"YOUR_MESSAGE": "Your message",
+	"QUICK_LINKS": "Quick links"
 }
