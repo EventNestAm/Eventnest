@@ -10,7 +10,7 @@ export function useEvents() {
   const searchQuery = ref("")
   const selectedDate = ref("")
   const selectedCategory = ref("Բոլորը")
-
+  const { t } = useI18n();
   const events = ref([
     {
       id: 1,
@@ -22,7 +22,7 @@ export function useEvents() {
       image: Kargin,
       description:
         "Հումորային վիկտորինա՝ ներշնչված լեգենդար և շատ սիրված «Կարգին հաղորդում» կատակերգական շոուից։ Մասնակցության վճար՝ 2000 AMD։",
-      category: "Վիկտորինա",
+      category: t("QUIZ"),
       eventDate: false,
       emailSent: true,
     },
@@ -36,7 +36,7 @@ export function useEvents() {
       image: Football,
       description:
         "Ճանաչիր ֆուտբոլը՝ հետաքրքիր հարցերի և թիմային խաղի միջոցով։ Մասնակցության վճար՝ 2000 AMD։",
-      category: "Ֆուտբոլ",
+      category: t("FOOTBALL"),
       eventDate: false,
       emailSent: true,
     },
@@ -50,7 +50,7 @@ export function useEvents() {
       image: Music,
       description:
         "Ապացուցիր, որ ճանաչում ես բոլոր երգերն առաջին նոտայից։ Մասնակցության վճար՝ 2000 AMD։",
-      category: "Վիկտորինա",
+      category: t("QUIZ"),
       eventDate: false,
       emailSent: true,
     },
@@ -64,7 +64,7 @@ export function useEvents() {
       image: whatWhere,
       description:
         "Միացիր ամենախելացի ակումբին։ «Ի՞նչ, Որտե՞ղ, Ե՞րբ» խաղը մարտահրավեր է նետում՝ մտածելու ու հաղթելու։ Մասնակցության վճար՝ 3000 AMD։",
-      category: "Ի՞նչ որտե՞ղ ե՞րբ",
+      category: t("WHAT_WHERE_WHEN"),
       eventDate: false,
       emailSent: true,
     },
@@ -78,7 +78,7 @@ export function useEvents() {
       image: Movie,
       description:
         "Քո ուղեղը IMDb-ից լավն է՞։ Ապացուցիր՝ որքա՞ն լավ ես ճանաչում կինոաշխարհը։ Մասնակցության վճար՝ 2000 AMD։",
-      category: "Վիկտորինա",
+      category: t("QUIZ"),
       eventDate: false,
       emailSent: true,
     },
@@ -92,7 +92,7 @@ export function useEvents() {
       image: Kargin,
       description:
         "Հումորային վիկտորինա՝ ներշնչված սիրված «Կարգին հաղորդում» շոուից։ Մասնակցության վճար՝ 2000 AMD։",
-      category: "Վիկտորինա",
+      category: t("QUIZ"),
       eventDate: false,
       emailSent: true,
     },
@@ -106,7 +106,7 @@ export function useEvents() {
       image: Kargin2,
       description:
         "Նոր ձևաչափով «Կարգին հաղորդման» վիկտորինա՝ հումորով ու հիշողություններով։ Մասնակցության վճար՝ 2000 AMD։",
-      category: "Վիկտորինա",
+      category: t("QUIZ"),
       eventDate: false,
       emailSent: true,
     },
@@ -123,7 +123,7 @@ export function useEvents() {
       image: Movie,
       description:
         "Քո ուղեղը IMDb-ից լավն է՞։ Ապացուցիր՝ որքա՞ն լավ ես ճանաչում կինոաշխարհը",
-      category: "Վիկտորինա",
+      category: t("QUIZ"),
       eventDate: false,
       emailSent: true,
     },
@@ -140,7 +140,7 @@ export function useEvents() {
       image: Kargin2,
       description:
         "Ֆանտաստիկադ լա՞վ է աշխատում, քեզ համար կարևո՞ր է հաճելի Լաուրան ու և բայց սակայն փնտրում ես ավելի՞ն..",
-      category: "Վիկտորինա",
+      category: t("QUIZ"),
       eventDate: true,
       emailSent: true,
     },

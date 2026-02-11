@@ -20,18 +20,23 @@ const displayedEvents = computed(() => {
 	);
 });
 
-const categories = [t("ALL"), t("QUIZ"), t("WHAT_WHERE_WHEN"), t("FOOTBALL"), t("MAFIA")];
-const selectedCategory = ref(t("All"));
+const categories = [
+	{ key: "all", label: t("ALL") },
+	{ key: "quiz", label: t("QUIZ") },
+	{ key: "what_where_when", label: t("WHAT_WHERE_WHEN") },
+	{ key: "football", label: t("FOOTBALL") },
+	{ key: "mafia", label: t("MAFIA") },
+];
+const selectedCategory = ref("all");
 const searchQuery = ref("");
 const selectedDate = ref(null);
 
 const filteredEvents = computed(() => {
 	return events.value.filter((event) => {
+		const selectedCatLabel = categories.find((c) => c.key === selectedCategory.value)?.label;
+
 		const matchesCategory =
-			selectedCategory.value === t("All") ||
-			event.title.includes(selectedCategory.value) ||
-			event.description.includes(selectedCategory.value) ||
-			(event.category && event.category.includes(selectedCategory.value));
+			selectedCategory.value === "all" || event.category === selectedCatLabel;
 
 		const matchesSearch =
 			event.title.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
@@ -93,16 +98,16 @@ const placeholder = computed(() => t("SEARCH_WITH"));
 			<div class="w-full flex justify-center flex-wrap gap-3 my-2 sm:my-4 md:my-8 px-4 mb-10">
 				<button
 					v-for="cat in categories"
-					:key="cat"
-					@click="selectedCategory = cat"
+					:key="cat.key"
+					@click="selectedCategory = cat.key"
 					:class="[
 						'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200',
-						selectedCategory === cat
+						selectedCategory === cat.key
 							? 'bg-purple-600 text-white shadow-md'
 							: 'bg-gray-100 text-gray-700 hover:bg-purple-100 hover:text-purple-700',
 					]"
 				>
-					{{ cat }}
+					{{ cat.label }}
 				</button>
 			</div>
 			<div
@@ -148,19 +153,19 @@ const placeholder = computed(() => t("SEARCH_WITH"));
 						d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
 					/>
 				</svg>
-				<h3 class="text-xl font-medium text-gray-700 mt-4">Միջոցառումներ չեն գտնվել</h3>
+				<h3 class="text-xl font-medium text-gray-700 mt-4">{{ t("EVENTS_NOT_FOUND") }}</h3>
 				<p class="text-gray-500 mt-2">
-					Փորձեք փոխել որոնման պարամետրերը կամ ստուգել ավելի ուշ:
+					{{ t("TRY_TO_CHANGE") }}
 				</p>
 				<button
 					@click="
-						selectedCategory = t('ALL');
+						selectedCategory = 'all';
 						searchQuery = '';
 						selectedDate = null;
 					"
 					class="mt-4 bg-purple-600 text-white px-5 py-2 rounded-lg hover:bg-purple-700 transition font-medium text-sm"
 				>
-					Վերականգնել ֆիլտրերը
+					{{ t("RESET_FILTERS") }}
 				</button>
 			</div>
 		</section>
