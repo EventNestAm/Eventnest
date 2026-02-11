@@ -85,13 +85,15 @@ const swiperImages2 = [
 		title: "When Where When",
 	},
 ];
+
+const { t } = useI18n();
 </script>
 
 <template>
-
-	
 	<div class="grid gap-5 sm:gap-7 md:gap-10 mt-10 overflow-hidden pb-2">
-		<h2 class="sm:text-xl text-2xl md:text-3xl font-semibold text-black mx-auto">Մաֆիա</h2>
+		<h2 class="sm:text-xl text-2xl md:text-3xl font-semibold text-black mx-auto">
+			{{ t("MAFIA") }}
+		</h2>
 
 		<Swiper
 			:slidesPerView="1.5"
@@ -121,7 +123,9 @@ const swiperImages2 = [
 
 		<div class="swiper-pagination-mafia flex justify-center"></div>
 
-		<h2 class="sm:text-xl text-2xl md:text-3xl font-semibold text-black mx-auto">Ի՞նչ Որտե՞ղ Ե՞րբ</h2>
+		<h2 class="sm:text-xl text-2xl md:text-3xl font-semibold text-black mx-auto">
+			{{ t("WHAT_WHERE_WHEN") }}
+		</h2>
 
 		<Swiper
 			:slidesPerView="1.5"
@@ -152,20 +156,18 @@ const swiperImages2 = [
 		<div class="swiper-pagination-when flex justify-center"></div>
 	</div>
 	<p class="my-5 text-gray-800 lg:px-40 w-full mx-auto font-medium px-5">
-		EventNest-ի յուրաքանչյուր իրադարձություն՝ լինի դա «Ի՞նչ, Որտե՞ղ, Ե՞րբ», ֆուտբոլային
-		վիկտորինա, «Մաֆիա» կամ այլ խելացի խաղ, միավորում է մարդկանց՝ ստեղծելով հիշարժան և ջերմ
-		երեկոներ։ Մեր առաջին գործընկերը՝
-		<span class="text-purple-600 font-semibold">73 Club</span>-ը, դարձավ այն վայրը, որտեղ ծնվեց
-		EventNest-ի յուրահատուկ մթնոլորտը՝ խաղի, խելքի և ընկերության համադրությամբ։
+		{{ t("EVENTNEST_DESC") }}
+		<span class="text-purple-600 font-semibold">73 Club</span>{{ t("EVENTNEST_DESC_FIRST") }}։
 	</p>
 
 	<p class="my-5 text-gray-800 lg:px-40 w-full mx-auto font-medium px-5">
-		Մեր խաղերին միանում են գործընկերներ, որոնք հաճելի անակնկալներ են պարգևում հաղթողներին։
-		<span class="text-purple-600 font-semibold">Trendi Salon</span>-ը տրամադրում է նվեր քարտեր,
-		<span class="text-purple-600 font-semibold">Trendi Bijoux</span>-ը պարգևատրում է ոճային
-		զարդերով, իսկ <span class="text-purple-600 font-semibold">Kechi House 132</span>-ը
-		հյուրասիրում է հանգիստ Ծաղկաձորում։ Միացիր EventNest-ին՝ մասնակցիր, հաղթիր և վայելիր բացառիկ
-		նվերներ։
+		{{ t("EVENTNEST_DESC_SECOND") }}
+		<span class="text-purple-600 font-semibold">Trendi Salon</span>
+		{{ t("EVENTNEST_DESC_THIRD") }}
+		<span class="text-purple-600 font-semibold">Trendi Bijoux</span
+		> {{ t("EVENTNEST_DESC_FOURTH") }}
+		<span class="text-purple-600 font-semibold">Kechi House 132</span
+		> {{ t("EVENTNEST_DESC_FIVE") }}
 	</p>
 </template>
 

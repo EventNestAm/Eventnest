@@ -33,6 +33,8 @@ const logos = [
 ];
 
 const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
+
+const { t } = useI18n();
 </script>
 
 <template>
@@ -40,7 +42,7 @@ const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
 		<h2
 			class="sm:text-xl text-2xl md:text-3xl font-bold lg:tracking-tight text-black uppercase text-center"
 		>
-			Մեր գործընկերները
+			{{ t("OUR_PARTNERS") }}
 		</h2>
 
 		<div class="overflow-hidden py-5 sm:py-10 bg-[#00308F] group mt-5 sm:mt-7 md:mt-10">

@@ -13,45 +13,42 @@ import "swiper/css/navigation";
 import { EffectCards, Navigation } from "swiper/modules";
 import { ref } from "vue";
 
+const { t } = useI18n();
+const localePath = useLocalePath();
+
 const modules = [EffectCards, Navigation];
 const activeIndex = ref(0);
 
 const swiperImages = [
 	{
-		title: "Կարգին հաղորդում",
+		title: t("KARGIN_SKETCH"),
 		src: Kargincinema,
-		description:
-			"Հումոր, սարկազմ և հայ իրականության ամենահասարակ, բայց ամենազվարճալի կողմերը՝ մեկ տեղում։ Սա է Կարգինը՝ այն հաղորդումը, որ միշտ հիշեցնում է՝ կյանքը պետք է ապրել ժպիտով։",
+		description: t("KARGIN_DESC"),
 	},
 	{
-		title: "Մաֆիա",
+		title: t("MAFIA"),
 		src: Mafia,
-		description:
-			"«Մաֆիա» կամ «Կարմիր, թե՞ սև»: Եվ´սպորտային, և´ դասական, որին կարող ես մասնակցել անհատապես կամ հենց քո թիմով:",
+		description: t("MAFIA_DESC"),
 	},
 	{
-		title: "Ի՞նչ, որտե՞ղ, ե՞րբ",
+		title: t("WHAT_WHERE_WHEN"),
 		src: whatWhere,
-		description:
-			"Ինտելեկտուալ հարց ու պատասխանի խաղ, որտեղ թիմերը պատասխան են տալիս բարդ ու տրամաբանական հարցերին։",
+		description: t("WHAT_WHERE_WHEN_DESC"),
 	},
 	{
-		title: "Կինո վիկտորինա",
+		title: t("MOVIE_QUIZ"),
 		src: Movie,
-		description:
-			"Տեսարանն ու երաժշտությունը բավարա՞ր են ճանաչելու ֆիլմը , ուրեմն սա Ձեզ համար է: Կինո-վիկտորինան օգնելու է ավելի շատ բան իմանալ կինոաշխարհի մասին:",
+		description: t("MOVIE_QUIZ_DESC"),
 	},
 	{
-		title: "Երաժշտական ​​վիկտորինա",
+		title: t("MUSIC_QUIZ"),
 		src: Music,
-		description:
-			"«Ես գիտե՜մ պատասխանը» ավելի հաճախ կասեք Դուք, եթե երգերն ու կատարողներին ճանաչում եք առաջին ելևէջներից: Սա զվարճալի ու ջերմ մթնոլորտում անցկացվող վիկտորինա է:",
+		description: t("MUSIC_QUIZ_DESC"),
 	},
 	{
-		title: "Ֆուտբոլային վիկտորինա",
+		title: t("FOOTBALL_QUIZ"),
 		src: Football,
-		description:
-			"Ֆուտբոլի սիրահարների համար՝ թիմեր, խաղացողներ ու լիգաներ. տեսնենք՝ որքան լավ եք ճանաչում խաղը։",
+		description: t("FOOTBALL_QUIZ_DESC"),
 	},
 ];
 
@@ -66,7 +63,7 @@ const onSlideChange = (swiper) => {
 			<h1
 				class="sm:text-xl text-2xl md:text-3xl font-bold lg:tracking-tight text-black uppercase text-center"
 			>
-				Մեզ մոտ կգտնեք
+				{{ t('YOU_WILL_FIND') }}
 			</h1>
 		</template>
 	</LandingSectionhead>

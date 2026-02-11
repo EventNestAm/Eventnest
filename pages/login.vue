@@ -5,9 +5,13 @@ import { useAuth } from "~/composables/useAuth";
 
 const router = useRouter();
 // const { login } = useAuth();
-const { supabase } = useSupabase()
+const { supabase } = useSupabase();
 const email = ref("");
 const password = ref("");
+
+const goBack = () => {
+	router.back();
+};
 
 // const handleLogin = async () => {
 // 	try {
@@ -18,20 +22,29 @@ const password = ref("");
 // 	}
 // };
 const handleLogin = async () => {
-  const { data, error } = await supabase.auth.signInWithPassword({
-    email: email.value,
-    password: password.value,
-  })
-  if (error) return alert(error.message)
-  alert('🎉 Login successful!')
-  router.push('/')
-}
+	const { data, error } = await supabase.auth.signInWithPassword({
+		email: email.value,
+		password: password.value,
+	});
+	if (error) return alert(error.message);
+	alert("🎉 Login successful!");
+	router.push("/");
+};
 </script>
 
 <template>
 	<div
 		class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#e0ebff] to-[#eaddff] overflow-hidden px-4 md:px-0"
 	>
+		<button
+			type="button"
+			@click="goBack"
+			class="absolute top-6 left-6 z-20 flex items-center gap-2 px-5 py-2.5 backdrop-blur-md bg-white/40 border border-white/50 text-[#00308F] font-semibold rounded-full shadow-lg hover:bg-white/60 hover:scale-105 transition-all duration-300"
+		>
+			<span class="text-lg">←</span>
+			Վերադառնալ
+		</button>
+		
 		<div
 			class="absolute w-48 h-48 md:w-72 md:h-72 bg-[#00308F]/20 rounded-full -top-16 -left-16 animate-float-slow"
 		></div>
