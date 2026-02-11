@@ -80,6 +80,19 @@ const { t } = useI18n();
 
 .animate-slide {
 	display: flex;
-	animation: slide 20s linear infinite;
+	width: max-content;
+	animation: slide 25s linear infinite;
+	flex-wrap: nowrap;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+  white-space: nowrap; 
+}
+
+@media (max-width: 640px) {
+  .animate-slide {
+    animation-duration: 30s; 
+  }
 }
 </style>
