@@ -4,8 +4,7 @@ import Person from "~/assets/icons/Person.vue";
 import Phone from "~/assets/icons/Phone.vue";
 import CountPeople from "~/assets/icons/CountPeople.vue";
 
-const { t } = useI18n();
-const { locale } = useI18n();
+const { t, locale } = useI18n();
 const showModal = ref(false);
 const modalMessage = ref("");
 const isLoading = ref(false);
