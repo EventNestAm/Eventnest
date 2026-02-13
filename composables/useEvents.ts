@@ -141,7 +141,7 @@ export function useEvents() {
       description:
         "Ֆանտաստիկադ լա՞վ է աշխատում, քեզ համար կարևո՞ր է հաճելի Լաուրան ու և բայց սակայն փնտրում ես ավելի՞ն..",
       category: t("QUIZ"),
-      eventDate: true,
+      eventDate: false,
       emailSent: true,
     },
   ])
