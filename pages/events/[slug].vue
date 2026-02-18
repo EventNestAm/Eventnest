@@ -78,11 +78,11 @@ const { t } = useI18n();
 					</div>
 				</div>
 				<EventRegistrationForm
-					class="absolute top-[30rem] sm:top-[18.75rem] lg:top-40 inset-x-0 sm:left-auto mx-auto sm:mx-0 right-0 sm:-right-20 z-[20]"
+					class="absolute top-[28rem] sm:top-[18.75rem] lg:top-40 inset-x-0 sm:left-auto mx-auto sm:mx-0 right-0 sm:-right-20 z-[20]"
 				/>
 			</div>
 			<div
-				class="mt-52 sm:mt-10 grid sm:grid-cols-2 lg:grid-cols-3 place-items-center items-stretch gap-5 md:gap-24"
+				class="mt-60 sm:mt-10 grid sm:grid-cols-2 lg:grid-cols-3 place-items-center items-stretch gap-5 md:gap-24"
 			>
 				<div class="bg-[#E1E9FB] w-[326px] px-5 py-8 rounded-xl flex flex-col h-full">
 					<p class="flex gap-3 items-center justify-center">

@@ -95,5 +95,6 @@
 	"CONFIRM_REGISTER": "Confirm registration",
 	"LIMITED_NUMBER": "* The number of seats is limited",
 	"SENDING": "Sending ...",
-	"CLOSE": "Close"
+	"CLOSE": "Close",
+	"GROUP_NAME": "Group Name"
 }

@@ -3,6 +3,7 @@ import { ref, onMounted } from "vue";
 import Person from "~/assets/icons/Person.vue";
 import Phone from "~/assets/icons/Phone.vue";
 import CountPeople from "~/assets/icons/CountPeople.vue";
+import GroupName from "~/assets/icons/GroupName.vue";
 
 const { t, locale } = useI18n();
 const showModal = ref(false);
@@ -125,7 +126,7 @@ function closeModal() {
 
 			<div class="w-full">
 				<div class="relative">
-					<count-people
+					<CountPeople
 						class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white pointer-events-none z-10"
 					/>
 					<input
@@ -138,7 +139,18 @@ function closeModal() {
 					/>
 				</div>
 			</div>
-
+			<div class="relative">
+				<GroupName
+					class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white pointer-events-none z-10"
+				/>
+				<input
+					type="text"
+					name="groupName"
+					:placeholder="t('GROUP_NAME') + ' *'"
+					required
+					class="w-full pl-12 pr-4 py-3 border border-gray-300 placeholder:text-white text-white rounded-xl outline-none transition bg-transparent"
+				/>
+			</div>
 			<button
 				type="submit"
 				class="py-3 px-5 flex justify-center items-center mx-auto bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-full shadow-lg hover:scale-105 transition transform relative overflow-hidden"
