@@ -144,6 +144,23 @@ export function useEvents() {
       eventDate: false,
       emailSent: true,
     },
+    {
+      id: 10,
+      title: "Vitamin Club Quiz #1",
+      slug: "vitamin-club-quiz-1",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-02-27",
+      dateTitle: "Փետրվարի 27",
+      time: "19:00",
+      price: "3000 AMD",
+      location: "Loft - Մոսկովյան 3Ա",
+      image: Kargin2,
+      description:
+        "Տոմսեր չե՞ս հասցրել գնել և նոստալգիաի պակաս ունե՞ս,ապա ունես այդ բացը լրացնելու հնարավորություն",
+      category: t("QUIZ"),
+      eventDate: true,
+      emailSent: true,
+    },
   ])
 
   async function addEvent(newEvent) {
