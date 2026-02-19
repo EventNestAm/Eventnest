@@ -5,7 +5,7 @@ import Movie from "@/assets/img/movie.png?url"
 import Music from "@/assets/img/music.png?url"
 import Kargin from "@/assets/img/kargin.jpeg?url"
 import Kargin2 from "@/assets/img/kargin2.jpeg?url"
-import Vitamin from "@/assets/img/Vitamin.png?url"
+import Vitamin from "@/assets/img/Vitamin.png"
 
 export function useEvents() {
   const searchQuery = ref("")
