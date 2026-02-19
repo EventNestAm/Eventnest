@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
-import { useAuth } from "~/composables/useAuth";
-
+const { t } = useI18n();
+const localePath = useLocalePath();
 const router = useRouter();
-// const { register } = useAuth();
 const { supabase } = useSupabase();
 
 const name = ref("");
@@ -13,16 +12,6 @@ const password = ref("");
 const goBack = () => {
 	router.back();
 };
-
-// const handleRegister = async () => {
-// 	try {
-// 		await register(name.value, email.value, password.value);
-// 		alert("Registered successfully!");
-// 		router.push("/login");
-// 	} catch (err: any) {
-// 		alert(err.message);
-// 	}
-// };
 
 const handleRegister = async () => {
 	const { data, error } = await supabase.auth.signUp({
@@ -81,7 +70,9 @@ const handleRegister = async () => {
 
 			<p class="mt-6 text-center text-gray-600 text-sm md:text-base">
 				Արդեն ունե՞ք հաշիվ։
-				<NuxtLink to="/login" class="text-[#00308F] font-semibold hover:underline"
+				<NuxtLink
+					:to="localePath('/login')"
+					class="text-[#00308F] font-semibold hover:underline"
 					>Մուտք գործել</NuxtLink
 				>
 			</p>

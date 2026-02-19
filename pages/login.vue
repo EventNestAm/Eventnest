@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import { useAuth } from "~/composables/useAuth";
+const { t } = useI18n();
+const localePath = useLocalePath();
 
 const router = useRouter();
-// const { login } = useAuth();
 const { supabase } = useSupabase();
 const email = ref("");
 const password = ref("");
@@ -13,14 +13,6 @@ const goBack = () => {
 	router.back();
 };
 
-// const handleLogin = async () => {
-// 	try {
-// 		await login(email.value, password.value);
-// 		router.push("/");
-// 	} catch (err: any) {
-// 		alert(err.message);
-// 	}
-// };
 const handleLogin = async () => {
 	const { data, error } = await supabase.auth.signInWithPassword({
 		email: email.value,
@@ -44,7 +36,7 @@ const handleLogin = async () => {
 			<span class="text-lg">←</span>
 			Վերադառնալ
 		</button>
-		
+
 		<div
 			class="absolute w-48 h-48 md:w-72 md:h-72 bg-[#00308F]/20 rounded-full -top-16 -left-16 animate-float-slow"
 		></div>
@@ -77,7 +69,9 @@ const handleLogin = async () => {
 
 			<p class="mt-6 text-center text-gray-600 text-sm md:text-base">
 				Հաշիվ չունե՞ք։
-				<NuxtLink to="/register" class="text-[#00308F] font-semibold hover:underline"
+				<NuxtLink
+					:to="localePath('/register')"
+					class="text-[#00308F] font-semibold hover:underline"
 					>Գրանցվել</NuxtLink
 				>
 			</p>

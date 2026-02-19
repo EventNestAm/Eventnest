@@ -24,7 +24,6 @@ const scrollToTop = () => {
 		behavior: "smooth",
 	});
 };
-
 </script>
 
 <template>
@@ -107,15 +106,15 @@ const scrollToTop = () => {
 
 					<div class="flex items-center gap-4">
 						<LandingLink
-							href="/login"
+							:to="localePath('/login')"
 							styleName="muted"
 							block
 							size="md"
 							class="rounded-full"
 							>{{ t("LOGIN") }}</LandingLink
 						>
-						<LandingLink size="md" href="/register" class="rounded-full">{{
-							t("LOGOUT")
+						<LandingLink size="md" :to="localePath('/register')" class="rounded-full">{{
+							t("REGISTER")
 						}}</LandingLink>
 					</div>
 				</div>
