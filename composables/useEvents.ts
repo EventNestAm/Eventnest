@@ -5,6 +5,7 @@ import Movie from "@/assets/img/movie.png?url"
 import Music from "@/assets/img/music.png?url"
 import Kargin from "@/assets/img/kargin.jpeg?url"
 import Kargin2 from "@/assets/img/kargin2.jpeg?url"
+import Vitamin from "@/assets/img/Vitamin.png?url"
 
 export function useEvents() {
   const searchQuery = ref("")
@@ -154,7 +155,7 @@ export function useEvents() {
       time: "19:00",
       price: "3000 AMD",
       location: "Loft - Մոսկովյան 3Ա",
-      image: Kargin2,
+      image: Vitamin,
       description:
         "Տոմսեր չե՞ս հասցրել գնել և նոստալգիաի պակաս ունե՞ս,ապա ունես այդ բացը լրացնելու հնարավորություն",
       category: t("QUIZ"),

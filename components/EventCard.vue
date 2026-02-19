@@ -25,7 +25,7 @@ defineProps({
 			<img
 				:src="event.image"
 				alt="միջոցառումների կազմակերպում EventNest"
-				class="w-full h-48 object-cover transition-all duration-500"
+				class="w-full h-48 object-cover object-top transition-all duration-500"
 				:class="!event.eventDate ? 'grayscale blur-[1px] brightness-75' : ''"
 				loading="lazy"
 			/>
