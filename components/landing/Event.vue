@@ -15,13 +15,15 @@ import when4 from "@/assets/img/whatWhereWhen/when4.jpg";
 import when5 from "@/assets/img/whatWhereWhen/when5.jpg";
 import { Swiper, SwiperSlide } from "swiper/vue";
 
-import { Grid, Pagination, FreeMode } from "swiper/modules";
+import { Pagination, FreeMode } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import "swiper/css/grid";
 
-const modules = [Grid, Pagination, FreeMode];
+const { t } = useI18n();
+
+const modules = [Pagination, FreeMode];
 
 const swiperImages = [
 	{
@@ -124,7 +126,34 @@ const swiperImages3 = [
 	},
 ];
 
-const { t } = useI18n();
+const baseSwiperOptions = {
+	modules,
+	spaceBetween: 16,
+	grabCursor: true,
+	freeMode: true,
+	pagination: {
+		clickable: true,
+	},
+	breakpoints: {
+		0: {
+			slidesPerView: 1.2,
+			centeredSlides: true,
+			spaceBetween: 16,
+		},
+		640: {
+			slidesPerView: 2.2,
+			spaceBetween: 20,
+		},
+		1024: {
+			slidesPerView: 3.2,
+			spaceBetween: 24,
+		},
+		1440: {
+			slidesPerView: 4,
+			spaceBetween: 30,
+		},
+	},
+};
 </script>
 
 <template>
@@ -134,99 +163,38 @@ const { t } = useI18n();
 		</h2>
 
 		<ClientOnly>
-			<Swiper
-				:slidesPerView="1.5"
-				:breakpoints="{
-					501: { slidesPerView: 2.2 },
-					769: { slidesPerView: 2.4 },
-					1025: { slidesPerView: 3.2 },
-				}"
-				:spaceBetween="30"
-				:freeMode="true"
-				:grab-cursor="true"
-				:pagination="{
-					clickable: true,
-					el: '.swiper-pagination-kargin',
-				}"
-				:modules="modules"
-				class="w-full sm:w-full h-[20rem] sm:h-[25rem] md:h-[30rem] !pb-5"
-			>
+			<Swiper v-bind="baseSwiperOptions" class="gallery-swiper">
 				<SwiperSlide v-for="(item, index) in swiperImages3" :key="index">
-					<img
-						:src="item.src"
-						:alt="item.title"
-						class="object-cover w-full h-full pointer-events-auto"
-					/>
+					<img :src="item.src" :alt="item.title" class="gallery-img" />
 				</SwiperSlide>
 			</Swiper>
 		</ClientOnly>
-		<div class="swiper-pagination-kargin flex justify-center"></div>
 
 		<h2 class="sm:text-xl text-2xl md:text-3xl font-semibold text-black mx-auto">
 			{{ t("MAFIA") }}
 		</h2>
+
 		<ClientOnly>
-			<Swiper
-				:slidesPerView="1.5"
-				:breakpoints="{
-					501: { slidesPerView: 2.2 },
-					769: { slidesPerView: 2.4 },
-					1025: { slidesPerView: 3.2 },
-				}"
-				:spaceBetween="30"
-				:freeMode="true"
-				:grab-cursor="true"
-				:pagination="{
-					clickable: true,
-					el: '.swiper-pagination-mafia',
-				}"
-				:modules="modules"
-				class="w-full sm:w-full h-[20rem] sm:h-[25rem] md:h-[30rem] !pb-5"
-			>
-				<SwiperSlide v-for="(item, index) in swiperImages" :key="index">
-					<img
-						:src="item.src"
-						:alt="item.title"
-						class="object-cover w-full h-full pointer-events-auto"
-					/>
+			<Swiper v-bind="baseSwiperOptions" class="gallery-swiper">
+				<SwiperSlide v-for="(item, index) in swiperImages2" :key="index">
+					<img :src="item.src" :alt="item.title" class="gallery-img" />
 				</SwiperSlide>
 			</Swiper>
 		</ClientOnly>
-		<div class="swiper-pagination-mafia flex justify-center"></div>
 
 		<h2 class="sm:text-xl text-2xl md:text-3xl font-semibold text-black mx-auto">
 			{{ t("WHAT_WHERE_WHEN") }}
 		</h2>
+
 		<ClientOnly>
-			<Swiper
-				:slidesPerView="1.5"
-				:breakpoints="{
-					501: { slidesPerView: 2.2 },
-					769: { slidesPerView: 2.4 },
-					1025: { slidesPerView: 3.2 },
-				}"
-				:spaceBetween="30"
-				:freeMode="true"
-				:grab-cursor="true"
-				:pagination="{
-					clickable: true,
-					el: '.swiper-pagination-when',
-				}"
-				:modules="modules"
-				class="w-full sm:w-full h-[20rem] sm:h-[25rem] md:h-[30rem] !pb-5"
-			>
-				<SwiperSlide v-for="(item, index) in swiperImages2" :key="index">
-					<img
-						:src="item.src"
-						:alt="item.title"
-						class="object-cover w-full h-full pointer-events-auto"
-					/>
+			<Swiper v-bind="baseSwiperOptions" class="gallery-swiper">
+				<SwiperSlide v-for="(item, index) in swiperImages" :key="index">
+					<img :src="item.src" :alt="item.title" class="gallery-img" />
 				</SwiperSlide>
 			</Swiper>
 		</ClientOnly>
-
-		<div class="swiper-pagination-when flex justify-center"></div>
 	</div>
+
 	<p class="my-5 text-gray-800 lg:px-40 w-full mx-auto font-medium px-5">
 		{{ t("EVENTNEST_DESC") }}
 		<span class="text-purple-600 font-semibold">73 Club</span>{{ t("EVENTNEST_DESC_FIRST") }}։
@@ -244,55 +212,46 @@ const { t } = useI18n();
 </template>
 
 <style scoped>
-:deep(.swiper-slide) {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.gallery-swiper {
+	width: 100%;
+	padding-bottom: 2rem;
+}
+
+.gallery-img {
+	width: 100%;
+	height: 18rem;
+	object-fit: cover;
 	border-radius: 18px;
-	overflow: hidden;
+	transition: transform 0.4s ease;
 }
 
-:deep(.swiper-pagination-bullet) {
-	background-color: #6b21a8 !important;
-	opacity: 0.4;
-	transition: all 0.3s ease;
+@media (min-width: 640px) {
+	.gallery-img {
+		height: 22rem;
+	}
 }
 
-:deep(.swiper-pagination-bullet-active) {
-	background-color: #9333ea !important;
-	opacity: 1;
-	transform: scale(1.2);
+@media (min-width: 1024px) {
+	.gallery-img {
+		height: 26rem;
+	}
+}
+
+.gallery-img:hover {
+	transform: scale(1.04);
+}
+
+.gallery-swiper .swiper-slide {
+	background: transparent !important;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0;
+		overflow: hidden;
 }
 
 :deep(.swiper-wrapper) {
 	padding: 0px !important;
 }
 
-.mySwiper {
-	width: 100%;
-	height: 350px;
-}
-
-@media (min-width: 640px) {
-	.mySwiper {
-		height: 450px;
-	}
-}
-
-@media (min-width: 1024px) {
-	.mySwiper {
-		height: 500px;
-	}
-}
-
-.slide-box {
-	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: #f3f4f6;
-	border-radius: 12px;
-	font-weight: 600;
-	cursor: pointer;
-}
 </style>
