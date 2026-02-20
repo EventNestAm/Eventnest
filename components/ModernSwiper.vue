@@ -22,15 +22,15 @@ import when3 from "@/assets/img/whatWhereWhen/when3.jpg";
 import when4 from "@/assets/img/whatWhereWhen/when4.jpg";
 import when5 from "@/assets/img/whatWhereWhen/when5.jpg";
 
-import KarginHaxordum from "@/assets/img/KarginHaxordum/KarginHaxordum.jpg";
-import KarginHaxordum1 from "@/assets/img/KarginHaxordum/KarginHaxordum1.jpg";
-import KarginHaxordum2 from "@/assets/img/KarginHaxordum/KarginHaxordum2.jpg";
-import KarginHaxordum3 from "@/assets/img/KarginHaxordum/KarginHaxordum3.jpg";
-import KarginHaxordum4 from "@/assets/img/KarginHaxordum/KarginHaxordum4.jpg";
-import KarginHaxordum5 from "@/assets/img/KarginHaxordum/KarginHaxordum5.jpg";
-import KarginHaxordum6 from "@/assets/img/KarginHaxordum/KarginHaxordum6.jpg";
-import KarginHaxordum7 from "@/assets/img/KarginHaxordum/KarginHaxordum7.jpg";
-import KarginHaxordum8 from "@/assets/img/KarginHaxordum/KarginHaxordum8.jpg";
+import KarginHaxordum from "@/assets/img/KarginHaxordum/karginHaxordum.jpg";
+import KarginHaxordum1 from "@/assets/img/KarginHaxordum/karginHaxordum1.jpg";
+import KarginHaxordum2 from "@/assets/img/KarginHaxordum/karginHaxordum2.jpg";
+import KarginHaxordum3 from "@/assets/img/KarginHaxordum/karginHaxordum3.jpg";
+import KarginHaxordum4 from "@/assets/img/KarginHaxordum/karginHaxordum4.jpg";
+import KarginHaxordum5 from "@/assets/img/KarginHaxordum/karginHaxordum5.jpg";
+import KarginHaxordum6 from "@/assets/img/KarginHaxordum/karginHaxordum6.jpg";
+import KarginHaxordum7 from "@/assets/img/KarginHaxordum/karginHaxordum7.jpg";
+import KarginHaxordum8 from "@/assets/img/KarginHaxordum/karginHaxordum8.jpg";
 
 const modules = [Navigation, Pagination, Autoplay];
 
@@ -154,9 +154,6 @@ const swiperImages3 = [
 </template>
 
 <style scoped>
-.swiper-wrapper {
-	padding: 20px;
-}
 
 .my-swiper {
 	width: 100%;
