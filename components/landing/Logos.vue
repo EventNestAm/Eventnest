@@ -1,6 +1,5 @@
 <template>
   <div class="mt-24">
-    <!-- <h2 class="text-center text-slate-500">Works wizth your technologies</h2> -->
     <div
       class="flex gap-8 md:gap-20 items-center justify-center mt-10 flex-wrap"
     >
