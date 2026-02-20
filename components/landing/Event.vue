@@ -13,17 +13,16 @@ import when2 from "@/assets/img/whatWhereWhen/when2.jpg";
 import when3 from "@/assets/img/whatWhereWhen/when3.jpg";
 import when4 from "@/assets/img/whatWhereWhen/when4.jpg";
 import when5 from "@/assets/img/whatWhereWhen/when5.jpg";
-
 import { Swiper, SwiperSlide } from "swiper/vue";
 
-import { Navigation, Pagination, Scrollbar, FreeMode } from "swiper/modules";
+import { Grid, Pagination, FreeMode } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/free-mode";
-import "swiper/css/scrollbar";
 import "swiper/css/pagination";
-import "swiper/css/navigation";
+import "swiper/css/grid";
 
-const modules = [Navigation, Pagination, Scrollbar, FreeMode];
+const modules = [Grid, Pagination, FreeMode];
+
 const swiperImages = [
 	{
 		src: what8,
@@ -86,72 +85,145 @@ const swiperImages2 = [
 	},
 ];
 
+const swiperImages3 = [
+	{
+		src: "/img/KarginHaxordum/KarginHaxordum.jpg",
+		title: "Kargin Haxordum",
+	},
+	{
+		src: "/img/KarginHaxordum/KarginHaxordum1.jpg",
+		title: "Kargin Haxordum",
+	},
+	{
+		src: "/img/KarginHaxordum/KarginHaxordum2.jpg",
+		title: "Kargin Haxordum",
+	},
+	{
+		src: "/img/KarginHaxordum/KarginHaxordum3.jpg",
+		title: "Kargin Haxordum",
+	},
+	{
+		src: "/img/KarginHaxordum/KarginHaxordum4.jpg",
+		title: "Kargin Haxordum",
+	},
+	{
+		src: "/img/KarginHaxordum/KarginHaxordum5.jpg",
+		title: "Kargin Haxordum",
+	},
+	{
+		src: "/img/KarginHaxordum/KarginHaxordum6.jpg",
+		title: "Kargin Haxordum",
+	},
+	{
+		src: "/img/KarginHaxordum/KarginHaxordum7.jpg",
+		title: "Kargin Haxordum",
+	},
+	{
+		src: "/img/KarginHaxordum/KarginHaxordum8.jpg",
+		title: "Kargin Haxordum",
+	},
+];
+
 const { t } = useI18n();
 </script>
 
 <template>
 	<div class="grid gap-5 sm:gap-7 md:gap-10 mt-10 overflow-hidden pb-2">
 		<h2 class="sm:text-xl text-2xl md:text-3xl font-semibold text-black mx-auto">
-			{{ t("MAFIA") }}
+			{{ t("KARGIN_SKETCH") }}
 		</h2>
 
-		<Swiper
-			:slidesPerView="1.5"
-			:breakpoints="{
-				501: { slidesPerView: 2.2 },
-				769: { slidesPerView: 2.4 },
-				1025: { slidesPerView: 3.2 },
-			}"
-			:spaceBetween="30"
-			:freeMode="true"
-			:grab-cursor="true"
-			:pagination="{
-				clickable: true,
-				el: '.swiper-pagination-mafia',
-			}"
-			:modules="modules"
-			class="w-full sm:w-full h-[20rem] sm:h-[25rem] md:h-[30rem] !pb-5"
-		>
-			<SwiperSlide v-for="(item, index) in swiperImages" :key="index">
-				<img
-					:src="item.src"
-					:alt="item.title"
-					class="object-cover w-full h-full pointer-events-auto"
-				/>
-			</SwiperSlide>
-		</Swiper>
+		<ClientOnly>
+			<Swiper
+				:slidesPerView="1.5"
+				:breakpoints="{
+					501: { slidesPerView: 2.2 },
+					769: { slidesPerView: 2.4 },
+					1025: { slidesPerView: 3.2 },
+				}"
+				:spaceBetween="30"
+				:freeMode="true"
+				:grab-cursor="true"
+				:pagination="{
+					clickable: true,
+					el: '.swiper-pagination-kargin',
+				}"
+				:modules="modules"
+				class="w-full sm:w-full h-[20rem] sm:h-[25rem] md:h-[30rem] !pb-5"
+			>
+				<SwiperSlide v-for="(item, index) in swiperImages3" :key="index">
+					<img
+						:src="item.src"
+						:alt="item.title"
+						class="object-cover w-full h-full pointer-events-auto"
+					/>
+				</SwiperSlide>
+			</Swiper>
+		</ClientOnly>
+		<div class="swiper-pagination-kargin flex justify-center"></div>
 
+		<h2 class="sm:text-xl text-2xl md:text-3xl font-semibold text-black mx-auto">
+			{{ t("MAFIA") }}
+		</h2>
+		<ClientOnly>
+			<Swiper
+				:slidesPerView="1.5"
+				:breakpoints="{
+					501: { slidesPerView: 2.2 },
+					769: { slidesPerView: 2.4 },
+					1025: { slidesPerView: 3.2 },
+				}"
+				:spaceBetween="30"
+				:freeMode="true"
+				:grab-cursor="true"
+				:pagination="{
+					clickable: true,
+					el: '.swiper-pagination-mafia',
+				}"
+				:modules="modules"
+				class="w-full sm:w-full h-[20rem] sm:h-[25rem] md:h-[30rem] !pb-5"
+			>
+				<SwiperSlide v-for="(item, index) in swiperImages" :key="index">
+					<img
+						:src="item.src"
+						:alt="item.title"
+						class="object-cover w-full h-full pointer-events-auto"
+					/>
+				</SwiperSlide>
+			</Swiper>
+		</ClientOnly>
 		<div class="swiper-pagination-mafia flex justify-center"></div>
 
 		<h2 class="sm:text-xl text-2xl md:text-3xl font-semibold text-black mx-auto">
 			{{ t("WHAT_WHERE_WHEN") }}
 		</h2>
-
-		<Swiper
-			:slidesPerView="1.5"
-			:breakpoints="{
-				501: { slidesPerView: 2.2 },
-				769: { slidesPerView: 2.4 },
-				1025: { slidesPerView: 3.2 },
-			}"
-			:spaceBetween="30"
-			:freeMode="true"
-			:grab-cursor="true"
-			:pagination="{
-				clickable: true,
-				el: '.swiper-pagination-when',
-			}"
-			:modules="modules"
-			class="w-full sm:w-full h-[20rem] sm:h-[25rem] md:h-[30rem] !pb-5"
-		>
-			<SwiperSlide v-for="(item, index) in swiperImages2" :key="index">
-				<img
-					:src="item.src"
-					:alt="item.title"
-					class="object-cover w-full h-full pointer-events-auto"
-				/>
-			</SwiperSlide>
-		</Swiper>
+		<ClientOnly>
+			<Swiper
+				:slidesPerView="1.5"
+				:breakpoints="{
+					501: { slidesPerView: 2.2 },
+					769: { slidesPerView: 2.4 },
+					1025: { slidesPerView: 3.2 },
+				}"
+				:spaceBetween="30"
+				:freeMode="true"
+				:grab-cursor="true"
+				:pagination="{
+					clickable: true,
+					el: '.swiper-pagination-when',
+				}"
+				:modules="modules"
+				class="w-full sm:w-full h-[20rem] sm:h-[25rem] md:h-[30rem] !pb-5"
+			>
+				<SwiperSlide v-for="(item, index) in swiperImages2" :key="index">
+					<img
+						:src="item.src"
+						:alt="item.title"
+						class="object-cover w-full h-full pointer-events-auto"
+					/>
+				</SwiperSlide>
+			</Swiper>
+		</ClientOnly>
 
 		<div class="swiper-pagination-when flex justify-center"></div>
 	</div>
@@ -164,10 +236,10 @@ const { t } = useI18n();
 		{{ t("EVENTNEST_DESC_SECOND") }}
 		<span class="text-purple-600 font-semibold">Trendi Salon</span>
 		{{ t("EVENTNEST_DESC_THIRD") }}
-		<span class="text-purple-600 font-semibold">Trendi Bijoux</span
-		> {{ t("EVENTNEST_DESC_FOURTH") }}
-		<span class="text-purple-600 font-semibold">Kechi House 132</span
-		> {{ t("EVENTNEST_DESC_FIVE") }}
+		<span class="text-purple-600 font-semibold">Trendi Bijoux</span>
+		{{ t("EVENTNEST_DESC_FOURTH") }}
+		<span class="text-purple-600 font-semibold">Kechi House 132</span>
+		{{ t("EVENTNEST_DESC_FIVE") }}
 	</p>
 </template>
 
@@ -194,5 +266,33 @@ const { t } = useI18n();
 
 :deep(.swiper-wrapper) {
 	padding: 0px !important;
+}
+
+.mySwiper {
+	width: 100%;
+	height: 350px;
+}
+
+@media (min-width: 640px) {
+	.mySwiper {
+		height: 450px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.mySwiper {
+		height: 500px;
+	}
+}
+
+.slide-box {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #f3f4f6;
+	border-radius: 12px;
+	font-weight: 600;
+	cursor: pointer;
 }
 </style>
