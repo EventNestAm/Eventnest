@@ -65,7 +65,7 @@ const handleRegister = async () => {
 					required
 				/>
 
-				<button type="submit" class="btn-blue w-full">Գրանցվել</button>
+				<button type="submit" class="btn-blue w-full">{{t("REGISTER")}}</button>
 			</form>
 
 			<p class="mt-6 text-center text-gray-600 text-sm md:text-base">

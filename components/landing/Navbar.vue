@@ -88,15 +88,19 @@ const scrollToTop = () => {
 
 					<div class="lg:hidden flex items-center mt-3 gap-4 mb-5">
 						<LandingLink
-							href="/login"
+							:to="localePath('/login')"
 							styleName="muted"
 							block
 							size="md"
 							class="rounded-full"
 							>Մուտք</LandingLink
 						>
-						<LandingLink href="/register" size="md" block class="rounded-full"
-							>Գրանցվել</LandingLink
+						<LandingLink
+							:to="localePath('/register')"
+							size="md"
+							block
+							class="rounded-full"
+							>{{ t("REGISTER") }}</LandingLink
 						>
 					</div>
 				</nav>

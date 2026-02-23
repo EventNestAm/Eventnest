@@ -127,7 +127,7 @@ defineProps({
 							: 'bg-gray-300 text-gray-400 cursor-not-allowed',
 					]"
 				>
-					<span>{{ event.eventDate ? "Գրանցվել" : "Փակված է" }}</span>
+					<span>{{ event.eventDate ? t("REGISTER") : t("CLOSED") }}</span>
 					<span
 						v-if="event.eventDate"
 						class="transform transition-transform duration-300 group-hover:translate-x-1"

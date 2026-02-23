@@ -72,7 +72,7 @@ const handleLogin = async () => {
 				<NuxtLink
 					:to="localePath('/register')"
 					class="text-[#00308F] font-semibold hover:underline"
-					>Գրանցվել</NuxtLink
+					>{{ t("REGISTER") }}</NuxtLink
 				>
 			</p>
 		</div>

@@ -1,4 +1,6 @@
 <script setup>
+const { t } = useI18n();
+const localePath = useLocalePath();
 const { events, filteredEvents, formatDate } = defineProps([
 	"events",
 	"filteredEvents",
@@ -75,10 +77,10 @@ const { events, filteredEvents, formatDate } = defineProps([
 					</p>
 					<div class="mt-auto">
 						<NuxtLink
-							:to="`/contact`"
+							:to="localePath('/contact')"
 							class="inline-block bg-purple-600 text-white px-5 py-2.5 rounded-lg hover:bg-purple-700 transition font-medium text-sm shadow-md hover:shadow-lg"
 						>
-							Գրանցվել →
+							{{ t("REGISTER") }} →
 						</NuxtLink>
 					</div>
 				</div>
