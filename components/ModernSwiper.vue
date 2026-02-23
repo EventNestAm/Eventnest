@@ -154,7 +154,6 @@ const swiperImages3 = [
 </template>
 
 <style scoped>
-
 .my-swiper {
 	width: 100%;
 	height: 21.875rem;
@@ -178,11 +177,10 @@ const swiperImages3 = [
 	border-radius: 18px;
 	overflow: hidden;
 	background: transparent !important;
+	cursor: grab;
 }
 
-:deep(.swiper-container) {
-	background: transparent !important;
-}
+
 
 @media (min-width: 640px) {
 	.my-swiper {
@@ -196,8 +194,4 @@ const swiperImages3 = [
 	}
 }
 
-.swiperUnset .swiper-wrapper,
-.swiperUnset .swiper-slide {
-	height: unset !important;
-}
 </style>

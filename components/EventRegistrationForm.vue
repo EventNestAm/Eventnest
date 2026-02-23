@@ -4,7 +4,11 @@ import Person from "~/assets/icons/Person.vue";
 import Phone from "~/assets/icons/Phone.vue";
 import CountPeople from "~/assets/icons/CountPeople.vue";
 import GroupName from "~/assets/icons/GroupName.vue";
+const props = defineProps({
+	hasGroupName: Boolean,
+});
 
+const showGroupInput = props.hasGroupName;
 const { t, locale } = useI18n();
 const showModal = ref(false);
 const modalMessage = ref("");
@@ -139,7 +143,7 @@ function closeModal() {
 					/>
 				</div>
 			</div>
-			<div class="relative">
+			<div class="relative" v-if="showGroupInput">
 				<GroupName
 					class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white pointer-events-none z-10"
 				/>

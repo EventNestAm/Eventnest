@@ -79,6 +79,7 @@ const { t } = useI18n();
 				</div>
 				<EventRegistrationForm
 					class="absolute top-[28rem] sm:top-[18.75rem] lg:top-40 inset-x-0 sm:left-auto mx-auto sm:mx-0 right-0 sm:-right-20 z-[20]"
+					:hasGroupName="event.groupName"
 				/>
 			</div>
 			<div

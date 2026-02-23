@@ -25,7 +25,7 @@ export function useEvents() {
         "Հումորային վիկտորինա՝ ներշնչված լեգենդար և շատ սիրված «Կարգին հաղորդում» կատակերգական շոուից։ Մասնակցության վճար՝ 2000 AMD։",
       category: t("QUIZ"),
       eventDate: false,
-      emailSent: true,
+      emailSent: true, groupName: true
     },
     {
       id: 2,
@@ -39,7 +39,7 @@ export function useEvents() {
         "Ճանաչիր ֆուտբոլը՝ հետաքրքիր հարցերի և թիմային խաղի միջոցով։ Մասնակցության վճար՝ 2000 AMD։",
       category: t("FOOTBALL"),
       eventDate: false,
-      emailSent: true,
+      emailSent: true, groupName: true
     },
     {
       id: 3,
@@ -53,7 +53,7 @@ export function useEvents() {
         "Ապացուցիր, որ ճանաչում ես բոլոր երգերն առաջին նոտայից։ Մասնակցության վճար՝ 2000 AMD։",
       category: t("QUIZ"),
       eventDate: false,
-      emailSent: true,
+      emailSent: true, groupName: true
     },
     {
       id: 4,
@@ -67,7 +67,7 @@ export function useEvents() {
         "Միացիր ամենախելացի ակումբին։ «Ի՞նչ, Որտե՞ղ, Ե՞րբ» խաղը մարտահրավեր է նետում՝ մտածելու ու հաղթելու։ Մասնակցության վճար՝ 3000 AMD։",
       category: t("WHAT_WHERE_WHEN"),
       eventDate: false,
-      emailSent: true,
+      emailSent: true, groupName: true
     },
     {
       id: 5,
@@ -81,7 +81,7 @@ export function useEvents() {
         "Քո ուղեղը IMDb-ից լավն է՞։ Ապացուցիր՝ որքա՞ն լավ ես ճանաչում կինոաշխարհը։ Մասնակցության վճար՝ 2000 AMD։",
       category: t("QUIZ"),
       eventDate: false,
-      emailSent: true,
+      emailSent: true, groupName: true
     },
     {
       id: 6,
@@ -95,7 +95,7 @@ export function useEvents() {
         "Հումորային վիկտորինա՝ ներշնչված սիրված «Կարգին հաղորդում» շոուից։ Մասնակցության վճար՝ 2000 AMD։",
       category: t("QUIZ"),
       eventDate: false,
-      emailSent: true,
+      emailSent: true, groupName: true
     },
     {
       id: 7,
@@ -109,7 +109,7 @@ export function useEvents() {
         "Նոր ձևաչափով «Կարգին հաղորդման» վիկտորինա՝ հումորով ու հիշողություններով։ Մասնակցության վճար՝ 2000 AMD։",
       category: t("QUIZ"),
       eventDate: false,
-      emailSent: true,
+      emailSent: true, groupName: true
     },
     {
       id: 8,
@@ -126,7 +126,7 @@ export function useEvents() {
         "Քո ուղեղը IMDb-ից լավն է՞։ Ապացուցիր՝ որքա՞ն լավ ես ճանաչում կինոաշխարհը",
       category: t("QUIZ"),
       eventDate: false,
-      emailSent: true,
+      emailSent: true, groupName: true
     },
     {
       id: 9,
@@ -143,7 +143,7 @@ export function useEvents() {
         "Ֆանտաստիկադ լա՞վ է աշխատում, քեզ համար կարևո՞ր է հաճելի Լաուրան ու և բայց սակայն փնտրում ես ավելի՞ն..",
       category: t("QUIZ"),
       eventDate: false,
-      emailSent: true,
+      emailSent: true, groupName: true
     },
     {
       id: 10,
@@ -161,6 +161,25 @@ export function useEvents() {
       category: t("QUIZ"),
       eventDate: true,
       emailSent: true,
+      groupName: true
+    },
+    {
+      id: 11,
+      title: "Mafia #1",
+      slug: "mafia-1",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-02-28",
+      dateTitle: "Փետրվարի 28",
+      time: "19:00",
+      price: "3000 AMD",
+      location: "Loft - Մոսկովյան 3Ա",
+      image: Mafia,
+      description:
+        "Ցանկանու՞մ ես ձեռք բերել նոր ընկերներ, զարգացնել վերլուծական մտածողություն և զգալ իրական էմոցիաներ՝ միացի՛ր մեր Մաֆիա խաղին։",
+      category: t("MAFIA"),
+      eventDate: true,
+      emailSent: true,
+      groupName: false
     },
   ])
 

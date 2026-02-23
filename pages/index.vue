@@ -38,7 +38,7 @@ const modules = [Navigation, Pagination, Autoplay];
 			}"
 			class="mySwiper w-full "
 		>
-			<SwiperSlide v-for="event in filteredEvents" :key="event.id" class="w-full ">
+			<SwiperSlide v-for="event in filteredEvents" :key="event.id" class="w-full">
 				<EventCard :event="event" :formatDate="formatDate" class="w-full" />
 			</SwiperSlide>
 		</Swiper>

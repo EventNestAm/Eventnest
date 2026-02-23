@@ -82,7 +82,7 @@ defineProps({
 				</svg>
 				<pre>{{ event.dateYear }}</pre>
 				<time :datetime="event.date">{{ formatDate(event.date) }}</time>
-				<span class="mx-2">•</span>
+				<span class="mx-1 sm:mx-2">•</span>
 				<span>{{ event.time }}</span>
 			</div>
 
