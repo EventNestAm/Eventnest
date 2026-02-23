@@ -157,7 +157,7 @@ export function useEvents() {
       location: "Loft - Մոսկովյան 3Ա",
       image: Vitamin,
       description:
-        "Տոմսեր չե՞ս հասցրել գնել և նոստալգիաի պակաս ունե՞ս,ապա ունես այդ բացը լրացնելու հնարավորություն",
+        t('VITAMIN_PROMO'),
       category: t("QUIZ"),
       eventDate: true,
       emailSent: true,
@@ -175,7 +175,7 @@ export function useEvents() {
       location: "Loft - Մոսկովյան 3Ա",
       image: Mafia,
       description:
-        "Ցանկանու՞մ ես ձեռք բերել նոր ընկերներ, զարգացնել վերլուծական մտածողություն և զգալ իրական էմոցիաներ՝ միացի՛ր մեր Մաֆիա խաղին։",
+        t("MAFIA_PROMO"),
       category: t("MAFIA"),
       eventDate: true,
       emailSent: true,
