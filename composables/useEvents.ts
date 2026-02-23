@@ -1,4 +1,5 @@
 import Mafia from "@/assets/img/mafia.png?url"
+import Mafiaa from "@/assets/img/Mafiaa.png?url"
 import whatWhere from "@/assets/img/whatWhere.png?url"
 import Football from "@/assets/img/football.png?url"
 import Movie from "@/assets/img/movie.png?url"
@@ -173,7 +174,7 @@ export function useEvents() {
       time: "19:00",
       price: "3000 AMD",
       location: "Loft - Մոսկովյան 3Ա",
-      image: Mafia,
+      image: Mafiaa,
       description:
         t("MAFIA_PROMO"),
       category: t("MAFIA"),
