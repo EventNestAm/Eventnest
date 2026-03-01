@@ -160,7 +160,7 @@ export function useEvents() {
       description:
         t('VITAMIN_PROMO'),
       category: t("QUIZ"),
-      eventDate: true,
+      eventDate: false,
       emailSent: true,
       groupName: true
     },
@@ -178,7 +178,7 @@ export function useEvents() {
       description:
         t("MAFIA_PROMO"),
       category: t("MAFIA"),
-      eventDate: true,
+      eventDate: false,
       emailSent: true,
       groupName: false
     },
