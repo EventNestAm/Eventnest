@@ -194,7 +194,7 @@ export function useEvents() {
       location: "Loft - Մոսկովյան 3Ա",
       image: Moviee,
       description:
-        "Քո ուղեղը IMDb-ից լավն է՞։ Ապացուցիր՝ որքա՞ն լավ ես ճանաչում կինոաշխարհը։ Մասնակցության վճարը անձի համար՝ 3000 AMD։",
+        t("CINEMAQUIZTEXT"),
       category: t("QUIZ"),
       eventDate: true,
       emailSent: true,
