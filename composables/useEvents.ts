@@ -182,6 +182,24 @@ export function useEvents() {
       emailSent: true,
       groupName: false
     },
+    {
+      id: 12,
+      title: "Կինո վիկտորինա #3",
+      slug: "kino-viktorina-3",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-03-12",
+      dateTitle: "Մարտի 12",
+      time: "19:00",
+      price: "3000 AMD",
+      location: "Loft - Մոսկովյան 3Ա",
+      image: Movie,
+      description:
+        "Քո ուղեղը IMDb-ից լավն է՞։ Ապացուցիր՝ որքա՞ն լավ ես ճանաչում կինոաշխարհը։ Մասնակցության վճարը անձի համար՝ 3000 AMD։",
+      category: t("QUIZ"),
+      eventDate: true,
+      emailSent: true,
+      groupName: true
+    },
   ])
 
   async function addEvent(newEvent) {
