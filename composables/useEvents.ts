@@ -77,7 +77,7 @@ export function useEvents() {
       date: "2025-08-29",
       time: "20:00",
       location: "73 Club, Երևան, Խանջյան փողոց, 33",
-      image: Moviee,
+      image: Movie,
       description:
         "Քո ուղեղը IMDb-ից լավն է՞։ Ապացուցիր՝ որքա՞ն լավ ես ճանաչում կինոաշխարհը։ Մասնակցության վճար՝ 2000 AMD։",
       category: t("QUIZ"),
