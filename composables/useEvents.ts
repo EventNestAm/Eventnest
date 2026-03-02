@@ -1,4 +1,3 @@
-import Mafia from "@/assets/img/mafia.png?url"
 import Mafiaa from "@/assets/img/Mafiaa.png?url"
 import whatWhere from "@/assets/img/whatWhere.png?url"
 import Football from "@/assets/img/football.png?url"
