@@ -3,6 +3,7 @@ import Mafiaa from "@/assets/img/Mafiaa.png?url"
 import whatWhere from "@/assets/img/whatWhere.png?url"
 import Football from "@/assets/img/football.png?url"
 import Movie from "@/assets/img/movie.png?url"
+import Moviee from "@/assets/img/moviee.png?url"
 import Music from "@/assets/img/music.png?url"
 import Kargin from "@/assets/img/kargin.jpeg?url"
 import Kargin2 from "@/assets/img/kargin2.jpeg?url"
@@ -77,7 +78,7 @@ export function useEvents() {
       date: "2025-08-29",
       time: "20:00",
       location: "73 Club, Երևան, Խանջյան փողոց, 33",
-      image: Movie,
+      image: Moviee,
       description:
         "Քո ուղեղը IMDb-ից լավն է՞։ Ապացուցիր՝ որքա՞ն լավ ես ճանաչում կինոաշխարհը։ Մասնակցության վճար՝ 2000 AMD։",
       category: t("QUIZ"),
@@ -192,7 +193,7 @@ export function useEvents() {
       time: "19:00",
       price: "3000 AMD",
       location: "Loft - Մոսկովյան 3Ա",
-      image: Movie,
+      image: Moviee,
       description:
         "Քո ուղեղը IMDb-ից լավն է՞։ Ապացուցիր՝ որքա՞ն լավ ես ճանաչում կինոաշխարհը։ Մասնակցության վճարը անձի համար՝ 3000 AMD։",
       category: t("QUIZ"),
