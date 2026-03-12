@@ -16,7 +16,7 @@ export function useEvents() {
   const events = ref([
     {
       id: 1,
-      title: "Կարգին հաղորդման վիկտորինա",
+      title: `Կարգին հաղորդման ${t("QUIZ_TITLE")} #1`,
       slug: "kargin-haxordman-viktorina-1",
       date: "2025-08-01",
       time: "20:00",
@@ -30,7 +30,7 @@ export function useEvents() {
     },
     {
       id: 2,
-      title: "Ֆուտբոլային վիկտորինա",
+      title: `${t("FOOTBALL_TITLE")} ${t("QUIZ_TITLE")} #1`,
       slug: "futbolayin-1",
       date: "2025-08-08",
       time: "20:00",
@@ -44,7 +44,7 @@ export function useEvents() {
     },
     {
       id: 3,
-      title: "Երաժշտական վիկտորինա",
+      title: `${t("MUSICIAL_TITLE")} ${t("QUIZ_TITLE")} #1`,
       slug: "erajshtakan-1",
       date: "2025-08-15",
       time: "20:00",
@@ -58,7 +58,7 @@ export function useEvents() {
     },
     {
       id: 4,
-      title: "Ի՞նչ որտե՞ղ ե՞րբ",
+      title: t("WHAT_WHERE_WHEN"),
       slug: "inch-vortex-erb-1",
       date: "2025-08-22",
       time: "20:00",
@@ -72,7 +72,7 @@ export function useEvents() {
     },
     {
       id: 5,
-      title: "Կինո վիկտորինա",
+      title: `${t("MOVIE_QUIZ_TITLE")} #1`,
       slug: "kino-viktorina-1",
       date: "2025-08-29",
       time: "20:00",
@@ -86,7 +86,7 @@ export function useEvents() {
     },
     {
       id: 6,
-      title: "Կարգին հաղորդման վիկտորինա #2",
+      title: `Կարգին հաղորդման ${t("QUIZ_TITLE")} #2`,
       slug: "kargin-haxordman-viktorina-2",
       date: "2025-10-12",
       time: "20:00",
@@ -100,7 +100,7 @@ export function useEvents() {
     },
     {
       id: 7,
-      title: "Կարգին հաղորդման վիկտորինա #3",
+      title: `Կարգին հաղորդման ${t("QUIZ_TITLE")} #3`,
       slug: "kargin-haxordman-viktorina-3",
       date: "2025-11-07",
       time: "20:00",
@@ -114,7 +114,7 @@ export function useEvents() {
     },
     {
       id: 8,
-      title: "Կինո վիկտորինա #2",
+      title: `${t("MOVIE_QUIZ_TITLE")} #2`,
       slug: "kino-viktorina-2",
       titleDesc: "An evening of strategy, emotions and people like you",
       date: "2026-01-07",
@@ -131,7 +131,7 @@ export function useEvents() {
     },
     {
       id: 9,
-      title: "Կարգին հաղորդման վիկտորինա #4",
+      title: `Կարգին հաղորդման ${t("QUIZ_TITLE")} #4`,
       slug: "kargin-haxordman-viktorina-4",
       titleDesc: "An evening of strategy, emotions and people like you",
       date: "2026-02-12",
@@ -148,7 +148,7 @@ export function useEvents() {
     },
     {
       id: 10,
-      title: "Vitamin Club Quiz #1",
+      title: `Vitamin Club ${t("QUIZ_TITLE")} #1`,
       slug: "vitamin-club-quiz-1",
       titleDesc: "An evening of strategy, emotions and people like you",
       date: "2026-02-27",
@@ -166,7 +166,7 @@ export function useEvents() {
     },
     {
       id: 11,
-      title: "Mafia #1",
+      title: `${t("MAFIA_TITLE")} #1`,
       slug: "mafia-1",
       titleDesc: "An evening of strategy, emotions and people like you",
       date: "2026-02-28",
