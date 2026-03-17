@@ -5,6 +5,10 @@ const logos = [
 		link: "https://www.instagram.com/loft.yerevan/",
 	},
 	{
+		src: "/partners/ticketon.png",
+		link: "https://ticketon.am/hy/home",
+	},
+	{
 		src: "/partners/rockfour.jpg",
 		link: "https://www.rockfour.am/hy",
 	},
@@ -86,13 +90,13 @@ const { t } = useI18n();
 }
 
 .overflow-hidden {
-  overflow: hidden;
-  white-space: nowrap; 
+	overflow: hidden;
+	white-space: nowrap;
 }
 
 @media (max-width: 640px) {
-  .animate-slide {
-    animation-duration: 30s; 
-  }
+	.animate-slide {
+		animation-duration: 30s;
+	}
 }
 </style>
