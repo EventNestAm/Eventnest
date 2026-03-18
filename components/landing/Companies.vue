@@ -5,12 +5,16 @@ const logos = [
 		link: "https://www.instagram.com/loft.yerevan/",
 	},
 	{
-		src: "/partners/ticketon.png",
-		link: "https://ticketon.am/hy/home",
-	},
-	{
 		src: "/partners/rockfour.jpg",
 		link: "https://www.rockfour.am/hy",
+	},
+	{
+		src: "/partners/tomsarkx.png",
+		link: "https://www.tomsarkgh.am/",
+	},
+	{
+		src: "/partners/ticketon.png",
+		link: "https://ticketon.am/hy/home",
 	},
 	{
 		src: "/partners/foresttea.jpg",
