@@ -20,10 +20,6 @@ const logos = [
 		src: "/partners/foresttea.jpg",
 		link: "https://www.instagram.com/forest.teaa/",
 	},
-	{
-		src: "/partners/layersYerevan.jpg",
-		link: "https://www.facebook.com/p/Layers-Bar-Yerevan-61574750327761/",
-	},
 	{ src: "/partners/73club.jpeg", link: "https://www.facebook.com/73clubevn" },
 	{
 		src: "/partners/trendiSalon.jpeg",
