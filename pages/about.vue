@@ -6,6 +6,8 @@ import Davophoto from "~/assets/img/Davophoto.jpg";
 import Anahitphoto from "~/assets/img/Anahitphoto.jpg";
 import Asyaphoto from "~/assets/img/Asyaphoto.jpg";
 import Elvinaphoto from "~/assets/img/Elvinaphoto.png";
+import Karinkaphoto from "~/assets/img/Karinkaphoto.jpg";
+import Elenphoto from "~/assets/img/Elenphoto.jpg";
 
 const router = useRouter();
 
@@ -57,6 +59,20 @@ const team = [
 		title: t("UIUXDESIGNER"),
 		avatar: {
 			src: Elvinaphoto,
+		},
+	},
+	{
+		name: "Կարինա Հովհաննիսյան",
+		title: t("SALESSPECIALIST"),
+		avatar: {
+			src: Karinkaphoto,
+		},
+	},
+	{
+		name: "Էլեն Կարապետյան",
+		title: t("MODEL"),
+		avatar: {
+			src: Elenphoto,
 		},
 	},
 	{
