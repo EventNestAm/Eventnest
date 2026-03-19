@@ -5,6 +5,7 @@ import Artphoto from "~/assets/img/Artphoto.jpg";
 import Davophoto from "~/assets/img/Davophoto.jpg";
 import Anahitphoto from "~/assets/img/Anahitphoto.jpg";
 import Asyaphoto from "~/assets/img/Asyaphoto.jpg";
+import Elvinaphoto from "~/assets/img/Elvinaphoto.png";
 
 const router = useRouter();
 
@@ -46,9 +47,16 @@ const team = [
 	},
 	{
 		name: "Անահիտ Ալոյան",
-		title: t("DESIGNER"),
+		title: t("GRAPHICDESIGNER"),
 		avatar: {
 			src: Anahitphoto,
+		},
+	},
+	{
+		name: "Էլվինա Ստեփանյան",
+		title: t("UIUXDESIGNER"),
+		avatar: {
+			src: Elvinaphoto,
 		},
 	},
 	{
