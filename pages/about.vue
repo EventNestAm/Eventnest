@@ -1,13 +1,13 @@
 <script setup>
-import JoinUs from "~/assets/img/joinUs.png";
-import MiqoPhoto from "~/assets/img/Miqophoto.jpg";
-import Artphoto from "~/assets/img/Artphoto.jpg";
-import Davophoto from "~/assets/img/Davophoto.jpg";
-import Anahitphoto from "~/assets/img/Anahitphoto.jpg";
-import Asyaphoto from "~/assets/img/Asyaphoto.jpg";
-import Elvinaphoto from "~/assets/img/Elvinaphoto.png";
-import Karinkaphoto from "~/assets/img/Karinkaphoto.jpg";
-import Elenphoto from "~/assets/img/Elenphoto.jpg";
+import JoinUs from "~/assets/img/team/joinUs.png";
+import MiqoPhoto from "~/assets/img/team/Miqophoto.jpg";
+import Artphoto from "~/assets/img/team/Artphoto.jpg";
+import Davophoto from "~/assets/img/team/Davophoto.jpg";
+import Anahitphoto from "~/assets/img/team/Anahitphoto.jpg";
+import Asyaphoto from "~/assets/img/team/Asyaphoto.jpg";
+import Elvinaphoto from "~/assets/img/team/Elvinaphoto.png";
+import Karinkaphoto from "~/assets/img/team/Karinkaphoto.jpg";
+import Elenphoto from "~/assets/img/team/Elenphoto.jpg";
 
 const router = useRouter();
 

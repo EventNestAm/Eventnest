@@ -13,6 +13,10 @@ const logos = [
 		link: "https://www.tomsarkgh.am/",
 	},
 	{
+		src: "/partners/telcellWallet.jpg",
+		link: "https://telcell.am/hy/wallet",
+	},
+	{
 		src: "/partners/ticketon.png",
 		link: "https://ticketon.am/hy/home",
 	},

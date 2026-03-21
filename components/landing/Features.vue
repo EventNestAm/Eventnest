@@ -1,10 +1,10 @@
 <script setup>
-import Mafia from "@/assets/img/mafia.png?url";
-import whatWhere from "@/assets/img/whatWhere.png?url";
-import Football from "@/assets/img/football.png?url";
-import Movie from "@/assets/img/movie.png?url";
-import Music from "@/assets/img/music.png?url";
-import Kargincinema from "@/assets/img/Kargincinema.png?url";
+import Mafia from "@/assets/img/quizes/mafia.png?url";
+import whatWhere from "@/assets/img/quizes/whatWhere.png?url";
+import Football from "@/assets/img/quizes/football.png?url";
+import Movie from "@/assets/img/quizes/movie.png?url";
+import Music from "@/assets/img/quizes/music.png?url";
+import Kargincinema from "@/assets/img/quizes/Kargincinema.png?url";
 
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
