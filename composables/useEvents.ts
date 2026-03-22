@@ -196,9 +196,9 @@ export function useEvents() {
       description:
         t("CINEMAQUIZTEXT"),
       category: t("QUIZ"),
-      eventDate: true,
+      eventDate: false,
       emailSent: true,
-      groupName: true
+      groupName: false
     },
   ])
 
