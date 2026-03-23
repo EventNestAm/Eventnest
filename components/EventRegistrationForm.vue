@@ -3,6 +3,7 @@ import { ref, onMounted } from "vue";
 import Person from "~/assets/icons/Person.vue";
 import Phone from "~/assets/icons/Phone.vue";
 import CountPeople from "~/assets/icons/CountPeople.vue";
+import Mail from "~/assets/icons/Mail.vue";
 import GroupName from "~/assets/icons/GroupName.vue";
 const props = defineProps({
 	hasGroupName: Boolean,
@@ -138,6 +139,20 @@ function closeModal() {
 						name="peopleCount"
 						:placeholder="t('NUMBER_OF_PARTICIPANTS') + ' *'"
 						min="1"
+						required
+						class="w-full pl-12 pr-4 py-3 border border-gray-300 placeholder:text-white text-white rounded-xl outline-none transition bg-transparent"
+					/>
+				</div>
+			</div>
+			<div class="w-full">
+				<div class="relative">
+					<Mail
+						class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white pointer-events-none z-10"
+					/>
+					<input
+						type="email"
+						name="email"
+						:placeholder="t('EMAIL') + ' *'"
 						required
 						class="w-full pl-12 pr-4 py-3 border border-gray-300 placeholder:text-white text-white rounded-xl outline-none transition bg-transparent"
 					/>

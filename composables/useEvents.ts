@@ -200,6 +200,23 @@ export function useEvents() {
       emailSent: true,
       groupName: false
     },
+    {
+      id: 13,
+      title: `Կարգին հաղորդման ${t("QUIZ_TITLE")} #5`,
+      slug: "kargin-haxordman-viktorina-5",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-03-29",
+      dateTitle: "Մարտի 29",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "Loft - Մոսկովյան 3Ա",
+      image: Kargin2,
+      description:
+        t("KARGIN_QUIZ_TITLE"),
+      category: t("QUIZ"),
+      eventDate: true,
+      emailSent: true, groupName: true
+    },
   ])
 
   async function addEvent(newEvent) {

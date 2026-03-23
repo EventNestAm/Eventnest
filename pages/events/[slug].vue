@@ -83,7 +83,7 @@ const { t } = useI18n();
 				/>
 			</div>
 			<div
-				class="mt-64 sm:mt-10 grid sm:grid-cols-2 lg:grid-cols-3 place-items-center items-stretch gap-5 md:gap-24"
+				class="mt-96 sm:mt-20 md:mt-10 grid sm:grid-cols-2 lg:grid-cols-3 place-items-center items-stretch gap-5 md:gap-24"
 			>
 				<div class="bg-[#E1E9FB] w-[326px] px-5 py-8 rounded-xl flex flex-col h-full">
 					<p class="flex gap-3 items-center justify-center">
