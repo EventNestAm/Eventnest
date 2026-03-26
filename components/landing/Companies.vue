@@ -17,6 +17,10 @@ const logos = [
 		link: "https://telcell.am/hy/wallet",
 	},
 	{
+		src: "/partners/ticketSystem.png",
+		link: "https://www.ticketsystem.am/",
+	},
+	{
 		src: "/partners/ticketon.png",
 		link: "https://ticketon.am/hy/home",
 	},
@@ -27,11 +31,15 @@ const logos = [
 	{ src: "/partners/73club.jpeg", link: "https://www.facebook.com/73clubevn" },
 	{
 		src: "/partners/trendiSalon.jpeg",
-		link: "https://www.facebook.com/p/Trendi-Salon-100064029343784/",
+		link: "https://www.instagram.com/trendi.salon/",
 	},
 	{
 		src: "/partners/trendibijoux.jpg",
-		link: "https://www.facebook.com/TrendiBijouxJewellery/?locale=ru_RU",
+		link: "https://www.instagram.com/trendi.salon_bijoux/",
+	},
+	{
+		src: "/partners/davGarden.jpg",
+		link: "https://www.instagram.com/dav.garden/",
 	},
 	{
 		src: "/partners/kechiHouse.jpg",
@@ -63,11 +71,16 @@ const { t } = useI18n();
 					:href="logo.link"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="flex-shrink-0 w-20 sm:w-52 h-20 sm:h-40 flex items-center justify-center rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-300"
+					class="flex-shrink-0 w-22 sm:w-52 h-20 sm:h-40 flex items-center justify-center rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-300"
 				>
-					<img
+					<NuxtImg
 						:src="logo.src"
-						alt="միջոցառումների կազմակերպում EventNest"
+						alt="Sponsor"
+						width="210"
+						height="160"
+						format="webp"
+						quality="90"
+						loading="lazy"
 						class="w-full h-full object-cover rounded-2xl"
 					/>
 				</a>
