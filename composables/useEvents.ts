@@ -282,6 +282,33 @@ export function useEvents() {
     })
   )
 
+  const newFilteredEvents = computed(() =>
+    sortedEvents.value.filter((event) => {
+      const today = new Date()
+      today.setHours(0, 0, 0, 0)
+
+      const eventDate = new Date(event.date)
+      eventDate.setHours(0, 0, 0, 0)
+
+      const isUpcoming = eventDate >= today
+
+      const matchesCategory =
+        selectedCategory.value === "Բոլորը" ||
+        event.title.includes(selectedCategory.value) ||
+        event.description.includes(selectedCategory.value) ||
+        (event.category && event.category.includes(selectedCategory.value))
+
+      const matchesSearch =
+        event.title.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+        event.description.toLowerCase().includes(searchQuery.value.toLowerCase())
+
+      const matchesDate =
+        !selectedDate.value || event.date === selectedDate.value
+
+      return isUpcoming && matchesCategory && matchesSearch && matchesDate
+    })
+  )
+
   function formatDate(dateStr) {
     const date = new Date(dateStr)
     const weekdays = [
@@ -313,6 +340,7 @@ export function useEvents() {
   return {
     events,
     filteredEvents,
+    newFilteredEvents,
     formatDate,
     searchQuery,
     selectedDate,

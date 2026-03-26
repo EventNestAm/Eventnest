@@ -12,7 +12,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-const { filteredEvents, formatDate } = useEvents();
+const { filteredEvents, formatDate, newFilteredEvents } = useEvents();
 
 const modules = [Navigation, Pagination, Autoplay];
 </script>
@@ -22,23 +22,27 @@ const modules = [Navigation, Pagination, Autoplay];
 		<LandingHero></LandingHero>
 		<LandingFeatures></LandingFeatures>
 	</LandingContainer>
-	
+
 	<div v-if="filteredEvents.length > 0" class="mt-20">
 		<Swiper
 			:modules="modules"
 			:spaceBetween="20"
-			:loop="true"
+			:loop="newFilteredEvents.length > 1"
 			:slidesPerView="1.2"
+			:centeredSlides="newFilteredEvents.length === 1"
+			:centeredSlidesBounds="true"
 			grabCursor="true"
-			:autoplay="{ delay: 3000, disableOnInteraction: false }"
+			:autoplay="
+				newFilteredEvents.length > 1 ? { delay: 3000, disableOnInteraction: false } : false
+			"
 			:breakpoints="{
-				501: { slidesPerView: 1.6 },
-				768: { slidesPerView: 2 },
-				1024: { slidesPerView: 3 },
+				501: { slidesPerView: 1.6, centeredSlides: false },
+				768: { slidesPerView: 2, centeredSlides: false },
+				1024: { slidesPerView: 3, centeredSlides: false },
 			}"
-			class="mySwiper w-full "
+			class="mySwiper w-full"
 		>
-			<SwiperSlide v-for="event in filteredEvents" :key="event.id" class="w-full">
+			<SwiperSlide v-for="event in newFilteredEvents" :key="event.id" class="w-full">
 				<EventCard :event="event" :formatDate="formatDate" class="w-full" />
 			</SwiperSlide>
 		</Swiper>
