@@ -72,84 +72,87 @@ const swiperImages3 = [
 		<h2 class="sm:text-xl text-2xl md:text-3xl font-semibold text-black flex justify-center">
 			{{ t("KARGIN_SKETCH") }}
 		</h2>
-		<Swiper
-			:modules="modules"
-			:slides-per-view="1.3"
-			:space-between="20"
-			:loop="true"
-			:breakpoints="{
-				640: { slidesPerView: 1 },
-				768: { slidesPerView: 2 },
-				1024: { slidesPerView: 3 },
-			}"
-			pagination
-			navigation
-			autoplay
-			class="my-swiper"
-		>
-			<SwiperSlide v-for="slide in swiperImages3" :key="slide.src">
-				<img
-					:src="slide.src"
-					:alt="slide.title"
-					class="w-full h-full object-cover rounded-lg"
-				/>
-			</SwiperSlide>
-		</Swiper>
-
+		<ClientOnly>
+			<Swiper
+				:modules="modules"
+				:slides-per-view="1.3"
+				:space-between="20"
+				:loop="true"
+				:breakpoints="{
+					640: { slidesPerView: 1 },
+					768: { slidesPerView: 2 },
+					1024: { slidesPerView: 3 },
+				}"
+				pagination
+				navigation
+				autoplay
+				class="my-swiper"
+			>
+				<SwiperSlide v-for="slide in swiperImages3" :key="slide.src">
+					<img
+						:src="slide.src"
+						:alt="slide.title"
+						class="w-full h-full object-cover rounded-lg"
+					/>
+				</SwiperSlide>
+			</Swiper>
+		</ClientOnly>
 		<h2 class="sm:text-xl text-2xl md:text-3xl font-semibold text-black flex justify-center">
 			{{ t("MAFIA") }}
 		</h2>
-		<Swiper
-			:modules="modules"
-			:slides-per-view="1.3"
-			:space-between="20"
-			:loop="true"
-			:breakpoints="{
-				640: { slidesPerView: 1 },
-				768: { slidesPerView: 2 },
-				1024: { slidesPerView: 3 },
-			}"
-			pagination
-			navigation
-			autoplay
-			class="my-swiper"
-		>
-			<SwiperSlide v-for="slide in swiperImages" :key="slide.src">
-				<img
-					:src="slide.src"
-					:alt="slide.title"
-					class="w-full h-full object-cover rounded-lg"
-				/>
-			</SwiperSlide>
-		</Swiper>
-
+		<ClientOnly>
+			<Swiper
+				:modules="modules"
+				:slides-per-view="1.3"
+				:space-between="20"
+				:loop="true"
+				:breakpoints="{
+					640: { slidesPerView: 1 },
+					768: { slidesPerView: 2 },
+					1024: { slidesPerView: 3 },
+				}"
+				pagination
+				navigation
+				autoplay
+				class="my-swiper"
+			>
+				<SwiperSlide v-for="slide in swiperImages" :key="slide.src">
+					<img
+						:src="slide.src"
+						:alt="slide.title"
+						class="w-full h-full object-cover rounded-lg"
+					/>
+				</SwiperSlide>
+			</Swiper>
+		</ClientOnly>
 		<h2 class="sm:text-xl text-2xl md:text-3xl font-semibold text-black flex justify-center">
 			{{ t("WHAT_WHERE_WHEN") }}
 		</h2>
-
-		<Swiper
-			:modules="modules"
-			:slides-per-view="1.3"
-			:space-between="20"
-			:loop="true"
-			:breakpoints="{
-				640: { slidesPerView: 1 },
-				768: { slidesPerView: 2 },
-				1024: { slidesPerView: 3 },
-			}"
-			pagination
-			navigation
-			autoplay
-			class="my-swiper"
-		>
-			<SwiperSlide v-for="slide in swiperImages2" :key="slide.src">
-				<img
-					:src="slide.src"
-					:alt="slide.title"
-					class="w-full h-full object-cover rounded-lg"
-				/>
-			</SwiperSlide>
-		</Swiper>
+		<ClientOnly>
+			<Swiper
+				:modules="modules"
+				:slides-per-view="1.3"
+				:space-between="20"
+				:loop="true"
+				:breakpoints="{
+					640: { slidesPerView: 1 },
+					768: { slidesPerView: 2 },
+					1024: { slidesPerView: 3 },
+				}"
+				pagination
+				navigation
+				autoplay
+				class="my-swiper"
+			>
+				<SwiperSlide v-for="slide in swiperImages2" :key="slide.src">
+					<img
+						:src="slide.src"
+						:alt="slide.title"
+						class="w-full h-full object-cover rounded-lg"
+					/>
+				</SwiperSlide>
+			</Swiper>
+		</ClientOnly>
 	</div>
 </template>
 
@@ -180,8 +183,6 @@ const swiperImages3 = [
 	cursor: grab;
 }
 
-
-
 @media (min-width: 640px) {
 	.my-swiper {
 		height: 25rem;
@@ -193,5 +194,4 @@ const swiperImages3 = [
 		height: 31.25rem;
 	}
 }
-
 </style>

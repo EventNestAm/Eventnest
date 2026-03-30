@@ -63,7 +63,7 @@ const onSlideChange = (swiper) => {
 			<h1
 				class="sm:text-xl text-2xl md:text-3xl font-bold lg:tracking-tight text-black uppercase text-center"
 			>
-				{{ t('YOU_WILL_FIND') }}
+				{{ t("YOU_WILL_FIND") }}
 			</h1>
 		</template>
 	</LandingSectionhead>
@@ -77,27 +77,27 @@ const onSlideChange = (swiper) => {
 			>
 				←
 			</button>
-
-			<Swiper
-				effect="cards"
-				:grabCursor="true"
-				:modules="modules"
-				:navigation="{
-					nextEl: '.swiper-button-next-custom',
-					prevEl: '.swiper-button-prev-custom',
-				}"
-				class="w-[17.5rem] h-[23.75rem]"
-				@slideChange="onSlideChange"
-			>
-				<SwiperSlide v-for="(item, index) in swiperImages" :key="index">
-					<img
-						:src="item.src"
-						:alt="item.title"
-						class="object-cover w-full h-full rounded-xl"
-					/>
-				</SwiperSlide>
-			</Swiper>
-
+			<ClientOnly>
+				<Swiper
+					effect="cards"
+					:grabCursor="true"
+					:modules="modules"
+					:navigation="{
+						nextEl: '.swiper-button-next-custom',
+						prevEl: '.swiper-button-prev-custom',
+					}"
+					class="w-[17.5rem] h-[23.75rem]"
+					@slideChange="onSlideChange"
+				>
+					<SwiperSlide v-for="(item, index) in swiperImages" :key="index">
+						<img
+							:src="item.src"
+							:alt="item.title"
+							class="object-cover w-full h-full rounded-xl"
+						/>
+					</SwiperSlide>
+				</Swiper>
+			</ClientOnly>
 			<button
 				class="swiper-button-next-custom absolute right-0 md:-right-0 xl:right-32 z-10 bg-[#00308F] text-white w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-all duration-300"
 			>

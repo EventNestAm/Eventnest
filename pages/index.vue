@@ -24,6 +24,7 @@ const modules = [Navigation, Pagination, Autoplay];
 	</LandingContainer>
 
 	<div v-if="filteredEvents.length > 0" class="mt-20">
+		<ClientOnly>
 		<Swiper
 			:modules="modules"
 			:spaceBetween="20"
@@ -46,6 +47,7 @@ const modules = [Navigation, Pagination, Autoplay];
 				<EventCard :event="event" :formatDate="formatDate" class="w-full" />
 			</SwiperSlide>
 		</Swiper>
+		</ClientOnly>
 	</div>
 
 	<div class="flex justify-center w-full mt-10">
