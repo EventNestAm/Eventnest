@@ -214,7 +214,7 @@ export function useEvents() {
       description:
         t("KARGIN_QUIZ_TITLE"),
       category: t("QUIZ"),
-      eventDate: true,
+      eventDate: false,
       emailSent: true, groupName: true
     },
   ])
