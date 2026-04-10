@@ -9,8 +9,20 @@ const logos = [
 		link: "https://www.rockfour.am/hy",
 	},
 	{
+		src: "/partners/medines.jpg",
+		link: "https://medines.am/",
+	},
+	{
 		src: "/partners/tomsarkx.png",
 		link: "https://www.tomsarkgh.am/",
+	},
+	{
+		src: "/partners/fast.jpg",
+		link: "https://fastticket.am/",
+	},
+	{
+		src: "/partners/eventhub.png",
+		link: "https://eventhub.am/",
 	},
 	{
 		src: "/partners/telcellWallet.jpg",
@@ -34,16 +46,16 @@ const logos = [
 		link: "https://www.instagram.com/trendi.salon/",
 	},
 	{
+		src: "/partners/show4me.png",
+		link: "https://show4me.com/interaction/feed/featured",
+	},
+	{
 		src: "/partners/trendibijoux.jpg",
 		link: "https://www.instagram.com/trendi.salon_bijoux/",
 	},
 	{
 		src: "/partners/davGarden.jpg",
 		link: "https://www.instagram.com/dav.garden/",
-	},
-	{
-		src: "/partners/kechiHouse.jpg",
-		link: "https://www.facebook.com/p/Kechi-House-Tsaghkadzor_apartment-132-100077334251087/",
 	},
 	{ src: "/partners/rush.jpg", link: "https://www.facebook.com/RushPubYVN/" },
 ];
