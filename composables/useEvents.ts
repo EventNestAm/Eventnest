@@ -234,6 +234,23 @@ export function useEvents() {
       eventDate: false,
       emailSent: true, groupName: true
     },
+    {
+      id: 14,
+      title: `Կարգին հաղորդման ${t("QUIZ_TITLE")} #7`,
+      slug: "kargin-haxordman-viktorina-7",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-04-18",
+      dateTitle: "Ապրիլի 18",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: Kargin2,
+      description:
+        t("KARGIN_QUIZ_TITLE"),
+      category: t("QUIZ"),
+      eventDate: true,
+      emailSent: true, groupName: true
+    },
   ])
 
   async function addEvent(newEvent) {

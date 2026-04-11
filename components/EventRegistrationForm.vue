@@ -36,31 +36,29 @@ onMounted(() => {
 		const object = Object.fromEntries(formData);
 		const json = JSON.stringify(object);
 
-		fetch("/api/create-payment", {
+		fetch("https://api.web3forms.com/submit", {
 			method: "POST",
-			headers: { "Content-Type": "application/json" },
+			headers: { "Content-Type": "application/json", Accept: "application/json" },
 			body: json,
-		}).then(async (res) => {
-			const data = await res.json();
+		})
+			.then(async (response) => {
+				let json = await response.json();
+				isLoading.value = false;
 
-			if (data.paymentUrl) {
-				// redirect to Idram
-				const form = document.createElement("form");
-				form.method = "POST";
-				form.action = "https://banking.idram.am/Payment/GetPayment";
-
-				Object.entries(data.fields).forEach(([key, value]) => {
-					const input = document.createElement("input");
-					input.type = "hidden";
-					input.name = key;
-					input.value = value;
-					form.appendChild(input);
-				});
-
-				document.body.appendChild(form);
-				form.submit();
-			}
-		});
+				if (response.status === 200) {
+					modalMessage.value = json.message;
+				} else {
+					modalMessage.value = json.message || "Տեղի ունեցավ սխալ!";
+				}
+			})
+			.catch(() => {
+				isLoading.value = false;
+				modalMessage.value = "Տեղի ունեցավ սխալ!";
+			})
+			.finally(() => {
+				form.reset();
+				form.classList.remove("was-validated");
+			});
 	});
 });
 
