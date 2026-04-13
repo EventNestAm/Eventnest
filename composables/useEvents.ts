@@ -6,6 +6,7 @@ import Moviee from "@/assets/img/quizes/moviee.jpg?url"
 import Music from "@/assets/img/quizes/music.png?url"
 import Kargin from "@/assets/img/quizes/kargin.jpeg?url"
 import Kargin2 from "@/assets/img/quizes/kargin2.jpeg?url"
+import KarginSerial from "@/assets/img/quizes/kargin_serial.jpg?url"
 import Vitamin from "@/assets/img/quizes/Vitamin.jpeg"
 
 export function useEvents() {
@@ -245,6 +246,23 @@ export function useEvents() {
       price: "3000 AMD",
       location: "The Kond House - 46 Leo Street",
       image: Kargin2,
+      description:
+        t("KARGIN_QUIZ_TITLE"),
+      category: t("QUIZ"),
+      eventDate: true,
+      emailSent: true, groupName: true
+    },
+    {
+      id: 15,
+      title: `Կարգին Սերիալ ${t("QUIZ_TITLE")} #1`,
+      slug: "kargin-serial-viktorina-1",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-04-19",
+      dateTitle: "Ապրիլի 19",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "Loft - Մոսկովյան 3Ա",
+      image: KarginSerial,
       description:
         t("KARGIN_QUIZ_TITLE"),
       category: t("QUIZ"),
