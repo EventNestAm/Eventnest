@@ -7,7 +7,6 @@ const menuitems = computed(() => [
 	{ title: t("HOME_PAGE"), path: localePath("/") },
 	{ title: t("ABOUT"), path: localePath("/about") },
 	{ title: t("UPCOMING_EVENTS"), path: localePath("/upcoming-events") },
-	{ title: t("SHOP"), path: localePath("/shop") },
 	{ title: t("CONTACT"), path: localePath("/contact") },
 ]);
 
