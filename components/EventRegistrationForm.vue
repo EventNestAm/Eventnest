@@ -7,9 +7,11 @@ import Mail from "~/assets/icons/Mail.vue";
 import GroupName from "~/assets/icons/GroupName.vue";
 const props = defineProps({
 	hasGroupName: Boolean,
+	eventName: String,
 });
 
 const showGroupInput = props.hasGroupName;
+const showTitle = props.eventName;
 const { t, locale } = useI18n();
 const showModal = ref(false);
 const modalMessage = ref("");
@@ -81,7 +83,7 @@ function closeModal() {
 		<form id="form" class="space-y-5 needs-validation" novalidate>
 			<input type="hidden" name="access_key" value="3e1280a2-2fcd-4743-9230-5520ed1b4548" />
 			<input type="checkbox" class="hidden" name="botcheck" />
-
+			<input type="hidden" name="eventName" :value="showTitle" />
 			<div class="grid sm:grid-cols-2 gap-5 max-w-[30rem]">
 				<div class="relative w-full">
 					<Person
