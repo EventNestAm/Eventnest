@@ -8,12 +8,12 @@ import GroupName from "~/assets/icons/GroupName.vue";
 const props = defineProps({
 	hasGroupName: Boolean,
 	eventName: String,
-	isSoldOut: Boolean
+	isSoldOut: Boolean,
 });
 
 const showGroupInput = props.hasGroupName;
 const showTitle = props.eventName;
-const isSoldOut = props.isSoldOut
+const isSoldOut = props.isSoldOut;
 const { t, locale } = useI18n();
 const showModal = ref(false);
 const modalMessage = ref("");
@@ -101,6 +101,7 @@ function closeModal() {
 		</div>
 	</div>
 	<div
+		v-else
 		class="bg-gradient-to-br from-[#5B1F14]/90 via-[#7A2E1F]/85 to-[#E9C6BF]/80 backdrop-blur-xl rounded-3xl border border-white/20 shadow-[0_20px_60px_rgba(0,0,0,0.35)] p-6"
 	>
 		<h2 class="text-xl font-bold text-white mb-2 text-center">{{ t("REGISTRATION_EVENT") }}</h2>
