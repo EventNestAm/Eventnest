@@ -77,13 +77,10 @@ function closeModal() {
 <template>
 	<div class="min-h-[300px] flex items-center justify-center" v-if="isSoldOut">
 		<div
-			v-if="event?.isSoldOut"
 			class="relative p-10 rounded-3xl bg-gradient-to-br from-neutral-900 to-neutral-800 shadow-2xl border border-neutral-700 text-center max-w-md w-full"
 		>
-			<!-- Glow -->
 			<div class="absolute inset-0 rounded-3xl bg-white/5 blur-xl"></div>
 
-			<!-- Content -->
 			<div class="relative z-10">
 				<h2 class="text-3xl font-semibold tracking-wide text-white mb-4">Sold Out</h2>
 
