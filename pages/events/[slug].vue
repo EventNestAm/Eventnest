@@ -21,6 +21,7 @@ const eventSlug = route.params.slug;
 
 const { events } = useEvents();
 const event = events.value.find((e) => e.slug === eventSlug);
+const isSoldOut = event.isSoldout;
 
 const goBack = () => {
 	if (window.history.length > 1) {
@@ -35,7 +36,33 @@ const { t } = useI18n();
 
 <template>
 	<div class="py-12 mt-10">
-		<div v-if="event">
+		<div class="min-h-[300px] flex items-center justify-center" v-if="isSoldOut">
+			<div
+				class="relative p-10 rounded-3xl bg-gradient-to-br from-neutral-900 to-neutral-800 shadow-2xl border border-neutral-700 text-center max-w-md w-full"
+			>
+				<div class="absolute inset-0 rounded-3xl bg-white/5 blur-xl"></div>
+
+				<div class="relative z-10">
+					<h2 class="text-3xl font-semibold tracking-wide text-white mb-4">Sold Out</h2>
+
+					<p class="text-neutral-300 text-sm mb-6">
+						This event has reached full capacity.
+					</p>
+
+					<div
+						class="h-px w-16 mx-auto bg-gradient-to-r from-transparent via-neutral-500 to-transparent mb-6"
+					></div>
+
+					<button
+						disabled
+						class="px-6 py-2 rounded-full bg-white/10 text-white/70 border border-white/10 cursor-not-allowed backdrop-blur-sm"
+					>
+						No tickets available
+					</button>
+				</div>
+			</div>
+		</div>
+		<div v-if="event && !isSoldOut">
 			<div class="relative md:mr-[8rem]">
 				<NuxtImg
 					src="/img/quiz.png"
@@ -79,7 +106,8 @@ const { t } = useI18n();
 				</div>
 				<EventRegistrationForm
 					class="absolute top-[30rem] sm:top-[18.75rem] lg:top-40 inset-x-0 sm:left-auto mx-auto sm:mx-0 right-0 sm:-right-20 z-[20]"
-					:hasGroupName="event.groupName" :eventName="event.title" :isSoldOut="event.isSoldOut"
+					:hasGroupName="event.groupName"
+					:eventName="event.title"
 				/>
 			</div>
 			<div

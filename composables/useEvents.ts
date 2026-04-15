@@ -249,7 +249,7 @@ export function useEvents() {
       description:
         t("KARGIN_QUIZ_TITLE"),
       category: t("QUIZ"),
-      eventDate: false,
+      eventDate: true,
       emailSent: true, groupName: true, isSoldout: true
     },
     {
