@@ -18,7 +18,6 @@ const route = useRoute();
 const router = useRouter();
 
 const eventSlug = route.params.slug;
-
 const { events } = useEvents();
 const event = events.value.find((e) => e.slug === eventSlug);
 const isSoldOut = event.isSoldout;
@@ -43,10 +42,12 @@ const { t } = useI18n();
 				<div class="absolute inset-0 rounded-3xl bg-white/5 blur-xl"></div>
 
 				<div class="relative z-10">
-					<h2 class="text-3xl font-semibold tracking-wide text-white mb-4">Sold Out</h2>
+					<h2 class="text-3xl font-semibold tracking-wide text-white mb-4">
+						{{ t("SOLD_OUT") }}
+					</h2>
 
 					<p class="text-neutral-300 text-sm mb-6">
-						This event has reached full capacity.
+						{{ t("SOLD_OUT_TEXT") }}
 					</p>
 
 					<div
@@ -57,7 +58,7 @@ const { t } = useI18n();
 						disabled
 						class="px-6 py-2 rounded-full bg-white/10 text-white/70 border border-white/10 cursor-not-allowed backdrop-blur-sm"
 					>
-						No tickets available
+						{{ t("NO_TICKETS") }}
 					</button>
 				</div>
 			</div>

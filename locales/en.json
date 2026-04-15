@@ -112,5 +112,7 @@
 	"SALESSPECIALIST": "Sales Specialist",
 	"MODEL": "Model",
 	"KARGIN_QUIZ_TITLE": "Is fantasy enough for you, or is it important for you to have a pleasant Laura — yet you’re still looking for something more?",
-	"SOLD_OUT_TEXT" : "This event has reached full capacity."
+	"SOLD_OUT": "Sold Out",
+	"SOLD_OUT_TEXT": "This event has reached full capacity.",
+	"NO_TICKETS": "No tickets available"
 }
