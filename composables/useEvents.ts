@@ -250,35 +250,7 @@ export function useEvents() {
         t("KARGIN_QUIZ_TITLE"),
       category: t("QUIZ"),
       eventDate: false,
-      emailSent: true, groupName: true, <div class="min-h-[300px] flex items-center justify-center">
-    <div
-      v-if="event?.isSoldOut"
-      class="relative p-10 rounded-3xl bg-gradient-to-br from-neutral-900 to-neutral-800 shadow-2xl border border-neutral-700 text-center max-w-md w-full"
-    >
-      <!-- Glow -->
-      <div class="absolute inset-0 rounded-3xl bg-white/5 blur-xl"></div>
-
-      <!-- Content -->
-      <div class="relative z-10">
-        <h2 class="text-3xl font-semibold tracking-wide text-white mb-4">
-          Sold Out
-        </h2>
-
-        <p class="text-neutral-300 text-sm mb-6">
-          This event has reached full capacity.
-        </p>
-
-        <div class="h-px w-16 mx-auto bg-gradient-to-r from-transparent via-neutral-500 to-transparent mb-6"></div>
-
-        <button
-          disabled
-          class="px-6 py-2 rounded-full bg-white/10 text-white/70 border border-white/10 cursor-not-allowed backdrop-blur-sm"
-        >
-          No tickets available
-        </button>
-      </div>
-    </div>
-  </div>: true
+      emailSent: true, groupName: true, isSoldout: true
     },
     {
       id: 15,
