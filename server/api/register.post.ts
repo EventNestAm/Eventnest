@@ -8,7 +8,6 @@ export default defineEventHandler(async (event) => {
   const pricePerPerson = 2000;
   const amount = body.peopleCount * pricePerPerson;
 
-  // 🔹 3. SAVE DATA (for now just log)
   console.log("NEW USER:", body);
 
 
