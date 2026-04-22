@@ -85,7 +85,7 @@ const scrollToTop = () => {
 						</li>
 					</ul>
 
-					<div class="lg:hidden flex items-center mt-3 gap-4 mb-5">
+					<!-- <div class="lg:hidden flex items-center mt-3 gap-4 mb-5">
 						<LandingLink
 							:to="localePath('/login')"
 							styleName="muted"
@@ -101,13 +101,13 @@ const scrollToTop = () => {
 							class="rounded-full"
 							>{{ t("REGISTER") }}</LandingLink
 						>
-					</div>
+					</div> -->
 				</nav>
 
 				<div class="hidden lg:flex items-center gap-5">
 					<LanguageSwitcher />
 
-					<div class="flex items-center gap-4">
+					<!-- <div class="flex items-center gap-4">
 						<LandingLink
 							:to="localePath('/login')"
 							styleName="muted"
@@ -119,7 +119,7 @@ const scrollToTop = () => {
 						<LandingLink size="md" :to="localePath('/register')" class="rounded-full">{{
 							t("REGISTER")
 						}}</LandingLink>
-					</div>
+					</div> -->
 				</div>
 			</header>
 		</LandingContainer>
