@@ -11,7 +11,7 @@ export default defineEventHandler(async (event) => {
   // 🔹 3. SAVE DATA (for now just log)
   console.log("NEW USER:", body);
 
-  // 👉 later you can save in DB
+
 
   return {
     billId,
