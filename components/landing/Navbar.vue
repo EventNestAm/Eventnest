@@ -106,7 +106,6 @@ const scrollToTop = () => {
 
 				<div class="hidden lg:flex items-center gap-5">
 					<LanguageSwitcher />
-
 					<!-- <div class="flex items-center gap-4">
 						<LandingLink
 							:to="localePath('/login')"
