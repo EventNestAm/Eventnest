@@ -286,6 +286,40 @@ export function useEvents() {
       eventDate: false,
       emailSent: true, groupName: true, isSoldout: false
     },
+    {
+      id: 15,
+      title: `Կարգին Սերիալ ${t("QUIZ_TITLE")} #2`,
+      slug: "kargin-serial-viktorina-2",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-05-03",
+      dateTitle: "Մայիսի 03",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "Loft - Մոսկովյան 3Ա",
+      image: KarginSerial,
+      description:
+        t("KARGIN_QUIZ_TITLE"),
+      category: t("QUIZ"),
+      eventDate: true,
+      emailSent: true, groupName: true
+    },
+    {
+      id: 16,
+      title: `Կարգին հաղորդման ${t("QUIZ_TITLE")} #9`,
+      slug: "kargin-haxordman-viktorina-9",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-05-02",
+      dateTitle: "Մայիսի 2",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: Kargin2,
+      description:
+        t("KARGIN_QUIZ_TITLE"),
+      category: t("QUIZ"),
+      eventDate: true,
+      emailSent: true, groupName: true, isSoldout: false
+    },
   ])
 
   async function addEvent(newEvent) {
