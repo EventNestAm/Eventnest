@@ -8,7 +8,7 @@ import Kargin from "@/assets/img/quizes/kargin.jpeg?url"
 import Kargin2 from "@/assets/img/quizes/kargin2.jpeg?url"
 import KarginSerial from "@/assets/img/quizes/kargin_serial.jpg?url"
 import Vitamin from "@/assets/img/quizes/Vitamin.jpeg"
-import Merbaky from "@/assets/img/quizes/Merbaky.jpg"
+import Merbaky from "@/assets/img/quizes/merbaky.jpg"
 
 
 export function useEvents() {
