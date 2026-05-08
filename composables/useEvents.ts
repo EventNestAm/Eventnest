@@ -332,7 +332,7 @@ export function useEvents() {
       location: "The Kond House - 46 Leo Street",
       image: Kargin2,
       description:
-        t("KARGIN_QUIZ_TITLE"),
+        "Հիմա ժամանակն է ստուգելու՝ ինչքան լավ ես հիշում Ազատիչին, Հրանտին, Լալային ու մյուսներին։ 🧐",
       category: t("QUIZ"),
       eventDate: true,
       emailSent: true, groupName: true, isSoldout: false
