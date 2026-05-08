@@ -300,7 +300,7 @@ export function useEvents() {
       description:
         t("KARGIN_QUIZ_TITLE"),
       category: t("QUIZ"),
-      eventDate: true,
+      eventDate: false,
       emailSent: true, groupName: true
     },
     {
@@ -318,6 +318,23 @@ export function useEvents() {
         t("KARGIN_QUIZ_TITLE"),
       category: t("QUIZ"),
       eventDate: false,
+      emailSent: true, groupName: true, isSoldout: false
+    },
+    {
+      id: 17,
+      title: `Մեր Բակը ${t("QUIZ_TITLE")} #1`,
+      slug: "mer-baky-1",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-05-16",
+      dateTitle: "Մայիսի 16",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: Kargin2,
+      description:
+        t("KARGIN_QUIZ_TITLE"),
+      category: t("QUIZ"),
+      eventDate: true,
       emailSent: true, groupName: true, isSoldout: false
     },
   ])
