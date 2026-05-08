@@ -334,7 +334,7 @@ export function useEvents() {
       location: "The Kond House - 46 Leo Street",
       image: Merbaky,
       description:
-        "Հիմա ժամանակն է ստուգելու՝ ինչքան լավ ես հիշում Ազատիչին, Հրանտին, Լալային ու մյուսներին։ 🧐",
+        t("MER_BAKY_DESC"),
       category: t("QUIZ"),
       eventDate: true,
       emailSent: true, groupName: true, isSoldout: false
