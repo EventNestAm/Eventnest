@@ -8,6 +8,8 @@ import Kargin from "@/assets/img/quizes/kargin.jpeg?url"
 import Kargin2 from "@/assets/img/quizes/kargin2.jpeg?url"
 import KarginSerial from "@/assets/img/quizes/kargin_serial.jpg?url"
 import Vitamin from "@/assets/img/quizes/Vitamin.jpeg"
+import Merbaky from "@/assets/img/quizes/Merbaky.jpg"
+
 
 export function useEvents() {
   const searchQuery = ref("")
@@ -330,7 +332,7 @@ export function useEvents() {
       time: "19:30",
       price: "3000 AMD",
       location: "The Kond House - 46 Leo Street",
-      image: Kargin2,
+      image: Merbaky,
       description:
         "Հիմա ժամանակն է ստուգելու՝ ինչքան լավ ես հիշում Ազատիչին, Հրանտին, Լալային ու մյուսներին։ 🧐",
       category: t("QUIZ"),
