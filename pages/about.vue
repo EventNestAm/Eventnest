@@ -8,6 +8,7 @@ import Asyaphoto from "~/assets/img/team/Asyaphoto.jpg";
 import Elvinaphoto from "~/assets/img/team/Elvinaphoto.png";
 import Karinkaphoto from "~/assets/img/team/Karinkaphoto.jpg";
 import Elenphoto from "~/assets/img/team/Elenphoto.jpg";
+import Emma from "~/assets/img/team/Emma.jpg";
 
 const router = useRouter();
 
@@ -41,6 +42,13 @@ const team = [
 		},
 	},
 	{
+		name: "Էմմա Զորիկյան",
+		title: t("REELS_MAKER"),
+		avatar: {
+			src: Emma,
+		},
+	},
+	{
 		name: "Ասյա Գագինյան",
 		title: t("PHOTOGRAPHER"),
 		avatar: {
@@ -59,13 +67,6 @@ const team = [
 		title: t("UIUXDESIGNER"),
 		avatar: {
 			src: Elvinaphoto,
-		},
-	},
-	{
-		name: "Կարինա Հովհաննիսյան",
-		title: t("SALESSPECIALIST"),
-		avatar: {
-			src: Karinkaphoto,
 		},
 	},
 	{
