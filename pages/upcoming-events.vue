@@ -23,6 +23,7 @@ const displayedEvents = computed(() => {
 const categories = [
 	{ key: "all", label: t("ALL") },
 	{ key: "quiz", label: t("QUIZ") },
+	{ key: "games", label: t("GAMES") },
 	{ key: "what_where_when", label: t("WHAT_WHERE_WHEN") },
 	{ key: "football", label: t("FOOTBALL") },
 	{ key: "mafia", label: t("MAFIA") },

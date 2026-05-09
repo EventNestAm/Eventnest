@@ -115,5 +115,8 @@
 	"SOLD_OUT": "Sold Out",
 	"SOLD_OUT_TEXT": "This event has reached full capacity.",
 	"NO_TICKETS": "No tickets available",
-	"MER_BAKY_DESC": "Now it’s time to test how well you remember Azatich, Hrant, Lala, and the others. 🧐"
+	"MER_BAKY_DESC": "Now it’s time to test how well you remember Azatich, Hrant, Lala, and the others. 🧐",
+	"GAMES": "Games",
+	"WHOAMI": "Who am I game",
+	"WHOAMI_DESC": "Guess who you are through questions, clues, and lots of laughter during the game 🎭"
 }

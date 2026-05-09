@@ -9,6 +9,7 @@ import Kargin2 from "@/assets/img/quizes/kargin2.jpeg?url"
 import KarginSerial from "@/assets/img/quizes/kargin_serial.jpg?url"
 import Vitamin from "@/assets/img/quizes/Vitamin.jpeg"
 import Merbaky from "@/assets/img/quizes/merbaky.jpg"
+import Whoami from "@/assets/img/quizes/whoami.jpg"
 
 
 export function useEvents() {
@@ -336,6 +337,23 @@ export function useEvents() {
       description:
         t("MER_BAKY_DESC"),
       category: t("QUIZ"),
+      eventDate: true,
+      emailSent: true, groupName: true, isSoldout: false
+    },
+    {
+      id: 18,
+      title: `${t("WHOAMI")} #1`,
+      slug: "ovem-es-1",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-05-17",
+      dateTitle: "Մայիսի 17",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "Loft - Մոսկովյան 3Ա",
+      image: Whoami,
+      description:
+        t("WHOAMI_DESC"),
+      category: t("GAMES"),
       eventDate: true,
       emailSent: true, groupName: true, isSoldout: false
     },
