@@ -11,6 +11,13 @@ import Vitamin from "@/assets/img/quizes/Vitamin.jpeg"
 import Merbaky from "@/assets/img/quizes/merbaky.jpg"
 import Whoami from "@/assets/img/quizes/whoami.jpg"
 
+const isEventUpcoming = (dateStr) => {
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+  const eventDate = new Date(dateStr)
+  eventDate.setHours(0, 0, 0, 0)
+  return eventDate >= today
+}
 
 export function useEvents() {
   const searchQuery = ref("")

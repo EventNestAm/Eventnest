@@ -9,6 +9,7 @@ import Elvinaphoto from "~/assets/img/team/Elvinaphoto.png";
 import Karinkaphoto from "~/assets/img/team/Karinkaphoto.jpg";
 import Elenphoto from "~/assets/img/team/Elenphoto.jpg";
 import Emma from "~/assets/img/team/Emma.jpg";
+import Azat from "~/assets/img/team/Azat.png";
 
 const router = useRouter();
 
@@ -46,6 +47,13 @@ const team = [
 		title: t("REELS_MAKER"),
 		avatar: {
 			src: Emma,
+		},
+	},
+	{
+		name: "Ազատ Սիրեկանյան",
+		title: 'DJ',
+		avatar: {
+			src: Azat,
 		},
 	},
 	{
