@@ -11,13 +11,6 @@ import Vitamin from "@/assets/img/quizes/Vitamin.jpeg"
 import Merbaky from "@/assets/img/quizes/merbaky.jpg"
 import Whoami from "@/assets/img/quizes/whoami.jpg"
 
-const isEventUpcoming = (dateStr) => {
-  const today = new Date()
-  today.setHours(0, 0, 0, 0)
-  const eventDate = new Date(dateStr)
-  eventDate.setHours(0, 0, 0, 0)
-  return eventDate >= today
-}
 
 export function useEvents() {
   const searchQuery = ref("")
@@ -483,7 +476,13 @@ export function useEvents() {
     ]
     return `${weekdays[date.getDay()]}, ${date.getDate()} ${months[date.getMonth()]}, ${date.getFullYear()} թ․`
   }
-
+  events.value = events.value.map(event => {
+    const today = new Date()
+    today.setHours(0, 0, 0, 0)
+    const d = new Date(event.date)
+    d.setHours(0, 0, 0, 0)
+    return { ...event, eventDate: d >= today }
+  })
   return {
     events,
     filteredEvents,

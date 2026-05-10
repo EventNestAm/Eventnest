@@ -83,7 +83,7 @@ const { t } = useI18n();
 					:href="logo.link"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="flex-shrink-0 w-22 sm:w-52 h-20 sm:h-40 flex items-center justify-center rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-300"
+					class="flex-shrink-0 w-20 sm:w-52 h-20 sm:h-40 flex items-center justify-center rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-300"
 				>
 					<NuxtImg
 						:src="logo.src"
