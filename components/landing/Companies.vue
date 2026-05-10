@@ -13,6 +13,10 @@ const logos = [
 		link: "https://medines.am/",
 	},
 	{
+		src: "/partners/yerevanacademy.jpg",
+		link: "https://yerevanacademy.com/",
+	},
+	{
 		src: "/partners/tomsarkx.png",
 		link: "https://www.tomsarkgh.am/",
 	},
