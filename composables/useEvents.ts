@@ -338,7 +338,7 @@ export function useEvents() {
         t("MER_BAKY_DESC"),
       category: t("QUIZ"),
       eventDate: true,
-      emailSent: true, groupName: true, isSoldout: false
+      emailSent: true, groupName: true, isSoldout: false, quantity: 16
     },
     {
       id: 18,
@@ -355,7 +355,7 @@ export function useEvents() {
         t("WHOAMI_DESC"),
       category: t("GAMES"),
       eventDate: true,
-      emailSent: true, groupName: true, isSoldout: false
+      emailSent: true, groupName: true, isSoldout: false, quantity: 20
     },
   ])
 

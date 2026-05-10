@@ -5,10 +5,12 @@ import Phone from "~/assets/icons/Phone.vue";
 import CountPeople from "~/assets/icons/CountPeople.vue";
 import Mail from "~/assets/icons/Mail.vue";
 import GroupName from "~/assets/icons/GroupName.vue";
+
 const props = defineProps({
 	hasGroupName: Boolean,
 	eventName: String,
 	isSoldOut: Boolean,
+	quantity: Number,
 });
 
 const showGroupInput = props.hasGroupName;
@@ -74,7 +76,6 @@ function closeModal() {
 </script>
 
 <template>
-	
 	<div
 		class="bg-gradient-to-br from-[#5B1F14]/90 via-[#7A2E1F]/85 to-[#E9C6BF]/80 backdrop-blur-xl rounded-3xl border border-white/20 shadow-[0_20px_60px_rgba(0,0,0,0.35)] p-6"
 	>
@@ -180,7 +181,7 @@ function closeModal() {
 			>
 				{{ t("CONFIRM_REGISTER") }}
 			</button>
-			<p class="text-white text-center">{{ t("LIMITED_NUMBER") }}</p>
+			<p class="text-white text-center">{{ t("LIMITED_NUMBER") }} {{ props.quantity }} {{ t("PLACE") }}</p>
 		</form>
 
 		<transition name="fade">

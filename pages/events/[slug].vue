@@ -109,6 +109,7 @@ const { t } = useI18n();
 					class="absolute top-[30rem] sm:top-[18.75rem] lg:top-40 inset-x-0 sm:left-auto mx-auto sm:mx-0 right-0 sm:-right-20 z-[20]"
 					:hasGroupName="event.groupName"
 					:eventName="event.title"
+					:quantity="event.quantity"
 				/>
 			</div>
 			<div
