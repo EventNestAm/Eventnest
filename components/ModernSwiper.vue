@@ -23,14 +23,14 @@ import when4 from "@/assets/img/whatWhereWhen/when4.jpg";
 import when5 from "@/assets/img/whatWhereWhen/when5.jpg";
 
 import KarginHaxordum from "@/assets/img/KarginHaxordum/karginHaxordum.jpg";
-import KarginHaxordum1 from "@/assets/img/KarginHaxordum/karginHaxordum1.jpg";
 import KarginHaxordum2 from "@/assets/img/KarginHaxordum/karginHaxordum2.jpg";
 import KarginHaxordum3 from "@/assets/img/KarginHaxordum/karginHaxordum3.jpg";
-import KarginHaxordum4 from "@/assets/img/KarginHaxordum/karginHaxordum4.jpg";
-import KarginHaxordum5 from "@/assets/img/KarginHaxordum/karginHaxordum5.jpg";
-import KarginHaxordum6 from "@/assets/img/KarginHaxordum/karginHaxordum6.jpg";
-import KarginHaxordum7 from "@/assets/img/KarginHaxordum/karginHaxordum7.jpg";
 import KarginHaxordum8 from "@/assets/img/KarginHaxordum/karginHaxordum8.jpg";
+import KarginHaxordum9 from "@/assets/img/KarginHaxordum/karginHaxordum9.jpg";
+import KarginHaxordum10 from "@/assets/img/KarginHaxordum/karginHaxordum10.jpg";
+import KarginHaxordum11 from "@/assets/img/KarginHaxordum/karginHaxordum11.jpg";
+import KarginHaxordum12 from "@/assets/img/KarginHaxordum/karginHaxordum12.jpg";
+import KarginHaxordum13 from "@/assets/img/KarginHaxordum/karginHaxordum13.jpg";
 
 const modules = [Navigation, Pagination, Autoplay];
 
@@ -53,17 +53,16 @@ const swiperImages2 = [
 	{ src: when2, title: "When Where When" },
 	{ src: when5, title: "When Where When" },
 ];
-
 const swiperImages3 = [
 	{ src: KarginHaxordum, title: "Kargin Haxordum" },
-	{ src: KarginHaxordum1, title: "Kargin Haxordum" },
+	{ src: KarginHaxordum11, title: "Kargin Haxordum" },
 	{ src: KarginHaxordum2, title: "Kargin Haxordum" },
+	{ src: KarginHaxordum9, title: "Kargin Haxordum" },
+	{ src: KarginHaxordum13, title: "Kargin Haxordum" },
 	{ src: KarginHaxordum3, title: "Kargin Haxordum" },
-	{ src: KarginHaxordum4, title: "Kargin Haxordum" },
-	{ src: KarginHaxordum5, title: "Kargin Haxordum" },
-	{ src: KarginHaxordum6, title: "Kargin Haxordum" },
-	{ src: KarginHaxordum7, title: "Kargin Haxordum" },
 	{ src: KarginHaxordum8, title: "Kargin Haxordum" },
+	{ src: KarginHaxordum10, title: "Kargin Haxordum" },
+	{ src: KarginHaxordum12, title: "Kargin Haxordum" },
 ];
 </script>
 
