@@ -95,7 +95,7 @@
 	"NUMBER_OF_PARTICIPANTS": "Մասնակիցների թիվը",
 	"CONFIRM_REGISTER": "Հաստատել գրանցումը",
 	"LIMITED_NUMBER": "🚨 Մնացել է ընդամենը",
-	"PLACE":"տեղ",
+	"PLACE": "տեղ",
 	"SENDING": "Ուղարկվում է...",
 	"CLOSE": "Փակել",
 	"GROUP_NAME": "Խմբի անունը",
@@ -120,5 +120,6 @@
 	"GAMES": "Խաղեր",
 	"WHOAMI": "Ո՞վ եմ ես խաղ",
 	"WHOAMI_DESC": "Գուշակիր՝ ով ես դու՝ հարցերով, հուշումներով ու շատ ծիծաղով լի խաղի ընթացքում 🎭",
-	"REELS_MAKER": "Reels մոնտաժող"
+	"REELS_MAKER": "Reels մոնտաժող",
+	"PROMOCODE": "Պրոմո կոդ"
 }
