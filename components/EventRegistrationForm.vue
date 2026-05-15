@@ -181,7 +181,7 @@ function closeModal() {
 				/>
 				<input
 					type="text"
-					name="groupName"
+					name="promocode"
 					:placeholder="t('PROMOCODE')"
 					class="w-full pl-12 pr-4 py-3 border border-gray-300 placeholder:text-white text-white rounded-xl outline-none transition bg-transparent"
 				/>
