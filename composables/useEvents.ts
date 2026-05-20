@@ -10,6 +10,7 @@ import KarginSerial from "@/assets/img/quizes/kargin_serial.jpg?url"
 import Vitamin from "@/assets/img/quizes/Vitamin.jpeg"
 import Merbaky from "@/assets/img/quizes/merbaky.jpg"
 import Whoami from "@/assets/img/quizes/whoami.jpg"
+import ourGame from "@/assets/img/quizes/ourGame.jpg"
 
 
 export function useEvents() {
@@ -374,7 +375,7 @@ export function useEvents() {
       eventDate: true,
       emailSent: true, groupName: true, isSoldout: false, quantity: 0
     },
-       {
+    {
       id: 20,
       title: `Կարգին հաղորդման ${t("QUIZ_TITLE")} #11`,
       slug: "kargin-haxordman-viktorina-11",
@@ -388,6 +389,23 @@ export function useEvents() {
       description:
         t("KARGIN_QUIZ_TITLE"),
       category: t("QUIZ"),
+      eventDate: true,
+      emailSent: true, groupName: true, isSoldout: false, quantity: 35
+    },
+    {
+      id: 21,
+      title: `Մեր Խաղը #1`,
+      slug: "mer-xaxy-1",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-05-24",
+      dateTitle: "Մայիսի 24",
+      time: "19:30",
+      price: "1500 AMD",
+      location: "Loft - Մոսկովյան 3Ա",
+      image: ourGame,
+      description:
+        "5 խենթ փուլեր՝ ֆիլմեր, մեմեր, երաժշտություն, դետեկտիվ հանելուկներ և «Ռանդոմ ռիսկ»:",
+      category: t("GAME"),
       eventDate: true,
       emailSent: true, groupName: true, isSoldout: false, quantity: 35
     },
