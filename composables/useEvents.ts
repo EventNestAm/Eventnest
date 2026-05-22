@@ -390,7 +390,7 @@ export function useEvents() {
         t("KARGIN_QUIZ_TITLE"),
       category: t("QUIZ"),
       eventDate: true,
-      emailSent: true, groupName: true, isSoldout: false, quantity: 35
+      emailSent: true, groupName: true, isSoldout: false, quantity: 10
     },
     {
       id: 21,
