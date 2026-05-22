@@ -390,7 +390,7 @@ export function useEvents() {
         t("KARGIN_QUIZ_TITLE"),
       category: t("QUIZ"),
       eventDate: true,
-      emailSent: true, groupName: true, isSoldout: false, quantity: 10
+      emailSent: true, groupName: true, isSoldout: false, quantity: 8
     },
     {
       id: 21,
@@ -407,7 +407,40 @@ export function useEvents() {
         "5 խենթ փուլեր՝ ֆիլմեր, մեմեր, երաժշտություն, դետեկտիվ հանելուկներ և «Ռանդոմ ռիսկ»:",
       category: t("GAME"),
       eventDate: true,
-      emailSent: true, groupName: true, isSoldout: false, quantity: 35
+      emailSent: true, groupName: true, isSoldout: false, quantity: 10
+    },
+    {
+      id: 22,
+      title: `${t("MOVIE_QUIZ_TITLE")} #4`,
+      slug: "kino-viktorina-4",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-05-30",
+      dateTitle: "Մարտի 30",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: Moviee,
+      description:
+        t("CINEMAQUIZTEXT"),
+      eventDate: true,
+      emailSent: true, groupName: true, isSoldout: false, quantity: 30
+    },
+    {
+      id: 23,
+      title: `Կարգին հաղորդման ${t("QUIZ_TITLE")} #12`,
+      slug: "kargin-haxordman-viktorina-12",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-05-31",
+      dateTitle: "Մայիսի 31",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "Loft - Մոսկովյան 3Ա",
+      image: Kargin2,
+      description:
+        t("KARGIN_QUIZ_TITLE"),
+      category: t("QUIZ"),
+      eventDate: true,
+      emailSent: true, groupName: true, isSoldout: false, quantity: 30
     },
   ])
 
