@@ -21,6 +21,15 @@ const modalMessage = ref("");
 const isLoading = ref(false);
 const router = useRouter();
 
+const route = useRoute();
+const referralCookie = useCookie("referralSource");
+
+if (route.query.ref) {
+	referralCookie.value = route.query.ref;
+}
+
+const referralSource = referralCookie.value || route.query.ref || "direct";
+
 onMounted(() => {
 	const form = document.getElementById("form");
 
@@ -86,6 +95,7 @@ function closeModal() {
 		<form id="form" class="space-y-5 needs-validation" novalidate>
 			<input type="hidden" name="access_key" value="3e1280a2-2fcd-4743-9230-5520ed1b4548" />
 			<input type="checkbox" class="hidden" name="botcheck" />
+			<input type="hidden" name="referral" :value="referralSource" />
 			<input type="hidden" name="eventName" :value="showTitle" />
 			<div class="grid sm:grid-cols-2 gap-5 max-w-[30rem]">
 				<div class="relative w-full">
@@ -175,7 +185,7 @@ function closeModal() {
 					class="w-full pl-12 pr-4 py-3 border border-gray-300 placeholder:text-white text-white rounded-xl outline-none transition bg-transparent"
 				/>
 			</div>
-			<div class="relative" >
+			<div class="relative">
 				<GroupName
 					class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white pointer-events-none z-10"
 				/>
@@ -192,7 +202,9 @@ function closeModal() {
 			>
 				{{ t("CONFIRM_REGISTER") }}
 			</button>
-			<p class="text-white text-center">{{ t("LIMITED_NUMBER") }} {{ props.quantity }} {{ t("PLACE") }}</p>
+			<p class="text-white text-center">
+				{{ t("LIMITED_NUMBER") }} {{ props.quantity }} {{ t("PLACE") }}
+			</p>
 		</form>
 
 		<transition name="fade">
