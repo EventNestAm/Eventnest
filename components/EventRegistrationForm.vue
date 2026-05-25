@@ -21,14 +21,14 @@ const modalMessage = ref("");
 const isLoading = ref(false);
 const router = useRouter();
 
-const route = useRoute();
-const referralCookie = useCookie("referralSource");
+// const route = useRoute();
+// const referralCookie = useCookie("referralSource");
 
-if (route.query.ref) {
-	referralCookie.value = route.query.ref;
-}
+// if (route.query.ref) {
+// 	referralCookie.value = route.query.ref;
+// }
 
-const referralSource = referralCookie.value || route.query.ref || "direct";
+// const referralSource = referralCookie.value || route.query.ref || "direct";
 
 onMounted(() => {
 	const form = document.getElementById("form");
@@ -95,7 +95,7 @@ function closeModal() {
 		<form id="form" class="space-y-5 needs-validation" novalidate>
 			<input type="hidden" name="access_key" value="3e1280a2-2fcd-4743-9230-5520ed1b4548" />
 			<input type="checkbox" class="hidden" name="botcheck" />
-			<input type="hidden" name="referral" :value="referralSource" />
+			<!-- <input type="hidden" name="referral" :value="referralSource" /> -->
 			<input type="hidden" name="eventName" :value="showTitle" />
 			<div class="grid sm:grid-cols-2 gap-5 max-w-[30rem]">
 				<div class="relative w-full">
