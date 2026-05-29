@@ -440,7 +440,24 @@ export function useEvents() {
         t("KARGIN_QUIZ_TITLE"),
       category: t("QUIZ"),
       eventDate: true,
-      emailSent: true, groupName: true, isSoldout: false, quantity: 30
+      emailSent: true, groupName: true, isSoldout: false, quantity: 10
+    },
+    {
+      id: 24,
+      title: `Կարգին հաղորդման ${t("QUIZ_TITLE")} #13`,
+      slug: "kargin-haxordman-viktorina-13",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-06-05",
+      dateTitle: "Հունիսի 05",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: Kargin2,
+      description:
+        t("KARGIN_QUIZ_TITLE"),
+      category: t("QUIZ"),
+      eventDate: true,
+      emailSent: true, groupName: true, isSoldout: false, quantity: 45
     },
   ])
 
