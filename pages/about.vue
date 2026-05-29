@@ -57,13 +57,6 @@ const team = [
 		},
 	},
 	{
-		name: "Ասյա Գագինյան",
-		title: t("PHOTOGRAPHER"),
-		avatar: {
-			src: Asyaphoto,
-		},
-	},
-	{
 		name: "Անահիտ Ալոյան",
 		title: t("GRAPHICDESIGNER"),
 		avatar: {
@@ -75,13 +68,6 @@ const team = [
 		title: t("UIUXDESIGNER"),
 		avatar: {
 			src: Elvinaphoto,
-		},
-	},
-	{
-		name: "Էլեն Կարապետյան",
-		title: t("MODEL"),
-		avatar: {
-			src: Elenphoto,
 		},
 	},
 	{
