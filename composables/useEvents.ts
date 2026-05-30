@@ -11,7 +11,12 @@ import Vitamin from "@/assets/img/quizes/Vitamin.jpeg"
 import Merbaky from "@/assets/img/quizes/merbaky.jpg"
 import Whoami from "@/assets/img/quizes/whoami.jpg"
 import ourGame from "@/assets/img/quizes/ourGame.jpg"
-
+import footballCup from "@/assets/img/quizes/footballCup.png"
+import karaokeBattle from "@/assets/img/quizes/karaokeBattle.png"
+import musicQuiz from "@/assets/img/quizes/musicQuiz.png"
+import hayavari from "@/assets/img/quizes/hayavari.png"
+import cartoon from "@/assets/img/quizes/cartoon.png"
+import bookQuiz from "@/assets/img/quizes/bookQuiz.png"
 
 export function useEvents() {
   const searchQuery = ref("")
@@ -458,6 +463,125 @@ export function useEvents() {
       category: t("QUIZ"),
       eventDate: true,
       emailSent: true, groupName: true, isSoldout: false, quantity: 37
+    },
+    {
+      id: 25,
+      title: `Աշխարհի առաջնություն ${t("QUIZ_TITLE")}`,
+      slug: "ashxarhi-arajnutyun-1",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-06-06",
+      dateTitle: "Հունիսի 06",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: footballCup,
+      description:
+        t("WORLD_CUP_DESC"),
+      category: t("QUIZ"),
+      eventDate: true,
+      emailSent: true, groupName: true, isSoldout: false, quantity: 45
+    },
+    {
+      id: 26,
+      title: `Կառաոկե բաթլ ${t("QUIZ_TITLE")} #1`,
+      slug: "karaoke-battle-1",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-06-13",
+      dateTitle: "Հունիսի 13",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: karaokeBattle,
+      description:
+        t("KARAOKE_BATTLE"),
+      category: t("GAME"),
+      eventDate: true,
+      emailSent: true, groupName: true, isSoldout: false, quantity: 45
+    },
+    {
+      id: 27,
+      title: `${t("MUSICIAL_TITLE")} ${t("QUIZ_TITLE")} #2`,
+      slug: "music-quiz-2",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-06-14",
+      dateTitle: "Հունիսի 14",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: musicQuiz,
+      description:
+        t("MUSIC_QUIZ_TITLE"),
+      category: t("QUIZ"),
+      eventDate: true,
+      emailSent: true, groupName: true, isSoldout: false, quantity: 45
+    },
+    {
+      id: 28,
+      title: `Հայավարի ${t("QUIZ_TITLE")} #1`,
+      slug: "hayavari-quiz-1",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-06-20",
+      dateTitle: "Հունիսի 20",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: hayavari,
+      description:
+        t("HAYAVARI_QUIZ"),
+      category: t("QUIZ"),
+      eventDate: true,
+      emailSent: true, groupName: true, isSoldout: false, quantity: 45
+    },
+    {
+      id: 29,
+      title: `Մուլտֆիլմերի ${t("QUIZ_TITLE")} #1`,
+      slug: "cartoon-quiz-1",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-06-21",
+      dateTitle: "Հունիսի 21",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "Loft - Մոսկովյան 3Ա",
+      image: cartoon,
+      description:
+        t("CARTOON_QUIZ"),
+      category: t("QUIZ"),
+      eventDate: true,
+      emailSent: true, groupName: true, isSoldout: false, quantity: 45
+    },
+    {
+      id: 30,
+      title: `Կարգին Սերիալ ${t("QUIZ_TITLE")} #3`,
+      slug: "kargin-serial-viktorina-3",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-06-27",
+      dateTitle: "Հունիսի 27",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: KarginSerial,
+      description:
+        t("KARGIN_QUIZ_TITLE"),
+      category: t("QUIZ"),
+      eventDate: false,
+      emailSent: true, groupName: true
+    },
+    {
+      id: 31,
+      title: `Գրքի ${t("QUIZ_TITLE")} #1`,
+      slug: "book-quiz-1",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-06-28",
+      dateTitle: "Հունիսի 28",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: bookQuiz,
+      description:
+        t("BOOK_QUIZ"),
+      category: t("QUIZ"),
+      eventDate: false,
+      emailSent: true, groupName: true
     },
   ])
 

@@ -121,5 +121,11 @@
 	"WHOAMI": "Who am I game",
 	"WHOAMI_DESC": "Guess who you are through questions, clues, and lots of laughter during the game 🎭",
 	"REELS_MAKER": "Reels Maker",
-	"PROMOCODE": "Promocode"
+	"PROMOCODE": "Promocode",
+	"WORLD_CUP_DESC": "🏆 Test your knowledge of World Cup legends, matches, and iconic moments.",
+	"KARAOKE_BATTLE": "🎤 Sing your favorite hits and compete in an unforgettable karaoke battle.",
+	"MUSIC_QUIZ_TITLE": "🎵 Test your knowledge of songs, artists, and unforgettable music hits.",
+	"HAYAVARI_QUIZ": "🇦🇲 Test your knowledge of Armenian culture, history, traditions, and famous personalities.",
+	"CARTOON_QUIZ": "🎬 Test your knowledge of beloved cartoons, characters, and unforgettable moments.",
+	"BOOK_QUIZ": "📚 Test your knowledge of famous books, authors, and literary classics."
 }
