@@ -483,7 +483,7 @@ export function useEvents() {
     },
     {
       id: 26,
-      title: `Կառաոկե բաթլ ${t("QUIZ_TITLE")} #1`,
+      title: `Կառաոկե բաթլ #1`,
       slug: "karaoke-battle-1",
       titleDesc: "An evening of strategy, emotions and people like you",
       date: "2026-06-13",
