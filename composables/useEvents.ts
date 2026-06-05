@@ -462,7 +462,7 @@ export function useEvents() {
         t("KARGIN_QUIZ_TITLE"),
       category: t("QUIZ"),
       eventDate: true,
-      emailSent: true, groupName: true, isSoldout: false, quantity: 37
+      emailSent: true, groupName: true, isSoldout: true, quantity: 0
     },
     {
       id: 25,
@@ -479,7 +479,7 @@ export function useEvents() {
         t("WORLD_CUP_DESC"),
       category: t("QUIZ"),
       eventDate: true,
-      emailSent: true, groupName: true, isSoldout: false, quantity: 45
+      emailSent: true, groupName: true, isSoldout: true, quantity: 0
     },
     {
       id: 26,
@@ -496,7 +496,7 @@ export function useEvents() {
         t("KARAOKE_BATTLE"),
       category: t("GAME"),
       eventDate: true,
-      emailSent: true, groupName: true, isSoldout: false, quantity: 20
+      emailSent: true, groupName: true, isSoldout: false, quantity: 18
     },
     {
       id: 27,
