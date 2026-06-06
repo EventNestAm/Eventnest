@@ -496,7 +496,7 @@ export function useEvents() {
         t("KARAOKE_BATTLE"),
       category: t("GAME"),
       eventDate: true,
-      emailSent: true, groupName: true, isSoldout: false, quantity: 18
+      emailSent: true, groupName: false, isSoldout: false, quantity: 18
     },
     {
       id: 27,
