@@ -85,167 +85,93 @@ function closeModal() {
 </script>
 
 <template>
-	<div
-		class="bg-gradient-to-br from-[#5B1F14]/90 via-[#7A2E1F]/85 to-[#E9C6BF]/80 backdrop-blur-xl rounded-3xl border border-white/20 shadow-[0_20px_60px_rgba(0,0,0,0.35)] p-6"
-	>
-		<h2 class="text-xl font-bold text-white mb-2 text-center">{{ t("REGISTRATION_EVENT") }}</h2>
+	<div class="reg-form">
+		<p class="font-mono text-[10px] tracking-[0.3em] text-[#8B86A0] uppercase text-center mb-1">
+			{{ t("SMART_SOCIAL_INTERACTIVE") }}
+		</p>
+		<h2 class="font-display text-xl font-bold text-[#1C1530] text-center mb-5">
+			{{ t("REGISTRATION_EVENT") }}
+		</h2>
 
-		<p class="text-white text-center">{{ t("SMART_SOCIAL_INTERACTIVE") }}</p>
-
-		<form id="form" class="space-y-5 needs-validation" novalidate>
+		<form id="form" class="space-y-4 needs-validation" novalidate>
 			<input type="hidden" name="access_key" value="3e1280a2-2fcd-4743-9230-5520ed1b4548" />
 			<input type="checkbox" class="hidden" name="botcheck" />
-		 <input type="hidden" name="referral" :value="referralSource" />
+			<input type="hidden" name="referral" :value="referralSource" />
 			<input type="hidden" name="eventName" :value="showTitle" />
-			<div class="grid sm:grid-cols-2 gap-5 max-w-[30rem]">
-				<div class="relative w-full">
-					<Person
-						class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white pointer-events-none z-20"
-					/>
 
-					<input
-						type="text"
-						name="name"
-						:placeholder="t('NAME') + ' *'"
-						required
-						class="w-full pl-12 pr-4 py-3 border border-gray-300 text-white placeholder:text-white rounded-xl outline-none transition relative z-10 bg-transparent"
-					/>
+			<div class="grid sm:grid-cols-2 gap-3">
+				<div class="field">
+					<Person class="field__icon" />
+					<input type="text" name="name" :placeholder="t('NAME') + ' *'" required class="field__input" />
 				</div>
-
-				<div class="w-full">
-					<div class="relative">
-						<Person
-							class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white pointer-events-none z-10"
-						/>
-
-						<input
-							type="text"
-							name="surname"
-							:placeholder="t('SURNAME') + ' *'"
-							required
-							class="w-full pl-12 pr-4 py-3 border border-gray-300 placeholder:text-white text-white rounded-xl outline-none transition bg-transparent"
-						/>
-					</div>
+				<div class="field">
+					<Person class="field__icon" />
+					<input type="text" name="surname" :placeholder="t('SURNAME') + ' *'" required class="field__input" />
 				</div>
 			</div>
 
-			<div class="w-full">
-				<div class="relative">
-					<Phone
-						class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white pointer-events-none z-10"
-					/>
-					<input
-						type="tel"
-						name="phone"
-						:placeholder="t('PHONE') + ' *'"
-						required
-						class="w-full pl-12 pr-4 py-3 border border-gray-300 placeholder:text-white text-white rounded-xl outline-none transition bg-transparent"
-					/>
-				</div>
+			<div class="field">
+				<Phone class="field__icon" />
+				<input type="tel" name="phone" :placeholder="t('PHONE') + ' *'" required class="field__input" />
 			</div>
 
-			<div class="w-full">
-				<div class="relative">
-					<CountPeople
-						class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white pointer-events-none z-10"
-					/>
-					<input
-						type="number"
-						name="peopleCount"
-						:placeholder="t('NUMBER_OF_PARTICIPANTS') + ' *'"
-						min="1"
-						required
-						class="w-full pl-12 pr-4 py-3 border border-gray-300 placeholder:text-white text-white rounded-xl outline-none transition bg-transparent"
-					/>
-				</div>
-			</div>
-			<div class="w-full">
-				<div class="relative">
-					<Mail
-						class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white pointer-events-none z-10"
-					/>
-					<input
-						type="email"
-						name="email"
-						:placeholder="t('EMAIL') + ' *'"
-						required
-						class="w-full pl-12 pr-4 py-3 border border-gray-300 placeholder:text-white text-white rounded-xl outline-none transition bg-transparent"
-					/>
-				</div>
-			</div>
-			<div class="relative" v-if="showGroupInput">
-				<GroupName
-					class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white pointer-events-none z-10"
-				/>
+			<div class="field">
+				<CountPeople class="field__icon" />
 				<input
-					type="text"
-					name="groupName"
-					:placeholder="t('GROUP_NAME') + ' *'"
+					type="number"
+					name="peopleCount"
+					:placeholder="t('NUMBER_OF_PARTICIPANTS') + ' *'"
+					min="1"
 					required
-					class="w-full pl-12 pr-4 py-3 border border-gray-300 placeholder:text-white text-white rounded-xl outline-none transition bg-transparent"
+					class="field__input"
 				/>
 			</div>
-			<div class="relative">
-				<GroupName
-					class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white pointer-events-none z-10"
-				/>
-				<input
-					type="text"
-					name="promocode"
-					:placeholder="t('PROMOCODE')"
-					class="w-full pl-12 pr-4 py-3 border border-gray-300 placeholder:text-white text-white rounded-xl outline-none transition bg-transparent"
-				/>
+
+			<div class="field">
+				<Mail class="field__icon" />
+				<input type="email" name="email" :placeholder="t('EMAIL') + ' *'" required class="field__input" />
 			</div>
-			<button
-				type="submit"
-				class="py-3 px-5 flex justify-center items-center mx-auto bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-full shadow-lg hover:scale-105 transition transform relative overflow-hidden"
-			>
+
+			<div class="field" v-if="showGroupInput">
+				<GroupName class="field__icon" />
+				<input type="text" name="groupName" :placeholder="t('GROUP_NAME') + ' *'" required class="field__input" />
+			</div>
+
+			<div class="field">
+				<GroupName class="field__icon" />
+				<input type="text" name="promocode" :placeholder="t('PROMOCODE')" class="field__input" />
+			</div>
+
+			<button type="submit" class="submit-btn">
 				{{ t("CONFIRM_REGISTER") }}
 			</button>
-			<p class="text-white text-center">
+
+			<p class="font-mono text-[10px] tracking-[0.15em] text-[#8B86A0] text-center uppercase">
 				{{ t("LIMITED_NUMBER") }} {{ props.quantity }} {{ t("PLACE") }}
 			</p>
 		</form>
 
 		<transition name="fade">
-			<div
-				v-if="showModal"
-				class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-			>
-				<div class="bg-white rounded-2xl p-6 w-80 text-center relative shadow-xl">
+			<div v-if="showModal" class="fixed inset-0 bg-[#14102B]/60 backdrop-blur-sm flex items-center justify-center z-50 px-4">
+				<div class="bg-[#FFFCF7] rounded-2xl p-6 w-80 text-center relative shadow-2xl border border-[#1C1530]/5">
 					<button
 						@click="closeModal"
-						class="absolute top-3 right-3 text-gray-500 hover:text-gray-800 font-bold text-lg"
+						class="absolute top-3 right-3 text-[#8B86A0] hover:text-[#1C1530] font-bold text-lg leading-none transition"
 					>
 						&times;
 					</button>
 
-					<div v-if="isLoading" class="flex flex-col items-center gap-3">
-						<svg
-							class="animate-spin h-8 w-8 text-purple-600"
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-						>
-							<circle
-								class="opacity-25"
-								cx="12"
-								cy="12"
-								r="10"
-								stroke="currentColor"
-								stroke-width="4"
-							/>
+					<div v-if="isLoading" class="flex flex-col items-center gap-3 py-2">
+						<svg class="animate-spin h-8 w-8 text-[#7C5CFC]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+							<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
 							<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
 						</svg>
-						<p class="text-purple-700 font-semibold">{{ t("SENDING") }}</p>
+						<p class="font-mono text-xs tracking-[0.2em] text-[#7C5CFC] uppercase">{{ t("SENDING") }}</p>
 					</div>
 
-					<div v-else>
-						<p class="text-green-600 font-semibold">{{ modalMessage }}</p>
-						<button
-							@click="closeModal"
-							class="mt-4 px-4 py-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition"
-						>
+					<div v-else class="py-1">
+						<p class="font-display font-semibold text-[#1C1530]">{{ modalMessage }}</p>
+						<button @click="closeModal" class="mt-4 px-5 py-2 bg-[#7C5CFC] text-white text-sm font-semibold rounded-full hover:bg-[#6B4CE0] transition">
 							{{ t("CLOSE") }}
 						</button>
 					</div>
@@ -255,12 +181,77 @@ function closeModal() {
 	</div>
 </template>
 
-<style>
-.invalid-feedback {
-	display: none;
+<style scoped>
+.font-display {
+	font-family: "Space Grotesk", system-ui, sans-serif;
 }
-.was-validated :invalid ~ .invalid-feedback {
-	display: block;
+.font-mono {
+	font-family: "JetBrains Mono", monospace;
+}
+
+.field {
+	position: relative;
+	width: 100%;
+}
+
+.field__icon {
+	position: absolute;
+	left: 1rem;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 1.1rem;
+	height: 1.1rem;
+	color: #8b86a0;
+	pointer-events: none;
+}
+
+.field__input {
+	width: 100%;
+	padding: 0.75rem 1rem 0.75rem 2.75rem;
+	background: #f6f3fc;
+	border: 1.5px solid transparent;
+	border-radius: 0.75rem;
+	color: #1c1530;
+	font-size: 0.9rem;
+	outline: none;
+	transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.field__input::placeholder {
+	color: #9d97b8;
+}
+
+.field__input:focus {
+	border-color: #7c5cfc;
+	background: #ffffff;
+}
+
+.was-validated .field__input:invalid {
+	border-color: #ff6f4d;
+}
+
+.submit-btn {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	padding: 0.85rem 1.5rem;
+	background: linear-gradient(90deg, #7c5cfc, #6b4ce0);
+	color: #fff;
+	font-weight: 600;
+	font-size: 0.95rem;
+	border-radius: 999px;
+	box-shadow: 0 10px 24px -8px rgba(124, 92, 252, 0.55);
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.submit-btn:hover {
+	transform: translateY(-1px) scale(1.01);
+	box-shadow: 0 14px 30px -8px rgba(124, 92, 252, 0.6);
+}
+
+.submit-btn:active {
+	transform: scale(0.98);
 }
 
 .fade-enter-active,

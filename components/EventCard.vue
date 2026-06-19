@@ -1,7 +1,7 @@
 <script setup>
 const { t } = useI18n();
 const localePath = useLocalePath();
-defineProps({
+const props = defineProps({
 	event: {
 		type: Object,
 		required: true,
@@ -15,64 +15,30 @@ defineProps({
 		required: true,
 	},
 });
+
+const ticketCode = computed(() => {
+	const base = (props.event?.slug || "EVENT").toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 6);
+	return `EN-${base.padEnd(6, "X")}`;
+});
 </script>
 
 <template>
-	<div
-		class="relative h-full flex flex-col rounded-2xl overflow-hidden shadow-md transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
-	>
-		<div class="relative">
-			<img
-				:src="event.image"
-				alt="միջոցառումների կազմակերպում EventNest"
-				class="w-full h-48 object-cover object-center transition-all duration-500"
-				:class="!event.eventDate ? 'grayscale blur-[1px] brightness-75' : ''"
-				loading="lazy"
-			/>
-			<div
-				class="absolute top-4 left-4 bg-gradient-to-r from-purple-600 to-purple-800 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md"
-			>
-				{{ event.category }}
+	<div class="event-card" :class="!event.eventDate ? 'event-card--closed' : ''">
+		<div class="event-card__main">
+			<div class="flex items-center justify-between mb-4">
+				<span class="event-card__category">{{ event.category }}</span>
+				<span class="font-mono text-[10px] tracking-[0.2em] text-[#8B86A0]">{{ ticketCode }}</span>
 			</div>
 
-			<div
-				v-if="!event.eventDate"
-				class="absolute inset-0 bg-black/50 backdrop-blur-sm flex flex-col items-center justify-center text-white text-center"
-			>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="w-10 h-10 mb-2 opacity-80"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-				>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M12 11c1.104 0 2 .896 2 2v2a2 2 0 01-2 2H9a2 2 0 01-2-2v-2c0-1.104.896-2 2-2h3zM10 11V9a2 2 0 114 0v2"
-					/>
-				</svg>
-				<p class="text-sm font-semibold tracking-wide">Միջոցառումը ավարտված է</p>
-			</div>
-		</div>
-
-		<div class="p-3 sm:p-6 flex flex-col flex-grow bg-white">
 			<h3
-				class="text-xl font-bold mb-2"
-				:class="event.eventDate ? 'text-gray-900' : 'text-gray-400 line-through'"
+				class="font-display text-xl font-bold mb-3 leading-snug"
+				:class="event.eventDate ? 'text-[#1C1530]' : 'text-[#8B86A0] line-through'"
 			>
 				{{ event.title }}
 			</h3>
 
-			<div class="flex items-center text-gray-500 text-sm mb-3">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="h-4 w-4 mr-1"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-				>
+			<div class="flex items-center text-[#6B6480] text-sm mb-2 gap-1.5">
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 					<path
 						stroke-linecap="round"
 						stroke-linejoin="round"
@@ -80,62 +46,158 @@ defineProps({
 						d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
 					/>
 				</svg>
-				<pre>{{ event.dateYear }}</pre>
 				<time :datetime="event.date">{{ formatDate(event.date) }}</time>
-				<span class="mx-1 sm:mx-2">•</span>
+				<span>•</span>
 				<span>{{ event.time }}</span>
 			</div>
 
-			<div class="flex items-center text-gray-500 text-sm mb-4">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="h-4 w-4 mr-1"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-				>
+			<div class="flex items-center text-[#6B6480] text-sm mb-4 gap-1.5">
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 					<path
 						stroke-linecap="round"
 						stroke-linejoin="round"
 						stroke-width="2"
 						d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
 					/>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-					/>
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
 				</svg>
-				{{ event.location }}
+				<span class="truncate">{{ event.location }}</span>
 			</div>
 
 			<p
-				class="text-gray-600 mb-5 line-clamp-3"
-				:class="!event.eventDate ? 'text-gray-400' : ''"
+				class="text-sm mb-5 line-clamp-2"
+				:class="event.eventDate ? 'text-[#4A4360]' : 'text-[#8B86A0]'"
 			>
 				{{ event.description }}
 			</p>
+		</div>
 
-			<div class="mt-auto">
-				<NuxtLink
-					:to="event.eventDate ? localePath(`/events/${event.slug}`) : null"
-					class="group inline-flex items-center gap-2 px-5 py-2 rounded-full font-semibold shadow-md transition-all duration-300 relative"
-					:class="[
-						event.eventDate
-							? 'bg-gradient-to-r from-purple-500 to-purple-700 text-white hover:from-purple-600 hover:to-purple-800 hover:shadow-lg hover:-translate-y-0.5'
-							: 'bg-gray-300 text-gray-400 cursor-not-allowed',
-					]"
-				>
-					<span>{{ event.eventDate ? t("REGISTER") : t("CLOSED") }}</span>
-					<span
-						v-if="event.eventDate"
-						class="transform transition-transform duration-300 group-hover:translate-x-1"
-					>
-						→
-					</span>
-				</NuxtLink>
-			</div>
+		<div class="event-card__perforation" aria-hidden="true"></div>
+
+		<div class="event-card__stub">
+			<NuxtLink
+				:to="event.eventDate ? localePath(`/events/${event.slug}`) : null"
+				class="event-card__cta"
+				:class="event.eventDate ? 'event-card__cta--active' : 'event-card__cta--closed'"
+			>
+				<span>{{ event.eventDate ? t("REGISTER") : t("CLOSED") }}</span>
+				<span v-if="event.eventDate" class="event-card__arrow">→</span>
+			</NuxtLink>
 		</div>
 	</div>
 </template>
+
+<style scoped>
+.font-display {
+	font-family: "Space Grotesk", system-ui, sans-serif;
+}
+.font-mono {
+	font-family: "JetBrains Mono", monospace;
+}
+
+.event-card {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	background: #fffcf7;
+	border-radius: 1.25rem;
+	box-shadow: 0 12px 30px -14px rgba(20, 16, 43, 0.25);
+	overflow: hidden;
+	transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.event-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 20px 40px -16px rgba(20, 16, 43, 0.35);
+}
+
+.event-card--closed {
+	opacity: 0.65;
+}
+
+.event-card__main {
+	padding: 1.5rem 1.5rem 1.25rem;
+	flex-grow: 1;
+}
+
+.event-card__category {
+	display: inline-block;
+	padding: 0.3rem 0.75rem;
+	border-radius: 999px;
+	background: #fff1ec;
+	color: #ff6f4d;
+	font-size: 0.7rem;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+}
+
+.event-card__perforation {
+	position: relative;
+	height: 0;
+	border-top: 2px dashed #e3ddf0;
+	margin: 0 1.5rem;
+}
+
+.event-card__perforation::before,
+.event-card__perforation::after {
+	content: "";
+	position: absolute;
+	top: -10px;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: #faf8f4;
+}
+.event-card__perforation::before {
+	left: -1.5rem;
+}
+.event-card__perforation::after {
+	right: -1.5rem;
+}
+
+.event-card__stub {
+	padding: 1.1rem 1.5rem 1.4rem;
+}
+
+.event-card__cta {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	width: 100%;
+	padding: 0.75rem 1.25rem;
+	border-radius: 999px;
+	font-weight: 600;
+	font-size: 0.9rem;
+	transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.event-card__cta--active {
+	background: linear-gradient(90deg, #7c5cfc, #6b4ce0);
+	color: #fff;
+	box-shadow: 0 10px 22px -8px rgba(124, 92, 252, 0.5);
+}
+
+.event-card__cta--active:hover {
+	transform: translateY(-1px) scale(1.01);
+	box-shadow: 0 14px 28px -8px rgba(124, 92, 252, 0.55);
+}
+
+.event-card__cta--active:active {
+	transform: scale(0.98);
+}
+
+.event-card__cta--closed {
+	background: #f1eef9;
+	color: #b3acc9;
+	cursor: not-allowed;
+}
+
+.event-card__arrow {
+	transition: transform 0.25s ease;
+}
+
+.event-card__cta--active:hover .event-card__arrow {
+	transform: translateX(3px);
+}
+</style>
