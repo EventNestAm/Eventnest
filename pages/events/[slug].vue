@@ -101,7 +101,7 @@ const infoCards = computed(() => [
 					<p class="font-mono text-[11px] sm:text-xs tracking-[0.35em] text-[#FF6F4D] mb-4 uppercase">
 						{{ event.category || t("EVENT_NOT_FOUND") }} · {{ ticketCode }}
 					</p>
-					<h1 class="font-display text-[2.25rem] leading-[1.05] sm:text-6xl font-bold text-white mb-5 tracking-tight">
+					<h1 class="font-display text-[2.25rem] leading-[1.05] sm:text-6xl font-bold text-white my-5 tracking-tight">
 						{{ event.title }}
 					</h1>
 					<p class="text-[#C7C1E0] text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
