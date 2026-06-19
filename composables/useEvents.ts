@@ -23,6 +23,17 @@ export function useEvents() {
   const selectedDate = ref("")
   const selectedCategory = ref("Բոլորը")
   const { t } = useI18n();
+  const today = computed(() => {
+    const d = new Date()
+    d.setHours(0, 0, 0, 0)
+    return d
+  })
+
+  function isUpcoming(dateStr, todayDate) {
+    const d = new Date(dateStr)
+    d.setHours(0, 0, 0, 0)
+    return d >= todayDate
+  }
   const events = ref([
     {
       id: 1,
@@ -529,7 +540,7 @@ export function useEvents() {
       description:
         t("HAYAVARI_QUIZ"),
       category: t("QUIZ"),
-      eventDate: true,
+      eventDate: true, forceClosed: true,
       emailSent: true, groupName: true, isSoldout: false, quantity: 30
     },
     {
@@ -546,7 +557,7 @@ export function useEvents() {
       description:
         t("CARTOON_QUIZ"),
       category: t("QUIZ"),
-      eventDate: true,
+      eventDate: true, forceClosed: true,
       emailSent: true, groupName: true, isSoldout: false, quantity: 45
     },
     {
@@ -581,10 +592,22 @@ export function useEvents() {
         t("BOOK_QUIZ"),
       category: t("QUIZ"),
       eventDate: false,
+
       emailSent: true, groupName: true
     },
   ])
-
+  const eventsWithStatus = computed(() =>
+    events.value.map(event => {
+      const dateUpcoming = isUpcoming(event.date, today.value)
+      const closed = event.forceClosed !== undefined ? event.forceClosed : !dateUpcoming
+      return {
+        ...event,
+        eventDate: !closed,
+        isUpcoming: !closed,
+        isClosed: closed,
+      }
+    })
+  )
   async function addEvent(newEvent) {
     events.value.push(newEvent)
 
@@ -626,7 +649,7 @@ export function useEvents() {
   })
 
   const sortedEvents = computed(() =>
-    [...events.value].sort((a, b) => new Date(b.date) - new Date(a.date))
+    [...eventsWithStatus.value].sort((a, b) => new Date(b.date) - new Date(a.date))
   )
 
   const filteredEvents = computed(() =>
@@ -650,14 +673,6 @@ export function useEvents() {
 
   const newFilteredEvents = computed(() =>
     sortedEvents.value.filter((event) => {
-      const today = new Date()
-      today.setHours(0, 0, 0, 0)
-
-      const eventDate = new Date(event.date)
-      eventDate.setHours(0, 0, 0, 0)
-
-      const isUpcoming = eventDate >= today
-
       const matchesCategory =
         selectedCategory.value === "Բոլորը" ||
         event.title.includes(selectedCategory.value) ||
@@ -671,7 +686,7 @@ export function useEvents() {
       const matchesDate =
         !selectedDate.value || event.date === selectedDate.value
 
-      return isUpcoming && matchesCategory && matchesSearch && matchesDate
+      return event.isUpcoming && matchesCategory && matchesSearch && matchesDate
     })
   )
 
@@ -702,15 +717,9 @@ export function useEvents() {
     ]
     return `${weekdays[date.getDay()]}, ${date.getDate()} ${months[date.getMonth()]}, ${date.getFullYear()} թ․`
   }
-  events.value = events.value.map(event => {
-    const today = new Date()
-    today.setHours(0, 0, 0, 0)
-    const d = new Date(event.date)
-    d.setHours(0, 0, 0, 0)
-    return { ...event, eventDate: d >= today }
-  })
+
   return {
-    events,
+    events: eventsWithStatus,
     filteredEvents,
     newFilteredEvents,
     formatDate,
