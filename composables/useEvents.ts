@@ -628,6 +628,91 @@ export function useEvents() {
       eventDate: true,
       emailSent: true, groupName: true, isSoldout: false, quantity: 45
     },
+    {
+      id: 37,
+      title: `Football ${t("QUIZ_TITLE")} #3`,
+      slug: "football-quiz-3",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-07-12",
+      dateTitle: "Հուլիսի 12",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: footballCup,
+      description:
+        t("WORLD_CUP_DESC"),
+      category: t("QUIZ"),
+      eventDate: true,
+      emailSent: true, groupName: true, isSoldout: true, quantity: 45
+    },
+    {
+      id: 38,
+      title: `Կառաոկե բաթլ #2`,
+      slug: "karaoke-battle-2",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-07-18",
+      dateTitle: "Հուլիսի 18",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: karaokeBattle,
+      description:
+        t("KARAOKE_BATTLE"),
+      category: t("GAME"),
+      eventDate: true,
+      emailSent: true, groupName: false, isSoldout: false, quantity: 45
+    },
+    {
+      id: 39,
+      title: `Կարգին հաղորդման ${t("QUIZ_TITLE")} #15`,
+      slug: "kargin-haxordman-viktorina-15",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-07-19",
+      dateTitle: "Հուլիսի 19",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: Kargin2,
+      description:
+        t("KARGIN_QUIZ_TITLE"),
+      category: t("QUIZ"),
+      eventDate: true,
+      emailSent: true, groupName: true, isSoldout: false, quantity: 45
+    },
+    {
+      id: 40,
+      title: `Կարգին Սերիալ ${t("QUIZ_TITLE")} #4`,
+      slug: "kargin-serial-viktorina-4",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-07-25",
+      dateTitle: "Հուլիսի 25",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: KarginSerial,
+      description:
+        t("KARGIN_QUIZ_TITLE"),
+      category: t("QUIZ"),
+      eventDate: false,
+      emailSent: true, groupName: true, quantity: 20
+    },
+    {
+      id: 41,
+      title: `Mix ${t("QUIZ_TITLE")} #1`,
+      slug: "mix-1",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-07-26",
+      dateTitle: "Հուլիսի 26",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: KarginSerial,
+      description:
+        t("KARGIN_QUIZ_TITLE"),
+      category: t("QUIZ"),
+      eventDate: false,
+      emailSent: true, groupName: true, quantity: 20
+    },
   ])
   const eventsWithStatus = computed(() =>
     events.value.map(event => {
