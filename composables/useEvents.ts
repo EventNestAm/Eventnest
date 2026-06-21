@@ -609,7 +609,7 @@ export function useEvents() {
         t("KARGIN_QUIZ_TITLE"),
       category: t("QUIZ"),
       eventDate: true,
-      emailSent: true, groupName: true, isSoldout: true, quantity: 45
+      emailSent: true, groupName: true, isSoldout: false, quantity: 45
     },
   ])
   const eventsWithStatus = computed(() =>
