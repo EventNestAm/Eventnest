@@ -58,63 +58,119 @@ const onSlideChange = (swiper) => {
 </script>
 
 <template>
-	<LandingSectionhead>
-		<template #title>
-			<h1
-				class="sm:text-xl text-2xl md:text-3xl font-bold lg:tracking-tight text-black uppercase text-center"
-			>
-				{{ t("YOU_WILL_FIND") }}
-			</h1>
-		</template>
-	</LandingSectionhead>
+	<section class="showcase">
+		<p class="font-mono text-[11px] tracking-[0.35em] text-[#7C5CFC] mb-2 uppercase text-center">
+			{{ t("QUIZ") }}
+		</p>
+		<h1 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-[#1C1530] text-center tracking-tight uppercase">
+			{{ t("YOU_WILL_FIND") }}
+		</h1>
 
-	<div
-		class="flex flex-col md:flex-row gap-8 items-center justify-center mt-8 sm:mt-12 md:mt-16 overflow-hidden"
-	>
-		<div class="relative w-full md:w-1/2 flex justify-center items-center pb-5">
-			<button
-				class="swiper-button-prev-custom absolute left-0 md:-left-0 xl:left-32 z-10 bg-[#00308F] text-white w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-all duration-300"
-			>
-				←
-			</button>
-			<ClientOnly>
-				<Swiper
-					effect="cards"
-					:grabCursor="true"
-					:modules="modules"
-					:navigation="{
-						nextEl: '.swiper-button-next-custom',
-						prevEl: '.swiper-button-prev-custom',
-					}"
-					class="w-[17.5rem] h-[23.75rem]"
-					@slideChange="onSlideChange"
-				>
-					<SwiperSlide v-for="(item, index) in swiperImages" :key="index">
-						<img
-							:src="item.src"
-							:alt="item.title"
-							class="object-cover w-full h-full rounded-xl"
-						/>
-					</SwiperSlide>
-				</Swiper>
-			</ClientOnly>
-			<button
-				class="swiper-button-next-custom absolute right-0 md:-right-0 xl:right-32 z-10 bg-[#00308F] text-white w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-all duration-300"
-			>
-				→
-			</button>
-		</div>
+		<div class="flex flex-col md:flex-row gap-8 items-stretch justify-center mt-10 md:mt-14 overflow-hidden">
+			<div class="relative w-full md:w-1/2 flex justify-center items-center pb-5">
+				<button class="nav-btn nav-btn--prev swiper-button-prev-custom">←</button>
 
-		<div class="w-full md:w-1/2 p-4 md:p-8 bg-[#00308F] rounded-3xl">
-			<h3 class="font-semibold text-2xl sm:text-3xl md:text-4xl mb-4 text-white uppercase">
-				{{ swiperImages[activeIndex].title }}
-			</h3>
-			<p class="text-white leading-relaxed text-lg">
-				{{ swiperImages[activeIndex].description }}
-			</p>
+				<ClientOnly>
+					<Swiper
+						effect="cards"
+						:grabCursor="true"
+						:modules="modules"
+						:navigation="{
+							nextEl: '.swiper-button-next-custom',
+							prevEl: '.swiper-button-prev-custom',
+						}"
+						class="w-[17.5rem] h-[23.75rem]"
+						@slideChange="onSlideChange"
+					>
+						<SwiperSlide v-for="(item, index) in swiperImages" :key="index">
+							<img :src="item.src" :alt="item.title" class="object-cover w-full h-full rounded-xl" />
+						</SwiperSlide>
+					</Swiper>
+				</ClientOnly>
+
+				<button class="nav-btn nav-btn--next swiper-button-next-custom">→</button>
+			</div>
+
+			<div class="w-full md:w-1/2 info-panel">
+				<span class="font-mono text-[10px] tracking-[0.3em] text-[#FF6F4D] uppercase">
+					{{ String(activeIndex + 1).padStart(2, "0") }} / {{ String(swiperImages.length).padStart(2, "0") }}
+				</span>
+				<h3 class="font-display font-bold text-2xl sm:text-3xl md:text-4xl mt-3 mb-4 text-white">
+					{{ swiperImages[activeIndex].title }}
+				</h3>
+				<p class="text-[#C7C1E0] leading-relaxed text-base sm:text-lg">
+					{{ swiperImages[activeIndex].description }}
+				</p>
+			</div>
 		</div>
-	</div>
+	</section>
 </template>
+
+<style scoped>
+.font-display {
+	font-family: "Space Grotesk", system-ui, sans-serif;
+}
+.font-mono {
+	font-family: "JetBrains Mono", monospace;
+}
+
+.showcase {
+	padding: 2.5rem 1rem;
+}
+
+.nav-btn {
+	position: absolute;
+	z-index: 10;
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #ffffff;
+	color: #1c1530;
+	box-shadow: 0 10px 24px -10px rgba(20, 16, 43, 0.4);
+	border: 1px solid rgba(28, 21, 48, 0.06);
+	transition: all 0.2s ease;
+}
+.nav-btn:hover {
+	background: linear-gradient(135deg, #7c5cfc, #6b4ce0);
+	color: #fff;
+	transform: translateY(-2px);
+	box-shadow: 0 14px 28px -10px rgba(124, 92, 252, 0.55);
+}
+.nav-btn--prev {
+	left: 0;
+}
+@media (min-width: 1280px) {
+	.nav-btn--prev {
+		left: 8rem;
+	}
+}
+.nav-btn--next {
+	right: 0;
+}
+@media (min-width: 1280px) {
+	.nav-btn--next {
+		right: 8rem;
+	}
+}
+
+.info-panel {
+	padding: 1.75rem;
+	border-radius: 1.5rem;
+	background: radial-gradient(120% 140% at 50% 0%, #221a44 0%, #14102b 65%, #0f0c20 100%);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+@media (min-width: 768px) {
+	.info-panel {
+		padding: 2.5rem;
+	}
+}
+</style>
 
 <style>
 .swiper-slide {
@@ -123,7 +179,7 @@ const onSlideChange = (swiper) => {
 	justify-content: center;
 	border-radius: 18px;
 	overflow: hidden;
-	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+	box-shadow: 0 16px 36px -14px rgba(20, 16, 43, 0.4);
 }
 
 .swiper-button-next,

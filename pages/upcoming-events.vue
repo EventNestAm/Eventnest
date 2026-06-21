@@ -55,139 +55,230 @@ const placeholder = computed(() => t("SEARCH_WITH"));
 </script>
 
 <template>
-	<LandingSectionhead>
-		<template #title>
-			<h1
-				class="text-black uppercase text-xl sm:text-2xl md:text-3xl font-bold pt-32 sm:pt-28"
-			>
-				{{ t("UPCOMING_EVENTS") }}
-			</h1>
-		</template>
-	</LandingSectionhead>
-
-	<section
-		class="bg-gradient-to-r from-purple-500 to-indigo-600 py-6 sm:py-8 md:py-12 px-4 text-center text-white my-6 sm:my-8 md:my-10"
-	>
-		<h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-4">
-			{{ t("FIND_YOUR_EVENT") }}
-		</h2>
-		<p class="text-lg text-purple-100 max-w-2xl mx-auto">
-			{{ t("JOIN_US_AND") }}
-		</p>
-		<div class="mt-8 flex flex-col justify-center items-center gap-4">
-			<input
-				v-if="t('SEARCH_WITH')"
-				v-model="searchQuery"
-				type="text"
-				:placeholder="`${placeholder}...`"
-				class="px-4 py-3 rounded-xl border-0 shadow-md w-72 focus:ring-2 focus:ring-purple-300 focus:outline-none text-black"
-			/>
-			<div class="w-42">
-				<VueDatePicker
-					v-model="selectedDate"
-					placeholder="MM/DD/YYYY"
-					format="MM/dd/yyyy"
-					:enable-time-picker="false"
-					auto-apply
-				/>
-			</div>
-		</div>
-	</section>
-
-	<div class="container mx-auto">
-		<div class="w-full flex flex-col md:flex-row justify-center">
-			<div class="w-full flex justify-center flex-wrap gap-3 my-2 sm:my-4 md:my-8 px-4 mb-10">
-				<button
-					v-for="cat in categories"
-					:key="cat.key"
-					@click="selectedCategory = cat.key"
-					:class="[
-						'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200',
-						selectedCategory === cat.key
-							? 'bg-purple-600 text-white shadow-md'
-							: 'bg-gray-100 text-gray-700 hover:bg-purple-100 hover:text-purple-700',
-					]"
-				>
-					{{ cat.label }}
-				</button>
-			</div>
-			<div
-				class="my-auto mb-10 h-full flex justify-end mr-4 md:mr-0"
-				v-if="filteredEvents.length > 1"
-			>
-				<button
-					@click="sortOrder = sortOrder === 'asc' ? 'desc' : 'asc'"
-					class="w-fit px-3 py-1.5 bg-purple-600 text-white rounded-md whitespace-nowrap"
-				>
-					{{ t("SORT_BY") }}:
-					{{
-						sortOrder === "NEW"
-							? t("OLD") + " → " + t("NEW")
-							: t("NEW") + " → " + t("OLD")
-					}}
-				</button>
-			</div>
-		</div>
-		<LandingContainer v-if="filteredEvents.length > 0">
-			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 lg:px-0">
-				<EventCard
-					v-for="event in displayedEvents"
-					:key="event.id"
-					:event="event"
-					:formatDate="formatDate"
-				/>
-			</div>
-		</LandingContainer>
-		<section v-else class="py-16 text-center">
-			<div class="max-w-md max-h-md mx-auto">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="h-10 w-10 mx-auto text-gray-400"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-				>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="1.5"
-						d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-					/>
-				</svg>
-				<h3 class="text-xl font-medium text-gray-700 mt-4">{{ t("EVENTS_NOT_FOUND") }}</h3>
-				<p class="text-gray-500 mt-2">
-					{{ t("TRY_TO_CHANGE") }}
+	<div class="events-page">
+		<!-- Hero / search band -->
+		<section class="hero-band px-4 sm:px-6 pt-32 pb-16 sm:pt-36 sm:pb-20 text-center relative overflow-hidden">
+			<div class="hero-glow"></div>
+			<div class="relative z-10 max-w-2xl mx-auto">
+				<p class="font-mono text-[11px] tracking-[0.35em] text-[#FF6F4D] mb-4 uppercase">
+					{{ t("UPCOMING_EVENTS") }}
 				</p>
-				<button
-					@click="
-						selectedCategory = 'all';
-						searchQuery = '';
-						selectedDate = null;
-					"
-					class="mt-4 bg-purple-600 text-white px-5 py-2 rounded-lg hover:bg-purple-700 transition font-medium text-sm"
-				>
-					{{ t("RESET_FILTERS") }}
-				</button>
+				<h1 class="font-display text-3xl sm:text-5xl font-bold text-white mb-4 tracking-tight">
+					{{ t("FIND_YOUR_EVENT") }}
+				</h1>
+				<p class="text-[#C7C1E0] text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
+					{{ t("JOIN_US_AND") }}
+				</p>
+
+				<div class="mt-9 flex flex-col items-center gap-3">
+					<input
+						v-if="t('SEARCH_WITH')"
+						v-model="searchQuery"
+						type="text"
+						:placeholder="`${placeholder}...`"
+						class="search-input"
+					/>
+					<div class="date-picker-wrap">
+						<VueDatePicker
+							v-model="selectedDate"
+							placeholder="MM/DD/YYYY"
+							format="MM/dd/yyyy"
+							:enable-time-picker="false"
+							auto-apply
+						/>
+					</div>
+				</div>
 			</div>
 		</section>
+
+		<!-- Filters -->
+		<div class="max-w-6xl mx-auto px-4 sm:px-6">
+			<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 -mt-6 mb-10 relative z-10">
+				<div class="flex flex-wrap justify-center md:justify-start gap-2.5">
+					<button
+						v-for="cat in categories"
+						:key="cat.key"
+						@click="selectedCategory = cat.key"
+						class="filter-pill"
+						:class="selectedCategory === cat.key ? 'filter-pill--active' : ''"
+					>
+						{{ cat.label }}
+					</button>
+				</div>
+
+				<button
+					v-if="filteredEvents.length > 1"
+					@click="sortOrder = sortOrder === 'asc' ? 'desc' : 'asc'"
+					class="sort-btn"
+				>
+					<span class="font-mono text-[10px] tracking-[0.15em] uppercase opacity-70">{{ t("SORT_BY") }}</span>
+					<span class="font-semibold">
+						{{ sortOrder === "asc" ? t("OLD") + " → " + t("NEW") : t("NEW") + " → " + t("OLD") }}
+					</span>
+				</button>
+			</div>
+
+			<!-- Results -->
+			<div v-if="filteredEvents.length > 0" class="pb-24">
+				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+					<EventCard v-for="event in displayedEvents" :key="event.id" :event="event" :formatDate="formatDate" />
+				</div>
+			</div>
+
+			<section v-else class="py-20 text-center">
+				<div class="max-w-md mx-auto">
+					<div class="empty-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="1.5"
+								d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+							/>
+						</svg>
+					</div>
+					<h3 class="font-display text-xl font-bold text-[#1C1530] mt-5">{{ t("EVENTS_NOT_FOUND") }}</h3>
+					<p class="text-[#6B6480] text-sm mt-2">
+						{{ t("TRY_TO_CHANGE") }}
+					</p>
+					<button
+						@click="
+							selectedCategory = 'all';
+							searchQuery = '';
+							selectedDate = null;
+						"
+						class="reset-btn"
+					>
+						{{ t("RESET_FILTERS") }}
+					</button>
+				</div>
+			</section>
+		</div>
 	</div>
 </template>
 
-<style>
-button,
-a,
-input {
+<style scoped>
+.font-display {
+	font-family: "Space Grotesk", system-ui, sans-serif;
+}
+.font-mono {
+	font-family: "JetBrains Mono", monospace;
+}
+
+.events-page {
+	background: #faf8f4;
+	min-height: 100vh;
+}
+
+.hero-band {
+	background: radial-gradient(120% 100% at 50% 0%, #221a44 0%, #14102b 55%, #0f0c20 100%);
+}
+
+.hero-glow {
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(60% 50% at 50% 0%, rgba(124, 92, 252, 0.35), transparent 70%);
+	pointer-events: none;
+}
+
+.search-input {
+	width: 100%;
+	max-width: 20rem;
+	padding: 0.85rem 1.25rem;
+	border-radius: 0.85rem;
+	border: none;
+	background: #ffffff;
+	color: #1c1530;
+	box-shadow: 0 12px 28px -12px rgba(20, 16, 43, 0.4);
+	outline: none;
+	font-size: 0.9rem;
+}
+.search-input::placeholder {
+	color: #9d97b8;
+}
+.search-input:focus {
+	box-shadow: 0 0 0 3px rgba(124, 92, 252, 0.4);
+}
+
+.date-picker-wrap {
+	width: 100%;
+	max-width: 13rem;
+}
+
+.date-picker-wrap :deep(.dp__input) {
+	border-radius: 0.85rem;
+	border: none;
+	padding: 0.7rem 2.5rem;
+	box-shadow: 0 12px 28px -12px rgba(20, 16, 43, 0.4);
+	font-size: 0.85rem;
+}
+
+/* Filters */
+.filter-pill {
+	padding: 0.55rem 1.1rem;
+	border-radius: 999px;
+	font-size: 0.85rem;
+	font-weight: 600;
+	background: #ffffff;
+	color: #4a4360;
+	border: 1px solid rgba(28, 21, 48, 0.08);
+	box-shadow: 0 6px 16px -10px rgba(20, 16, 43, 0.2);
 	transition: all 0.2s ease;
 }
-
-input:focus,
-button:focus {
-	outline: none;
+.filter-pill:hover {
+	border-color: #7c5cfc;
+	color: #7c5cfc;
+}
+.filter-pill--active {
+	background: linear-gradient(90deg, #7c5cfc, #6b4ce0);
+	border-color: transparent;
+	color: #fff;
+	box-shadow: 0 10px 22px -10px rgba(124, 92, 252, 0.6);
 }
 
-.shadow-md {
-	transition:
-		transform 0.3s ease,
-		box-shadow 0.3s ease;
+.sort-btn {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.1rem;
+	padding: 0.55rem 1.1rem;
+	border-radius: 0.85rem;
+	background: #ffffff;
+	color: #1c1530;
+	border: 1px solid rgba(28, 21, 48, 0.08);
+	box-shadow: 0 6px 16px -10px rgba(20, 16, 43, 0.2);
+	white-space: nowrap;
+	align-self: center;
+}
+.sort-btn:hover {
+	border-color: #7c5cfc;
+}
+
+/* Empty state */
+.empty-icon {
+	width: 3.25rem;
+	height: 3.25rem;
+	margin: 0 auto;
+	border-radius: 50%;
+	background: #efe9ff;
+	color: #7c5cfc;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.reset-btn {
+	margin-top: 1.25rem;
+	padding: 0.6rem 1.4rem;
+	border-radius: 999px;
+	background: linear-gradient(90deg, #7c5cfc, #6b4ce0);
+	color: #fff;
+	font-weight: 600;
+	font-size: 0.85rem;
+	box-shadow: 0 10px 22px -10px rgba(124, 92, 252, 0.6);
+	transition: transform 0.2s ease;
+}
+.reset-btn:hover {
+	transform: translateY(-1px);
 }
 </style>

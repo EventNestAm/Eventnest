@@ -256,7 +256,7 @@ export function useEvents() {
       emailSent: true, groupName: true
     },
     {
-      id: 14,
+      id: 15,
       title: `Կարգին հաղորդման ${t("QUIZ_TITLE")} #7`,
       slug: "kargin-haxordman-viktorina-7",
       titleDesc: "An evening of strategy, emotions and people like you",
@@ -273,7 +273,7 @@ export function useEvents() {
       emailSent: true, groupName: true, isSoldout: true
     },
     {
-      id: 15,
+      id: 16,
       title: `Կարգին Սերիալ ${t("QUIZ_TITLE")} #1`,
       slug: "kargin-serial-viktorina-1",
       titleDesc: "An evening of strategy, emotions and people like you",
@@ -290,7 +290,7 @@ export function useEvents() {
       emailSent: true, groupName: true
     },
     {
-      id: 16,
+      id: 17,
       title: `Կարգին հաղորդման ${t("QUIZ_TITLE")} #8`,
       slug: "kargin-haxordman-viktorina-8",
       titleDesc: "An evening of strategy, emotions and people like you",
@@ -307,7 +307,7 @@ export function useEvents() {
       emailSent: true, groupName: true, isSoldout: false
     },
     {
-      id: 15,
+      id: 18,
       title: `Կարգին Սերիալ ${t("QUIZ_TITLE")} #2`,
       slug: "kargin-serial-viktorina-2",
       titleDesc: "An evening of strategy, emotions and people like you",
@@ -324,7 +324,7 @@ export function useEvents() {
       emailSent: true, groupName: true
     },
     {
-      id: 16,
+      id: 19,
       title: `Կարգին հաղորդման ${t("QUIZ_TITLE")} #9`,
       slug: "kargin-haxordman-viktorina-9",
       titleDesc: "An evening of strategy, emotions and people like you",
@@ -340,25 +340,8 @@ export function useEvents() {
       eventDate: false,
       emailSent: true, groupName: true, isSoldout: false
     },
-    // {
-    //   id: 17,
-    //   title: `Մեր Բակը ${t("QUIZ_TITLE")} #1`,
-    //   slug: "mer-baky-1",
-    //   titleDesc: "An evening of strategy, emotions and people like you",
-    //   date: "2026-05-16",
-    //   dateTitle: "Մայիսի 16",
-    //   time: "19:30",
-    //   price: "3000 AMD",
-    //   location: "The Kond House - 46 Leo Street",
-    //   image: Merbaky,
-    //   description:
-    //     t("MER_BAKY_DESC"),
-    //   category: t("QUIZ"),
-    //   eventDate: false,
-    //   emailSent: true, groupName: true, isSoldout: false, quantity: 16
-    // },
     {
-      id: 18,
+      id: 20,
       title: `${t("WHOAMI")} #1`,
       slug: "ovem-es-1",
       titleDesc: "An evening of strategy, emotions and people like you",
@@ -375,7 +358,7 @@ export function useEvents() {
       emailSent: true, groupName: true, isSoldout: false, quantity: 20
     },
     {
-      id: 19,
+      id: 21,
       title: `Կարգին հաղորդման ${t("QUIZ_TITLE")} #10`,
       slug: "kargin-haxordman-viktorina-10",
       titleDesc: "An evening of strategy, emotions and people like you",
@@ -392,7 +375,7 @@ export function useEvents() {
       emailSent: true, groupName: true, isSoldout: false, quantity: 0
     },
     {
-      id: 20,
+      id: 22,
       title: `Կարգին հաղորդման ${t("QUIZ_TITLE")} #11`,
       slug: "kargin-haxordman-viktorina-11",
       titleDesc: "An evening of strategy, emotions and people like you",
@@ -409,7 +392,7 @@ export function useEvents() {
       emailSent: true, groupName: true, isSoldout: false, quantity: 8
     },
     {
-      id: 21,
+      id: 23,
       title: `Մեր Խաղը #1`,
       slug: "mer-xaxy-1",
       titleDesc: "An evening of strategy, emotions and people like you",
@@ -426,7 +409,7 @@ export function useEvents() {
       emailSent: true, groupName: true, isSoldout: false, quantity: 10
     },
     {
-      id: 22,
+      id: 24,
       title: `${t("MOVIE_QUIZ_TITLE")} #4`,
       slug: "kino-viktorina-4",
       titleDesc: "An evening of strategy, emotions and people like you",
@@ -442,7 +425,7 @@ export function useEvents() {
       emailSent: true, groupName: true, isSoldout: false, quantity: 30
     },
     {
-      id: 23,
+      id: 25,
       title: `Կարգին հաղորդման ${t("QUIZ_TITLE")} #12`,
       slug: "kargin-haxordman-viktorina-12",
       titleDesc: "An evening of strategy, emotions and people like you",
@@ -459,7 +442,7 @@ export function useEvents() {
       emailSent: true, groupName: true, isSoldout: false, quantity: 10
     },
     {
-      id: 24,
+      id: 26,
       title: `Կարգին հաղորդման ${t("QUIZ_TITLE")} #13`,
       slug: "kargin-haxordman-viktorina-13",
       titleDesc: "An evening of strategy, emotions and people like you",
@@ -476,7 +459,7 @@ export function useEvents() {
       emailSent: true, groupName: true, isSoldout: true, quantity: 0
     },
     {
-      id: 25,
+      id: 27,
       title: `Աշխարհի առաջնություն ${t("QUIZ_TITLE")}`,
       slug: "ashxarhi-arajnutyun-1",
       titleDesc: "An evening of strategy, emotions and people like you",
@@ -493,7 +476,7 @@ export function useEvents() {
       emailSent: true, groupName: true, isSoldout: true, quantity: 0
     },
     {
-      id: 26,
+      id: 28,
       title: `Կառաոկե բաթլ #1`,
       slug: "karaoke-battle-1",
       titleDesc: "An evening of strategy, emotions and people like you",
@@ -510,7 +493,7 @@ export function useEvents() {
       emailSent: true, groupName: false, isSoldout: false, quantity: 2
     },
     {
-      id: 27,
+      id: 29,
       title: `${t("MUSICIAL_TITLE")} ${t("QUIZ_TITLE")} #2`,
       slug: "music-quiz-2",
       titleDesc: "An evening of strategy, emotions and people like you",
@@ -527,7 +510,7 @@ export function useEvents() {
       emailSent: true, groupName: true, isSoldout: false, quantity: 10
     },
     {
-      id: 28,
+      id: 30,
       title: `Հայավարի ${t("QUIZ_TITLE")} #1`,
       slug: "hayavari-quiz-1",
       titleDesc: "An evening of strategy, emotions and people like you",
@@ -544,7 +527,7 @@ export function useEvents() {
       emailSent: true, groupName: true, isSoldout: false, quantity: 30
     },
     {
-      id: 29,
+      id: 31,
       title: `Մուլտֆիլմերի ${t("QUIZ_TITLE")} #1`,
       slug: "cartoon-quiz-1",
       titleDesc: "An evening of strategy, emotions and people like you",
@@ -561,7 +544,7 @@ export function useEvents() {
       emailSent: true, groupName: true, isSoldout: false, quantity: 45
     },
     {
-      id: 30,
+      id: 32,
       title: `Կարգին Սերիալ ${t("QUIZ_TITLE")} #3`,
       slug: "kargin-serial-viktorina-3",
       titleDesc: "An evening of strategy, emotions and people like you",
@@ -578,7 +561,7 @@ export function useEvents() {
       emailSent: true, groupName: true, quantity: 20
     },
     {
-      id: 31,
+      id: 33,
       title: `Գրքի ${t("QUIZ_TITLE")} #1`,
       slug: "book-quiz-1",
       titleDesc: "An evening of strategy, emotions and people like you",
@@ -595,12 +578,46 @@ export function useEvents() {
       emailSent: true, groupName: true, quantity: 20
     },
     {
-      id: 32,
+      id: 34,
       title: `Կարգին հաղորդման ${t("QUIZ_TITLE")} #14`,
       slug: "kargin-haxordman-viktorina-14",
       titleDesc: "An evening of strategy, emotions and people like you",
       date: "2026-07-05",
       dateTitle: "Հուլիսի 05",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: Kargin2,
+      description:
+        t("KARGIN_QUIZ_TITLE"),
+      category: t("QUIZ"),
+      eventDate: true,
+      emailSent: true, groupName: true, isSoldout: false, quantity: 45
+    },
+    {
+      id: 35,
+      title: `Game of Thrones ${t("QUIZ_TITLE")} #1`,
+      slug: "game-of-thrones",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-07-04",
+      dateTitle: "Հուլիսի 04",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: Kargin2,
+      description:
+        t("KARGIN_QUIZ_TITLE"),
+      category: t("QUIZ"),
+      eventDate: true,
+      emailSent: true, groupName: true, isSoldout: false, quantity: 45
+    },
+    {
+      id: 36,
+      title: `Meme ${t("QUIZ_TITLE")} #1`,
+      slug: "meme-quiz",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-07-11",
+      dateTitle: "Հուլիսի 11",
       time: "19:30",
       price: "3000 AMD",
       location: "The Kond House - 46 Leo Street",

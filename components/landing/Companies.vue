@@ -5,6 +5,10 @@ const logos = [
 		link: "https://www.instagram.com/loft.yerevan/",
 	},
 	{
+		src: "/partners/kondhouse.png",
+		link: "https://www.facebook.com/kondhouse",
+	},
+	{
 		src: "/partners/rockfour.jpg",
 		link: "https://www.rockfour.am/hy",
 	},
@@ -70,16 +74,19 @@ const { t } = useI18n();
 </script>
 
 <template>
-	<section>
+	<section class="partners">
 		<h2
-			class="sm:text-xl text-2xl md:text-3xl font-bold lg:tracking-tight text-black uppercase text-center"
+			class="font-display text-2xl sm:text-3xl font-bold text-[#1C1530] text-center tracking-tight uppercase"
 		>
 			{{ t("OUR_PARTNERS") }}
 		</h2>
 
-		<div class="overflow-hidden py-5 sm:py-10 bg-[#00308F] group mt-5 sm:mt-7 md:mt-10">
+		<div class="partners__track-wrap mt-7 sm:mt-10 group">
+			<div class="partners__fade partners__fade--left" aria-hidden="true"></div>
+			<div class="partners__fade partners__fade--right" aria-hidden="true"></div>
+
 			<div
-				class="flex gap-10 whitespace-nowrap group-hover:[animation-play-state:paused] animate-slide"
+				class="flex gap-6 sm:gap-8 whitespace-nowrap group-hover:[animation-play-state:paused] animate-slide"
 			>
 				<a
 					v-for="(logo, index) in duplicatedLogos"
@@ -87,7 +94,7 @@ const { t } = useI18n();
 					:href="logo.link"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="flex-shrink-0 w-20 sm:w-52 h-20 sm:h-40 flex items-center justify-center rounded-2xl bg-white shadow-md hover:shadow-xl transition-shadow duration-300"
+					class="partners__logo"
 				>
 					<NuxtImg
 						:src="logo.src"
@@ -97,7 +104,7 @@ const { t } = useI18n();
 						format="webp"
 						quality="90"
 						loading="lazy"
-						class="w-full h-full object-cover rounded-2xl"
+						class="w-full h-full object-cover rounded-[14px]"
 					/>
 				</a>
 			</div>
@@ -106,13 +113,70 @@ const { t } = useI18n();
 </template>
 
 <style scoped>
-@keyframes slide {
-	0% {
-		transform: translateX(0);
+.font-display {
+	font-family: "Space Grotesk", system-ui, sans-serif;
+}
+.font-mono {
+	font-family: "JetBrains Mono", monospace;
+}
+
+.partners {
+	padding: 2.5rem 0;
+}
+
+.partners__track-wrap {
+	position: relative;
+	overflow: hidden;
+	white-space: nowrap;
+	background: radial-gradient(120% 180% at 50% 50%, #221a44 0%, #14102b 70%, #0f0c20 100%);
+	padding: 1.5rem 0;
+	border-radius: 1.25rem;
+}
+
+.partners__fade {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 4rem;
+	z-index: 10;
+	pointer-events: none;
+}
+.partners__fade--left {
+	left: 0;
+	background: linear-gradient(90deg, #14102b, transparent);
+}
+.partners__fade--right {
+	right: 0;
+	background: linear-gradient(270deg, #14102b, transparent);
+}
+
+.partners__logo {
+	flex-shrink: 0;
+	width: 5rem;
+	height: 5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 16px;
+	background: #fffcf7;
+	box-shadow: 0 8px 20px -10px rgba(0, 0, 0, 0.4);
+	transition:
+		transform 0.25s ease,
+		box-shadow 0.25s ease;
+	padding: 4px;
+}
+
+@media (min-width: 640px) {
+	.partners__logo {
+		width: 11rem;
+		height: 8.5rem;
+		padding: 8px;
 	}
-	100% {
-		transform: translateX(-50%);
-	}
+}
+
+.partners__logo:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 16px 32px -10px rgba(124, 92, 252, 0.5);
 }
 
 .animate-slide {
@@ -122,9 +186,13 @@ const { t } = useI18n();
 	flex-wrap: nowrap;
 }
 
-.overflow-hidden {
-	overflow: hidden;
-	white-space: nowrap;
+@keyframes slide {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-50%);
+	}
 }
 
 @media (max-width: 640px) {
