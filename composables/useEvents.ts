@@ -470,7 +470,7 @@ export function useEvents() {
       location: "The Kond House - 46 Leo Street",
       image: footballCup,
       description:
-        t("WORLD_CUP_DESC"),
+        t("FOOTBALL"),
       category: t("QUIZ"),
       eventDate: true,
       emailSent: true, groupName: true, isSoldout: true, quantity: 0
@@ -606,7 +606,7 @@ export function useEvents() {
       location: "The Kond House - 46 Leo Street",
       image: Kargin2,
       description:
-        t("KARGIN_QUIZ_TITLE"),
+        t("GAME_OF_THRONES_QUIZ_DESC"),
       category: t("QUIZ"),
       eventDate: true,
       emailSent: true, groupName: true, isSoldout: false, quantity: 45
@@ -623,7 +623,7 @@ export function useEvents() {
       location: "The Kond House - 46 Leo Street",
       image: Kargin2,
       description:
-        t("KARGIN_QUIZ_TITLE"),
+        t("FULL_HOUSE_QUIZ_DESC"),
       category: t("QUIZ"),
       eventDate: true,
       emailSent: true, groupName: true, isSoldout: false, quantity: 45
@@ -640,10 +640,10 @@ export function useEvents() {
       location: "The Kond House - 46 Leo Street",
       image: footballCup,
       description:
-        t("WORLD_CUP_DESC"),
+        t("FOOTBALL_QUIZ_DESC"),
       category: t("QUIZ"),
       eventDate: true,
-      emailSent: true, groupName: true, isSoldout: true, quantity: 45
+      emailSent: true, groupName: true, isSoldout: false, quantity: 45
     },
     {
       id: 38,
