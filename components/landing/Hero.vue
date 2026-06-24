@@ -7,17 +7,23 @@ const localePath = useLocalePath();
 	<main class="hero">
 		<div class="hero-glow"></div>
 
-		<div class="relative z-10 grid lg:grid-cols-2 place-items-center gap-10 pb-16 pt-32 sm:pt-28 lg:pt-16 px-4 sm:px-6 max-w-6xl mx-auto">
+		<div
+			class="relative z-10 grid lg:grid-cols-2 place-items-center gap-10 pb-16 pt-32 sm:pt-28 lg:pt-16 px-4 sm:px-6 max-w-6xl mx-auto"
+		>
 			<div class="order-2 lg:order-1 text-center lg:text-left">
 				<p class="font-mono text-[11px] tracking-[0.35em] text-[#FF6F4D] mb-4 uppercase">
 					{{ t("WE_GROW") }} {{ t("WITH_YOU") }}
 				</p>
 
-				<h1 class="font-display text-4xl md:text-6xl xl:text-7xl font-bold tracking-tight text-white">
+				<h1
+					class="font-display text-4xl md:text-6xl xl:text-7xl font-bold tracking-tight text-white"
+				>
 					EventNest
 				</h1>
 
-				<p class="text-base sm:text-lg mt-5 text-[#C7C1E0] max-w-xl font-medium uppercase tracking-wide">
+				<p
+					class="text-base sm:text-lg mt-5 text-[#C7C1E0] max-w-xl font-medium uppercase tracking-wide"
+				>
 					EventNest – <span class="text-[#FF6F4D] font-bold">Remember</span>
 					<span class="ml-1 text-[#C7C1E0]">you are the</span>
 					<span class="ml-1 text-[#FF6F4D] font-bold">Best</span>
@@ -58,6 +64,12 @@ const localePath = useLocalePath();
 
 .hero {
 	position: relative;
+	width: 100vw;
+	position: relative;
+	left: 50%;
+	right: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
 	overflow: hidden;
 	background: radial-gradient(120% 100% at 50% 0%, #221a44 0%, #14102b 55%, #0f0c20 100%);
 }
