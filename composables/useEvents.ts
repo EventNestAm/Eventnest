@@ -614,7 +614,7 @@ export function useEvents() {
     {
       id: 36,
       title: `Full House ${t("QUIZ_TITLE")} #1`,
-      slug: "meme-quiz",
+      slug: "full-house-quiz",
       titleDesc: "An evening of strategy, emotions and people like you",
       date: "2026-07-18",
       dateTitle: "Հուլիսի 18",
