@@ -613,7 +613,7 @@ export function useEvents() {
     },
     {
       id: 36,
-      title: `Full House ${t("QUIZ_TITLE")} #1`,
+      title: `${t("FULL_HOUSE")} ${t("QUIZ_TITLE")} #1`,
       slug: "full-house-quiz",
       titleDesc: "An evening of strategy, emotions and people like you",
       date: "2026-07-18",
@@ -630,7 +630,7 @@ export function useEvents() {
     },
     {
       id: 37,
-      title: `Football ${t("QUIZ_TITLE")} #3`,
+      title: `${t("FOOTBALL")} ${t("QUIZ_TITLE")} #3`,
       slug: "football-quiz-3",
       titleDesc: "An evening of strategy, emotions and people like you",
       date: "2026-07-19",
