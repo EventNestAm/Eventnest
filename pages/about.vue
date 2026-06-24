@@ -84,7 +84,7 @@ const team = [
 			<h1 class="font-display text-3xl sm:text-5xl font-bold text-white tracking-tight mb-5">
 				{{ t("ABOUT_US") }}
 			</h1>
-			<p class="text-[#C7C1E0] text-base sm:text-lg leading-relaxed">We are a small passionate team.</p>
+			<p class="text-[#C7C1E0] text-base sm:text-lg leading-relaxed">{{t("WE_ARE")}}</p>
 		</div>
 	</section>
 
