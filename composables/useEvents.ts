@@ -558,7 +558,7 @@ export function useEvents() {
         t("KARGIN_QUIZ_TITLE"),
       category: t("QUIZ"),
       eventDate: false,
-      emailSent: true, groupName: true, quantity: 20
+      emailSent: true, groupName: true, quantity: 8
     },
     {
       id: 33,
@@ -575,7 +575,7 @@ export function useEvents() {
         t("BOOK_QUIZ"),
       category: t("QUIZ"),
       eventDate: false,
-      emailSent: true, groupName: true, quantity: 20
+      emailSent: true, groupName: true, quantity: 10
     },
     {
       id: 34,
@@ -592,7 +592,7 @@ export function useEvents() {
         t("KARGIN_QUIZ_TITLE"),
       category: t("QUIZ"),
       eventDate: true,
-      emailSent: true, groupName: true, isSoldout: false, quantity: 45
+      emailSent: true, groupName: true, isSoldout: false, quantity: 40
     },
     {
       id: 35,
@@ -660,7 +660,7 @@ export function useEvents() {
         t("KARAOKE_BATTLE"),
       category: t("GAME"),
       eventDate: true,
-      emailSent: true, groupName: false, isSoldout: false, quantity: 45
+      emailSent: true, groupName: false, isSoldout: false, quantity: 44
     },
     {
       id: 39,
