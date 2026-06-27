@@ -603,7 +603,7 @@ export function useEvents() {
       dateTitle: "Հուլիսի 04",
       time: "19:30",
       price: "3000 AMD",
-      location: "The Kond House - 46 Leo Street",
+      location: "Friend's House anticafe — 14 Isahakyan",
       image: Kargin2,
       description:
         t("GAME_OF_THRONES_QUIZ_DESC"),
