@@ -48,7 +48,6 @@ const localePath = useLocalePath();
 						fetchpriority="high"
 					/>
 				</div>
-				<span class="hero-badge font-mono">EN-001</span>
 			</div>
 		</div>
 	</main>

@@ -54,7 +54,6 @@ const { t } = useI18n();
 					<div class="ticket-stub__main">
 						<div class="flex items-center justify-between mb-4">
 							<span class="font-mono text-[10px] tracking-[0.25em] text-[#8B86A0] uppercase">{{ t("CONTACT_US") }}</span>
-							<span class="font-mono text-[10px] tracking-[0.25em] text-[#8B86A0]">EN-CONTACT</span>
 						</div>
 
 						<LandingContactform />
