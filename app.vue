@@ -11,12 +11,13 @@ useSeoMeta({
 	ogTitle: "EventNest — Find Your Next Event in Yerevan",
 	ogDescription:
 		"EventNest-ը ստեղծում է հիշվող փորձառություններ՝ առաջարկելով միջոցառումների և կորպորատիվների կազմակերպում բարձր պրոֆեսիոնալ մակարդակով։",
-	ogImage: "/eventnestLogo.jpg",
-	ogUrl: "https://eventnest.am",
-
+	ogImage: "https://www.eventnest.am/og/eventnest-og.jpg",
+	ogUrl: "https://www.eventnest.am",
 	twitterCard: "summary_large_image",
 });
-
+useHead({
+	link: [{ rel: "canonical", href: `https://www.eventnest.am${useRoute().path}` }],
+});
 const showScroll = ref(false);
 
 const checkScroll = () => {
