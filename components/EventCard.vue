@@ -17,7 +17,10 @@ const props = defineProps({
 });
 
 const ticketCode = computed(() => {
-	const base = (props.event?.slug || "EVENT").toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 6);
+	const base = (props.event?.slug || "EVENT")
+		.toUpperCase()
+		.replace(/[^A-Z0-9]/g, "")
+		.slice(0, 6);
 	return `EN-${base.padEnd(6, "X")}`;
 });
 </script>
@@ -26,8 +29,9 @@ const ticketCode = computed(() => {
 	<div class="event-card" :class="!event.eventDate ? 'event-card--closed' : ''">
 		<div class="event-card__main">
 			<div class="flex items-center justify-between mb-4">
-				<span class="event-card__category">{{ event.category }}</span>
-				<span class="font-mono text-[10px] tracking-[0.2em] text-[#8B86A0]">{{ ticketCode }}</span>
+				<p class="event-card__category">
+					{{ Array.isArray(event.category) ? event.category.join(", ") : event.category }}
+				</p>
 			</div>
 
 			<h3
@@ -38,7 +42,13 @@ const ticketCode = computed(() => {
 			</h3>
 
 			<div class="flex items-center text-[#6B6480] text-sm mb-2 gap-1.5">
-				<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="h-4 w-4 shrink-0"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
 					<path
 						stroke-linecap="round"
 						stroke-linejoin="round"
@@ -52,14 +62,25 @@ const ticketCode = computed(() => {
 			</div>
 
 			<div class="flex items-center text-[#6B6480] text-sm mb-4 gap-1.5">
-				<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="h-4 w-4 shrink-0"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
 					<path
 						stroke-linecap="round"
 						stroke-linejoin="round"
 						stroke-width="2"
 						d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
 					/>
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+					/>
 				</svg>
 				<span class="truncate">{{ event.location }}</span>
 			</div>
@@ -103,7 +124,9 @@ const ticketCode = computed(() => {
 	border-radius: 1.25rem;
 	box-shadow: 0 12px 30px -14px rgba(20, 16, 43, 0.25);
 	overflow: hidden;
-	transition: transform 0.25s ease, box-shadow 0.25s ease;
+	transition:
+		transform 0.25s ease,
+		box-shadow 0.25s ease;
 }
 
 .event-card:hover {
@@ -169,7 +192,10 @@ const ticketCode = computed(() => {
 	border-radius: 999px;
 	font-weight: 600;
 	font-size: 0.9rem;
-	transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+	transition:
+		transform 0.2s ease,
+		box-shadow 0.2s ease,
+		background 0.2s ease;
 }
 
 .event-card__cta--active {

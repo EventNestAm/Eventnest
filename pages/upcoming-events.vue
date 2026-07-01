@@ -23,10 +23,13 @@ const displayedEvents = computed(() => {
 const categories = [
 	{ key: "all", label: t("ALL") },
 	{ key: "quiz", label: t("QUIZ") },
-	{ key: "games", label: t("GAMES") },
-	{ key: "what_where_when", label: t("WHAT_WHERE_WHEN") },
+	{ key: "kargin", label: t("KARGIN") },
+	{ key: "sitcoms", label: t("SITCOMS") },
+	{ key: "music", label: t("MUSIC") },
+	{ key: "karaoke", label: t("KARAOKE") },
 	{ key: "football", label: t("FOOTBALL") },
-	{ key: "mafia", label: t("MAFIA") },
+	{ key: "movie", label: t("MOVIES") },
+	{ key: "games", label: t("GAMES") },
 ];
 const selectedCategory = ref("all");
 const searchQuery = ref("");
@@ -37,7 +40,10 @@ const filteredEvents = computed(() => {
 		const selectedCatLabel = categories.find((c) => c.key === selectedCategory.value)?.label;
 
 		const matchesCategory =
-			selectedCategory.value === "all" || event.category === selectedCatLabel;
+			selectedCategory.value === "all" ||
+			(Array.isArray(event.category)
+				? event.category.includes(selectedCatLabel)
+				: event.category === selectedCatLabel);
 
 		const matchesSearch =
 			event.title.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
@@ -47,7 +53,7 @@ const filteredEvents = computed(() => {
 			!selectedDate.value ||
 			new Date(event.date).toDateString() === new Date(selectedDate.value).toDateString();
 
-		return matchesCategory && matchesSearch && matchesDate;
+		return event.isUpcoming && matchesCategory && matchesSearch && matchesDate;
 	});
 });
 
@@ -57,13 +63,17 @@ const placeholder = computed(() => t("SEARCH_WITH"));
 <template>
 	<div class="events-page">
 		<!-- Hero / search band -->
-		<section class="hero-band px-4 sm:px-6 pt-32 pb-16 sm:pt-36 sm:pb-20 text-center relative overflow-hidden">
+		<section
+			class="hero-band px-4 sm:px-6 pt-32 pb-16 sm:pt-36 sm:pb-20 text-center relative overflow-hidden"
+		>
 			<div class="hero-glow"></div>
 			<div class="relative z-10 max-w-2xl mx-auto">
 				<p class="font-mono text-[11px] tracking-[0.35em] text-[#FF6F4D] mb-4 uppercase">
 					{{ t("UPCOMING_EVENTS") }}
 				</p>
-				<h1 class="font-display text-3xl sm:text-5xl font-bold text-white mb-4 tracking-tight">
+				<h1
+					class="font-display text-3xl sm:text-5xl font-bold text-white mb-4 tracking-tight"
+				>
 					{{ t("FIND_YOUR_EVENT") }}
 				</h1>
 				<p class="text-[#C7C1E0] text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
@@ -93,7 +103,9 @@ const placeholder = computed(() => t("SEARCH_WITH"));
 
 		<!-- Filters -->
 		<div class="max-w-6xl mx-auto px-4 sm:px-6">
-			<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 -mt-6 mb-10 relative z-10">
+			<div
+				class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 -mt-6 mb-10 relative z-10"
+			>
 				<div class="flex flex-wrap justify-center md:justify-start gap-2.5">
 					<button
 						v-for="cat in categories"
@@ -111,9 +123,15 @@ const placeholder = computed(() => t("SEARCH_WITH"));
 					@click="sortOrder = sortOrder === 'asc' ? 'desc' : 'asc'"
 					class="sort-btn"
 				>
-					<span class="font-mono text-[10px] tracking-[0.15em] uppercase opacity-70">{{ t("SORT_BY") }}</span>
+					<span class="font-mono text-[10px] tracking-[0.15em] uppercase opacity-70">{{
+						t("SORT_BY")
+					}}</span>
 					<span class="font-semibold">
-						{{ sortOrder === "asc" ? t("OLD") + " → " + t("NEW") : t("NEW") + " → " + t("OLD") }}
+						{{
+							sortOrder === "asc"
+								? t("OLD") + " → " + t("NEW")
+								: t("NEW") + " → " + t("OLD")
+						}}
 					</span>
 				</button>
 			</div>
@@ -121,14 +139,25 @@ const placeholder = computed(() => t("SEARCH_WITH"));
 			<!-- Results -->
 			<div v-if="filteredEvents.length > 0" class="pb-24">
 				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-					<EventCard v-for="event in displayedEvents" :key="event.id" :event="event" :formatDate="formatDate" />
+					<EventCard
+						v-for="event in displayedEvents"
+						:key="event.id"
+						:event="event"
+						:formatDate="formatDate"
+					/>
 				</div>
 			</div>
 
 			<section v-else class="py-20 text-center">
 				<div class="max-w-md mx-auto">
 					<div class="empty-icon">
-						<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="h-7 w-7"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
 							<path
 								stroke-linecap="round"
 								stroke-linejoin="round"
@@ -137,7 +166,9 @@ const placeholder = computed(() => t("SEARCH_WITH"));
 							/>
 						</svg>
 					</div>
-					<h3 class="font-display text-xl font-bold text-[#1C1530] mt-5">{{ t("EVENTS_NOT_FOUND") }}</h3>
+					<h3 class="font-display text-xl font-bold text-[#1C1530] mt-5">
+						{{ t("EVENTS_NOT_FOUND") }}
+					</h3>
 					<p class="text-[#6B6480] text-sm mt-2">
 						{{ t("TRY_TO_CHANGE") }}
 					</p>
@@ -234,6 +265,12 @@ const placeholder = computed(() => t("SEARCH_WITH"));
 	border-color: transparent;
 	color: #fff;
 	box-shadow: 0 10px 22px -10px rgba(124, 92, 252, 0.6);
+}
+
+
+
+.filter-pill--active:hover {
+	color: #fff;
 }
 
 .sort-btn {

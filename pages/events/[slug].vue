@@ -78,9 +78,6 @@ const infoCards = computed(() => [
 			<div
 				class="relative p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#1A1530] to-[#120E22] shadow-2xl border border-white/10 text-center max-w-md w-full"
 			>
-				<p class="font-mono text-[11px] tracking-[0.3em] text-[#FF6F4D] mb-3">
-					{{ ticketCode }}
-				</p>
 				<h2 class="font-display text-3xl font-bold text-white mb-4">
 					{{ t("SOLD_OUT") }}
 				</h2>
@@ -110,7 +107,11 @@ const infoCards = computed(() => [
 					<p
 						class="font-mono text-[11px] sm:text-xs tracking-[0.35em] text-[#FF6F4D] mb-4 uppercase"
 					>
-						{{ event.category || t("EVENT_NOT_FOUND") }}
+						{{
+							Array.isArray(event.category)
+								? event.category.join(", ")
+								: event.category || t("EVENT_NOT_FOUND")
+						}}
 					</p>
 					<h1
 						class="font-display text-[2.25rem] leading-[1.05] sm:text-6xl font-bold text-white mb-5 mt-10 tracking-tight"

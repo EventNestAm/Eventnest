@@ -477,7 +477,7 @@ export function useEvents() {
     },
     {
       id: 28,
-      title: `Կառաոկե բաթլ #1`,
+      title: `Կարաոկե բաթլ #1`,
       slug: "karaoke-battle-1",
       titleDesc: "An evening of strategy, emotions and people like you",
       date: "2026-06-13",
@@ -505,7 +505,7 @@ export function useEvents() {
       image: musicQuiz,
       description:
         t("MUSIC_QUIZ_TITLE"),
-      category: t("QUIZ"),
+      category: [t("QUIZ"), t("MUSIC")],
       eventDate: true,
       emailSent: true, groupName: true, isSoldout: false, quantity: 10
     },
@@ -590,9 +590,9 @@ export function useEvents() {
       image: Kargin2,
       description:
         t("KARGIN_QUIZ_TITLE"),
-      category: t("QUIZ"),
+      category: [t("QUIZ"), t("KARGIN")],
       eventDate: true,
-      emailSent: true, groupName: true, isSoldout: false, quantity: 30
+      emailSent: true, groupName: true, isSoldout: false, quantity: 20
     },
     {
       id: 35,
@@ -607,26 +607,9 @@ export function useEvents() {
       image: Kargin2,
       description:
         t("GAME_OF_THRONES_QUIZ_DESC"),
-      category: t("QUIZ"),
+      category: [t("QUIZ"), t("MOVIES")],
       eventDate: true,
-      emailSent: true, groupName: true, isSoldout: false, quantity: 25
-    },
-    {
-      id: 36,
-      title: `${t("FULL_HOUSE")} ${t("QUIZ_TITLE")} #1`,
-      slug: "full-house-quiz",
-      titleDesc: "An evening of strategy, emotions and people like you",
-      date: "2026-07-18",
-      dateTitle: "Հուլիսի 18",
-      time: "19:30",
-      price: "3000 AMD",
-      location: "The Kond House - 46 Leo Street",
-      image: Kargin2,
-      description:
-        t("FULL_HOUSE_QUIZ_DESC"),
-      category: t("QUIZ"),
-      eventDate: true,
-      emailSent: true, groupName: true, isSoldout: false, quantity: 40
+      emailSent: true, groupName: true, isSoldout: false, quantity: 20
     },
     {
       id: 37,
@@ -641,13 +624,13 @@ export function useEvents() {
       image: footballCup,
       description:
         t("FOOTBALL_QUIZ_DESC"),
-      category: t("QUIZ"),
+      category: [t("QUIZ"), t("FOOTBALL")],
       eventDate: true,
       emailSent: true, groupName: true, isSoldout: false, quantity: 35
     },
     {
       id: 38,
-      title: `Կառաոկե բաթլ #2`,
+      title: `Կարաոկե բաթլ #2`,
       slug: "karaoke-battle-2",
       titleDesc: "An evening of strategy, emotions and people like you",
       date: "2026-07-10",
@@ -658,7 +641,7 @@ export function useEvents() {
       image: karaokeBattle,
       description:
         t("KARAOKE_BATTLE"),
-      category: t("GAME"),
+      category: t("KARAOKE"),
       eventDate: true,
       emailSent: true, groupName: false, isSoldout: false, quantity: 23
     },
@@ -675,7 +658,7 @@ export function useEvents() {
       image: Kargin2,
       description:
         t("KARGIN_QUIZ_TITLE"),
-      category: t("QUIZ"),
+      category: [t("QUIZ"), t("KARGIN")],
       eventDate: true,
       emailSent: true, groupName: true, isSoldout: false, quantity: 45
     },
@@ -692,7 +675,7 @@ export function useEvents() {
       image: KarginSerial,
       description:
         t("KARGIN_QUIZ_TITLE"),
-      category: t("QUIZ"),
+      category: [t("QUIZ"), t("KARGIN")],
       eventDate: false,
       emailSent: true, groupName: true, quantity: 15
     },
@@ -709,7 +692,7 @@ export function useEvents() {
       image: musicQuiz,
       description:
         t("MUSIC_QUIZ_TITLE"),
-      category: t("QUIZ"),
+      category: [t("QUIZ"), t("MUSIC")],
       eventDate: true,
       emailSent: true, groupName: true, isSoldout: false, quantity: 10
     },
