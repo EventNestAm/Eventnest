@@ -4,11 +4,11 @@ import { useWindowSize } from "@vueuse/core";
 const { width } = useWindowSize();
 
 useSeoMeta({
-	title: "Միջոցառումների և կորպորատիվների կազմակերպում Երևանում | EventNest",
+	title: "EventNest — Find Your Next Event in Yerevan",
 	description:
 		"EventNest-ը ստեղծում է հիշվող փորձառություններ՝ առաջարկելով միջոցառումների և կորպորատիվների կազմակերպում բարձր պրոֆեսիոնալ մակարդակով։",
 
-	ogTitle: "Միջոցառումների և կորպորատիվների կազմակերպում | EventNest",
+	ogTitle: "EventNest — Find Your Next Event in Yerevan",
 	ogDescription:
 		"EventNest-ը ստեղծում է հիշվող փորձառություններ՝ առաջարկելով միջոցառումների և կորպորատիվների կազմակերպում բարձր պրոֆեսիոնալ մակարդակով։",
 	ogImage: "/eventnestLogo.jpg",
