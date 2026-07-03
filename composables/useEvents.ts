@@ -698,7 +698,7 @@ export function useEvents() {
     },
     {
       id: 41,
-      title: `Movie Night`,
+      title: `${t("MOVIE_NIGHT")}`,
       slug: "movie-night",
       titleDesc: "An evening of strategy, emotions and people like you",
       date: "2026-07-09",
@@ -708,8 +708,8 @@ export function useEvents() {
       location: "The Kond House - 46 Leo Street",
       image: musicQuiz,
       description:
-        t("MUSIC_QUIZ_TITLE"),
-      category: [t("QUIZ"), t("MOVIE")],
+        t("MOVIE_NIGHT_DESC"),
+      category: [t("QUIZ"), t("MOVIES")],
       eventDate: true,
       emailSent: true, groupName: false, isSoldout: false, quantity: 20
     },
