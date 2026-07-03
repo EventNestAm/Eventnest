@@ -696,6 +696,23 @@ export function useEvents() {
       eventDate: true,
       emailSent: true, groupName: true, isSoldout: false, quantity: 10
     },
+    {
+      id: 41,
+      title: `Movie Night`,
+      slug: "movie-night",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-07-09",
+      dateTitle: "Հուլիսի 9",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: musicQuiz,
+      description:
+        t("MUSIC_QUIZ_TITLE"),
+      category: [t("QUIZ"), t("MOVIE")],
+      eventDate: true,
+      emailSent: true, groupName: false, isSoldout: false, quantity: 20
+    },
   ])
   const eventsWithStatus = computed(() =>
     events.value.map(event => {
