@@ -643,7 +643,7 @@ export function useEvents() {
         t("KARAOKE_BATTLE"),
       category: t("KARAOKE"),
       eventDate: true,
-      emailSent: true, groupName: false, isSoldout: false, quantity: 23
+      emailSent: true, groupName: false, isSoldout: false, quantity: 18
     },
     {
       id: 39,
