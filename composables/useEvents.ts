@@ -612,7 +612,7 @@ export function useEvents() {
       emailSent: true, groupName: true, isSoldout: false, quantity: 20
     },
     {
-      id: 37,
+      id: 36,
       title: `${t("FOOTBALL")} ${t("QUIZ_TITLE")} #3`,
       slug: "football-quiz-3",
       titleDesc: "An evening of strategy, emotions and people like you",
@@ -629,7 +629,7 @@ export function useEvents() {
       emailSent: true, groupName: true, isSoldout: false, quantity: 35
     },
     {
-      id: 38,
+      id: 37,
       title: `Կարաոկե բաթլ #2`,
       slug: "karaoke-battle-2",
       titleDesc: "An evening of strategy, emotions and people like you",
@@ -646,7 +646,7 @@ export function useEvents() {
       emailSent: true, groupName: false, isSoldout: false, quantity: 5
     },
     {
-      id: 39,
+      id: 38,
       title: `Կարգին հաղորդման ${t("QUIZ_TITLE")} #15`,
       slug: "kargin-haxordman-viktorina-15",
       titleDesc: "An evening of strategy, emotions and people like you",
@@ -660,10 +660,10 @@ export function useEvents() {
         t("KARGIN_QUIZ_TITLE"),
       category: [t("QUIZ"), t("KARGIN")],
       eventDate: true,
-      emailSent: true, groupName: true, isSoldout: false, quantity: 20
+      emailSent: true, groupName: true, isSoldout: true, quantity: 20
     },
     {
-      id: 40,
+      id: 39,
       title: `Կարգին Սերիալ ${t("QUIZ_TITLE")} #4`,
       slug: "kargin-serial-viktorina-4",
       titleDesc: "An evening of strategy, emotions and people like you",
@@ -680,7 +680,7 @@ export function useEvents() {
       emailSent: true, groupName: true, quantity: 15
     },
     {
-      id: 41,
+      id: 40,
       title: `${t("MUSICIAL_TITLE")} ${t("QUIZ_TITLE")} #2`,
       slug: "music-quiz-2",
       titleDesc: "An evening of strategy, emotions and people like you",
@@ -694,7 +694,7 @@ export function useEvents() {
         t("MUSIC_QUIZ_TITLE"),
       category: [t("QUIZ"), t("MUSIC")],
       eventDate: true,
-      emailSent: true, groupName: true, isSoldout: false, quantity: 10
+      emailSent: true, groupName: true, isSoldout: false, quantity: 40
     },
     {
       id: 41,
@@ -711,7 +711,41 @@ export function useEvents() {
         t("MOVIE_NIGHT_DESC"),
       category: [t("QUIZ"), t("MOVIES")],
       eventDate: true,
-      emailSent: true, groupName: false, isSoldout: false, quantity: 10
+      emailSent: true, groupName: false, isSoldout: false, quantity: 2
+    },
+    {
+      id: 42,
+      title: `${t("KARAOKE_BATTLE_TITLE")} #3`,
+      slug: "karaoke-battle-3",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-07-17",
+      dateTitle: "Հուլիսի 17",
+      time: "19:30",
+      price: "4000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: karaokeBattle,
+      description:
+        t("KARAOKE_BATTLE"),
+      category: t("KARAOKE"),
+      eventDate: true,
+      emailSent: true, groupName: false, isSoldout: false, quantity: 20
+    },
+    {
+      id: 43,
+      title: `${t("MOVIE_NIGHT")}`,
+      slug: "movie-night",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-07-16",
+      dateTitle: "Հուլիսի 16",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: musicQuiz,
+      description:
+        t("MOVIE_NIGHT_DESC"),
+      category: [t("QUIZ"), t("MOVIES")],
+      eventDate: true,
+      emailSent: true, groupName: false, isSoldout: false, quantity: 30
     },
   ])
   const eventsWithStatus = computed(() =>
