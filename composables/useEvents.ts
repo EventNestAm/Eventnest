@@ -685,7 +685,7 @@ export function useEvents() {
       slug: "music-quiz-2",
       titleDesc: "An evening of strategy, emotions and people like you",
       date: "2026-07-26",
-      dateTitle: "Հունիսի 26",
+      dateTitle: "Հուլիսի 26",
       time: "19:30",
       price: "3000 AMD",
       location: "The Kond House - 46 Leo Street",
