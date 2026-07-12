@@ -3,6 +3,14 @@ import { Analytics } from "@vercel/analytics/nuxt";
 import { useWindowSize } from "@vueuse/core";
 const { width } = useWindowSize();
 
+const { locale, locales } = useI18n();
+const switchLocalePath = useSwitchLocalePath();
+const route = useRoute();
+
+const currentLocaleData = computed(() =>
+	locales.value.find((l) => l.code === locale.value)
+);
+
 useSeoMeta({
 	title: "EventNest — Find Your Next Event in Yerevan",
 	description:
@@ -13,11 +21,37 @@ useSeoMeta({
 		"EventNest-ը ստեղծում է հիշվող փորձառություններ՝ առաջարկելով միջոցառումների և կորպորատիվների կազմակերպում բարձր պրոֆեսիոնալ մակարդակով։",
 	ogImage: "https://www.eventnest.am/og/eventnest-og.jpg",
 	ogUrl: "https://www.eventnest.am",
+	ogLocale: computed(
+		() => currentLocaleData.value?.iso?.replace("-", "_") ?? "hy_AM"
+	),
+	ogLocaleAlternate: computed(() =>
+		locales.value
+			.filter((l) => l.code !== locale.value)
+			.map((l) => l.iso?.replace("-", "_"))
+			.filter(Boolean)
+	),
 	twitterCard: "summary_large_image",
 });
+
 useHead({
-	link: [{ rel: "canonical", href: `https://www.eventnest.am${useRoute().path}` }],
+	htmlAttrs: {
+		lang: computed(() => currentLocaleData.value?.iso || "hy"),
+	},
+	link: [
+		{ rel: "canonical", href: `https://www.eventnest.am${route.path}` },
+		...locales.value.map((l) => ({
+			rel: "alternate",
+			hreflang: l.iso,
+			href: `https://www.eventnest.am${switchLocalePath(l.code)}`,
+		})),
+		{
+			rel: "alternate",
+			hreflang: "x-default",
+			href: `https://www.eventnest.am${switchLocalePath("hy")}`,
+		},
+	],
 });
+
 const showScroll = ref(false);
 
 const checkScroll = () => {
