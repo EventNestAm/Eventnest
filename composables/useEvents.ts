@@ -732,8 +732,8 @@ export function useEvents() {
     },
     {
       id: 43,
-      title: `${t("MOVIE_NIGHT")}`,
-      slug: "movie-night",
+      title: `Prisoners ${t("MOVIE_NIGHT")} `,
+      slug: "movie-night-2",
       titleDesc: "An evening of strategy, emotions and people like you",
       date: "2026-07-16",
       dateTitle: "Հուլիսի 16",
