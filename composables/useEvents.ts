@@ -745,7 +745,7 @@ export function useEvents() {
         t("MOVIE_NIGHT_DESC"),
       category: [t("QUIZ"), t("MOVIES")],
       eventDate: true,
-      emailSent: true, groupName: false, isSoldout: false, quantity: 30
+      emailSent: true, groupName: false, isSoldout: true, quantity: 30
     },
     {
       id: 44,
