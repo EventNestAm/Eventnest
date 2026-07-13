@@ -747,6 +747,23 @@ export function useEvents() {
       eventDate: true,
       emailSent: true, groupName: false, isSoldout: false, quantity: 30
     },
+    {
+      id: 44,
+      title: `${t("ARMENIAN")} ${t("MUSICIAL_TITLE")} ${t("QUIZ_TITLE")} `,
+      slug: "music-quiz-armenian",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-07-18",
+      dateTitle: "Հուլիսի 18",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: musicQuiz,
+      description:
+        t("ARM_MUSIC"),
+      category: [t("QUIZ"), t("MUSIC")],
+      eventDate: true,
+      emailSent: true, groupName: true, isSoldout: false, quantity: 40
+    },
   ])
   const eventsWithStatus = computed(() =>
     events.value.map(event => {
