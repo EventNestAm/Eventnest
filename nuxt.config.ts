@@ -13,28 +13,13 @@ export default defineNuxtConfig({
   modules: ['@nuxt/ui', '@nuxt/image', 'nuxt-simple-sitemap', "@nuxtjs/i18n"],
   site: {
     url: 'https://www.eventnest.am',
+  },
 
-    sitemap: {
-      routes: [
-        '/about',
-        '/upcoming-events',
-        '/shop',
-        '/contact',
-        '/events/kargin-haxordman-viktorina-1',
-        '/events/futbolayin-1',
-        '/events/erajshtakan-1',
-        '/events/inch-vortex-erb-1',
-        '/events/kino-viktorina-1',
-        '/events/kargin-haxordman-viktorina-2',
-        '/events/kargin-haxordman-viktorina-3',
-        '/events/kino-viktorina-2',
-        '/events/kargin-haxordman-viktorina-4',
-      ],
-      defaults: {
-        changefreq: 'weekly',
-        priority: 0.8
-      }
-    }
+  sitemap: {
+    urls: async () => {
+      const events = await $fetch('/api/events');
+      return events.map((e) => `/events/${e.slug}`);
+    },
   },
 
   i18n: {

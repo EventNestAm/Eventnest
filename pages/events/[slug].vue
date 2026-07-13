@@ -19,7 +19,13 @@ const router = useRouter();
 const eventSlug = route.params.slug;
 const { events } = useEvents();
 const event = events.value.find((e) => e.slug === eventSlug);
-const isSoldOut = event.isSoldout;
+const isSoldOut = event?.isSoldout;
+
+// Real 404 for missing events — matters for SEO and avoids a 200-status
+// "event not found" page, which search engines would otherwise index.
+if (!event) {
+	throw createError({ statusCode: 404, statusMessage: "Event not found" });
+}
 
 const goBack = () => {
 	if (window.history.length > 1) {
@@ -29,7 +35,11 @@ const goBack = () => {
 	}
 };
 
-const { t } = useI18n();
+const { t, locale, locales } = useI18n();
+
+const currentLocaleData = computed(() =>
+	locales.value.find((l) => l.code === locale.value)
+);
 
 // Faux ticket serial — purely decorative, grounds the "real ticket" motif
 const ticketCode = computed(() => {
@@ -69,6 +79,90 @@ const infoCards = computed(() => [
 		],
 	},
 ]);
+
+/* ---------------- SEO ---------------- */
+
+const pageTitle = computed(() => `${event.title} | EventNest`);
+
+const pageDescription = computed(() =>
+	event.description ? event.description.slice(0, 160) : t("SEO_HOME_DESCRIPTION")
+);
+
+const eventImageUrl = computed(() =>
+	event.image
+		? new URL(event.image, "https://www.eventnest.am").href
+		: "https://www.eventnest.am/og/eventnest-og.jpg"
+);
+
+const startDateISO = computed(() => `${event.date}T${event.time || "20:00"}:00+04:00`);
+
+useSeoMeta({
+	title: () => pageTitle.value,
+	description: () => pageDescription.value,
+
+	ogTitle: () => pageTitle.value,
+	ogDescription: () => pageDescription.value,
+	ogImage: () => eventImageUrl.value,
+	ogImageWidth: 1200,
+	ogImageHeight: 630,
+	ogUrl: () => `https://www.eventnest.am${route.path}`,
+	ogType: "website",
+	ogLocale: () => currentLocaleData.value?.iso?.replace("-", "_") ?? "hy_AM",
+
+	twitterCard: "summary_large_image",
+	twitterTitle: () => pageTitle.value,
+	twitterDescription: () => pageDescription.value,
+	twitterImage: () => eventImageUrl.value,
+});
+
+useHead({
+	link: [{ rel: "canonical", href: `https://www.eventnest.am${route.path}` }],
+	script: [
+		{
+			type: "application/ld+json",
+			innerHTML: computed(() =>
+				JSON.stringify({
+					"@context": "https://schema.org",
+					"@type": "Event",
+					name: event.title,
+					startDate: startDateISO.value,
+					eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+					eventStatus: isSoldOut
+						? "https://schema.org/EventCancelled"
+						: "https://schema.org/EventScheduled",
+					location: {
+						"@type": "Place",
+						name: event.location,
+						address: {
+							"@type": "PostalAddress",
+							streetAddress: event.location,
+							addressLocality: "Yerevan",
+							addressCountry: "AM",
+						},
+					},
+					image: [eventImageUrl.value],
+					description: event.description,
+					organizer: {
+						"@type": "Organization",
+						name: "EventNest",
+						url: "https://www.eventnest.am",
+					},
+					offers: event.price
+						? {
+								"@type": "Offer",
+								price: event.price.replace(/\D/g, ""),
+								priceCurrency: "AMD",
+								availability: isSoldOut
+									? "https://schema.org/SoldOut"
+									: "https://schema.org/InStock",
+								url: `https://www.eventnest.am${route.path}`,
+						  }
+						: undefined,
+				})
+			),
+		},
+	],
+});
 </script>
 
 <template>
