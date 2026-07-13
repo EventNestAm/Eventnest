@@ -97,6 +97,11 @@ useHead({
 	title: "Գաղտնիության քաղաքականություն",
 	meta: [{ name: "description", content: "Գաղտնիության քաղաքականություն" }],
 });
+
+definePageMeta({
+	layout: "landing",
+});
+
 </script>
 
 <style scoped>

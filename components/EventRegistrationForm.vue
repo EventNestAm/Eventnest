@@ -102,17 +102,35 @@ function closeModal() {
 			<div class="grid sm:grid-cols-2 gap-3">
 				<div class="field">
 					<Person class="field__icon" />
-					<input type="text" name="name" :placeholder="t('NAME') + ' *'" required class="field__input" />
+					<input
+						type="text"
+						name="name"
+						:placeholder="t('NAME') + ' *'"
+						required
+						class="field__input"
+					/>
 				</div>
 				<div class="field">
 					<Person class="field__icon" />
-					<input type="text" name="surname" :placeholder="t('SURNAME') + ' *'" required class="field__input" />
+					<input
+						type="text"
+						name="surname"
+						:placeholder="t('SURNAME') + ' *'"
+						required
+						class="field__input"
+					/>
 				</div>
 			</div>
 
 			<div class="field">
 				<Phone class="field__icon" />
-				<input type="tel" name="phone" :placeholder="t('PHONE') + ' *'" required class="field__input" />
+				<input
+					type="tel"
+					name="phone"
+					:placeholder="t('PHONE') + ' *'"
+					required
+					class="field__input"
+				/>
 			</div>
 
 			<div class="field">
@@ -129,17 +147,58 @@ function closeModal() {
 
 			<div class="field">
 				<Mail class="field__icon" />
-				<input type="email" name="email" :placeholder="t('EMAIL') + ' *'" required class="field__input" />
+				<input
+					type="email"
+					name="email"
+					:placeholder="t('EMAIL') + ' *'"
+					required
+					class="field__input"
+				/>
 			</div>
 
 			<div class="field" v-if="showGroupInput">
 				<GroupName class="field__icon" />
-				<input type="text" name="groupName" :placeholder="t('GROUP_NAME') + ' *'" required class="field__input" />
+				<input
+					type="text"
+					name="groupName"
+					:placeholder="t('GROUP_NAME') + ' *'"
+					required
+					class="field__input"
+				/>
 			</div>
 
 			<div class="field">
 				<GroupName class="field__icon" />
-				<input type="text" name="promocode" :placeholder="t('PROMOCODE')" class="field__input" />
+				<input
+					type="text"
+					name="promocode"
+					:placeholder="t('PROMOCODE')"
+					class="field__input"
+				/>
+			</div>
+
+			<div class="privacy-field">
+				<input
+					type="checkbox"
+					id="privacyPolicy"
+					name="privacyPolicy"
+					required
+					class="privacy-field__checkbox"
+				/>
+				<label for="privacyPolicy" class="privacy-field__label">
+					{{ t("PRIVACY_POLICY_AGREE_PREFIX") }}
+					<NuxtLink
+						:to="`/${locale}/privacy-policy`"
+						target="_blank"
+						class="privacy-field__link"
+					>
+						{{ t("PRIVACY_POLICY") }}
+					</NuxtLink>
+					{{ t("PRIVACY_POLICY_AGREE_SUFFIX") }}
+				</label>
+				<div class="privacy-field__feedback">
+					{{ t("PRIVACY_POLICY_REQUIRED") }}
+				</div>
 			</div>
 
 			<button type="submit" class="submit-btn">
@@ -152,8 +211,13 @@ function closeModal() {
 		</form>
 
 		<transition name="fade">
-			<div v-if="showModal" class="fixed inset-0 bg-[#14102B]/60 backdrop-blur-sm flex items-center justify-center z-50 px-4">
-				<div class="bg-[#FFFCF7] rounded-2xl p-6 w-80 text-center relative shadow-2xl border border-[#1C1530]/5">
+			<div
+				v-if="showModal"
+				class="fixed inset-0 bg-[#14102B]/60 backdrop-blur-sm flex items-center justify-center z-50 px-4"
+			>
+				<div
+					class="bg-[#FFFCF7] rounded-2xl p-6 w-80 text-center relative shadow-2xl border border-[#1C1530]/5"
+				>
 					<button
 						@click="closeModal"
 						class="absolute top-3 right-3 text-[#8B86A0] hover:text-[#1C1530] font-bold text-lg leading-none transition"
@@ -162,16 +226,33 @@ function closeModal() {
 					</button>
 
 					<div v-if="isLoading" class="flex flex-col items-center gap-3 py-2">
-						<svg class="animate-spin h-8 w-8 text-[#7C5CFC]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-							<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+						<svg
+							class="animate-spin h-8 w-8 text-[#7C5CFC]"
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+						>
+							<circle
+								class="opacity-25"
+								cx="12"
+								cy="12"
+								r="10"
+								stroke="currentColor"
+								stroke-width="4"
+							/>
 							<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
 						</svg>
-						<p class="font-mono text-xs tracking-[0.2em] text-[#7C5CFC] uppercase">{{ t("SENDING") }}</p>
+						<p class="font-mono text-xs tracking-[0.2em] text-[#7C5CFC] uppercase">
+							{{ t("SENDING") }}
+						</p>
 					</div>
 
 					<div v-else class="py-1">
 						<p class="font-display font-semibold text-[#1C1530]">{{ modalMessage }}</p>
-						<button @click="closeModal" class="mt-4 px-5 py-2 bg-[#7C5CFC] text-white text-sm font-semibold rounded-full hover:bg-[#6B4CE0] transition">
+						<button
+							@click="closeModal"
+							class="mt-4 px-5 py-2 bg-[#7C5CFC] text-white text-sm font-semibold rounded-full hover:bg-[#6B4CE0] transition"
+						>
 							{{ t("CLOSE") }}
 						</button>
 					</div>
@@ -214,7 +295,9 @@ function closeModal() {
 	color: #1c1530;
 	font-size: 0.9rem;
 	outline: none;
-	transition: border-color 0.2s ease, background 0.2s ease;
+	transition:
+		border-color 0.2s ease,
+		background 0.2s ease;
 }
 
 .field__input::placeholder {
@@ -242,7 +325,9 @@ function closeModal() {
 	font-size: 0.95rem;
 	border-radius: 999px;
 	box-shadow: 0 10px 24px -8px rgba(124, 92, 252, 0.55);
-	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	transition:
+		transform 0.2s ease,
+		box-shadow 0.2s ease;
 }
 
 .submit-btn:hover {
@@ -261,5 +346,53 @@ function closeModal() {
 .fade-enter-from,
 .fade-leave-to {
 	opacity: 0;
+}
+
+.privacy-field {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.6rem;
+}
+
+.privacy-field__checkbox {
+	width: 1.1rem;
+	height: 1.1rem;
+	margin-top: 0.15rem;
+	flex-shrink: 0;
+	accent-color: #7c5cfc;
+	cursor: pointer;
+}
+
+.privacy-field__label {
+	font-size: 0.85rem;
+	color: #1c1530;
+	line-height: 1.4;
+	cursor: pointer;
+}
+
+.privacy-field__link {
+	color: #7c5cfc;
+	font-weight: 600;
+	text-decoration: underline;
+}
+
+.privacy-field__link:hover {
+	color: #6b4ce0;
+}
+
+.privacy-field__feedback {
+	display: none;
+	font-size: 0.75rem;
+	color: #ff6f4d;
+	margin-top: -0.4rem;
+}
+
+.was-validated .privacy-field__checkbox:invalid ~ .privacy-field__feedback {
+	display: block;
+}
+
+.was-validated .privacy-field__checkbox:invalid {
+	outline: 2px solid #ff6f4d;
+	outline-offset: 2px;
 }
 </style>
