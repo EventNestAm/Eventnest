@@ -2,35 +2,32 @@
 import { Analytics } from "@vercel/analytics/nuxt";
 import { useWindowSize } from "@vueuse/core";
 const { width } = useWindowSize();
-
+const { t } = useI18n();
 const { locale, locales } = useI18n();
 const switchLocalePath = useSwitchLocalePath();
 const route = useRoute();
 
-const currentLocaleData = computed(() =>
-	locales.value.find((l) => l.code === locale.value)
-);
+const currentLocaleData = computed(() => locales.value.find((l) => l.code === locale.value));
 
 useSeoMeta({
-	title: "EventNest — Find Your Next Event in Yerevan",
-	description:
-		"EventNest-ը ստեղծում է հիշվող փորձառություններ՝ առաջարկելով միջոցառումների և կորպորատիվների կազմակերպում բարձր պրոֆեսիոնալ մակարդակով։",
-
-	ogTitle: "EventNest — Find Your Next Event in Yerevan",
-	ogDescription:
-		"EventNest-ը ստեղծում է հիշվող փորձառություններ՝ առաջարկելով միջոցառումների և կորպորատիվների կազմակերպում բարձր պրոֆեսիոնալ մակարդակով։",
+	title: () => t("SEO_HOME_TITLE"),
+	description: () => t("SEO_HOME_DESCRIPTION"),
+	ogTitle: () => t("SEO_HOME_TITLE"),
+	ogDescription: () => t("SEO_HOME_DESCRIPTION"),
 	ogImage: "https://www.eventnest.am/og/eventnest-og.jpg",
-	ogUrl: "https://www.eventnest.am",
-	ogLocale: computed(
-		() => currentLocaleData.value?.iso?.replace("-", "_") ?? "hy_AM"
-	),
-	ogLocaleAlternate: computed(() =>
+	ogImageWidth: 1200,
+	ogImageHeight: 630,
+	ogUrl: () => `https://www.eventnest.am${route.path}`,
+	ogLocale: () => currentLocaleData.value?.iso?.replace("-", "_") ?? "hy_AM",
+	ogLocaleAlternate: () =>
 		locales.value
 			.filter((l) => l.code !== locale.value)
 			.map((l) => l.iso?.replace("-", "_"))
-			.filter(Boolean)
-	),
+			.filter(Boolean),
 	twitterCard: "summary_large_image",
+	twitterTitle: () => t("SEO_HOME_TITLE"),
+	twitterDescription: () => t("SEO_HOME_DESCRIPTION"),
+	twitterImage: "https://www.eventnest.am/og/eventnest-og.jpg",
 });
 
 useHead({
