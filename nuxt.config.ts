@@ -17,8 +17,13 @@ export default defineNuxtConfig({
 
   sitemap: {
     urls: async () => {
-      const events = await $fetch('/api/events');
-      return events.map((e) => `/events/${e.slug}`);
+      const slugs = await $fetch('/api/events/slugs');
+      const staticPages = ['/about', '/upcoming-events', '/shop', '/contact'];
+      return [...staticPages, ...slugs.map((slug) => `/events/${slug}`)];
+    },
+    defaults: {
+      changefreq: 'weekly',
+      priority: 0.8,
     },
   },
 
@@ -32,7 +37,7 @@ export default defineNuxtConfig({
       useCookie: true,
       cookieKey: "i18n_redirected",
       redirectOn: "root",
-      alwaysRedirect: true,
+      alwaysRedirect: false,
     },
     locales: [
       { code: "hy", iso: "hy-AM", name: "Հայերեն", file: "hy.json", },
