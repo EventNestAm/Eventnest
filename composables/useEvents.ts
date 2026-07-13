@@ -754,7 +754,7 @@ export function useEvents() {
       titleDesc: "An evening of strategy, emotions and people like you",
       date: "2026-07-18",
       dateTitle: "Հուլիսի 18",
-      time: "19:30",
+      time: "18:00",
       price: "3000 AMD",
       location: "The Kond House - 46 Leo Street",
       image: musicQuiz,
