@@ -1,3 +1,5 @@
+import { eventSlugs } from './data/event-slugs'
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
@@ -5,21 +7,20 @@ export default defineNuxtConfig({
 
   postcss: {
     plugins: {
-      tailwindcss: {},
+      '@tailwindcss/postcss': {},
       autoprefixer: {},
     },
   },
 
-  modules: ['@nuxt/ui', '@nuxt/image', 'nuxt-simple-sitemap', "@nuxtjs/i18n"],
+  modules: ['@nuxt/ui', '@nuxt/image', '@nuxtjs/sitemap', "@nuxtjs/i18n"],
   site: {
     url: 'https://www.eventnest.am',
   },
 
   sitemap: {
-    urls: async () => {
-      const slugs = await $fetch('/api/events/slugs');
+    urls: () => {
       const staticPages = ['/about', '/upcoming-events', '/shop', '/contact'];
-      return [...staticPages, ...slugs.map((slug) => `/events/${slug}`)];
+      return [...staticPages, ...eventSlugs.map((slug) => `/events/${slug}`)];
     },
     defaults: {
       changefreq: 'weekly',
@@ -28,6 +29,7 @@ export default defineNuxtConfig({
   },
 
   i18n: {
+    restructureDir: false,
     defaultLocale: "hy",
     strategy: "prefix",
     lazy: false,
@@ -40,9 +42,9 @@ export default defineNuxtConfig({
       alwaysRedirect: false,
     },
     locales: [
-      { code: "hy", iso: "hy-AM", name: "Հայերեն", file: "hy.json", },
-      { code: "en", iso: "en-US", name: "English", file: "en.json", },
-      { code: "ru", iso: "ru-RU", name: "Русский", file: "ru.json", },
+      { code: "hy", language: "hy-AM", name: "Հայերեն", file: "hy.json", },
+      { code: "en", language: "en-US", name: "English", file: "en.json", },
+      { code: "ru", language: "ru-RU", name: "Русский", file: "ru.json", },
     ],
   },
 

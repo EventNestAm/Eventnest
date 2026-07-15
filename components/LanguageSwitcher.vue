@@ -41,15 +41,15 @@ onBeforeUnmount(() => document.removeEventListener("click", handleClickOutside))
 </script>
 
 <template>
-	<div class="relative inline-block language-switcher">
+	<div class="relative inline-block language-switcher cursor-pointer">
 		<button
 			@click="toggleDropdown"
-			class="flex items-center gap-2 px-3 py-1 rounded border border-gray-200 hover:bg-gray-100 transition"
+			class="flex items-center gap-2 px-3 py-1 rounded border border-gray-200 hover:bg-gray-100 transition cursor-pointer"
 			:aria-expanded="showDropdown"
 		>
 			<span
 				v-html="locales.find((l) => l.code === currentLocale)?.flag"
-				class="w-6 h-6 block"
+				class="w-6 h-6 block cursor-pointer"
 			></span>
 		</button>
 
@@ -61,9 +61,9 @@ onBeforeUnmount(() => document.removeEventListener("click", handleClickOutside))
 				v-for="lang in otherLocales"
 				:key="lang.code"
 				@click="switchLanguage(lang.code)"
-				class="w-full px-3 py-3 flex items-center gap-3 hover:bg-gray-50 transition text-left"
+				class="w-full px-3 py-3 flex items-center gap-3 hover:bg-gray-50 transition text-left cursor-pointer"
 			>
-				<span class="text-xl">{{ lang.flag }}</span>
+				<span class="text-xl ">{{ lang.flag }}</span>
 				<span class="text-gray-800 font-medium">{{ lang.name }}</span>
 			</button>
 		</div>

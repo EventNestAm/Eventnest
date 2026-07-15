@@ -1,21 +1,16 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-@layer utilities {
-  @keyframes slide {
-    0% {
-      transform: translateX(0);
-    }
-
-    100% {
-      transform: translateX(-50%);
-    }
+@keyframes slide {
+  0% {
+    transform: translateX(0);
   }
-
-  .animate-slide {
-    animation: slide 40s linear infinite;
+  100% {
+    transform: translateX(-50%);
   }
+}
+
+@utility animate-slide {
+  animation: slide 40s linear infinite;
 }
 
 body {
@@ -27,3 +22,9 @@ body {
   display: flex;
 }
 
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}

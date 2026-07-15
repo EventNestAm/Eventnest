@@ -11,6 +11,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+const localePath = useLocalePath();
 
 const { filteredEvents, formatDate, newFilteredEvents } = useEvents();
 
@@ -33,7 +34,7 @@ const modules = [Navigation, Pagination, Autoplay];
 				:centered-slides-bounds="true"
 				:loop="newFilteredEvents.length > 1"
 				:speed="500"
-				grab-cursor
+				:grabCursor="true"
 				:autoplay="
 					newFilteredEvents.length > 1
 						? { delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true }
@@ -43,15 +44,12 @@ const modules = [Navigation, Pagination, Autoplay];
 				:navigation="true"
 				:breakpoints="{
 					501: { slidesPerView: 1.6, centeredSlides: false, spaceBetween: 18 },
-					768: { slidesPerView: 2,   centeredSlides: false, spaceBetween: 20 },
-					1024: { slidesPerView: 3,  centeredSlides: false, spaceBetween: 22 },
+					768: { slidesPerView: 2, centeredSlides: false, spaceBetween: 20 },
+					1024: { slidesPerView: 3, centeredSlides: false, spaceBetween: 22 },
 				}"
 				class="events-swiper"
 			>
-				<SwiperSlide
-					v-for="event in newFilteredEvents"
-					:key="event.id"
-				>
+				<SwiperSlide v-for="event in newFilteredEvents" :key="event.id">
 					<EventCard :event="event" :formatDate="formatDate" class="w-full" />
 				</SwiperSlide>
 			</Swiper>
@@ -71,7 +69,7 @@ const modules = [Navigation, Pagination, Autoplay];
 		</LandingLink>
 	</div>
 
-	<LandingLogos />
+	<!-- <LandingLogos /> -->
 	<LandingCompanies />
 	<LandingEvent />
 
@@ -143,7 +141,10 @@ const modules = [Navigation, Pagination, Autoplay];
 	color: #1c1530;
 	font-weight: 700;
 	width: fit-content;
-	transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+	transition:
+		background 0.3s ease,
+		color 0.3s ease,
+		border-color 0.3s ease;
 }
 .see-more-btn:hover {
 	background: #7c5cfc;

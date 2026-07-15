@@ -53,9 +53,9 @@ const { t } = useI18n();
 
 <template>
 	<form
+		id="form"
 		action="https://api.web3forms.com/submit"
 		method="POST"
-		id="form"
 		class="needs-validation"
 		novalidate
 	>

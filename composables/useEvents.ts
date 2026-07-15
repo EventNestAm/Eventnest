@@ -404,7 +404,7 @@ export function useEvents() {
       image: ourGame,
       description:
         "5 խենթ փուլեր՝ ֆիլմեր, մեմեր, երաժշտություն, դետեկտիվ հանելուկներ և «Ռանդոմ ռիսկ»:",
-      category: t("GAME"),
+      category: t("GAMES"),
       eventDate: true,
       emailSent: true, groupName: true, isSoldout: false, quantity: 10
     },
@@ -488,7 +488,7 @@ export function useEvents() {
       image: karaokeBattle,
       description:
         t("KARAOKE_BATTLE"),
-      category: t("GAME"),
+      category: t("GAMES"),
       eventDate: true,
       emailSent: true, groupName: false, isSoldout: false, quantity: 2
     },
