@@ -19,8 +19,15 @@ export default defineNuxtConfig({
 
   sitemap: {
     urls: () => {
-      const staticPages = ['/', '/about', '/upcoming-events', '/shop', '/contact', '/prices', '/privacy-policy'];
-      return [...staticPages, ...eventSlugs.map((slug) => `/events/${slug}`)];
+      const staticPages = ['/', '/about', '/upcoming-events', '/shop', '/contact', '/prices'];
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      const upcomingEventUrls = eventSlugs
+        .filter((e) => new Date(e.date) >= today)
+        .map((e) => `/events/${e.slug}`);
+
+      return [...staticPages, ...upcomingEventUrls];
     },
     defaults: {
       changefreq: 'weekly',

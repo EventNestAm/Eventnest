@@ -95,10 +95,15 @@ const eventImageUrl = computed(() =>
 );
 
 const startDateISO = computed(() => `${event.date}T${event.time || "20:00"}:00+04:00`);
-
+const isPastEvent = computed(() => {
+	const eventDate = new Date(event.date);
+	eventDate.setHours(23, 59, 59, 999);
+	return eventDate < new Date();
+});
 useSeoMeta({
 	title: () => pageTitle.value,
 	description: () => pageDescription.value,
+	robots: () => (isPastEvent.value ? "noindex, follow" : "index, follow"),
 
 	ogTitle: () => pageTitle.value,
 	ogDescription: () => pageDescription.value,
