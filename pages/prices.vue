@@ -24,42 +24,42 @@ const items = ref([
 	{
 		id: "gift-card",
 		icon: "gift",
-		title: "Gift card",
+		title: t("GIFT_CARD"),
 		price: "3 000 ֏",
-		unit: "/ person",
-		description: "Short description of what the gift card includes.",
+		unit: t("PER_PERSON"),
+		description: t("GIFT_CARD_DESC"),
 	},
 	{
 		id: "teambuilding",
 		icon: "team",
-		title: "Teambuilding / corporate",
+		title: t("TEAMBUILDING"),
 		price: "100 000 ֏ +",
-		unit: "/ team",
-		description: "Short description of the teambuilding / corporate package.",
+		unit: t("PER_TEAM"),
+		description: t("TEAMBUILDING_DESC"),
 	},
 	{
 		id: "quiz",
 		icon: "quiz",
-		title: "Quiz",
+		title: t("QUIZ"),
 		price: "3 000 ֏",
-		unit: "/ person",
-		description: "Short description of the quiz entry price.",
+		unit: t("PER_PERSON"),
+		description: t("QUIZ_DESC"),
 	},
 	{
 		id: "karaoke",
 		icon: "mic",
-		title: "Karaoke battle",
+		title: t("KARAOKE_BATTLE_TITLE"),
 		price: "4 000 ֏",
-		unit: "/ person",
-		description: "Short description of the karaoke battle entry price.",
+		unit: t("PER_PERSON"),
+		description: t("KARAOKE_BATTLE_DESC"),
 	},
 	{
 		id: "membership",
 		icon: "card",
-		title: "Membership card",
+		title: t("MEMBERSHIP_CARD"),
 		price: "50 000 ֏",
-		unit: "/ year",
-		description: "Short description of what the membership card includes.",
+		unit: t("PER_YEAR"),
+		description: t("MEMBERSHIP_CARD_DESC"),
 	},
 ]);
 
@@ -170,9 +170,9 @@ definePageMeta({
 
 <style scoped>
 .pricing {
-	max-width: 960px;
+	max-width: 1200px;
 	margin: 0 auto;
-	padding: 3rem 1.25rem;
+	padding: 6rem 1.25rem;
 }
 
 .pricing__eyebrow {
@@ -204,8 +204,9 @@ definePageMeta({
 
 .pricing__grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 	gap: 1.25rem;
+	align-items: stretch;
 }
 
 .price-card {
@@ -214,6 +215,9 @@ definePageMeta({
 	border-radius: 1rem;
 	padding: 1.5rem;
 	text-align: center;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 	transition:
 		border-color 0.2s ease,
 		transform 0.2s ease;
@@ -233,6 +237,7 @@ definePageMeta({
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	flex-shrink: 0;
 }
 
 .price-card__icon {
@@ -254,7 +259,7 @@ definePageMeta({
 	color: #8b86a0;
 	line-height: 1.5;
 	margin: 0 0 1rem;
-	min-height: 2.4em;
+	flex-grow: 1;
 }
 
 .price-card__price {
@@ -268,6 +273,8 @@ definePageMeta({
 	display: inline-flex;
 	align-items: baseline;
 	gap: 0.3rem;
+	margin-top: auto;
+	align-self: center;
 }
 
 .price-card__unit {

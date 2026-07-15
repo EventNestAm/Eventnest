@@ -28,3 +28,7 @@ body {
     cursor: pointer;
   }
 }
+
+html {
+  overflow-x: hidden;
+}
