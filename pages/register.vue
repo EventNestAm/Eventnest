@@ -23,6 +23,9 @@ const handleRegister = async () => {
 	alert("✅ Registered successfully!");
 	router.push("/login");
 };
+
+useSeoMeta({ robots: "noindex, nofollow" });
+
 </script>
 
 <template>

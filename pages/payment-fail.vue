@@ -4,3 +4,7 @@
     <p>Please try again.</p>
   </div>
 </template>
+
+<script setup lang="ts">
+useSeoMeta({ robots: "noindex, nofollow" });
+</script>

@@ -19,7 +19,7 @@ export default defineNuxtConfig({
 
   sitemap: {
     urls: () => {
-      const staticPages = ['/', '/about', '/upcoming-events', '/shop', '/contact', '/prices'];
+      const staticPages = ['/', '/about', '/upcoming-events', '/shop', '/contact', '/prices', '/privacy-policy'];
       return [...staticPages, ...eventSlugs.map((slug) => `/events/${slug}`)];
     },
     defaults: {
@@ -30,6 +30,7 @@ export default defineNuxtConfig({
 
   i18n: {
     restructureDir: false,
+    seo: true,
     defaultLocale: "hy",
     strategy: "prefix",
     lazy: false,

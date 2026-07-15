@@ -22,6 +22,9 @@ const handleLogin = async () => {
 	alert("🎉 Login successful!");
 	router.push("/");
 };
+
+useSeoMeta({ robots: "noindex, nofollow" });
+
 </script>
 
 <template>

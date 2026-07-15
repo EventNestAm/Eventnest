@@ -11,12 +11,12 @@ import Elenphoto from "~/assets/img/team/Elenphoto.jpg";
 import Emma from "~/assets/img/team/Emma.jpg";
 import Azat from "~/assets/img/team/Azat.png";
 
+const route = useRoute();
 const router = useRouter();
 
 definePageMeta({
 	layout: "landing",
 });
-
 const TeamImg3 = JoinUs;
 const { t } = useI18n();
 const localePath = useLocalePath();
@@ -64,6 +64,21 @@ const team = [
 		isInvite: true,
 	},
 ];
+
+useSeoMeta({
+	title: t("SEO_ABOUT_TITLE"),
+	description: t("SEO_ABOUT_DESCRIPTION"),
+	ogTitle: t("SEO_ABOUT_TITLE"),
+	ogDescription: t("SEO_ABOUT_DESCRIPTION"),
+	ogUrl: () => `https://www.eventnest.am${route.path}`,
+	ogImage: "https://www.eventnest.am/og/eventnest-og.jpg",
+	ogImageWidth: 1200,
+	ogImageHeight: 630,
+	twitterCard: "summary_large_image",
+});
+useHead({
+	link: [{ rel: "canonical", href: () => `https://www.eventnest.am${route.path}` }],
+});
 </script>
 
 <template>

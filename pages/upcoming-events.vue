@@ -58,6 +58,22 @@ const filteredEvents = computed(() => {
 });
 
 const placeholder = computed(() => t("SEARCH_WITH"));
+
+const route = useRoute();
+useSeoMeta({
+	title: t("SEO_UPCOMING_EVENTS_TITLE"),
+	description: t("SEO_UPCOMING_EVENTS_DESCRIPTION"),
+	ogTitle: t("SEO_UPCOMING_EVENTS_TITLE"),
+	ogDescription: t("SEO_UPCOMING_EVENTS_DESCRIPTION"),
+	ogUrl: () => `https://www.eventnest.am${route.path}`,
+	ogImage: "https://www.eventnest.am/og/eventnest-og.jpg",
+	ogImageWidth: 1200,
+	ogImageHeight: 630,
+	twitterCard: "summary_large_image",
+});
+useHead({
+	link: [{ rel: "canonical", href: () => `https://www.eventnest.am${route.path}` }],
+});
 </script>
 
 <template>

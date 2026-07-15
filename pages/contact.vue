@@ -3,6 +3,21 @@ definePageMeta({
 	layout: "landing",
 });
 const { t } = useI18n();
+const route = useRoute();
+useSeoMeta({
+	title: t("SEO_CONTACT_TITLE"),
+	description: t("SEO_CONTACT_DESCRIPTION"),
+	ogTitle: t("SEO_CONTACT_TITLE"),
+	ogDescription: t("SEO_CONTACT_DESCRIPTION"),
+	ogUrl: () => `https://www.eventnest.am${route.path}`,
+	ogImage: "https://www.eventnest.am/og/eventnest-og.jpg",
+	ogImageWidth: 1200,
+	ogImageHeight: 630,
+	twitterCard: "summary_large_image",
+});
+useHead({
+	link: [{ rel: "canonical", href: () => `https://www.eventnest.am${route.path}` }],
+});
 </script>
 
 <template>
