@@ -1,5 +1,18 @@
 <script setup>
 const { t } = useI18n();
+const route = useRoute();
+
+useSeoMeta({
+	title: "Prices | EventNest",
+	description: "See prices for EventNest quizzes, karaoke battles, teambuilding, corporate events, gift cards and membership cards in Yerevan.",
+	ogTitle: "Prices | EventNest",
+	ogDescription: "See prices for EventNest quizzes, karaoke battles, teambuilding, corporate events, gift cards and membership cards in Yerevan.",
+	ogUrl: () => `https://www.eventnest.am${route.path}`,
+});
+
+useHead({
+	link: [{ rel: "canonical", href: () => `https://www.eventnest.am${route.path}` }],
+});
 
 /**
  * TODO: replace placeholder names/prices/descriptions with the real values.

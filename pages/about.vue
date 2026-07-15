@@ -84,7 +84,7 @@ const team = [
 			<h1 class="font-display text-3xl sm:text-5xl font-bold text-white tracking-tight mb-5">
 				{{ t("ABOUT_US") }}
 			</h1>
-			<p class="text-[#C7C1E0] text-base sm:text-lg leading-relaxed">{{t("WE_ARE")}}</p>
+			<p class="text-[#C7C1E0] text-base sm:text-lg leading-relaxed">{{ t("WE_ARE") }}</p>
 		</div>
 	</section>
 
@@ -102,7 +102,9 @@ const team = [
 			</div>
 		</div>
 
-		<div class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-8 md:gap-x-16 gap-y-12 mx-auto max-w-[80rem] mb-24">
+		<div
+			class="grid sm:grid-cols-2 md:grid-cols-3 gap-x-8 md:gap-x-16 gap-y-12 mx-auto max-w-[80rem] mb-24"
+		>
 			<div
 				v-for="item in team"
 				:key="item.name"
@@ -114,7 +116,7 @@ const team = [
 					<img
 						:src="item.avatar.src"
 						format="avif"
-						alt="Team"
+						:alt="`${item.name} — ${item.title} at EventNest`"
 						class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
 					/>
 					<div class="team-card__overlay"></div>
@@ -122,7 +124,11 @@ const team = [
 
 				<div class="mt-4 text-center">
 					<h2 class="font-display font-bold text-[#1C1530] text-lg">{{ item.name }}</h2>
-					<h3 class="font-mono text-[11px] tracking-[0.15em] uppercase text-[#8B86A0] mt-1">{{ item.title }}</h3>
+					<h3
+						class="font-mono text-[11px] tracking-[0.15em] uppercase text-[#8B86A0] mt-1"
+					>
+						{{ item.title }}
+					</h3>
 				</div>
 			</div>
 		</div>

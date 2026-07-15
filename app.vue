@@ -47,8 +47,31 @@ useHead({
 			href: `https://www.eventnest.am${switchLocalePath("hy")}`,
 		},
 	],
+	script: [
+		{
+			type: "application/ld+json",
+			innerHTML: JSON.stringify({
+				"@context": "https://schema.org",
+				"@graph": [
+					{
+						"@type": "Organization",
+						"@id": "https://www.eventnest.am/#organization",
+						name: "EventNest",
+						url: "https://www.eventnest.am",
+						logo: "https://www.eventnest.am/eventnestLogo.png",
+					},
+					{
+						"@type": "WebSite",
+						"@id": "https://www.eventnest.am/#website",
+						url: "https://www.eventnest.am",
+						name: "EventNest",
+						publisher: { "@id": "https://www.eventnest.am/#organization" },
+					},
+				],
+			}),
+		},
+	],
 });
-
 const showScroll = ref(false);
 
 const checkScroll = () => {

@@ -4,14 +4,14 @@ definePageMeta({
 });
 import { useEvents } from "@/composables/useEvents";
 import EventCard from "@/components/EventCard.vue";
-
+const { t } = useI18n();
+const localePath = useLocalePath();
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-const localePath = useLocalePath();
 
 const { filteredEvents, formatDate, newFilteredEvents } = useEvents();
 
@@ -65,7 +65,7 @@ const modules = [Navigation, Pagination, Autoplay];
 			rel="noopener"
 			target=""
 		>
-			Տեսնել ավելին →
+			{{ t("SEE_MORE") }} →
 		</LandingLink>
 	</div>
 

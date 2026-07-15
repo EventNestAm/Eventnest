@@ -1,3 +1,15 @@
+<script setup>
+// Real HTTP 404 for unmatched routes — without this, every broken/unknown
+// URL returns status 200 with "page not found" content, which search
+// engines treat as a soft 404 and may index as real, thin content.
+setResponseStatus(404);
+useSeoMeta({
+	title: "404 — Page not found | EventNest",
+	robots: "noindex, follow",
+});
+</script>
+
+
 <template>
 	<div
 		class="min-h-screen relative flex flex-col items-center justify-center bg-[#e0ebff] text-center px-6 overflow-hidden"
