@@ -63,12 +63,7 @@ const localePath = useLocalePath();
 
 .hero {
 	position: relative;
-	width: 100vw;
-	position: relative;
-	left: 50%;
-	right: 50%;
-	margin-left: -50vw;
-	margin-right: -50vw;
+	width: 100%;
 	overflow: hidden;
 	background: radial-gradient(120% 100% at 50% 0%, #221a44 0%, #14102b 55%, #0f0c20 100%);
 }
