@@ -694,7 +694,7 @@ export function useEvents() {
         t("MUSIC_QUIZ_TITLE"),
       category: [t("QUIZ"), t("MUSIC")],
       eventDate: true,
-      emailSent: true, groupName: true, isSoldout: false, quantity: 40
+      emailSent: true, groupName: true, isSoldout: false, quantity: 35
     },
     {
       id: 41,
@@ -728,7 +728,7 @@ export function useEvents() {
         t("KARAOKE_BATTLE"),
       category: t("KARAOKE"),
       eventDate: true,
-      emailSent: true, groupName: false, isSoldout: false, quantity: 20
+      emailSent: true, groupName: false, isSoldout: true, quantity: 20
     },
     {
       id: 43,
@@ -762,7 +762,7 @@ export function useEvents() {
         t("ARM_MUSIC"),
       category: [t("QUIZ"), t("MUSIC")],
       eventDate: true,
-      emailSent: true, groupName: true, isSoldout: false, quantity: 40
+      emailSent: true, groupName: true, isSoldout: false, quantity: 20
     },
   ])
   const eventsWithStatus = computed(() =>
