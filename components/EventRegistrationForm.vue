@@ -61,6 +61,9 @@ onMounted(() => {
 
 				if (response.status === 200) {
 					modalMessage.value = json.message;
+					if (typeof window !== "undefined" && window.fbq) {
+                        window.fbq("track", "CompleteRegistration");
+                    }
 				} else {
 					modalMessage.value = json.message || "Տեղի ունեցավ սխալ!";
 				}
