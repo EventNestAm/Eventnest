@@ -626,7 +626,7 @@ export function useEvents() {
         t("FOOTBALL_QUIZ_DESC"),
       category: [t("QUIZ"), t("FOOTBALL")],
       eventDate: true,
-      emailSent: true, groupName: true, isSoldout: false, quantity: 35
+      emailSent: true, groupName: true, isSoldout: true, quantity: 35
     },
     {
       id: 37,
