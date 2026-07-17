@@ -682,7 +682,7 @@ export function useEvents() {
     {
       id: 40,
       title: `${t("MUSICIAL_TITLE")} ${t("QUIZ_TITLE")} #2`,
-      slug: "music-quiz-2",
+      slug: "music-quiz-3",
       titleDesc: "An evening of strategy, emotions and people like you",
       date: "2026-07-26",
       dateTitle: "Հուլիսի 26",
