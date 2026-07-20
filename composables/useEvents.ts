@@ -694,7 +694,7 @@ export function useEvents() {
         t("MUSIC_QUIZ_TITLE"),
       category: [t("QUIZ"), t("MUSIC")],
       eventDate: true,
-      emailSent: true, groupName: true, isSoldout: false, quantity: 35
+      emailSent: true, groupName: true, isSoldout: false, quantity: 20
     },
     {
       id: 41,
