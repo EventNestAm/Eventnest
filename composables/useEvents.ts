@@ -764,6 +764,23 @@ export function useEvents() {
       eventDate: true,
       emailSent: true, groupName: true, isSoldout: false, quantity: 20
     },
+    {
+      id: 45,
+      title: `${t("KARAOKE_BATTLE_TITLE")} #4`,
+      slug: "karaoke-battle-4",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-07-24",
+      dateTitle: "Հուլիսի 24",
+      time: "19:30",
+      price: "4000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: karaokeBattle,
+      description:
+        t("KARAOKE_BATTLE"),
+      category: t("KARAOKE"),
+      eventDate: true,
+      emailSent: true, groupName: false, isSoldout: false, quantity: 20
+    },
   ])
   const eventsWithStatus = computed(() =>
     events.value.map(event => {

@@ -278,6 +278,10 @@ function closeModal() {
 	width: 100%;
 }
 
+.field, .field__input {
+	box-sizing: border-box;
+}
+
 .field__icon {
 	position: absolute;
 	left: 1rem;
@@ -290,6 +294,7 @@ function closeModal() {
 }
 
 .field__input {
+	box-sizing: border-box; /* add this */
 	width: 100%;
 	padding: 0.75rem 1rem 0.75rem 2.75rem;
 	background: #f6f3fc;
