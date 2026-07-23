@@ -677,7 +677,7 @@ export function useEvents() {
         t("KARGIN_QUIZ_TITLE"),
       category: [t("QUIZ"), t("KARGIN")],
       eventDate: false,
-      emailSent: true, groupName: true, quantity: 15
+      emailSent: true, groupName: true, quantity: 10
     },
     {
       id: 40,
@@ -779,7 +779,7 @@ export function useEvents() {
         t("KARAOKE_BATTLE"),
       category: t("KARAOKE"),
       eventDate: true,
-      emailSent: true, groupName: false, isSoldout: false, quantity: 20
+      emailSent: true, groupName: false, isSoldout: true, quantity: 20
     },
   ])
   const eventsWithStatus = computed(() =>
