@@ -7,8 +7,9 @@ const menuitems = computed(() => [
 	{ title: t("ABOUT"), path: localePath("/about") },
 	{ title: t("PRICING_TITLE"), path: localePath("/prices") },
 	{ title: t("UPCOMING_EVENTS"), path: localePath("/upcoming-events") },
-	{ title: t("PRIVACY_POLICE"), path: localePath("/privacy-policy") },
 	{ title: t("CONTACT"), path: localePath("/contact") },
+	{ title: t("PRIVACY_POLICE"), path: localePath("/privacy-policy") },
+	{ title: t("TERMS"), path: localePath("/terms") },
 ]);
 
 const open = ref(false);

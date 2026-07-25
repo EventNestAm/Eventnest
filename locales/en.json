@@ -43,6 +43,105 @@
 	"ABOUT": "About",
 	"UPCOMING_EVENTS": "Upcoming Events",
 	"SHOP": "Shop",
+	"TERMS": "Terms",
+	"privacy": {
+		"title": "Privacy and Refund Policy",
+		"lastUpdated": "Last updated:",
+		"intro": {
+			"part1": "Hereinafter, EventNest respects your privacy and is committed to protecting the personal data you provide when using our website (",
+			"part2": "). This document explains what data we collect, how we use it, your rights, and defines the payment refund conditions."
+		},
+		"s1": {
+			"title": "1. What Data We Collect",
+			"desc": "Depending on the service, we may collect the following information:",
+			"item1": "First name, last name",
+			"item2": "Email address",
+			"item3": "Phone number",
+			"item4": "IP address, browser and device details",
+			"item5": "Data collected via cookies (see Section 5)"
+		},
+		"s2": {
+			"title": "2. How We Collect Data",
+			"item1": "When you register on the website",
+			"item2": "When you fill out a contact or order form",
+			"item3": "When you subscribe to our newsletter",
+			"item4": "Automatically via cookies and analytics tools"
+		},
+		"s3": {
+			"title": "3. Why We Use Your Data",
+			"item1": "Service provision and account management",
+			"item2": "Customer support and feedback",
+			"item3": "Website improvement and analytics",
+			"item4": "Sending marketing emails (only with your consent)",
+			"item5": "Fulfillment of legal obligations"
+		},
+		"s4": {
+			"title": "4. Data Transfer to Third Parties",
+			"desc": "We do not sell your personal data. Data may only be transferred to:",
+			"item1": "Service partners (e.g., payment systems, hosting providers)",
+			"item2": "Competent authorities when required by law"
+		},
+		"s5": {
+			"title": "5. Use of Cookies",
+			"desc": "The website uses cookies to ensure its normal operation, improve user experience, and collect statistics. You can manage cookie settings through your browser."
+		},
+		"s6": {
+			"title": "6. Data Retention and Security",
+			"desc": "We take appropriate technical and organizational measures to protect your data from unauthorized access, loss, or misuse. Data is stored for as long as necessary for the purposes outlined in this policy, unless required otherwise by law."
+		},
+		"s7": {
+			"title": "7. Your Rights",
+			"desc": "You have the right to:",
+			"item1": "Access your personal data",
+			"item2": "Request correction or deletion of your data",
+			"item3": "Withdraw your consent",
+			"item4": "Object to data processing",
+			"contactText": "To exercise these rights, you can contact us at the address listed below."
+		},
+		"s8": {
+			"title": "8. Refund Policy",
+			"cancellationTitle": "Event Cancellation",
+			"cancellationDesc": "If an event is cancelled on the initiative of EventNest or the organizer, 100% of the ticket/service cost will be refunded.",
+			"userCancellationTitle": "Cancellation by Participant",
+			"userCancellationDesc": "In case of cancellation initiated by the customer, refunds are made under the following conditions:",
+			"item1": "Cancellation up to 24 hours prior to the event/service start: 100% refund.",
+			"item2": "Cancellation less than 24 hours before the event start: non-refundable.",
+			"processTitle": "Refund Process",
+			"processDesc": "Refunds are processed using the same payment method used for the purchase within 3-7 business days after receiving the request."
+		},
+		"s9": {
+			"title": "9. Changes to This Policy",
+			"desc": "We may update this policy from time to time. In case of changes, the \"Last updated\" date at the top of the page will be updated."
+		},
+		"s10": {
+			"title": "10. Contact Us",
+			"desc": "If you have questions regarding this policy or refunds, please contact us:",
+			"email": "Email",
+			"phone": "Phone"
+		}
+	},
+	"SEO_TERMS_TITLE": "Terms of Use | EventNest",
+	"SEO_TERMS_DESCRIPTION": "Terms and conditions for using the EventNest platform.",
+	"terms": {
+		"title": "Terms of Use",
+		"lastUpdated": "Last updated:",
+		"s1": {
+			"title": "1. General Provisions",
+			"desc": "These terms govern the use of the EventNest website and services. By using our website, you agree to these terms."
+		},
+		"s2": {
+			"title": "2. Bookings and Payments",
+			"desc": "Booking of tickets or participation requests is considered confirmed only after receiving the relevant payment or confirmation message."
+		},
+		"s3": {
+			"title": "3. Intellectual Property",
+			"desc": "All content on the website (texts, logos, quiz questions) is the property of EventNest and is protected by copyright law."
+		},
+		"s4": {
+			"title": "4. Limitation of Liability",
+			"desc": "EventNest is not liable for technical disruptions caused by third parties or force majeure situations."
+		}
+	},
 	"CONTACT": "Contact",
 	"REGISTER": "Register",
 	"LOGIN": "Login",
