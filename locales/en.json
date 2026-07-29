@@ -120,26 +120,32 @@
 			"phone": "Phone"
 		}
 	},
-	"SEO_TERMS_TITLE": "Terms of Use | EventNest",
-	"SEO_TERMS_DESCRIPTION": "Terms and conditions for using the EventNest platform.",
+	"SEO_TERMS_TITLE": "Terms of Service | EventNest",
+	"SEO_TERMS_DESCRIPTION": "EventNest terms of service, ticket purchasing, cancellation, and refund policy.",
 	"terms": {
-		"title": "Terms of Use",
+		"title": "Terms of Service",
 		"lastUpdated": "Last updated:",
 		"s1": {
-			"title": "1. General Provisions",
-			"desc": "These terms govern the use of the EventNest website and services. By using our website, you agree to these terms."
+			"title": "1. Description of Services & Packages",
+			"desc": "The EventNest event (quiz) ticket/package includes the following services:",
+			"item1": "Entrance fee for the specified event",
+			"item2": "Table reservation at the venue",
+			"item3": "All required game materials",
+			"item4": "Tastings included within the event program",
+			"item5": "Prizes for 1st, 2nd, and 3rd place teams",
+			"warning": "Please note: The package does NOT include extra food, drinks, or transportation expenses."
 		},
 		"s2": {
-			"title": "2. Bookings and Payments",
-			"desc": "Booking of tickets or participation requests is considered confirmed only after receiving the relevant payment or confirmation message."
+			"title": "2. Venue & Entry Procedures",
+			"desc": "Events are held at Kond House. Entry is managed at the door via a guest list by registered full name. Please arrive before the event start time, as entry may be restricted once the event begins."
 		},
 		"s3": {
-			"title": "3. Intellectual Property",
-			"desc": "All content on the website (texts, logos, quiz questions) is the property of EventNest and is protected by copyright law."
+			"title": "3. Cancellation, Refund & Transfer Policy",
+			"desc": "You may cancel your participation and receive a 100% full refund at least 48 hours prior to the event start. In case of a no-show without prior cancellation, your registration can be transferred to a future event. If an event is cancelled by the organizer, refunds are processed within 3–5 business days. You may also transfer your ticket/spot to another person by notifying us in advance."
 		},
 		"s4": {
-			"title": "4. Limitation of Liability",
-			"desc": "EventNest is not liable for technical disruptions caused by third parties or force majeure situations."
+			"title": "4. Dispute Resolution & Contacts",
+			"desc": "For any inquiries, cancellations, or dispute resolutions, please reach out to us using the contact details below:"
 		}
 	},
 	"CONTACT": "Contact",
