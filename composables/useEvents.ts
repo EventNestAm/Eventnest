@@ -781,25 +781,25 @@ export function useEvents() {
       eventDate: true,
       emailSent: true, groupName: false, isSoldout: true, quantity: 20
     },
+    // {
+    //   id: 46,
+    //   title: `Կարգին հաղորդման ${t("TOURNAMENT")} #1`,
+    //   slug: "kargin-haxordman-viktorina-16",
+    //   titleDesc: "An evening of strategy, emotions and people like you",
+    //   date: "2026-08-08",
+    //   dateTitle: "Օգոստոսի 8",
+    //   time: "19:30",
+    //   price: "3000 AMD",
+    //   location: "The Kond House - 46 Leo Street",
+    //   image: Kargin2,
+    //   description:
+    //     t("KARGIN_QUIZ_TITLE"),
+    //   category: [t("QUIZ"), t("KARGIN")],
+    //   eventDate: true,
+    //   emailSent: true, groupName: true, isSoldout: false, quantity: 45
+    // },
     {
       id: 46,
-      title: `Կարգին հաղորդման ${t("QUIZ_TITLE")} #16`,
-      slug: "kargin-haxordman-viktorina-16",
-      titleDesc: "An evening of strategy, emotions and people like you",
-      date: "2026-08-08",
-      dateTitle: "Օգոստոսի 8",
-      time: "19:30",
-      price: "3000 AMD",
-      location: "The Kond House - 46 Leo Street",
-      image: Kargin2,
-      description:
-        t("KARGIN_QUIZ_TITLE"),
-      category: [t("QUIZ"), t("KARGIN")],
-      eventDate: true,
-      emailSent: true, groupName: true, isSoldout: false, quantity: 45
-    },
-    {
-      id: 47,
       title: `${t("DOMINO")} ${t("QUIZ_TITLE")} #1`,
       slug: "domino-sitqom-1",
       titleDesc: "An evening of strategy, emotions and people like you",
