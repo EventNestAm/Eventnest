@@ -149,6 +149,8 @@
 		}
 	},
 	"CONTACT": "Contact",
+	"DOMINO": "Domino sitcom",
+	"DOMINO_DESC": "Mika's lies and the widespread domino effect... If you know the series by heart, then come on!",
 	"REGISTER": "Register",
 	"LOGIN": "Login",
 	"LOGOUT": "Logout",
