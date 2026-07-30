@@ -801,7 +801,7 @@ export function useEvents() {
     {
       id: 46,
       title: `${t("DOMINO")} ${t("QUIZ_TITLE")} #1`,
-      slug: "domino-sitqom-1",
+      slug: "domino-sitcom-1",
       titleDesc: "An evening of strategy, emotions and people like you",
       date: "2026-08-09",
       dateTitle: "Օգոստոսի 9",
