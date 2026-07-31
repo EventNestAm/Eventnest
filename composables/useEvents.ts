@@ -832,6 +832,22 @@ export function useEvents() {
     //   eventDate: true,
     //   emailSent: true, groupName: true, isSoldout: false, quantity: 45
     // },
+    {
+      id: 47,
+      title: `${t("WHAT_WHERE_WHEN")}`,
+      slug: "inch-vortex-erb-2",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      image: whatWhere,
+      description:  t("WHAT_WHERE_WHEN_DESC"),
+      category: t("WHAT_WHERE_WHEN"),
+      date: "2026-08-09",
+      dateTitle: "Օգոստոսի 9",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      eventDate: true,
+      emailSent: true, groupName: true, isSoldout: false, quantity: 45
+    },
   ])
   const eventsWithStatus = computed(() =>
     events.value.map(event => {
