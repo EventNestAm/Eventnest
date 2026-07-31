@@ -62,8 +62,8 @@ onMounted(() => {
 				if (response.status === 200) {
 					modalMessage.value = json.message;
 					if (typeof window !== "undefined" && window.fbq) {
-                        window.fbq("track", "CompleteRegistration");
-                    }
+						window.fbq("track", "CompleteRegistration");
+					}
 				} else {
 					modalMessage.value = json.message || "Տեղի ունեցավ սխալ!";
 				}
@@ -211,6 +211,67 @@ function closeModal() {
 			<p class="font-mono text-[10px] tracking-[0.15em] text-[#8B86A0] text-center uppercase">
 				{{ t("LIMITED_NUMBER") }} {{ props.quantity }} {{ t("PLACE") }}
 			</p>
+
+			<!-- Accepted Payments Section -->
+			<div class="payment-methods">
+				<!-- ArCa Logo -->
+				<svg
+					class="payment-icon"
+					viewBox="0 0 100 60"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<rect width="100" height="60" rx="6" fill="#1B385D" />
+					<text
+						x="50"
+						y="38"
+						font-family="'Space Grotesk', sans-serif"
+						font-weight="bold"
+						font-size="22"
+						fill="#FFFFFF"
+						text-anchor="middle"
+						letter-spacing="1"
+					>
+						ArCa
+					</text>
+					<path
+						d="M20 44 C35 38, 65 38, 80 44"
+						stroke="#D32F2F"
+						stroke-width="3"
+						stroke-linecap="round"
+					/>
+				</svg>
+
+				<!-- Visa Logo -->
+				<svg
+					class="payment-icon"
+					viewBox="0 0 100 60"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<rect width="100" height="60" rx="6" fill="#0A2540" />
+					<path
+						d="M38.8 40L42.2 20H47.6L44.2 40H38.8ZM61.8 20.6C60.7 20.2 59.1 19.8 57.1 19.8C52.1 19.8 48.6 22.3 48.6 25.9C48.6 28.6 51.1 30.1 53 31C54.9 31.9 55.6 32.5 55.6 33.4C55.6 34.7 54 35.3 52.4 35.3C50.3 35.3 49.1 35 47.4 34.2L46.6 33.8L45.8 38.8C47.4 39.5 50.1 40.1 52.8 40.1C58.2 40.1 61.7 37.5 61.7 33.5C61.7 29.8 59.2 28.3 56.6 27.1C55.2 26.4 54.3 25.7 54.3 24.8C54.3 23.9 55.4 23.1 57.3 23.1C58.9 23.1 60.1 23.4 61.1 23.8L61.8 20.6ZM75.8 20H71.7C70.4 20 69.4 20.4 68.9 21.6L60.5 40H66.2L67.3 36.8H74.3L75 40H80L75.8 20ZM68.9 32.5L71.8 24.6L73.5 32.5H68.9ZM34.2 20L28.9 33.6L28.3 30.7C27.3 27.2 24.1 23.3 20.2 21.2L25.1 40H30.8L40 20H34.2Z"
+						fill="#FFC800"
+					/>
+				</svg>
+
+				<!-- Mastercard Logo -->
+				<svg
+					class="payment-icon"
+					viewBox="0 0 100 60"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<rect width="100" height="60" rx="6" fill="#14102B" />
+					<circle cx="41" cy="30" r="15" fill="#EB001B" />
+					<circle cx="59" cy="30" r="15" fill="#F79E1B" />
+					<path
+						d="M50 18.2A14.96 14.96 0 0 0 41 30c0 4.8 2.3 9.1 5.9 11.8A14.96 14.96 0 0 0 59 30c0-4.8-2.3-9.1-5.9-11.8z"
+						fill="#FF5F00"
+					/>
+				</svg>
+			</div>
 		</form>
 
 		<transition name="fade">
@@ -278,7 +339,8 @@ function closeModal() {
 	width: 100%;
 }
 
-.field, .field__input {
+.field,
+.field__input {
 	box-sizing: border-box;
 }
 
@@ -294,9 +356,10 @@ function closeModal() {
 }
 
 .field__input {
-	box-sizing: border-box; /* add this */
+	box-sizing: border-box;
 	width: 100%;
 	padding: 0.75rem 1rem 0.75rem 2.75rem;
+	line-height: 1.5; /* add this */
 	background: #f6f3fc;
 	border: 1.5px solid transparent;
 	border-radius: 0.75rem;
@@ -309,7 +372,12 @@ function closeModal() {
 }
 
 .field__input::placeholder {
+	line-height: 3; /* Safari/iOS sometimes needs this repeated on the placeholder pseudo-element */
 	color: #9d97b8;
+}
+
+.field__input {
+	font-family: "Noto Sans Armenian", "Arial Armenian", Arial, sans-serif;
 }
 
 .field__input:focus {
@@ -402,5 +470,28 @@ function closeModal() {
 .was-validated .privacy-field__checkbox:invalid {
 	outline: 2px solid #ff6f4d;
 	outline-offset: 2px;
+}
+
+/* Payment Badges Styling */
+.payment-methods {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.6rem;
+	margin-top: 0.75rem;
+	opacity: 0.85;
+	transition: opacity 0.2s ease;
+}
+
+.payment-methods:hover {
+	opacity: 1;
+}
+
+.payment-icon {
+	height: 22px;
+	width: auto;
+	border-radius: 4px;
+	filter: drop-shadow(0 2px 4px rgba(28, 21, 48, 0.08));
+	cursor: pointer;
 }
 </style>
