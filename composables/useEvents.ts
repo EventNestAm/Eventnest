@@ -796,7 +796,7 @@ export function useEvents() {
         t("KARGIN_QUIZ_TITLE"),
       category: [t("QUIZ"), t("KARGIN")],
       eventDate: true,
-      emailSent: true, groupName: true, isSoldout: false, quantity: 45
+      emailSent: true, groupName: true, isSoldout: false, quantity: 20
     },
     // {
     //   id: 46,
@@ -846,7 +846,7 @@ export function useEvents() {
       price: "3000 AMD",
       location: "The Kond House - 46 Leo Street",
       eventDate: true,
-      emailSent: true, groupName: true, isSoldout: false, quantity: 45
+      emailSent: true, groupName: true, isSoldout: false, quantity: 25
     },
   ])
   const eventsWithStatus = computed(() =>
