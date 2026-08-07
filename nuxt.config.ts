@@ -12,14 +12,16 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
-    // Private — server-only, read from NUXT_EPG_USER_NAME / NUXT_EPG_PASSWORD / NUXT_EPG_HOST
-    epgUserName: "",
-    epgPassword: "",
-    epgHost: "",
+    // Automatically populated at runtime from NUXT_EPG_USER_NAME
+    epgUserName: '',
+    // Automatically populated at runtime from NUXT_EPG_PASSWORD
+    epgPassword: '',
+    // Automatically populated at runtime from NUXT_EPG_HOST
+    epgHost: '',
 
     public: {
-      // Exposed to the browser — read from NUXT_PUBLIC_EPG_RETURN_URL
-      epgReturnUrl: "",
+      // Automatically populated at runtime from NUXT_PUBLIC_EPG_RETURN_URL
+      epgReturnUrl: '',
     },
   },
   modules: ['@nuxt/ui', '@nuxt/image', '@nuxtjs/sitemap', "@nuxtjs/i18n"],
