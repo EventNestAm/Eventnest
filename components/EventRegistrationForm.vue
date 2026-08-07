@@ -11,6 +11,16 @@ const props = defineProps({
 	eventName: String,
 	isSoldOut: Boolean,
 	quantity: Number,
+	// Price per participant, in whole AMD (e.g. 3000 = 3000 AMD).
+	// Converted to minor units (luma) internally before calling EPG.
+	pricePerPerson: {
+		type: Number,
+		required: true,
+	},
+	currency: {
+		type: String,
+		default: "051", // AMD
+	},
 });
 
 const showGroupInput = props.hasGroupName;
@@ -29,6 +39,11 @@ if (route.query.ref) {
 }
 
 const referralSource = referralCookie.value || route.query.ref || "direct";
+
+function generateOrderNumber() {
+	// Unique per submission; EPG requires 1..32 alphanumeric chars.
+	return `${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+}
 
 onMounted(() => {
 	const form = document.getElementById("form");
@@ -50,22 +65,55 @@ onMounted(() => {
 		const object = Object.fromEntries(formData);
 		const json = JSON.stringify(object);
 
+		// Step 1: keep the existing lead-capture / notification flow.
 		fetch("https://api.web3forms.com/submit", {
 			method: "POST",
 			headers: { "Content-Type": "application/json", Accept: "application/json" },
 			body: json,
 		})
 			.then(async (response) => {
-				let json = await response.json();
-				isLoading.value = false;
+				const result = await response.json();
 
-				if (response.status === 200) {
-					modalMessage.value = json.message;
-					if (typeof window !== "undefined" && window.fbq) {
-						window.fbq("track", "CompleteRegistration");
-					}
-				} else {
-					modalMessage.value = json.message || "Տեղի ունեցավ սխալ!";
+				if (response.status !== 200) {
+					isLoading.value = false;
+					modalMessage.value = result.message || "Տեղի ունեցավ սխալ!";
+					return;
+				}
+
+				if (typeof window !== "undefined" && window.fbq) {
+					window.fbq("track", "CompleteRegistration");
+				}
+
+				// Step 2: register the order with EPG and get the hosted
+				// payment page URL. Credentials are handled server-side by
+				// /api/epg/register — never exposed to the browser.
+				const peopleCount = Number(object.peopleCount) || 1;
+				// pricePerPerson is in whole AMD (e.g. 3000 = 3000 AMD).
+				// EPG's amount field expects minor units (luma): 100 luma = 1 AMD.
+				const amount = props.pricePerPerson * 100 * peopleCount;
+
+				try {
+					const paymentResponse = await $fetch("/api/epg/register", {
+						method: "POST",
+						body: {
+							orderNumber: generateOrderNumber(),
+							amount,
+							currency: props.currency,
+							description: showTitle,
+							email: object.email,
+							phone: object.phone,
+							name: `${object.name} ${object.surname}`.trim(),
+							language: locale.value,
+							returnUrl: `${window.location.origin}/${locale.value}/payment-result`,
+						},
+					});
+
+					// Step 3: send the customer to the EPG hosted payment page.
+					window.location.href = paymentResponse.formUrl;
+				} catch (err) {
+					isLoading.value = false;
+					modalMessage.value =
+						err?.data?.statusMessage || "Չհաջողվեց սկսել վճարումը: Փորձեք կրկին:";
 				}
 			})
 			.catch(() => {
@@ -359,7 +407,7 @@ function closeModal() {
 	box-sizing: border-box;
 	width: 100%;
 	padding: 0.75rem 1rem 0.75rem 2.75rem;
-	line-height: 1.5; /* add this */
+	line-height: 1.5;
 	background: #f6f3fc;
 	border: 1.5px solid transparent;
 	border-radius: 0.75rem;
@@ -372,7 +420,7 @@ function closeModal() {
 }
 
 .field__input::placeholder {
-	line-height: 3; /* Safari/iOS sometimes needs this repeated on the placeholder pseudo-element */
+	line-height: 3;
 	color: #9d97b8;
 }
 
@@ -472,7 +520,6 @@ function closeModal() {
 	outline-offset: 2px;
 }
 
-/* Payment Badges Styling */
 .payment-methods {
 	display: flex;
 	align-items: center;

@@ -37,9 +37,7 @@ const goBack = () => {
 
 const { t, locale, locales } = useI18n();
 
-const currentLocaleData = computed(() =>
-	locales.value.find((l) => l.code === locale.value)
-);
+const currentLocaleData = computed(() => locales.value.find((l) => l.code === locale.value));
 
 // Faux ticket serial — purely decorative, grounds the "real ticket" motif
 const ticketCode = computed(() => {
@@ -85,13 +83,13 @@ const infoCards = computed(() => [
 const pageTitle = computed(() => `${event.title} | EventNest`);
 
 const pageDescription = computed(() =>
-	event.description ? event.description.slice(0, 160) : t("SEO_HOME_DESCRIPTION")
+	event.description ? event.description.slice(0, 160) : t("SEO_HOME_DESCRIPTION"),
 );
 
 const eventImageUrl = computed(() =>
 	event.image
 		? new URL(event.image, "https://www.eventnest.am").href
-		: "https://www.eventnest.am/og/eventnest-og.jpg"
+		: "https://www.eventnest.am/og/eventnest-og.jpg",
 );
 
 const startDateISO = computed(() => `${event.date}T${event.time || "20:00"}:00+04:00`);
@@ -161,9 +159,9 @@ useHead({
 									? "https://schema.org/SoldOut"
 									: "https://schema.org/InStock",
 								url: `https://www.eventnest.am${route.path}`,
-						  }
+							}
 						: undefined,
-				})
+				}),
 			),
 		},
 	],
@@ -240,6 +238,7 @@ useHead({
 							:hasGroupName="event.groupName"
 							:eventName="event.title"
 							:quantity="event.quantity"
+							:pricePerPerson="event.pricePerPerson"
 						/>
 					</div>
 					<div class="ticket-stub__perforation" aria-hidden="true"></div>
