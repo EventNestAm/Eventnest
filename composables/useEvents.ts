@@ -798,47 +798,14 @@ export function useEvents() {
       eventDate: true,
       emailSent: true, groupName: true, isSoldout: false, quantity: 20
     },
-    // {
-    //   id: 46,
-    //   title: `${t("DOMINO")} ${t("QUIZ_TITLE")} #1`,
-    //   slug: "domino-sitcom-1",
-    //   titleDesc: "An evening of strategy, emotions and people like you",
-    //   date: "2026-08-09",
-    //   dateTitle: "Օգոստոսի 9",
-    //   time: "19:30",
-    //   price: "3000 AMD",
-    //   location: "The Kond House - 46 Leo Street",
-    //   image: Kargin2,
-    //   description:
-    //     t("DOMINO_DESC"),
-    //   category: [t("QUIZ"), t("DOMINO")],
-    //   eventDate: true,
-    //   emailSent: true, groupName: true, isSoldout: false, quantity: 45
-    // },
-    // {
-    //   id: 46,
-    //   title: `${t("DOMINO")} ${t("QUIZ_TITLE")} #1`,
-    //   slug: "domino-sitcom-1",
-    //   titleDesc: "An evening of strategy, emotions and people like you",
-    //   date: "2026-08-09",
-    //   dateTitle: "Օգոստոսի 9",
-    //   time: "19:30",
-    //   price: "3000 AMD",
-    //   location: "The Kond House - 46 Leo Street",
-    //   image: Kargin2,
-    //   description:
-    //     t("DOMINO_DESC"),
-    //   category: [t("QUIZ"), t("DOMINO")],
-    //   eventDate: true,
-    //   emailSent: true, groupName: true, isSoldout: false, quantity: 45
-    // },
+
     {
       id: 47,
       title: `${t("WHAT_WHERE_WHEN")}`,
       slug: "inch-vortex-erb-2",
       titleDesc: "An evening of strategy, emotions and people like you",
       image: whatWhere,
-      description:  t("WHAT_WHERE_WHEN_DESC"),
+      description: t("WHAT_WHERE_WHEN_DESC"),
       category: t("WHAT_WHERE_WHEN"),
       date: "2026-08-09",
       dateTitle: "Օգոստոսի 9",
@@ -847,6 +814,23 @@ export function useEvents() {
       location: "The Kond House - 46 Leo Street",
       eventDate: true,
       emailSent: true, groupName: true, isSoldout: false, quantity: 25
+    },
+    {
+      id: 48,
+      title: `${t("DOMINO")} ${t("QUIZ_TITLE")} #1`,
+      slug: "domino-sitcom-1",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-08-16",
+      dateTitle: "Օգոստոսի 16",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: Kargin2,
+      description:
+        t("DOMINO_DESC"),
+      category: [t("QUIZ"), t("DOMINO")],
+      eventDate: true,
+      emailSent: true, groupName: true, isSoldout: false, quantity: 45
     },
   ])
   const eventsWithStatus = computed(() =>
