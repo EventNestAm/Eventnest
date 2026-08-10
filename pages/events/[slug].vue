@@ -88,7 +88,7 @@ const infoCards = computed(() => [
 /* ---------------- SEO ---------------- */
 
 const pageTitle = computed(() => `${event.title} | EventNest`);
-
+const localePath = useLocalePath();
 const pageDescription = computed(() =>
 	event.description ? event.description.slice(0, 160) : t("SEO_HOME_DESCRIPTION"),
 );
@@ -186,11 +186,7 @@ useHead({
 				class="relative p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#1A1530] to-[#120E22] shadow-2xl border border-white/10 text-center max-w-md w-full"
 			>
 				<p class="font-mono text-[11px] tracking-[0.35em] text-[#FF6F4D] mb-4 uppercase">
-					{{
-						Array.isArray(event.category)
-							? event.category.join(", ")
-							: event.category
-					}}
+					{{ Array.isArray(event.category) ? event.category.join(", ") : event.category }}
 				</p>
 				<h1 class="font-display text-2xl sm:text-3xl font-bold text-white mb-3">
 					{{ event.title }}
@@ -204,9 +200,16 @@ useHead({
 				<div
 					class="h-px w-16 mx-auto bg-gradient-to-r from-transparent via-white/30 to-transparent mb-6"
 				></div>
-				<button @click="goBack" class="px-6 py-2 rounded-full bg-white/10 text-white border border-white/10 hover:bg-white/20 transition">
-					{{ t("SEE_MORE") }}
-				</button>
+				<LandingLink
+					:to="localePath('/upcoming-events')"
+					class="px-6 py-2 rounded-full bg-white/10 text-white border border-white/10 hover:bg-white/20 transition"
+					size="lg"
+					styleName="outline"
+					rel="noopener"
+					target=""
+				>
+					{{ t("SEE_MORE") }} →
+				</LandingLink>
 			</div>
 		</div>
 
