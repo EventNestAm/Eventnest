@@ -27,7 +27,7 @@ const scrollToTop = () => {
 </script>
 
 <template>
-	<footer class="site-footer mt-20 relative">
+	<footer class="site-footer relative">
 		<div class="site-footer__perforation" aria-hidden="true"></div>
 
 		<LandingContainer>

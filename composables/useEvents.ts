@@ -830,7 +830,7 @@ export function useEvents() {
       image: Kargin2,
       description:
         t("DOMINO_DESC"),
-      category: [t("QUIZ"), t("DOMINO")],
+      category: [t("QUIZ"), t("DOMINO"), t("SITCOMS")],
       eventDate: true,
       emailSent: true, groupName: true, isSoldout: false, quantity: 45,
       pricePerPerson: 3000

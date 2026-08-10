@@ -255,6 +255,8 @@
 	"AMOUNT_PAID": "Amount paid",
 	"PHONE": "Phone",
 	"REDIRECTING_TO_PAYMENT": "We're redirecting you to payment...",
+	"EVENT_ENDED": "This event has ended",
+	"EVENT_ENDED_TEXT": "This event already took place. Check out our upcoming events instead.",
 	"NUMBER_OF_PARTICIPANTS": "Number of participants",
 	"CONFIRM_REGISTER": "Confirm registration",
 	"LIMITED_NUMBER": "🚨 Only",

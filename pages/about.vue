@@ -4,11 +4,6 @@ import MiqoPhoto from "~/assets/img/team/Miqophoto.jpg";
 import Artphoto from "~/assets/img/team/Artphoto.jpg";
 import Davophoto from "~/assets/img/team/Davophoto.jpg";
 import Anahitphoto from "~/assets/img/team/Anahitphoto.jpg";
-import Asyaphoto from "~/assets/img/team/Asyaphoto.jpg";
-import Elvinaphoto from "~/assets/img/team/Elvinaphoto.png";
-import Karinkaphoto from "~/assets/img/team/Karinkaphoto.jpg";
-import Elenphoto from "~/assets/img/team/Elenphoto.jpg";
-import Emma from "~/assets/img/team/Emma.jpg";
 import Azat from "~/assets/img/team/Azat.png";
 
 const route = useRoute();
@@ -37,11 +32,6 @@ const team = [
 		avatar: { src: Davophoto },
 	},
 	{
-		name: "Էմմա Զորիկյան",
-		title: t("REELS_MAKER"),
-		avatar: { src: Emma },
-	},
-	{
 		name: "Ազատ Սիրեկանյան",
 		title: "DJ",
 		avatar: { src: Azat },
@@ -51,11 +41,7 @@ const team = [
 		title: t("GRAPHICDESIGNER"),
 		avatar: { src: Anahitphoto },
 	},
-	{
-		name: "Էլվինա Ստեփանյան",
-		title: t("UIUXDESIGNER"),
-		avatar: { src: Elvinaphoto },
-	},
+
 	{
 		name: t("ITS_YOU"),
 		title: t("WAITING_FOR_YOU"),

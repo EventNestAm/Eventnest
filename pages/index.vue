@@ -4,8 +4,9 @@ definePageMeta({
 });
 import { useEvents } from "@/composables/useEvents";
 import EventCard from "@/components/EventCard.vue";
-const { t } = useI18n();
+const { t, locale, locales } = useI18n();
 const localePath = useLocalePath();
+const switchLocalePath = useSwitchLocalePath();
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
@@ -17,18 +18,81 @@ const { filteredEvents, formatDate, newFilteredEvents } = useEvents();
 
 const modules = [Navigation, Pagination, Autoplay];
 const route = useRoute();
+const config = useRuntimeConfig();
+const siteUrl = "https://www.eventnest.am";
+
+// ---- OG locale map (BCP47 -> OG locale format, e.g. "hy" -> "hy_AM") ----
+const ogLocaleMap = {
+	hy: "hy_AM",
+	en: "en_US",
+	ru: "ru_RU",
+};
+
 useSeoMeta({
 	title: t("SEO_HOME_TITLE"),
 	description: t("SEO_HOME_DESCRIPTION"),
 	ogTitle: t("SEO_HOME_TITLE"),
 	ogDescription: t("SEO_HOME_DESCRIPTION"),
-	ogUrl: () => `https://www.eventnest.am${route.path}`,
-	ogImage: "https://www.eventnest.am/og/eventnest-og.jpg",
+	ogUrl: () => `${siteUrl}${route.path}`,
+	ogType: "website",
+	ogLocale: () => ogLocaleMap[locale.value] || "en_US",
+	ogImage: `${siteUrl}/og/eventnest-og.jpg`,
 	ogImageWidth: 1200,
 	ogImageHeight: 630,
 	twitterCard: "summary_large_image",
+	twitterTitle: t("SEO_HOME_TITLE"),
+	twitterDescription: t("SEO_HOME_DESCRIPTION"),
+	twitterImage: `${siteUrl}/og/eventnest-og.jpg`,
 });
+
+// ---- Canonical + hreflang alternates ----
+const canonicalUrl = computed(() => `${siteUrl}${route.path}`);
+const hreflangLinks = computed(() =>
+	(locales.value || []).map((l) => ({
+		rel: "alternate",
+		hreflang: l.iso || l.code,
+		href: `${siteUrl}${switchLocalePath(l.code)}`,
+	}))
+);
+
+// ---- Event structured data (schema.org Event) for the featured/upcoming events ----
+const eventJsonLd = computed(() =>
+	newFilteredEvents.value.map((event) => ({
+		"@context": "https://schema.org",
+		"@type": "Event",
+		name: event.title,
+		startDate: event.date && event.time ? `${event.date}T${event.time}` : event.date,
+		eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+		eventStatus: event.isSoldout
+			? "https://schema.org/EventMovedOnline" // placeholder; see note below
+			: "https://schema.org/EventScheduled",
+		location: {
+			"@type": "Place",
+			name: event.location,
+			address: event.location,
+		},
+		image: event.image ? [event.image] : undefined,
+		description: event.description,
+		offers: event.price
+			? {
+					"@type": "Offer",
+					price: String(event.price).replace(/[^\d.]/g, ""),
+					priceCurrency: "AMD",
+					availability: event.isSoldout
+						? "https://schema.org/SoldOut"
+						: "https://schema.org/InStock",
+					url: `${siteUrl}${localePath(`/events/${event.slug}`)}`,
+				}
+			: undefined,
+		url: `${siteUrl}${localePath(`/events/${event.slug}`)}`,
+	}))
+);
+
 useHead({
+	link: [
+		{ rel: "canonical", href: canonicalUrl },
+		...hreflangLinks.value,
+	],
 	script: [
 		{
 			type: "application/ld+json",
@@ -36,25 +100,45 @@ useHead({
 				"@context": "https://schema.org",
 				"@type": "Organization",
 				name: "EventNest",
-				url: "https://www.eventnest.am",
-				logo: "https://www.eventnest.am/eventnestLogo.png",
+				url: siteUrl,
+				logo: `${siteUrl}/eventnestLogo.png`,
 				sameAs: [
 					"https://www.instagram.com/eventnest.am/",
 					"https://www.facebook.com/p/Eventnestam-61573604121906/",
 				],
 			}),
 		},
+		{
+			type: "application/ld+json",
+			innerHTML: () => JSON.stringify(eventJsonLd.value),
+		},
 	],
 });
 </script>
 
 <template>
+	<LandingHero />
 	<LandingContainer>
-		<LandingHero />
 		<LandingFeatures />
 	</LandingContainer>
 
 	<div v-if="filteredEvents.length > 0" class="events-swiper-wrap">
+		<!--
+			Always-rendered, crawlable link list. This exists purely so crawlers
+			(and any client that doesn't execute JS) have real <a> hrefs to every
+			event page in the initial HTML, independent of the Swiper/ClientOnly
+			below. Visually hidden but present in the DOM.
+		-->
+		<nav class="sr-only-events" aria-label="Upcoming events">
+			<ul>
+				<li v-for="event in newFilteredEvents" :key="event.id">
+					<NuxtLink :to="localePath(`/events/${event.slug}`)">
+						{{ event.title }} — {{ formatDate(event.date) }}
+					</NuxtLink>
+				</li>
+			</ul>
+		</nav>
+
 		<ClientOnly>
 			<Swiper
 				:modules="modules"
@@ -83,6 +167,19 @@ useHead({
 					<EventCard :event="event" :formatDate="formatDate" class="w-full" />
 				</SwiperSlide>
 			</Swiper>
+
+			<!-- Server-rendered / pre-hydration fallback: plain visual list, still real links -->
+			<template #fallback>
+				<ul class="events-fallback-list">
+					<li v-for="event in newFilteredEvents" :key="event.id">
+						<NuxtLink :to="localePath(`/events/${event.slug}`)">
+							<img v-if="event.image" :src="event.image" :alt="event.title" loading="lazy" />
+							<span>{{ event.title }}</span>
+							<span class="fallback-date">{{ formatDate(event.date) }}</span>
+						</NuxtLink>
+					</li>
+				</ul>
+			</template>
 		</ClientOnly>
 	</div>
 
@@ -185,5 +282,45 @@ useHead({
 .swiperUnset .swiper-wrapper,
 .swiperUnset .swiper-slide {
 	height: unset !important;
+}
+
+/* Crawlable-only link list: hidden visually, present in the DOM/HTML */
+.sr-only-events {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* Plain fallback list shown briefly before Swiper hydrates on the client */
+.events-fallback-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 18px;
+	list-style: none;
+	padding: 8px;
+	margin: 0;
+}
+.events-fallback-list li a {
+	display: block;
+	text-decoration: none;
+	color: inherit;
+}
+.events-fallback-list img {
+	width: 100%;
+	height: auto;
+	border-radius: 12px;
+	display: block;
+	margin-bottom: 8px;
+}
+.events-fallback-list .fallback-date {
+	display: block;
+	font-size: 0.85rem;
+	opacity: 0.7;
 }
 </style>

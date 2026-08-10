@@ -27,6 +27,13 @@ if (!event) {
 	throw createError({ statusCode: 404, statusMessage: "Event not found" });
 }
 
+// Single source of truth for "has this event passed": useEvents already
+// computes isClosed (date check + optional forceClosed override). Reuse it
+// instead of recomputing the date logic here — avoids the two ever drifting
+// out of sync, e.g. a forceClosed event that this page would otherwise still
+// treat as open.
+const isPastEvent = computed(() => event.isClosed);
+
 const goBack = () => {
 	if (window.history.length > 1) {
 		router.back();
@@ -93,11 +100,7 @@ const eventImageUrl = computed(() =>
 );
 
 const startDateISO = computed(() => `${event.date}T${event.time || "20:00"}:00+04:00`);
-const isPastEvent = computed(() => {
-	const eventDate = new Date(event.date);
-	eventDate.setHours(23, 59, 59, 999);
-	return eventDate < new Date();
-});
+
 useSeoMeta({
 	title: () => pageTitle.value,
 	description: () => pageDescription.value,
@@ -130,6 +133,11 @@ useHead({
 					name: event.title,
 					startDate: startDateISO.value,
 					eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+					// A passed event is neither "scheduled" nor "cancelled" — it simply
+					// already happened. Schema.org has no dedicated "ended" status, so
+					// the safest signal is via Offer.availability below (set to
+					// OutOfStock) plus noindex on the page itself; eventStatus stays
+					// Scheduled/Cancelled based on what actually happened operationally.
 					eventStatus: isSoldOut
 						? "https://schema.org/EventCancelled"
 						: "https://schema.org/EventScheduled",
@@ -155,9 +163,10 @@ useHead({
 								"@type": "Offer",
 								price: event.price.replace(/\D/g, ""),
 								priceCurrency: "AMD",
-								availability: isSoldOut
-									? "https://schema.org/SoldOut"
-									: "https://schema.org/InStock",
+								availability:
+									isSoldOut || isPastEvent.value
+										? "https://schema.org/SoldOut"
+										: "https://schema.org/InStock",
 								url: `https://www.eventnest.am${route.path}`,
 							}
 						: undefined,
@@ -170,8 +179,39 @@ useHead({
 
 <template>
 	<div class="ticket-page">
+		<!-- Past-event state — checked first: a passed event should never show
+		     the live registration form, sold-out or not. -->
+		<div class="min-h-screen flex items-center justify-center px-4" v-if="isPastEvent">
+			<div
+				class="relative p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#1A1530] to-[#120E22] shadow-2xl border border-white/10 text-center max-w-md w-full"
+			>
+				<p class="font-mono text-[11px] tracking-[0.35em] text-[#FF6F4D] mb-4 uppercase">
+					{{
+						Array.isArray(event.category)
+							? event.category.join(", ")
+							: event.category
+					}}
+				</p>
+				<h1 class="font-display text-2xl sm:text-3xl font-bold text-white mb-3">
+					{{ event.title }}
+				</h1>
+				<h2 class="font-display text-xl font-bold text-white mb-4">
+					{{ t("EVENT_ENDED") }}
+				</h2>
+				<p class="text-[#B5ADD9] text-sm mb-6">
+					{{ t("EVENT_ENDED_TEXT") }}
+				</p>
+				<div
+					class="h-px w-16 mx-auto bg-gradient-to-r from-transparent via-white/30 to-transparent mb-6"
+				></div>
+				<button @click="goBack" class="px-6 py-2 rounded-full bg-white/10 text-white border border-white/10 hover:bg-white/20 transition">
+					{{ t("SEE_MORE") }}
+				</button>
+			</div>
+		</div>
+
 		<!-- Sold out state -->
-		<div class="min-h-[60vh] flex items-center justify-center px-4" v-if="isSoldOut">
+		<div class="min-h-[60vh] flex items-center justify-center px-4" v-else-if="isSoldOut">
 			<div
 				class="relative p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-[#1A1530] to-[#120E22] shadow-2xl border border-white/10 text-center max-w-md w-full"
 			>
@@ -193,8 +233,8 @@ useHead({
 			</div>
 		</div>
 
-		<!-- Main event content -->
-		<div v-if="event && !isSoldOut">
+		<!-- Main event content: only for events that are neither past nor sold out -->
+		<div v-else-if="event">
 			<!-- Hero band -->
 			<section
 				class="hero-band px-4 sm:px-6 pt-16 pb-28 sm:pt-20 sm:pb-36 text-center relative overflow-hidden"
@@ -242,13 +282,7 @@ useHead({
 						/>
 					</div>
 					<div class="ticket-stub__perforation" aria-hidden="true"></div>
-					<div class="ticket-stub__tail">
-						<span
-							class="font-mono text-[10px] tracking-[0.3em] text-[#8B86A0] rotate-90 whitespace-nowrap"
-						>
-							{{ ticketCode }}
-						</span>
-					</div>
+					<div class="ticket-stub__tail"></div>
 				</div>
 			</section>
 
@@ -277,10 +311,6 @@ useHead({
 					</div>
 				</div>
 			</section>
-		</div>
-
-		<div v-else-if="!isSoldOut" class="text-center py-20 text-gray-500 text-lg">
-			{{ t("EVENT_NOT_FOUND") }}
 		</div>
 	</div>
 </template>
