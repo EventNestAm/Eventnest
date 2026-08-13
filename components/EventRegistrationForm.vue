@@ -218,7 +218,7 @@ function closeModal() {
 				/>
 			</div>
 
-			<div class="field">
+			<!-- <div class="field">
 				<GroupName class="field__icon" />
 				<input
 					type="text"
@@ -226,7 +226,7 @@ function closeModal() {
 					:placeholder="t('PROMOCODE')"
 					class="field__input"
 				/>
-			</div>
+			</div> -->
 
 			<div class="privacy-field">
 				<input
