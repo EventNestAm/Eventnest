@@ -219,7 +219,7 @@ function closeModal() {
 			</div>
 
 			<!-- <div class="field">
-				<GroupName class="field__icon" />
+				<GroupName class="field__iconn" />
 				<input
 					type="text"
 					name="promocode"
