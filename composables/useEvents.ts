@@ -832,7 +832,7 @@ export function useEvents() {
         t("DOMINO_DESC"),
       category: [t("QUIZ"), t("DOMINO"), t("SITCOMS")],
       eventDate: true,
-      emailSent: true, groupName: true, isSoldout: false, quantity: 20,
+      emailSent: true, groupName: true, isSoldout: false, quantity: 15,
       pricePerPerson: 3000
     },
     {
@@ -850,7 +850,7 @@ export function useEvents() {
         t("KARGIN_QUIZ_TITLE"),
       category: [t("QUIZ"), t("KARGIN")],
       eventDate: true,
-      emailSent: true, groupName: true, isSoldout: false, quantity: 20,
+      emailSent: true, groupName: true, isSoldout: false, quantity: 12,
       pricePerPerson: 3000
     },
     {
@@ -868,8 +868,26 @@ export function useEvents() {
         t("KARAOKE_BATTLE"),
       category: t("KARAOKE"),
       eventDate: true,
-      emailSent: true, groupName: false, isSoldout: false, quantity: 8,
+      emailSent: true, groupName: false, isSoldout: false, quantity: 4,
       pricePerPerson: 4000
+    },
+    {
+      id: 51,
+      title: `Կարգին հաղորդման ${t("TOURNAMENT")} #3`,
+      slug: "kargin-haxordman-viktorina-18",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-08-22",
+      dateTitle: "Օգոստոսի 22",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: Kargin2,
+      description:
+        t("KARGIN_QUIZ_TITLE"),
+      category: [t("QUIZ"), t("KARGIN")],
+      eventDate: true,
+      emailSent: true, groupName: true, isSoldout: false, quantity: 45,
+      pricePerPerson: 3000
     },
   ])
   const eventsWithStatus = computed(() =>
