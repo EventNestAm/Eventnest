@@ -889,6 +889,24 @@ export function useEvents() {
       emailSent: true, groupName: true, isSoldout: false, quantity: 45,
       pricePerPerson: 3000
     },
+    {
+      id: 52,
+      title: `Կարգին Սերիալ ${t("QUIZ_TITLE")} #5`,
+      slug: "kargin-serial-viktorina-5",
+      titleDesc: "An evening of strategy, emotions and people like you",
+      date: "2026-08-23",
+      dateTitle: "Օգոստոսի 23",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: KarginSerial,
+      description:
+        t("KARGIN_SERIAL_TITLE"),
+      category: [t("QUIZ"), t("KARGIN")],
+      eventDate: true,
+      emailSent: true, groupName: true, quantity: 45,
+      pricePerPerson: 3000
+    },
   ])
   const eventsWithStatus = computed(() =>
     events.value.map(event => {
