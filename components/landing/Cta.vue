@@ -10,7 +10,6 @@ const localePath = useLocalePath();
 		<div class="cta-notch cta-notch--right" aria-hidden="true"></div>
 
 		<div class="relative z-10 flex flex-col items-center text-center px-6 sm:px-12 py-16 sm:py-20">
-			<p class="font-mono text-[11px] tracking-[0.35em] text-[#FF6F4D] mb-4 uppercase">EN-CTA</p>
 			<h2 class="font-display text-2xl sm:text-3xl md:text-5xl font-bold uppercase tracking-tight text-white max-w-2xl">
 				{{ t("YOUR_EVENT") }}
 			</h2>
