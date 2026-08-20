@@ -79,7 +79,7 @@ export default defineEventHandler(async (event) => {
 	//    ticketId is an HMAC of (orderNumber, email), so at the door you can
 	//    recompute it from a scanned orderNumber+email and compare, with no
 	//    database lookup needed.
-	const qrContent = `EVENTNEST|${ticketId}|${payload.orderNumber}`;
+	const qrContent = `EVENTNEST|${ticketId}|${payload.orderNumber}|${payload.email}`; 
 	const qrDataUrl = await QRCode.toDataURL(qrContent, { margin: 1, width: 480 });
 	const qrPngBuffer = await QRCode.toBuffer(qrContent, { margin: 1, width: 480 });
 
