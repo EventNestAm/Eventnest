@@ -13,8 +13,10 @@ const { t, locale } = useI18n();
 const isLoading = ref(true);
 const result = ref(null);
 const error = ref(null);
+const qrDataUrl = ref(null);
+const ticketError = ref(null);
 
-const REDIRECT_SECONDS = 6;
+const REDIRECT_SECONDS = 15;
 const secondsLeft = ref(REDIRECT_SECONDS);
 let redirectTimer = null;
 let countdownTimer = null;
@@ -43,6 +45,27 @@ onMounted(async () => {
 	}
 
 	if (result.value?.paid) {
+		// The signed token minted before checkout (see
+		// EventRegistrationForm.vue) rides along on returnUrl as `t`. EPG
+		// appends its own `orderId`, so both are present here.
+		const token = route.query.t;
+
+		if (token) {
+			try {
+				const ticket = await $fetch("/api/tickets/confirm", {
+					method: "POST",
+					body: { orderId, token },
+				});
+				qrDataUrl.value = ticket.qrDataUrl;
+			} catch (err) {
+				// Payment still succeeded — just surface that the ticket/email
+				// step failed so support can follow up manually if needed.
+				ticketError.value = err?.data?.statusMessage || t("PAYMENT_CHECK_FAILED");
+			}
+		}
+
+		// Only auto-redirect once we've tried to issue the ticket, so the
+		// customer has time to see/save the QR code first.
 		countdownTimer = setInterval(() => {
 			secondsLeft.value -= 1;
 			if (secondsLeft.value <= 0) clearInterval(countdownTimer);
@@ -119,6 +142,18 @@ onUnmounted(() => {
 					<span class="detail-row__value">{{ (result.amount / 100).toLocaleString() }} AMD</span>
 				</div>
 			</div>
+
+			<!-- QR ticket -->
+			<div v-if="qrDataUrl" class="result-card__qr">
+				<img :src="qrDataUrl" alt="Ticket QR code" width="200" height="200" />
+				<p class="result-card__qr-caption">{{ t("TICKET_SENT_TO_EMAIL") }}</p>
+				<a :href="qrDataUrl" download="eventnest-ticket.png" class="qr-download-link">
+					{{ t("DOWNLOAD_TICKET") }}
+				</a>
+			</div>
+			<p v-else-if="ticketError" class="result-card__qr-caption result-card__qr-caption--warn">
+				{{ t("TICKET_EMAIL_FAILED") }}
+			</p>
 
 			<button class="btn btn--primary" @click="goHome">{{ t("BACK_TO_HOME") }}</button>
 			<p class="result-card__redirect font-mono">
@@ -202,6 +237,38 @@ onUnmounted(() => {
 	letter-spacing: 0.2em;
 	text-transform: uppercase;
 	margin-top: 1rem;
+}
+
+.result-card__qr {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 1.25rem;
+}
+
+.result-card__qr img {
+	border-radius: 0.75rem;
+	border: 1px solid #ece7fb;
+	padding: 0.5rem;
+	background: #fff;
+}
+
+.result-card__qr-caption {
+	color: #6b6480;
+	font-size: 0.8rem;
+	margin: 0.75rem 0 0.25rem;
+}
+
+.result-card__qr-caption--warn {
+	color: #d99a2b;
+	margin-bottom: 1.25rem;
+}
+
+.qr-download-link {
+	color: #7c5cfc;
+	font-size: 0.8rem;
+	font-weight: 600;
+	text-decoration: underline;
 }
 
 .result-card__redirect {

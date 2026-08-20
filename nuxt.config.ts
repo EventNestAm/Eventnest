@@ -19,6 +19,19 @@ export default defineNuxtConfig({
     // Automatically populated at runtime from NUXT_EPG_HOST
     epgHost: '',
 
+    // Secret used to sign/verify the stateless ticket token & ticket IDs.
+    // Automatically populated at runtime from NUXT_TICKET_SECRET.
+    // Generate one with: openssl rand -hex 32
+    ticketSecret: '',
+
+    // SMTP settings used to email the QR ticket.
+    // Automatically populated at runtime from NUXT_MAIL_HOST / NUXT_MAIL_PORT
+    // / NUXT_MAIL_USER / NUXT_MAIL_PASS.
+    mailHost: '',
+    mailPort: '465',
+    mailUser: '',
+    mailPass: '',
+
     public: {
       // Automatically populated at runtime from NUXT_PUBLIC_EPG_RETURN_URL
       epgReturnUrl: '',

@@ -93,18 +93,39 @@ onMounted(() => {
 				const amount = props.pricePerPerson * 100 * peopleCount;
 
 				try {
+					const orderNumber = generateOrderNumber();
+					const buyerName = `${object.name} ${object.surname}`.trim();
+
+					// Step 2a: mint a signed "ticket token" that carries the
+					// buyer's info through the bank redirect round-trip.
+					// There's no database — this token IS how payment-result
+					// knows who to email the QR ticket to afterwards.
+					const { token } = await $fetch("/api/tickets/create-token", {
+						method: "POST",
+						body: {
+							orderNumber,
+							email: object.email,
+							name: buyerName,
+							eventName: showTitle,
+							peopleCount,
+							amount,
+						},
+					});
+
 					const paymentResponse = await $fetch("/api/epg/register", {
 						method: "POST",
 						body: {
-							orderNumber: generateOrderNumber(),
+							orderNumber,
 							amount,
 							currency: props.currency,
 							description: showTitle,
 							email: object.email,
 							phone: object.phone,
-							name: `${object.name} ${object.surname}`.trim(),
+							name: buyerName,
 							language: locale.value,
-							returnUrl: `${window.location.origin}/${locale.value}/payment-result`,
+							// EPG appends its own `orderId` query param to whatever
+							// we send here, so `t` survives the round trip too.
+							returnUrl: `${window.location.origin}/${locale.value}/payment-result?t=${encodeURIComponent(token)}`,
 						},
 					});
 
