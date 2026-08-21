@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/events/send-reminders?secret=eventnest_cron_8fK2mP7xQ9vL4nR6",
+      "schedule": "0 8 * * *"
+    }
+  ]
+}

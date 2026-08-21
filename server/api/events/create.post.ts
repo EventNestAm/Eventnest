@@ -1,74 +1,55 @@
-import { defineEventHandler, readBody, createError } from 'h3'
+// server/api/events/create.post.ts
 
-import { createClient } from '@supabase/supabase-js'
-import nodemailer from 'nodemailer'
-
-const supabase = createClient(
-	process.env.SUPABASE_URL!,
-	process.env.SUPABASE_SERVICE_KEY!
-)
-
-let alreadySent = false
+import { defineEventHandler, readBody, createError } from "h3";
+import nodemailer from "nodemailer";
+import { appendEventRow, getAllGuestEmails } from "../../utils/googleSheets";
 
 export default defineEventHandler(async (event) => {
-	try {
-		if (alreadySent) {
-			console.log("📭 Email already sent once. Skipping...")
-			return { message: "Already sent." }
-		}
+	const config = useRuntimeConfig();
 
-		const body = await readBody(event)
-		const { title, date, location } = body
+	try {
+		const body = await readBody(event);
+		const { title, date, location } = body;
 
 		if (!title || !date || !location) {
-			throw createError({ statusCode: 400, message: "Missing required fields" })
+			throw createError({ statusCode: 400, statusMessage: "Missing required fields: title, date, location" });
 		}
 
-		// ✅ 1. Save event in database (optional)
-		const { error: insertError } = await supabase.from('events').insert([{ title, date, location }])
-		if (insertError) throw insertError
+		await appendEventRow(config, { title, date, location });
 
-		// ✅ 2. Get all users
-		const { data: usersData, error: usersError } = await supabase.auth.admin.listUsers()
-		if (usersError) throw usersError
-
-		const recipients = usersData.users.map((u) => u.email).filter(Boolean)
+		const recipients = await getAllGuestEmails(config);
 		if (!recipients.length) {
-			console.log("⚠️ No users found to send email.")
-			return { success: false, message: "No users found" }
+			console.log("⚠️ No guest emails found in the sheet yet.");
+			return { success: true, savedEvent: true, sentTo: 0 };
 		}
 
-		// ✅ 3. Configure email transport
 		const transporter = nodemailer.createTransport({
-			service: 'gmail',
+			host: config.mailHost as string,
+			port: Number(config.mailPort || 465),
+			secure: true,
 			auth: {
-				user: process.env.MAIL_USER,
-				pass: process.env.MAIL_PASS,
+				user: config.mailUser as string,
+				pass: config.mailPass as string,
 			},
-		})
+		});
 
-		// ✅ 4. Email message
-		const mailOptions = {
-			from: `"Eventnest" <${process.env.MAIL_USER}>`,
+		const info = await transporter.sendMail({
+			from: `"Eventnest" <${config.mailUser}>`,
 			bcc: recipients,
 			subject: `📢 Նոր միջոցառում՝ ${title}`,
 			html: `
-        <h2>Նոր միջոցառում է ավելացվել!</h2>
-        <p><strong>${title}</strong></p>
-        <p>🗓️ ${date}</p>
-        <p>📍 ${location}</p>
-        <p>Մանրամասները՝ մեր կայքում 💻</p>
-      `,
-		}
+				<h2>Նոր միջոցառում է ավելացվել!</h2>
+				<p><strong>${title}</strong></p>
+				<p>🗓️ ${date}</p>
+				<p>📍 ${location}</p>
+				<p>Մանրամասները՝ մեր կայքում 💻</p>
+			`,
+		});
 
-		// ✅ 5. Send email
-		const info = await transporter.sendMail(mailOptions)
-		console.log(`📧 Sent to ${info.accepted.length} users.`)
-
-		alreadySent = true
-		return { success: true, sentTo: info.accepted.length }
-	} catch (err) {
-		console.error("❌ Error in /api/events/create:", err)
-		throw createError({ statusCode: 500, message: err.message || "Internal Server Error" })
+		console.log(`📧 Announcement sent to ${info.accepted.length} guests.`);
+		return { success: true, savedEvent: true, sentTo: info.accepted.length };
+	} catch (err: any) {
+		console.error("❌ Error in /api/events/create:", err);
+		throw createError({ statusCode: 500, statusMessage: err.message || "Internal Server Error" });
 	}
-})
+});

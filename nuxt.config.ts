@@ -23,7 +23,6 @@ export default defineNuxtConfig({
     // Automatically populated at runtime from NUXT_TICKET_SECRET.
     // Generate one with: openssl rand -hex 32
     ticketSecret: '',
-
     // SMTP settings used to email the QR ticket.
     // Automatically populated at runtime from NUXT_MAIL_HOST / NUXT_MAIL_PORT
     // / NUXT_MAIL_USER / NUXT_MAIL_PASS.
@@ -31,10 +30,15 @@ export default defineNuxtConfig({
     mailPort: '465',
     mailUser: '',
     mailPass: '',
+    googleClientEmail: '',
+    googlePrivateKey: '',
+    googleSheetId: '',
+    cronSecret: '',
 
     public: {
       // Automatically populated at runtime from NUXT_PUBLIC_EPG_RETURN_URL
       epgReturnUrl: '',
+      siteUrl: 'https://www.eventnest.am',
     },
   },
   modules: ['@nuxt/ui', '@nuxt/image', '@nuxtjs/sitemap', "@nuxtjs/i18n"],

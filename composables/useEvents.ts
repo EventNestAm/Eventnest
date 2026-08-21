@@ -926,6 +926,7 @@ export function useEvents() {
       pricePerPerson: 1000,
       type: 'special'
     },
+
   ])
   const eventsWithStatus = computed(() =>
     events.value.map(event => {

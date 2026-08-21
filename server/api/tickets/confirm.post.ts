@@ -17,7 +17,7 @@ import { createHmac } from "node:crypto";
 import QRCode from "qrcode";
 import nodemailer from "nodemailer";
 import { verifyTicketToken } from "../../utils/ticketToken";
-
+import { appendGuestRow } from "../../utils/googleSheets";
 interface ConfirmBody {
 	orderId: string; // EPG's orderId, returned by /api/epg/register
 	token: string; // signed payload from /api/tickets/create-token
@@ -68,20 +68,33 @@ export default defineEventHandler(async (event) => {
 	const ticketSecret = String(config.ticketSecret as string | number);
 	const ticketId = buildTicketId(payload.orderNumber, payload.email, ticketSecret);
 	// 4. Idempotency guard — skip re-sending if we already issued this ticket.
+	const siteUrl = String((config.public as any)?.siteUrl || "https://www.eventnest.am");
+
+	// 4b. Idempotency guard — skip re-sending / re-writing if we already issued this ticket.
 	if (alreadyIssued.has(ticketId)) {
-		const qrDataUrl = await QRCode.toDataURL(
-			`EVENTNEST|${ticketId}|${payload.orderNumber}`,
-		);
+		const qrUrl = `${siteUrl}/hy/verify?t=${ticketId}&o=${encodeURIComponent(payload.orderNumber)}&e=${encodeURIComponent(payload.email)}`;
+		const qrDataUrl = await QRCode.toDataURL(qrUrl);
 		return { success: true, alreadySent: true, ticketId, qrDataUrl };
 	}
 
-	// 5. Build the QR code. Encodes a compact, self-verifiable string —
-	//    ticketId is an HMAC of (orderNumber, email), so at the door you can
-	//    recompute it from a scanned orderNumber+email and compare, with no
-	//    database lookup needed.
-	const qrContent = `EVENTNEST|${ticketId}|${payload.orderNumber}|${payload.email}`; 
-	const qrDataUrl = await QRCode.toDataURL(qrContent, { margin: 1, width: 480 });
-	const qrPngBuffer = await QRCode.toBuffer(qrContent, { margin: 1, width: 480 });
+	try {
+		await appendGuestRow(config, {
+			orderNumber: payload.orderNumber,
+			name: payload.name,
+			email: payload.email,
+			peopleCount: payload.peopleCount,
+			amount: payload.amount,
+			eventName: payload.eventName,
+		});
+	} catch (err) {
+		console.error("⚠️ Failed to write guest row to Google Sheet:", err);
+	}
+
+	// 5. Build the QR code as a real URL (not raw text) so phone cameras open
+	//    it directly in the browser instead of offering to send it as a message.
+	const qrUrl = `${siteUrl}/hy/verify?t=${ticketId}&o=${encodeURIComponent(payload.orderNumber)}&e=${encodeURIComponent(payload.email)}`;
+	const qrDataUrl = await QRCode.toDataURL(qrUrl, { margin: 1, width: 480 });
+	const qrPngBuffer = await QRCode.toBuffer(qrUrl, { margin: 1, width: 480 });
 
 	// 6. Email it.
 	const transporter = nodemailer.createTransport({
