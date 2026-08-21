@@ -6,7 +6,7 @@ import CountPeople from "~/assets/icons/CountPeople.vue";
 import Mail from "~/assets/icons/Mail.vue";
 import GroupName from "~/assets/icons/GroupName.vue";
 import { START_LOCATION } from "vue-router";
-
+import Coupon from "~/assets/icons/Coupon.vue";
 const props = defineProps({
 	hasGroupName: Boolean,
 	eventName: String,
@@ -208,7 +208,9 @@ function closeModal() {
 			</div>
 
 			<div class="field">
-				<CountPeople class="field__icon" />
+				<Coupon v-if="props.type === 'special'" class="field__icon" />
+
+				<CountPeople v-else class="field__icon" />
 
 				<input
 					type="number"
