@@ -27,9 +27,8 @@ const categories = [
 	{ key: "sitcoms", label: t("SITCOMS") },
 	{ key: "music", label: t("MUSIC") },
 	{ key: "karaoke", label: t("KARAOKE") },
-	{ key: "football", label: t("FOOTBALL") },
 	{ key: "movie", label: t("MOVIES") },
-	{ key: "games", label: t("GAMES") },
+	{ key: "event", label: t("EVENT") },
 ];
 const selectedCategory = ref("all");
 const searchQuery = ref("");

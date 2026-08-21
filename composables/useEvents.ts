@@ -920,7 +920,7 @@ export function useEvents() {
       image: KarginSerial,
       description:
         t("NAREK_EVENT"),
-      category: [t("GAME")],
+      category: [t("EVENT")],
       eventDate: true,
       emailSent: true, groupName: false, quantity: 50,
       pricePerPerson: 1000,
