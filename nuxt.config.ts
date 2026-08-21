@@ -72,12 +72,13 @@ export default defineNuxtConfig({
     lazy: false,
     langDir: "locales/",
     skipSettingLocaleOnNavigate: false,
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: "i18n_redirected",
-      redirectOn: "root",
-      alwaysRedirect: false,
-    },
+    // detectBrowserLanguage: {
+    //   useCookie: true,
+    //   cookieKey: "i18n_redirected",
+    //   redirectOn: "root",
+    //   alwaysRedirect: false,
+    // },
+    detectBrowserLanguage: false,
     locales: [
       { code: "hy", language: "hy-AM", name: "Հայերեն", file: "hy.json", },
       { code: "en", language: "en-US", name: "English", file: "en.json", },
