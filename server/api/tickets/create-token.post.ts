@@ -9,6 +9,7 @@ import { signTicketPayload } from "../../utils/ticketToken";
 interface CreateTokenBody {
 	orderNumber: string;
 	email: string;
+	phone?: string;
 	name: string;
 	eventName?: string;
 	peopleCount?: number;
@@ -28,6 +29,7 @@ export default defineEventHandler(async (event) => {
 	const token = signTicketPayload({
 		orderNumber: body.orderNumber,
 		email: body.email,
+		phone: body.phone,
 		name: body.name,
 		eventName: body.eventName,
 		peopleCount: body.peopleCount,

@@ -107,6 +107,7 @@ onMounted(() => {
 						body: {
 							orderNumber,
 							email: object.email,
+							phone: object.phone, 
 							name: buyerName,
 							eventName: showTitle,
 							peopleCount,

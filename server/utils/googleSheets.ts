@@ -27,14 +27,21 @@ export interface GuestRow {
 	orderNumber: string;
 	name: string;
 	email: string;
+	phone?: string;
 	peopleCount?: number;
 	amount?: number;
 	eventName?: string;
 }
 
+function formatAmd(amdWhole: number): string {
+	return amdWhole.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+
 export async function appendGuestRow(config: ReturnType<typeof useRuntimeConfig>, row: GuestRow) {
 	const sheets = await getSheetsClient(config);
 	const sheetId = config.googleSheetId as string;
+
+	const amdAmount = typeof row.amount === "number" ? formatAmd(Math.round(row.amount / 100)) : "";
 
 	await sheets.spreadsheets.values.append({
 		spreadsheetId: sheetId,
@@ -46,8 +53,9 @@ export async function appendGuestRow(config: ReturnType<typeof useRuntimeConfig>
 				row.orderNumber,
 				row.name,
 				row.email,
+				row.phone ?? "",
 				row.peopleCount ?? "",
-				row.amount ?? "",
+				amdAmount,
 				row.eventName ?? "",
 				"FALSE", // Scanned
 			]],

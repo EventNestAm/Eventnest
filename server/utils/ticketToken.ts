@@ -16,6 +16,7 @@ import { createHmac, timingSafeEqual } from "node:crypto";
 export interface TicketPayload {
 	orderNumber: string;
 	email: string;
+	phone?: string;
 	name: string;
 	eventName?: string;
 	peopleCount?: number;
