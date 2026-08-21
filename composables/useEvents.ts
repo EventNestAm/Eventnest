@@ -926,25 +926,6 @@ export function useEvents() {
       pricePerPerson: 1000,
       type: 'special'
     },
-    {
-      id: 54,
-      title: `OPEN BBQ & DJ SET BY NAREK BAKHTAMYAN #2`,
-      slug: "open-bbq-and-dj-set-2",
-      titleDesc: "An evening of emotions and people like you",
-      date: "2026-08-30",
-      dateTitle: "Օգոստոսի 30",
-      time: "19:30",
-      price: "3000 AMD",
-      location: "The Kond House - 46 Leo Street",
-      image: KarginSerial,
-      description:
-        t("NAREK_EVENT"),
-      category: [t("EVENT")],
-      eventDate: true,
-      emailSent: true, groupName: false, quantity: 50,
-      pricePerPerson: 1000,
-      type: 'special'
-    },
 
   ])
   const eventsWithStatus = computed(() =>
