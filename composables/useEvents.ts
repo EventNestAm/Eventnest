@@ -968,6 +968,7 @@ export function useEvents() {
           title: newEvent.title,
           date: newEvent.date,
           location: newEvent.location,
+          slug: newEvent.slug,
         },
       })
       console.log("📧 Email sent successfully for:", newEvent.title, res)

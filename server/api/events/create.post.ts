@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
 
 	try {
 		const body = await readBody(event);
-		const { title, date, location } = body;
+		const { title, date, location, slug } = body;
 
 		if (!title || !date || !location) {
 			throw createError({ statusCode: 400, statusMessage: "Missing required fields: title, date, location" });
@@ -22,6 +22,9 @@ export default defineEventHandler(async (event) => {
 			console.log("⚠️ No guest emails found in the sheet yet.");
 			return { success: true, savedEvent: true, sentTo: 0 };
 		}
+
+		const siteUrl = String((config.public as any)?.siteUrl || "https://www.eventnest.am");
+		const eventUrl = slug ? `${siteUrl}/hy/events/${slug}` : siteUrl;
 
 		const transporter = nodemailer.createTransport({
 			host: config.mailHost as string,
@@ -42,7 +45,7 @@ export default defineEventHandler(async (event) => {
 				<p><strong>${title}</strong></p>
 				<p>🗓️ ${date}</p>
 				<p>📍 ${location}</p>
-				<p>Մանրամասները՝ մեր կայքում 💻</p>
+				<p><a href="${eventUrl}">Մանրամասները՝ մեր կայքում 💻</a></p>
 			`,
 		});
 
