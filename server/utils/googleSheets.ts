@@ -45,7 +45,7 @@ export async function appendGuestRow(config: ReturnType<typeof useRuntimeConfig>
 
 	await sheets.spreadsheets.values.append({
 		spreadsheetId: sheetId,
-		range: "Sheet1!A:H",
+		range: "Sheet1!A:I",
 		valueInputOption: "USER_ENTERED",
 		requestBody: {
 			values: [[
