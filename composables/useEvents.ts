@@ -923,7 +923,8 @@ export function useEvents() {
       category: [t("GAME")],
       eventDate: true,
       emailSent: true, groupName: false, quantity: 50,
-      pricePerPerson: 1000
+      pricePerPerson: 1000,
+      type: 'special'
     },
   ])
   const eventsWithStatus = computed(() =>

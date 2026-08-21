@@ -282,6 +282,7 @@ useHead({
 							:eventName="event.title"
 							:quantity="event.quantity"
 							:pricePerPerson="event.pricePerPerson"
+							:type="event.type"
 						/>
 					</div>
 					<div class="ticket-stub__perforation" aria-hidden="true"></div>

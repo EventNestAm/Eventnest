@@ -5,10 +5,12 @@ import Phone from "~/assets/icons/Phone.vue";
 import CountPeople from "~/assets/icons/CountPeople.vue";
 import Mail from "~/assets/icons/Mail.vue";
 import GroupName from "~/assets/icons/GroupName.vue";
+import { START_LOCATION } from "vue-router";
 
 const props = defineProps({
 	hasGroupName: Boolean,
 	eventName: String,
+	type: String,
 	isSoldOut: Boolean,
 	quantity: Number,
 	// Price per participant, in whole AMD (e.g. 3000 = 3000 AMD).
@@ -207,10 +209,15 @@ function closeModal() {
 
 			<div class="field">
 				<CountPeople class="field__icon" />
+
 				<input
 					type="number"
-					name="peopleCount"
-					:placeholder="t('NUMBER_OF_PARTICIPANTS') + ' *'"
+					:name="props.type === 'special' ? 'couponCount' : 'peopleCount'"
+					:placeholder="
+						props.type === 'special'
+							? t('NUMBER_OF_COUPONS') + ' *'
+							: t('NUMBER_OF_PARTICIPANTS') + ' *'
+					"
 					min="1"
 					required
 					class="field__input"
@@ -238,16 +245,6 @@ function closeModal() {
 					class="field__input"
 				/>
 			</div>
-
-			<!-- <div class="field">
-				<GroupName class="field__iconn" />
-				<input
-					type="text"
-					name="promocode"
-					:placeholder="t('PROMOCODE')"
-					class="field__input"
-				/>
-			</div> -->
 
 			<div class="privacy-field">
 				<input
