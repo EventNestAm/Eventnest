@@ -915,7 +915,7 @@ export function useEvents() {
       date: "2026-08-29",
       dateTitle: "Օգոստոսի 29",
       time: "19:30",
-      price: "3000 AMD",
+      price: "1000 AMD",
       location: "The Kond House - 46 Leo Street",
       image: KarginSerial,
       description:
