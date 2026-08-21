@@ -88,6 +88,26 @@ export interface EventRow {
 	reminderSent: boolean;
 }
 
+// Checks whether an event with this exact title + date has already been
+// saved, so create.post.ts can skip re-appending/re-emailing on repeat
+// or parallel calls (SSR + client hydration, multiple pages, etc.)
+export async function eventAlreadyExists(
+	config: ReturnType<typeof useRuntimeConfig>,
+	title: string,
+	date: string,
+): Promise<boolean> {
+	const sheets = await getSheetsClient(config);
+	const sheetId = config.googleSheetId as string;
+
+	const read = await sheets.spreadsheets.values.get({
+		spreadsheetId: sheetId,
+		range: "Events!A:B", // A: title, B: date
+	});
+
+	const rows = read.data.values || [];
+	return rows.some((r) => (r[0] || "").trim() === title.trim() && (r[1] || "").trim() === date.trim());
+}
+
 export async function appendEventRow(
 	config: ReturnType<typeof useRuntimeConfig>,
 	event: { title: string; date: string; location: string },

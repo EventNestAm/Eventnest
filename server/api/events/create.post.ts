@@ -2,7 +2,7 @@
 
 import { defineEventHandler, readBody, createError } from "h3";
 import nodemailer from "nodemailer";
-import { appendEventRow, getAllGuestEmails } from "../../utils/googleSheets";
+import { appendEventRow, getAllGuestEmails, eventAlreadyExists } from "../../utils/googleSheets";
 
 export default defineEventHandler(async (event) => {
 	const config = useRuntimeConfig();
@@ -13,6 +13,12 @@ export default defineEventHandler(async (event) => {
 
 		if (!title || !date || !location) {
 			throw createError({ statusCode: 400, statusMessage: "Missing required fields: title, date, location" });
+		}
+
+		const alreadyExists = await eventAlreadyExists(config, title, date);
+		if (alreadyExists) {
+			console.log(`⏭️ Event "${title}" (${date}) already exists — skipping duplicate save/email.`);
+			return { success: true, savedEvent: false, sentTo: 0, skipped: true };
 		}
 
 		await appendEventRow(config, { title, date, location });
