@@ -976,7 +976,7 @@ export function useEvents() {
     },
     {
       id: 56,
-      title: `Կարգին հաղորդման ${t("TOURNAMENT")} #7`,
+      title: `Կարգին հաղորդման ${t("TOURNAMENT")} #8`,
       slug: "kargin-haxordman-viktorina-21",
       titleDesc: "An evening of strategy, emotions and people like you",
       date: "2026-08-29",
@@ -1018,7 +1018,6 @@ export function useEvents() {
           slug: newEvent.slug,
         },
       })
-      console.log("📧 Email sent successfully for:", newEvent.title, res)
       newEvent.emailSent = true
     } catch (error) {
       console.error("❌ Error creating event or sending email:", error)
@@ -1061,11 +1060,9 @@ export function useEvents() {
         },
       })
         .then((res) => {
-          console.log("📧 Email sent for:", event.title, res)
           event.emailSent = true
         })
         .catch((err) => {
-          console.error("❌ Failed to send email for:", event.title, err)
           // Let a later mount (e.g. next page visit) retry it.
           notifiedEventIds.delete(event.id)
         })
