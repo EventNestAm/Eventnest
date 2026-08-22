@@ -956,42 +956,42 @@ export function useEvents() {
       emailSent: false, groupName: true, isSoldout: false, quantity: 45,
       pricePerPerson: 3000
     },
-    {
-      id: 55,
-      title: `Կարգին հաղորդման ${t("TOURNAMENT")} #6`,
-      slug: "kargin-haxordman-viktorina-20",
-      titleDesc: "An evening of strategy, emotions and people like you",
-      date: "2026-08-29",
-      dateTitle: "Օգոստոսի 29",
-      time: "19:30",
-      price: "3000 AMD",
-      location: "The Kond House - 46 Leo Street",
-      image: Kargin2,
-      description:
-        t("KARGIN_QUIZ_TITLE"),
-      category: [t("QUIZ"), t("KARGIN")],
-      eventDate: true,
-      emailSent: false, groupName: true, isSoldout: false, quantity: 45,
-      pricePerPerson: 3000
-    },
-    {
-      id: 56,
-      title: `Կարգին հաղորդման ${t("TOURNAMENT")} #8`,
-      slug: "kargin-haxordman-viktorina-21",
-      titleDesc: "An evening of strategy, emotions and people like you",
-      date: "2026-08-29",
-      dateTitle: "Օգոստոսի 29",
-      time: "19:30",
-      price: "3000 AMD",
-      location: "The Kond House - 46 Leo Street",
-      image: Kargin2,
-      description:
-        t("KARGIN_QUIZ_TITLE"),
-      category: [t("QUIZ"), t("KARGIN")],
-      eventDate: true,
-      emailSent: false, groupName: true, isSoldout: false, quantity: 45,
-      pricePerPerson: 3000
-    },
+    // {
+    //   id: 55,
+    //   title: `Կարգին հաղորդման ${t("TOURNAMENT")} #6`,
+    //   slug: "kargin-haxordman-viktorina-20",
+    //   titleDesc: "An evening of strategy, emotions and people like you",
+    //   date: "2026-08-29",
+    //   dateTitle: "Օգոստոսի 29",
+    //   time: "19:30",
+    //   price: "3000 AMD",
+    //   location: "The Kond House - 46 Leo Street",
+    //   image: Kargin2,
+    //   description:
+    //     t("KARGIN_QUIZ_TITLE"),
+    //   category: [t("QUIZ"), t("KARGIN")],
+    //   eventDate: true,
+    //   emailSent: false, groupName: true, isSoldout: false, quantity: 45,
+    //   pricePerPerson: 3000
+    // },
+    // {
+    //   id: 56,
+    //   title: `Կարգին հաղորդման ${t("TOURNAMENT")} #8`,
+    //   slug: "kargin-haxordman-viktorina-21",
+    //   titleDesc: "An evening of strategy, emotions and people like you",
+    //   date: "2026-08-29",
+    //   dateTitle: "Օգոստոսի 29",
+    //   time: "19:30",
+    //   price: "3000 AMD",
+    //   location: "The Kond House - 46 Leo Street",
+    //   image: Kargin2,
+    //   description:
+    //     t("KARGIN_QUIZ_TITLE"),
+    //   category: [t("QUIZ"), t("KARGIN")],
+    //   eventDate: true,
+    //   emailSent: false, groupName: true, isSoldout: false, quantity: 45,
+    //   pricePerPerson: 3000
+    // },
   ])
   const eventsWithStatus = computed(() =>
     events.value.map(event => {
