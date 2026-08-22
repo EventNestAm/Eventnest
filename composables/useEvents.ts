@@ -18,6 +18,18 @@ import hayavari from "@/assets/img/quizes/hayavari.png"
 import cartoon from "@/assets/img/quizes/cartoon.png"
 import bookQuiz from "@/assets/img/quizes/bookQuiz.png"
 
+// `useEvents()` is called fresh by every component that uses it (every page,
+// every card, etc.), and each call rebuilds the whole `events` array from
+// scratch from the literals below. That means `event.emailSent = true` only
+// ever mutates that one local copy - it never "saves" anywhere - so without
+// this guard the exact same not-yet-announced event would try to re-send its
+// announcement email every single time any component mounted. This Set lives
+// at module scope (outside the function), so it is shared by every call to
+// useEvents() for the lifetime of the page, and prevents that pile-up.
+// (The server endpoint also de-dupes via the Google Sheet, so this is a
+// second, cheaper line of defense - not the only one.)
+const notifiedEventIds = new Set<number | string>()
+
 export function useEvents() {
   const searchQuery = ref("")
   const selectedDate = ref("")
@@ -947,7 +959,7 @@ export function useEvents() {
     {
       id: 55,
       title: `Կարգին հաղորդման ${t("TOURNAMENT")} #6`,
-      slug: "kargin-haxordman-viktorina-19",
+      slug: "kargin-haxordman-viktorina-20",
       titleDesc: "An evening of strategy, emotions and people like you",
       date: "2026-08-29",
       dateTitle: "Օգոստոսի 29",
@@ -997,25 +1009,51 @@ export function useEvents() {
 
   }
 
-  events.value.forEach(async (event) => {
-    if (!event.emailSent) {
-      console.log('Hello')
-      try {
-        const res = await $fetch("/api/events/create", {
-          method: "POST",
-          body: {
-            title: event.title,
-            date: event.date,
-            location: event.location,
-          },
+  // Auto-announce any event in the list above that's marked `emailSent: false`.
+  //
+  // This used to run unconditionally, on both server and client, on every
+  // single call to useEvents() (i.e. every time any component using it
+  // mounted). Two bugs came from that:
+  //
+  // 1. It ran during SSR too. On Vercel, a relative `$fetch("/api/...")`
+  //    made from inside the server render has no reliable absolute origin to
+  //    resolve against, so that call would silently fail server-side - no
+  //    email, no visible error in the browser, and the "❌ Failed" log only
+  //    ever showed up in Vercel's server logs, not anywhere the person
+  //    editing useEvents.ts would see it. It would then only succeed once a
+  //    real browser hydrated the page and re-ran this on the client -
+  //    i.e. only once *some visitor's browser* happened to load a page that
+  //    uses useEvents(), which is why it looked like it was either not
+  //    sending, or sending long after the event was actually added.
+  // 2. It didn't send `slug`, so /api/events/create fell back to linking the
+  //    email to the homepage instead of the event's own page.
+  //
+  // Fix: only run client-side, and always include the slug.
+  if (import.meta.client) {
+    events.value.forEach((event) => {
+      if (event.emailSent || notifiedEventIds.has(event.id)) return
+      notifiedEventIds.add(event.id)
+
+      $fetch("/api/events/create", {
+        method: "POST",
+        body: {
+          title: event.title,
+          date: event.date,
+          location: event.location,
+          slug: event.slug,
+        },
+      })
+        .then((res) => {
+          console.log("📧 Email sent for:", event.title, res)
+          event.emailSent = true
         })
-        console.log("📧 Email sent for:", event.title, res)
-        event.emailSent = true
-      } catch (err) {
-        console.error("❌ Failed to send email:", err)
-      }
-    }
-  })
+        .catch((err) => {
+          console.error("❌ Failed to send email for:", event.title, err)
+          // Let a later mount (e.g. next page visit) retry it.
+          notifiedEventIds.delete(event.id)
+        })
+    })
+  }
 
   const sortedEvents = computed(() =>
     [...eventsWithStatus.value].sort((a, b) => new Date(b.date) - new Date(a.date))
