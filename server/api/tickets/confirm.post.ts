@@ -82,6 +82,7 @@ export default defineEventHandler(async (event) => {
 			orderNumber: payload.orderNumber,
 			name: payload.name,
 			email: payload.email,
+			phone: payload.phone,
 			peopleCount: payload.peopleCount,
 			amount: payload.amount,
 			eventName: payload.eventName,
