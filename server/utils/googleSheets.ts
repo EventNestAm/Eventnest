@@ -33,15 +33,17 @@ export interface GuestRow {
 	eventName?: string;
 }
 
-function formatAmd(amdWhole: number): string {
-	return amdWhole.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-}
-
 export async function appendGuestRow(config: ReturnType<typeof useRuntimeConfig>, row: GuestRow) {
 	const sheets = await getSheetsClient(config);
 	const sheetId = config.googleSheetId as string;
 
-	const amdAmount = typeof row.amount === "number" ? formatAmd(Math.round(row.amount / 100)) : "";
+	// Write the plain whole-AMD number (not a hand-formatted string like
+	// "1.000") so Sheets stores it as a real number. USER_ENTERED was
+	// parsing "1.000" as the decimal 1 (dot = decimal point in Sheets'
+	// default locale), which is why 1000 AMD was showing up as "1". If you
+	// want thousands separators, apply Format > Number in the sheet itself
+	// - that's a display setting and won't corrupt the underlying value.
+	const amdAmount = typeof row.amount === "number" ? Math.round(row.amount / 100) : "";
 
 	await sheets.spreadsheets.values.append({
 		spreadsheetId: sheetId,
