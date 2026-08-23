@@ -108,21 +108,58 @@ export async function eventAlreadyExists(
 	return rows.some((r) => (r[0] || "").trim() === title.trim() && (r[1] || "").trim() === date.trim());
 }
 
+// Returns the 1-based row number Sheets actually wrote our data to (parsed
+// out of the API's `updatedRange`, e.g. "Events!A15:E15" -> 15). Google
+// serializes concurrent append calls on its end, so this row number is a
+// reliable way to tell who "won" if two requests append the same
+// title+date at nearly the same instant (see create.post.ts).
 export async function appendEventRow(
 	config: ReturnType<typeof useRuntimeConfig>,
 	event: { title: string; date: string; location: string },
-) {
+): Promise<number> {
 	const sheets = await getSheetsClient(config);
 	const sheetId = config.googleSheetId as string;
 
-	await sheets.spreadsheets.values.append({
+	const res = await sheets.spreadsheets.values.append({
 		spreadsheetId: sheetId,
 		range: "Events!A:E",
 		valueInputOption: "USER_ENTERED",
+		insertDataOption: "INSERT_ROWS",
 		requestBody: {
 			values: [[event.title, event.date, event.location, new Date().toISOString(), "FALSE"]],
 		},
 	});
+
+	const range = res.data.updates?.updatedRange || "";
+	const match = range.match(/!\D*(\d+):/);
+	const rowNumber = match?.[1];
+	return rowNumber ? parseInt(rowNumber, 10) : -1;
+}
+
+// All row numbers (1-based) currently holding this exact title+date.
+// Used after appendEventRow to detect "two requests both appended a row
+// for the same event at the same time" - see create.post.ts.
+export async function findEventRowNumbers(
+	config: ReturnType<typeof useRuntimeConfig>,
+	title: string,
+	date: string,
+): Promise<number[]> {
+	const sheets = await getSheetsClient(config);
+	const sheetId = config.googleSheetId as string;
+
+	const read = await sheets.spreadsheets.values.get({
+		spreadsheetId: sheetId,
+		range: "Events!A:B",
+	});
+
+	const rows = read.data.values || [];
+	const matches: number[] = [];
+	rows.forEach((r, i) => {
+		if ((r[0] || "").trim() === title.trim() && (r[1] || "").trim() === date.trim()) {
+			matches.push(i + 1);
+		}
+	});
+	return matches;
 }
 
 export async function getEvents(config: ReturnType<typeof useRuntimeConfig>): Promise<EventRow[]> {

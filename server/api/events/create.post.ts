@@ -2,7 +2,7 @@
 
 import { defineEventHandler, readBody, createError } from "h3";
 import nodemailer from "nodemailer";
-import { appendEventRow, getAllGuestEmails, eventAlreadyExists } from "../../utils/googleSheets";
+import { appendEventRow, getAllGuestEmails, eventAlreadyExists, findEventRowNumbers } from "../../utils/googleSheets";
 
 // Best-effort in-process lock: closes the race window where two near-
 // simultaneous requests (e.g. SSR + client hydration firing at once) both
@@ -38,9 +38,28 @@ export default defineEventHandler(async (event) => {
 			return { success: true, savedEvent: false, sentTo: 0, skipped: true };
 		}
 
-		await appendEventRow(config, { title, date, location });
+		const ourRow = await appendEventRow(config, { title, date, location });
+
+		// Race check: the `eventAlreadyExists` check above and the in-process
+		// lock at the top of this file both close MOST of the window where two
+		// near-simultaneous requests (e.g. two visitors loading the site right
+		// after you share a new event) could both get past the check before
+		// either has written to the sheet - but on Vercel those two requests
+		// can land on two different, cold, unrelated serverless instances, so
+		// neither guard is airtight on its own. Google Sheets serializes the
+		// actual append calls though, so after we've written our row we re-read
+		// the sheet: if more than one row now matches this title+date, whichever
+		// row number is LOWEST was appended first and only that request sends
+		// the email - everyone else backs off. This is the real dedupe; the
+		// checks above are just cheap fast-paths for the common case.
+		const matchingRows = await findEventRowNumbers(config, title, date);
+		if (matchingRows.length > 1 && Math.min(...matchingRows) !== ourRow) {
+			console.log(`⏭️ Lost the race for "${title}" (${date}) — another request already announced it. Not sending.`);
+			return { success: true, savedEvent: true, sentTo: 0, skipped: true };
+		}
 
 		const recipients = await getAllGuestEmails(config);
+		
 		if (!recipients.length) {
 			console.log("⚠️ No guest emails found in the sheet yet.");
 			return { success: true, savedEvent: true, sentTo: 0 };
