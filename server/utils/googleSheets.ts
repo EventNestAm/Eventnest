@@ -28,27 +28,23 @@ export interface GuestRow {
 	name: string;
 	email: string;
 	phone?: string;
+	groupName?: string;
 	peopleCount?: number;
 	amount?: number;
 	eventName?: string;
 }
 
-export async function appendGuestRow(config: ReturnType<typeof useRuntimeConfig>, row: GuestRow) {
+export async function appendGuestRow(config: ReturnType<typeof useRuntimeConfig>, row: GuestRow): Promise<number> {
 	const sheets = await getSheetsClient(config);
 	const sheetId = config.googleSheetId as string;
 
-	// Write the plain whole-AMD number (not a hand-formatted string like
-	// "1.000") so Sheets stores it as a real number. USER_ENTERED was
-	// parsing "1.000" as the decimal 1 (dot = decimal point in Sheets'
-	// default locale), which is why 1000 AMD was showing up as "1". If you
-	// want thousands separators, apply Format > Number in the sheet itself
-	// - that's a display setting and won't corrupt the underlying value.
 	const amdAmount = typeof row.amount === "number" ? Math.round(row.amount / 100) : "";
 
-	await sheets.spreadsheets.values.append({
+	const res = await sheets.spreadsheets.values.append({
 		spreadsheetId: sheetId,
-		range: "Sheet1!A:I",
+		range: "Sheet1!A:J",
 		valueInputOption: "USER_ENTERED",
+		insertDataOption: "INSERT_ROWS",
 		requestBody: {
 			values: [[
 				new Date().toISOString(),
@@ -59,10 +55,44 @@ export async function appendGuestRow(config: ReturnType<typeof useRuntimeConfig>
 				row.peopleCount ?? "",
 				amdAmount,
 				row.eventName ?? "",
+				row.groupName ?? "",
 				"FALSE", // Scanned
 			]],
 		},
 	});
+
+	// Row number Sheets actually wrote to - used right after this call to
+	// detect "two confirm requests for the same order both landed here at
+	// once" (e.g. customer refreshed payment-result.vue). See confirm.post.ts.
+	const range = res.data.updates?.updatedRange || "";
+	const match = range.match(/!\D*(\d+):/);
+	const rowNumber = match?.[1];
+	return rowNumber ? parseInt(rowNumber, 10) : -1;
+}
+
+// All row numbers (1-based) already holding this orderNumber. Google
+// serializes concurrent appends server-side, so after appendGuestRow,
+// whichever row number is LOWEST among matches was written first.
+export async function findGuestRowNumbersByOrder(
+	config: ReturnType<typeof useRuntimeConfig>,
+	orderNumber: string,
+): Promise<number[]> {
+	const sheets = await getSheetsClient(config);
+	const sheetId = config.googleSheetId as string;
+
+	const read = await sheets.spreadsheets.values.get({
+		spreadsheetId: sheetId,
+		range: "Sheet1!B:B", // column B = orderNumber
+	});
+
+	const rows = read.data.values || [];
+	const matches: number[] = [];
+	rows.forEach((r, i) => {
+		if ((r[0] || "").trim() === orderNumber.trim()) {
+			matches.push(i + 1);
+		}
+	});
+	return matches;
 }
 
 export async function getAllGuestEmails(config: ReturnType<typeof useRuntimeConfig>): Promise<string[]> {

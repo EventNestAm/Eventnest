@@ -17,15 +17,13 @@ import { createHmac } from "node:crypto";
 import QRCode from "qrcode";
 import nodemailer from "nodemailer";
 import { verifyTicketToken } from "../../utils/ticketToken";
-import { appendGuestRow } from "../../utils/googleSheets";
+import { appendGuestRow, findGuestRowNumbersByOrder } from "../../utils/googleSheets";
+
 interface ConfirmBody {
-	orderId: string; // EPG's orderId, returned by /api/epg/register
-	token: string; // signed payload from /api/tickets/create-token
+	orderId: string;
+	token: string;
 }
 
-// Best-effort de-dupe so a page refresh doesn't re-send the email.
-// Per-process only (resets on redeploy / doesn't share across serverless
-// instances) — fine for this scale; see README note if you outgrow it.
 const alreadyIssued = new Set<string>();
 
 function buildTicketId(orderNumber: string, email: string, secret: string) {
@@ -43,11 +41,8 @@ export default defineEventHandler(async (event) => {
 		throw createError({ statusCode: 400, statusMessage: "orderId and token are required" });
 	}
 
-	// 1. Verify the token is genuinely one we issued, and not expired.
 	const payload = verifyTicketToken(body.token);
 
-	// 2. Re-check payment status directly with EPG (internal call — Nitro
-	//    resolves this without an extra network hop).
 	const status = await $fetch<{
 		paid: boolean;
 		orderNumber?: string;
@@ -58,46 +53,50 @@ export default defineEventHandler(async (event) => {
 		throw createError({ statusCode: 402, statusMessage: "Payment not confirmed yet." });
 	}
 
-	// 3. Cross-check: the paid order must be the SAME order this token was
-	//    minted for. Prevents someone reusing an old/foreign token with an
-	//    unrelated paid orderId.
 	if (status.orderNumber !== payload.orderNumber) {
 		throw createError({ statusCode: 400, statusMessage: "Order/token mismatch." });
 	}
 
 	const ticketSecret = String(config.ticketSecret as string | number);
 	const ticketId = buildTicketId(payload.orderNumber, payload.email, ticketSecret);
-	// 4. Idempotency guard — skip re-sending if we already issued this ticket.
 	const siteUrl = String((config.public as any)?.siteUrl || "https://www.eventnest.am");
 
-	// 4b. Idempotency guard — skip re-sending / re-writing if we already issued this ticket.
 	if (alreadyIssued.has(ticketId)) {
 		const qrUrl = `${siteUrl}/hy/verify?t=${ticketId}&o=${encodeURIComponent(payload.orderNumber)}&e=${encodeURIComponent(payload.email)}`;
 		const qrDataUrl = await QRCode.toDataURL(qrUrl);
 		return { success: true, alreadySent: true, ticketId, qrDataUrl };
 	}
 
+	let isDuplicateRequest = false;
 	try {
-		await appendGuestRow(config, {
+		const ourRow = await appendGuestRow(config, {
 			orderNumber: payload.orderNumber,
 			name: payload.name,
 			email: payload.email,
 			phone: payload.phone,
+			groupName: payload.groupName,
 			peopleCount: payload.peopleCount,
 			amount: payload.amount,
 			eventName: payload.eventName,
 		});
+
+		const matchingRows = await findGuestRowNumbersByOrder(config, payload.orderNumber);
+		if (matchingRows.length > 1 && Math.min(...matchingRows) !== ourRow) {
+			isDuplicateRequest = true;
+		}
 	} catch (err) {
 		console.error("⚠️ Failed to write guest row to Google Sheet:", err);
 	}
 
-	// 5. Build the QR code as a real URL (not raw text) so phone cameras open
-	//    it directly in the browser instead of offering to send it as a message.
 	const qrUrl = `${siteUrl}/hy/verify?t=${ticketId}&o=${encodeURIComponent(payload.orderNumber)}&e=${encodeURIComponent(payload.email)}`;
 	const qrDataUrl = await QRCode.toDataURL(qrUrl, { margin: 1, width: 480 });
 	const qrPngBuffer = await QRCode.toBuffer(qrUrl, { margin: 1, width: 480 });
 
-	// 6. Email it.
+	if (isDuplicateRequest) {
+		alreadyIssued.add(ticketId);
+		return { success: true, alreadySent: true, ticketId, qrDataUrl };
+	}
+
 	const transporter = nodemailer.createTransport({
 		host: config.mailHost as string,
 		port: Number(config.mailPort || 465),

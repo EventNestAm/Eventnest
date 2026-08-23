@@ -19,6 +19,7 @@ export interface TicketPayload {
 	phone?: string;
 	name: string;
 	eventName?: string;
+	groupName?: string;
 	peopleCount?: number;
 	amount?: number; // minor units (luma), same as sent to EPG
 	iat: number; // issued-at, ms epoch — lets us expire stale tokens

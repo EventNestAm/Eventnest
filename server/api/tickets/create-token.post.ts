@@ -12,6 +12,7 @@ interface CreateTokenBody {
 	phone?: string;
 	name: string;
 	eventName?: string;
+	groupName?: string;
 	peopleCount?: number;
 	amount?: number;
 }
@@ -32,6 +33,7 @@ export default defineEventHandler(async (event) => {
 		phone: body.phone,
 		name: body.name,
 		eventName: body.eventName,
+		groupName: body.groupName,
 		peopleCount: body.peopleCount,
 		amount: body.amount,
 	});
