@@ -110,6 +110,7 @@ onMounted(() => {
 							phone: object.phone,
 							name: buyerName,
 							eventName: showTitle,
+							groupName: object.groupName,
 							peopleCount,
 							amount,
 						},
