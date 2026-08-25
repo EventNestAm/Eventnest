@@ -80,7 +80,7 @@ export default defineEventHandler(async (event) => {
 
 	await sheets.spreadsheets.values.update({
 		spreadsheetId: sheetId,
-		range: `Sheet1!H${rowIndex + 1}`,
+		range: `Sheet1!J${rowIndex + 1}`,
 		valueInputOption: "USER_ENTERED",
 		requestBody: { values: [["TRUE"]] },
 	});
