@@ -46,13 +46,13 @@ export default defineEventHandler(async (event) => {
 	const skipped: string[] = [];
 
 	for (const e of newEvents) {
-		const alreadyExists = await eventAlreadyExists(config, e.title, e.date);
+		const alreadyExists = await eventAlreadyExists(config, { title: e.title, date: e.date, slug: e.slug });
 		if (alreadyExists) {
 			skipped.push(e.title);
 			continue;
 		}
 
-		await appendEventRow(config, { title: e.title, date: e.date, location: e.location });
+		await appendEventRow(config, { title: e.title, date: e.date, location: e.location, slug: e.slug });
 
 		const eventUrl = `${siteUrl}/hy/events/${e.slug}`;
 

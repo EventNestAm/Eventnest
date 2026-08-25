@@ -125,19 +125,27 @@ export interface EventRow {
 // or parallel calls (SSR + client hydration, multiple pages, etc.)
 export async function eventAlreadyExists(
 	config: ReturnType<typeof useRuntimeConfig>,
-	title: string,
-	date: string,
+	params: { title: string; date: string; slug?: string },
 ): Promise<boolean> {
 	const sheets = await getSheetsClient(config);
 	const sheetId = config.googleSheetId as string;
 
 	const read = await sheets.spreadsheets.values.get({
 		spreadsheetId: sheetId,
-		range: "Events!A:B", // A: title, B: date
+		range: "Events!A:F", // A: title, B: date, C: location, D: createdAt, E: reminderSent, F: slug
 	});
 
 	const rows = read.data.values || [];
-	return rows.some((r) => (r[0] || "").trim() === title.trim() && (r[1] || "").trim() === date.trim());
+	const { title, date, slug } = params;
+
+	return rows.some((r) => {
+		const rowSlug = (r[5] || "").trim();
+		if (slug && rowSlug) {
+			return rowSlug === slug.trim();
+		}
+		// Old row with no slug saved yet - fall back to title+date
+		return (r[0] || "").trim() === title.trim() && (r[1] || "").trim() === date.trim();
+	});
 }
 
 // Returns the 1-based row number Sheets actually wrote our data to (parsed
@@ -147,25 +155,19 @@ export async function eventAlreadyExists(
 // title+date at nearly the same instant (see create.post.ts).
 export async function appendEventRow(
 	config: ReturnType<typeof useRuntimeConfig>,
-	event: { title: string; date: string; location: string },
-): Promise<number> {
+	event: { title: string; date: string; location: string; slug?: string },
+) {
 	const sheets = await getSheetsClient(config);
 	const sheetId = config.googleSheetId as string;
 
-	const res = await sheets.spreadsheets.values.append({
+	await sheets.spreadsheets.values.append({
 		spreadsheetId: sheetId,
-		range: "Events!A:E",
+		range: "Events!A:F",
 		valueInputOption: "USER_ENTERED",
-		insertDataOption: "INSERT_ROWS",
 		requestBody: {
-			values: [[event.title, event.date, event.location, new Date().toISOString(), "FALSE"]],
+			values: [[event.title, event.date, event.location, new Date().toISOString(), "FALSE", event.slug || ""]],
 		},
 	});
-
-	const range = res.data.updates?.updatedRange || "";
-	const match = range.match(/!\D*(\d+):/);
-	const rowNumber = match?.[1];
-	return rowNumber ? parseInt(rowNumber, 10) : -1;
 }
 
 // All row numbers (1-based) currently holding this exact title+date.

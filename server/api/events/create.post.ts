@@ -19,11 +19,11 @@ export default defineEventHandler(async (event) => {
 	const body = await readBody(event);
 	const { title, date, location, slug } = body;
 
-	if (!title || !date || !location) {
+	if (!title || !date || !location || !slug) {
 		throw createError({ statusCode: 400, statusMessage: "Missing required fields: title, date, location" });
 	}
 
-	const lockKey = `${title.trim()}::${date.trim()}`;
+	const lockKey = slug.trim();
 
 	if (eventsInFlight.has(lockKey)) {
 		console.log(`⏭️ Event "${title}" (${date}) already being processed — skipping duplicate.`);
@@ -32,11 +32,13 @@ export default defineEventHandler(async (event) => {
 	eventsInFlight.add(lockKey);
 
 	try {
-		const alreadyExists = await eventAlreadyExists(config, title, date);
+		const alreadyExists = await eventAlreadyExists(config, { title, date, slug });
 		if (alreadyExists) {
 			console.log(`⏭️ Event "${title}" (${date}) already exists — skipping duplicate save/email.`);
 			return { success: true, savedEvent: false, sentTo: 0, skipped: true };
 		}
+
+		await appendEventRow(config, { title, date, location, slug });
 
 		const ourRow = await appendEventRow(config, { title, date, location });
 
@@ -59,7 +61,7 @@ export default defineEventHandler(async (event) => {
 		}
 
 		const recipients = await getAllGuestEmails(config);
-		
+
 		if (!recipients.length) {
 			console.log("⚠️ No guest emails found in the sheet yet.");
 			return { success: true, savedEvent: true, sentTo: 0 };
