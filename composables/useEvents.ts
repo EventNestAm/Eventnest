@@ -953,7 +953,7 @@ export function useEvents() {
         t("KARGIN_QUIZ_TITLE"),
       category: [t("QUIZ"), t("KARGIN")],
       eventDate: true,
-      emailSent: true, groupName: true, isSoldout: false, quantity: 22,
+      emailSent: true, groupName: true, isSoldout: false, quantity: 15,
       pricePerPerson: 3000
     },
     {
@@ -971,7 +971,7 @@ export function useEvents() {
         t("KARAOKE_BATTLE"),
       category: t("KARAOKE"),
       eventDate: true,
-      emailSent: false, groupName: false, isSoldout: false, quantity: 20,
+      emailSent: false, groupName: false, isSoldout: false, quantity: 10,
       pricePerPerson: 4000
     },
   ])
