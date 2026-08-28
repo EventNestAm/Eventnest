@@ -91,7 +91,7 @@ const scrollToTop = () => {
 							+37496000099
 						</a>
 
-						<a href="mailto:eventnest.am@gmail.com" class="footer-contact">
+						<a href="mailto:eventnestinfo@gmail.com" class="footer-contact">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								width="19"
@@ -104,7 +104,7 @@ const scrollToTop = () => {
 									fill="currentColor"
 								/>
 							</svg>
-							eventnest.am@gmail.com
+							eventnestinfo@gmail.com
 						</a>
 
 						<p class="footer-contact">

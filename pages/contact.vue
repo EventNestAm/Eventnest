@@ -87,7 +87,7 @@ useHead({
 									<rect x="2.5" y="5" width="19" height="14" rx="3" />
 									<path d="M3.5 6.5l8.5 6 8.5-6" />
 								</svg>
-								<span>eventnest.am@gmail.com</span>
+								<span>eventnestinfo@gmail.com</span>
 							</a>
 							<a class="contact-pill" href="tel:+37496000099">
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
