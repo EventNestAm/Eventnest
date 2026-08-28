@@ -986,7 +986,7 @@ export function useEvents() {
       location: "The Kond House - 46 Leo Street",
       image: Kargin2,
       description:
-        t("KARGIN_QUIZ_TITLE"),
+        t("HARRY_POTTER_DESC"),
       category: [t("QUIZ"), t("MOVIE")],
       eventDate: true,
       emailSent: false, groupName: true, isSoldout: false, quantity: 35,
