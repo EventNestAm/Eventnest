@@ -14,10 +14,38 @@
 
 import { google } from "googleapis";
 
+// Normalizes a private key pulled from an env var, regardless of how it was
+// pasted in (with surrounding quotes, literal \n, or real newlines) — this
+// is the #1 source of silent Google auth failures when moving a key from
+// .env into a dashboard like Vercel's.
+function normalizePrivateKey(raw: string): string {
+	let key = (raw || "").trim();
+	// Strip one layer of wrapping quotes if the whole value got copy-pasted
+	// including the quotes from a .env file.
+	if ((key.startsWith('"') && key.endsWith('"')) || (key.startsWith("'") && key.endsWith("'"))) {
+		key = key.slice(1, -1);
+	}
+	return key.replace(/\\n/g, "\n");
+}
+
 export async function getSheetsClient(config: ReturnType<typeof useRuntimeConfig>) {
+	const clientEmail = config.googleClientEmail as string;
+	const privateKey = normalizePrivateKey(config.googlePrivateKey as string);
+
+	if (!clientEmail || !privateKey.includes("BEGIN PRIVATE KEY")) {
+		console.error("❌ Google Sheets misconfiguration:", {
+			hasClientEmail: !!clientEmail,
+			looksLikeValidKey: privateKey.includes("BEGIN PRIVATE KEY"),
+		});
+		throw createError({
+			statusCode: 500,
+			statusMessage: "Server misconfiguration: Google Sheets credentials are invalid.",
+		});
+	}
+
 	const auth = new google.auth.JWT({
-		email: config.googleClientEmail as string,
-		key: (config.googlePrivateKey as string).replace(/\\n/g, "\n"),
+		email: clientEmail,
+		key: privateKey,
 		scopes: ["https://www.googleapis.com/auth/spreadsheets"],
 	});
 	return google.sheets({ version: "v4", auth });

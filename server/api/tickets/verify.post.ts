@@ -7,7 +7,7 @@
 // Google Sheet since HMAC alone can't detect ticket reuse.
 
 import { createHmac, timingSafeEqual } from "node:crypto";
-import { google } from "googleapis";
+import { getSheetsClient } from "../../utils/googleSheets";
 
 interface VerifyBody {
 	qrContent: string; // raw scanned string: EVENTNEST|ticketId|orderNumber|email
@@ -18,15 +18,6 @@ function buildTicketId(orderNumber: string, email: string, secret: string) {
 		.update(`${orderNumber}:${email.toLowerCase()}`)
 		.digest("hex")
 		.slice(0, 24);
-}
-
-async function getSheetsClient(config: ReturnType<typeof useRuntimeConfig>) {
-	const auth = new google.auth.JWT({
-		email: config.googleClientEmail as string,
-		key: (config.googlePrivateKey as string).replace(/\\n/g, "\n"),
-		scopes: ["https://www.googleapis.com/auth/spreadsheets"],
-	});
-	return google.sheets({ version: "v4", auth });
 }
 
 export default defineEventHandler(async (event) => {
@@ -57,27 +48,36 @@ export default defineEventHandler(async (event) => {
 	}
 
 	// Check + mark used in the sheet.
-	const sheets = await getSheetsClient(config);
+	// Columns written by appendGuestRow (server/utils/googleSheets.ts):
+	// A ts, B orderNumber, C name, D email, E phone, F peopleCount,
+	// G amount, H eventName, I groupName, J Scanned. Must read through J,
+	// not H — H is eventName, not the scanned flag.
+	let rows: string[][];
 	const sheetId = config.googleSheetId as string;
+	try {
+		const sheets = await getSheetsClient(config);
+		const read = await sheets.spreadsheets.values.get({
+			spreadsheetId: sheetId,
+			range: "Sheet1!A:J",
+		});
+		rows = (read.data.values as string[][]) || [];
+	} catch (err) {
+		console.error("❌ Google Sheets lookup failed during verify:", err);
+		return { valid: false, reason: "ERROR" };
+	}
 
-	const read = await sheets.spreadsheets.values.get({
-		spreadsheetId: sheetId,
-		range: "Sheet1!A:H", // adjust to your actual columns
-	});
-
-	const rows = read.data.values || [];
-	// Assumes column B = orderNumber, column H = "Scanned" flag (adjust indices to your sheet).
 	const rowIndex = rows.findIndex((r) => r[1] === orderNumber);
 
 	if (rowIndex === -1) {
 		return { valid: false, reason: "NOT_FOUND" };
 	}
 
-	const alreadyScanned = rows[rowIndex][7] === "TRUE";
+	const alreadyScanned = rows[rowIndex][9] === "TRUE"; // column J (index 9)
 	if (alreadyScanned) {
 		return { valid: false, reason: "ALREADY_USED", name: rows[rowIndex][2] };
 	}
 
+	const sheets = await getSheetsClient(config);
 	await sheets.spreadsheets.values.update({
 		spreadsheetId: sheetId,
 		range: `Sheet1!J${rowIndex + 1}`,
