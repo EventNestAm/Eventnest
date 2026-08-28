@@ -974,6 +974,24 @@ export function useEvents() {
       emailSent: false, groupName: false, isSoldout: false, quantity: 10,
       pricePerPerson: 4000
     },
+    {
+      id: 56,
+      title: `Harry Potter ${t("QUIZ_TITLE")} #1`,
+      slug: "harry-potter-quiz-1",
+      titleDesc: "An evening of emotions and people like you",
+      date: "2026-09-03",
+      dateTitle: "Սեպտեմբերի 03",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: Kargin2,
+      description:
+        t("KARGIN_QUIZ_TITLE"),
+      category: [t("QUIZ"), t("MOVIE")],
+      eventDate: true,
+      emailSent: false, groupName: true, isSoldout: false, quantity: 35,
+      pricePerPerson: 3000
+    },
   ])
   const eventsWithStatus = computed(() =>
     events.value.map(event => {
