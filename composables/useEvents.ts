@@ -976,7 +976,7 @@ export function useEvents() {
     },
     {
       id: 56,
-      title: `Harry Potter ${t("QUIZ_TITLE")} #1`,
+      title: `${t("HARRY_POTTER_TITLE")} ${t("QUIZ_TITLE")} #1`,
       slug: "harry-potter-quiz-1",
       titleDesc: "An evening of emotions and people like you",
       date: "2026-09-03",
