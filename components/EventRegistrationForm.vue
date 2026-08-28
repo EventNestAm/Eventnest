@@ -312,7 +312,6 @@ function closeModal() {
 					/>
 				</svg>
 
-				<!-- Visa Logo -->
 				<svg
 					class="payment-icon"
 					viewBox="0 0 100 60"
