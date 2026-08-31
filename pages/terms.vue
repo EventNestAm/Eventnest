@@ -33,7 +33,7 @@
       <h2>{{ $t("terms.s4.title") }}</h2>
       <p>{{ $t("terms.s4.desc") }}</p>
       <div class="contact-box">
-        <p><strong>Email:</strong> eventnest.am@gmail.com</p>
+        <p><strong>Email:</strong> eventnestinfo@gmail.com</p>
         <p><strong>Phone:</strong> +374 96 000099</p>
       </div>
     </div>

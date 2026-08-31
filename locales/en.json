@@ -109,8 +109,8 @@
 			"cancellationDesc": "If an event is cancelled on the initiative of EventNest or the organizer, 100% of the ticket/service cost will be refunded.",
 			"userCancellationTitle": "Cancellation by Participant",
 			"userCancellationDesc": "In case of cancellation initiated by the customer, refunds are made under the following conditions:",
-			"item1": "Cancellation up to 24 hours prior to the event/service start: 100% refund.",
-			"item2": "Cancellation less than 24 hours before the event start: non-refundable.",
+			"item1": "Cancellation up to 48 hours prior to the event/service start: 100% refund.",
+			"item2": "Cancellation less than 48 hours before the event start: non-refundable.",
 			"processTitle": "Refund Process",
 			"processDesc": "Refunds are processed using the same payment method used for the purchase within 3-7 business days after receiving the request."
 		},
