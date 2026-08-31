@@ -38,10 +38,7 @@ export default defineEventHandler(async (event) => {
 			return { success: true, savedEvent: false, sentTo: 0, skipped: true };
 		}
 
-		await appendEventRow(config, { title, date, location, slug });
-
-		const ourRow = await appendEventRow(config, { title, date, location });
-
+		const ourRow = await appendEventRow(config, { title, date, location, slug });
 		// Race check: the `eventAlreadyExists` check above and the in-process
 		// lock at the top of this file both close MOST of the window where two
 		// near-simultaneous requests (e.g. two visitors loading the site right

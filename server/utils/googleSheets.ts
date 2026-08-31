@@ -184,11 +184,11 @@ export async function eventAlreadyExists(
 export async function appendEventRow(
 	config: ReturnType<typeof useRuntimeConfig>,
 	event: { title: string; date: string; location: string; slug?: string },
-) {
+): Promise<number> {
 	const sheets = await getSheetsClient(config);
 	const sheetId = config.googleSheetId as string;
 
-	await sheets.spreadsheets.values.append({
+	const res = await sheets.spreadsheets.values.append({
 		spreadsheetId: sheetId,
 		range: "Events!A:F",
 		valueInputOption: "USER_ENTERED",
@@ -196,6 +196,11 @@ export async function appendEventRow(
 			values: [[event.title, event.date, event.location, new Date().toISOString(), "FALSE", event.slug || ""]],
 		},
 	});
+
+	const range = res.data.updates?.updatedRange || "";
+	const match = range.match(/!\D*(\d+):/);
+	const rowNumber = match?.[1];
+	return rowNumber ? parseInt(rowNumber, 10) : -1;
 }
 
 // All row numbers (1-based) currently holding this exact title+date.
