@@ -1,7 +1,11 @@
 {
 	"crons": [
 		{
-			"path": "/api/events/send-reminders?secret=eventnest_cron_8fK2mP7xQ9vL4nR6",
+			"path": "/api/events/send-reminders?secret=9d3f7a1c8e6b4025d9f1c7a3e8b6042f1d9c7a3e5b8f0246d1c9a7f3e5b8d024",
+			"schedule": "0 8 * * *"
+		},
+		{
+			"path": "/api/events/announce?secret=9d3f7a1c8e6b4025d9f1c7a3e8b6042f1d9c7a3e5b8f0246d1c9a7f3e5b8d024",
 			"schedule": "0 8 * * *"
 		}
 	]

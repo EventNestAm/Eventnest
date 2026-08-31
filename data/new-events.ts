@@ -25,18 +25,11 @@ export interface NewEventAnnouncement {
 }
 
 export const newEvents: NewEventAnnouncement[] = [
-//   {
-//     id: 54,
-//     title: "Կարգին հաղորդման Մրցաշար #4",
-//     date: "2026-08-29",
-//     location: "The Kond House - 46 Leo Street",
-//     slug: "kargin-haxordman-viktorina-19",
-//   },
-//   {
-//     id: 58,
-//     title: "Կարգին հաղորդման Մրցաշար #8",
-//     date: "2026-08-29",
-//     location: "The Kond House - 46 Leo Street",
-//     slug: "kargin-haxordman-viktorina-20",
-//   },
+  {
+    id: 56,
+    title: "Հարի Փոթեր Քվիզ #1",
+    date: "2026-09-03",
+    location: "The Kond House - 46 Leo Street",
+    slug: "harry-potter-quiz-1",
+  },
 ]

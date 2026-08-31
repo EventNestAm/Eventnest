@@ -28,7 +28,6 @@ import bookQuiz from "@/assets/img/quizes/bookQuiz.png"
 // useEvents() for the lifetime of the page, and prevents that pile-up.
 // (The server endpoint also de-dupes via the Google Sheet, so this is a
 // second, cheaper line of defense - not the only one.)
-const notifiedEventIds = new Set<number | string>()
 
 export function useEvents() {
   const searchQuery = ref("")
@@ -1045,29 +1044,7 @@ export function useEvents() {
   //    email to the homepage instead of the event's own page.
   //
   // Fix: only run client-side, and always include the slug.
-  if (import.meta.client) {
-    events.value.forEach((event) => {
-      if (event.emailSent || notifiedEventIds.has(event.id)) return
-      notifiedEventIds.add(event.id)
 
-      $fetch("/api/events/create", {
-        method: "POST",
-        body: {
-          title: event.title,
-          date: event.date,
-          location: event.location,
-          slug: event.slug,
-        },
-      })
-        .then((res) => {
-          event.emailSent = true
-        })
-        .catch((err) => {
-          // Let a later mount (e.g. next page visit) retry it.
-          notifiedEventIds.delete(event.id)
-        })
-    })
-  }
 
   const sortedEvents = computed(() =>
     [...eventsWithStatus.value].sort((a, b) => new Date(b.date) - new Date(a.date))
