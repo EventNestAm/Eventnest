@@ -8,7 +8,6 @@ import Kargin from "@/assets/img/quizes/kargin.jpeg?url"
 import Kargin2 from "@/assets/img/quizes/kargin2.jpeg?url"
 import KarginSerial from "@/assets/img/quizes/kargin_serial.jpg?url"
 import Vitamin from "@/assets/img/quizes/Vitamin.jpeg"
-import Merbaky from "@/assets/img/quizes/merbaky.jpg"
 import Whoami from "@/assets/img/quizes/whoami.jpg"
 import ourGame from "@/assets/img/quizes/ourGame.jpg"
 import footballCup from "@/assets/img/quizes/footballCup.png"
@@ -983,12 +982,12 @@ export function useEvents() {
       time: "19:30",
       price: "3000 AMD",
       location: "The Kond House - 46 Leo Street",
-      image: Kargin2,
+      image: "/images/events/hogwarts-quiz.jpg",
       description:
         t("HARRY_POTTER_DESC"),
-      category: [t("QUIZ"), t("MOVIE")],
+      category: [t("QUIZ"), t("MOVIES")],
       eventDate: true,
-      emailSent: false, groupName: true, isSoldout: false, quantity: 35,
+      emailSent: false, groupName: true, isSoldout: false, quantity: 20,
       pricePerPerson: 3000
     },
   ])

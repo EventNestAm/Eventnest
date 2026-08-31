@@ -27,6 +27,35 @@ const ticketCode = computed(() => {
 
 <template>
 	<div class="event-card" :class="!event.eventDate ? 'event-card--closed' : ''">
+		<div class="event-card__image-wrap">
+			<img
+				v-if="event.image"
+				:src="event.image"
+				:alt="event.title"
+				class="event-card__image"
+				loading="lazy"
+				:class="!event.eventDate ? 'event-card__image--closed' : ''"
+			/>
+			<div v-else class="event-card__image event-card__image--placeholder">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="h-10 w-10"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="1.5"
+						d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14M14 8h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+					/>
+				</svg>
+			</div>
+
+			<span v-if="!event.eventDate" class="event-card__closed-badge">{{ t("CLOSED") }}</span>
+		</div>
+
 		<div class="event-card__main">
 			<div class="flex items-center justify-between mb-4">
 				<p class="event-card__category">
@@ -136,6 +165,53 @@ const ticketCode = computed(() => {
 
 .event-card--closed {
 	opacity: 0.65;
+}
+
+.event-card__image-wrap {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	overflow: hidden;
+	background: #f1eef9;
+}
+
+.event-card__image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	transition:
+		transform 0.4s ease,
+		filter 0.3s ease;
+}
+
+.event-card:hover .event-card__image:not(.event-card__image--placeholder) {
+	transform: scale(1.04);
+}
+
+.event-card__image--closed {
+	filter: grayscale(0.6) brightness(0.85);
+}
+
+.event-card__image--placeholder {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #b3acc9;
+	background: linear-gradient(135deg, #f1eef9, #e3ddf0);
+}
+
+.event-card__closed-badge {
+	position: absolute;
+	top: 0.75rem;
+	right: 0.75rem;
+	background: rgba(28, 21, 48, 0.75);
+	color: #fff;
+	font-size: 0.7rem;
+	font-weight: 600;
+	padding: 0.3rem 0.7rem;
+	border-radius: 999px;
+	backdrop-filter: blur(4px);
 }
 
 .event-card__main {

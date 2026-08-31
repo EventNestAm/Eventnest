@@ -270,6 +270,17 @@ useHead({
 						<span class="meta-pill"><Ticket class="w-4 h-4" />{{ event.price }}</span>
 						<span class="meta-pill"><Gps class="w-4 h-4" />{{ event.location }}</span>
 					</div>
+
+					<!-- Hero image -->
+					<div v-if="event.image" class="hero-image-wrap mt-10">
+						<img
+							:src="event.image"
+							:alt="event.title"
+							class="hero-image"
+							loading="eager"
+							fetchpriority="high"
+						/>
+					</div>
 				</div>
 			</section>
 
@@ -358,6 +369,26 @@ useHead({
 	color: #e9e6f5;
 	font-size: 0.8rem;
 	font-weight: 500;
+}
+
+/* Hero image */
+.hero-image-wrap {
+	max-width: 640px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 1.5rem;
+	overflow: hidden;
+	aspect-ratio: 16 / 9;
+	box-shadow:
+		0 30px 60px -20px rgba(0, 0, 0, 0.55),
+		0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.hero-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
 }
 
 /* Ticket stub */
