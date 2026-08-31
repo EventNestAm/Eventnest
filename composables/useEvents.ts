@@ -988,7 +988,7 @@ export function useEvents() {
       category: [t("QUIZ"), t("MOVIES")],
       eventDate: true,
       emailSent: false, groupName: true, isSoldout: false, quantity: 20,
-      pricePerPerson: 3000
+      pricePerPerson: 4000
     },
   ])
   const eventsWithStatus = computed(() =>
