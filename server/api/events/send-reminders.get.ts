@@ -21,6 +21,7 @@ export default defineEventHandler(async (event) => {
 	const dueEvents = events.filter((e) => {
 		if (e.reminderSent || !e.date) return false;
 		const diff = daysFromToday(e.date);
+		if (diff < 0) return false;
 		return diff === 2 || diff === 3;
 	});
 

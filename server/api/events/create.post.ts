@@ -23,6 +23,15 @@ export default defineEventHandler(async (event) => {
 		throw createError({ statusCode: 400, statusMessage: "Missing required fields: title, date, location" });
 	}
 
+	const today = new Date();
+	today.setHours(0, 0, 0, 0);
+	const eventDate = new Date(date);
+	eventDate.setHours(0, 0, 0, 0);
+
+	if (eventDate < today) {
+		throw createError({ statusCode: 400, statusMessage: "Event date is in the past" });
+	}
+
 	const lockKey = slug.trim();
 
 	if (eventsInFlight.has(lockKey)) {
