@@ -21,7 +21,7 @@ function useCountUp(target, duration = 1500) {
 }
 
 const eventsCount = useCountUp(100);
-const participantsCount = useCountUp(3000);
+const participantsCount = useCountUp(5000);
 </script>
 
 <template>
