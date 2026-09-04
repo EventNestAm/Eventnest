@@ -1002,7 +1002,7 @@ export function useEvents() {
       location: "Shamrock Yvn - Ghazar Parpetsi 26",
       image: "/images/events/musicquiz.jpg",
       description:
-        t("ARM_MUSIC"),
+        t("MUSIC_TITLE"),
       category: [t("QUIZ"), t("MUSIC")],
       eventDate: true,
       emailSent: false, groupName: true, isSoldout: false, quantity: 35
