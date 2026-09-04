@@ -980,7 +980,7 @@ export function useEvents() {
       date: "2026-09-03",
       dateTitle: "Սեպտեմբերի 03",
       time: "19:30",
-      price: "3000 AMD",
+      price: "4000 AMD",
       location: "The Kond House - 46 Leo Street",
       image: "/images/events/hogwarts-quiz.jpg",
       description:
@@ -989,6 +989,23 @@ export function useEvents() {
       eventDate: true,
       emailSent: true, groupName: true, isSoldout: false, quantity: 10,
       pricePerPerson: 4000
+    },
+    {
+      id: 57,
+      title: `${t("MUSICIAL_TITLE")} ${t("QUIZ_TITLE")} #4`,
+      slug: "music-quiz-4",
+      titleDesc: "An evening of emotions and people like you",
+      date: "2026-09-10",
+      dateTitle: "Սեպտեմբեր 10",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "Shamrock Yvn - Ghazar Parpetsi 26",
+      image: "/images/events/musicquiz.jpg",
+      description:
+        t("ARM_MUSIC"),
+      category: [t("QUIZ"), t("MUSIC")],
+      eventDate: true,
+      emailSent: false, groupName: true, isSoldout: false, quantity: 35
     },
   ])
   const eventsWithStatus = computed(() =>
