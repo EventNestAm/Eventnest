@@ -993,7 +993,7 @@ export function useEvents() {
     {
       id: 57,
       title: `${t("MUSICIAL_TITLE")} ${t("QUIZ_TITLE")} #4`,
-      slug: "music-quiz-4",
+      slug: "music-quiz-5",
       titleDesc: "An evening of emotions and people like you",
       date: "2026-09-10",
       dateTitle: "Սեպտեմբեր 10",
@@ -1005,7 +1005,8 @@ export function useEvents() {
         t("MUSIC_TITLE"),
       category: [t("QUIZ"), t("MUSIC")],
       eventDate: true,
-      emailSent: false, groupName: true, isSoldout: false, quantity: 35
+      emailSent: false, groupName: true, isSoldout: false, quantity: 35,
+      pricePerPerson: 3000
     },
   ])
   const eventsWithStatus = computed(() =>
