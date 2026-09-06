@@ -1027,7 +1027,7 @@ export function useEvents() {
       pricePerPerson: 3000
     },
     {
-      id: 24,
+      id: 59,
       title: `${t("MOVIE_QUIZ_TITLE")} #1`,
       slug: "movie-quiz-russian-1",
       titleDesc: "An evening of emotions and people like you",
