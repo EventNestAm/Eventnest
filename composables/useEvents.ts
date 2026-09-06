@@ -1005,8 +1005,8 @@ export function useEvents() {
         t("MUSIC_TITLE"),
       category: [t("QUIZ"), t("MUSIC")],
       eventDate: true,
-      emailSent: false, groupName: true, isSoldout: false, quantity: 35,
-      pricePerPerson: 3000
+      emailSent: false, groupName: true, isSoldout: false, quantity: 28,
+      pricePerPerson: 4000
     },
   ])
   const eventsWithStatus = computed(() =>
