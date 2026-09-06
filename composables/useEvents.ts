@@ -998,7 +998,7 @@ export function useEvents() {
       date: "2026-09-10",
       dateTitle: "Սեպտեմբեր 10",
       time: "19:30",
-      price: "3000 AMD",
+      price: "4000 AMD",
       location: "Shamrock Yvn - Ghazar Parpetsi 26",
       image: "/images/events/musicquiz.jpg",
       description:
@@ -1007,6 +1007,24 @@ export function useEvents() {
       eventDate: true,
       emailSent: false, groupName: true, isSoldout: false, quantity: 28,
       pricePerPerson: 4000
+    },
+    {
+      id: 58,
+      title: `Game of Thrones ${t("QUIZ_TITLE")} #2`,
+      slug: "game-of-thrones-2",
+      titleDesc: "An evening of emotions and people like you",
+      date: "2026-09-12",
+      dateTitle: "Սեպտեմբերի 12",
+      time: "19:30",
+      price: "3000 AMD",
+      location: "Shamrock Yvn - Ghazar Parpetsi 26",
+      image: "/images/events/gameofthrones.jpg",
+      description:
+        t("GAME_OF_THRONES_QUIZ_DESC"),
+      category: [t("QUIZ"), t("MOVIES")],
+      eventDate: true,
+      emailSent: false, groupName: true, isSoldout: false, quantity: 35,
+      pricePerPerson: 3000
     },
   ])
   const eventsWithStatus = computed(() =>
