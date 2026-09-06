@@ -1036,7 +1036,7 @@ export function useEvents() {
       time: "19:30",
       price: "4000 AMD",
       location: "Shamrock Yvn - Ghazar Parpetsi 26",
-      image: Moviee,
+      image: "/images/events/moviequiz.jpg",
       description:
         t("CINEMAQUIZTEXT"),
       eventDate: true,
