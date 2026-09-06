@@ -1039,6 +1039,7 @@ export function useEvents() {
       image: "/images/events/moviequiz.jpg",
       description:
         t("CINEMAQUIZTEXT"),
+      category: [t("QUIZ"), t("MOVIES")],
       eventDate: true,
       emailSent: false, groupName: true, isSoldout: false, quantity: 35,
       pricePerPerson: 4000
