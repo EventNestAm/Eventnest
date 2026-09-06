@@ -1026,6 +1026,23 @@ export function useEvents() {
       emailSent: false, groupName: true, isSoldout: false, quantity: 35,
       pricePerPerson: 3000
     },
+    {
+      id: 24,
+      title: `${t("MOVIE_QUIZ_TITLE")} #1`,
+      slug: "movie-quiz-russian-1",
+      titleDesc: "An evening of emotions and people like you",
+      date: "2026-09-14",
+      dateTitle: "Սեպտեմբերի 14",
+      time: "19:30",
+      price: "4000 AMD",
+      location: "Shamrock Yvn - Ghazar Parpetsi 26",
+      image: Moviee,
+      description:
+        t("CINEMAQUIZTEXT"),
+      eventDate: true,
+      emailSent: false, groupName: true, isSoldout: false, quantity: 35,
+      pricePerPerson: 4000
+    },
   ])
   const eventsWithStatus = computed(() =>
     events.value.map(event => {
