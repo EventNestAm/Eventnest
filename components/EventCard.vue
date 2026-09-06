@@ -15,14 +15,6 @@ const props = defineProps({
 		required: true,
 	},
 });
-
-const ticketCode = computed(() => {
-	const base = (props.event?.slug || "EVENT")
-		.toUpperCase()
-		.replace(/[^A-Z0-9]/g, "")
-		.slice(0, 6);
-	return `EN-${base.padEnd(6, "X")}`;
-});
 </script>
 
 <template>

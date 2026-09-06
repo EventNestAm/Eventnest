@@ -32,7 +32,7 @@ export function useEvents() {
   const searchQuery = ref("")
   const selectedDate = ref("")
   const selectedCategory = ref("Բոլորը")
-  const { t } = useI18n();
+  const { t, tm, rt } = useI18n();
   const today = computed(() => {
     const d = new Date()
     d.setHours(0, 0, 0, 0)
@@ -1143,30 +1143,15 @@ export function useEvents() {
 
   function formatDate(dateStr) {
     const date = new Date(dateStr)
-    const weekdays = [
-      "Կիրակի",
-      "Երկուշաբթի",
-      "Երեքշաբթի",
-      "Չորեքշաբթի",
-      "Հինգշաբթի",
-      "Ուրբաթ",
-      "Շաբաթ",
-    ]
-    const months = [
-      "հունվարի",
-      "փետրվարի",
-      "մարտի",
-      "ապրիլի",
-      "մայիսի",
-      "հունիսի",
-      "հուլիսի",
-      "օգոստոսի",
-      "սեպտեմբերի",
-      "հոկտեմբերի",
-      "նոյեմբերի",
-      "դեկտեմբերի",
-    ]
-    return `${weekdays[date.getDay()]}, ${date.getDate()} ${months[date.getMonth()]}, ${date.getFullYear()} թ․`
+    const weekdaysRaw = tm("WEEKDAYS")
+    const monthsRaw = tm("MONTHS")
+
+    const weekday = rt(weekdaysRaw[date.getDay()])
+    const day = date.getDate()
+    const month = rt(monthsRaw[date.getMonth()])
+    const year = date.getFullYear()
+
+    return t("DATE_FORMAT", { weekday, day, month, year })
   }
 
   return {
