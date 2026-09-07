@@ -61,7 +61,7 @@ const participantsCount = useCountUp(5000);
 			</svg>
 
 			<p class="text-4xl font-semibold text-[#00308F]">{{ participantsCount }}+</p>
-			<p class="text-sm text-gray-600 text-center">{{ t("ORGANIZED_EVENTS") }}</p>
+			<p class="text-sm text-gray-600 text-center">{{ t("HAPPY_PARTICIPANTS") }}</p>
 		</div>
 	</div>
 </template>
