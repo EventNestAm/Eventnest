@@ -32,4 +32,25 @@ export const newEvents: NewEventAnnouncement[] = [
     location: "The Kond House - 46 Leo Street",
     slug: "harry-potter-quiz-1",
   },
+  {
+    id: 57,
+    title: "<MUSICIAL_TITLE + QUIZ_TITLE> #4", // use the actual Armenian string, not the t() key
+    date: "2026-09-10",
+    location: "Shamrock Yvn - Ghazar Parpetsi 26",
+    slug: "music-quiz-5",
+  },
+  {
+    id: 58,
+    title: "Game of Thrones Վիկտորինա #2",
+    date: "2026-09-12",
+    location: "Shamrock Yvn - Ghazar Parpetsi 26",
+    slug: "game-of-thrones-2",
+  },
+  {
+    id: 59,
+    title: "<MOVIE_QUIZ_TITLE> #1", // Russian movie quiz
+    date: "2026-09-14",
+    location: "Shamrock Yvn - Ghazar Parpetsi 26",
+    slug: "movie-quiz-russian-1",
+  },
 ]
