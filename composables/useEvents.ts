@@ -1002,7 +1002,7 @@ export function useEvents() {
         t("MUSIC_TITLE"),
       category: [t("QUIZ"), t("MUSIC")],
       eventDate: true,
-      emailSent: false, groupName: true, isSoldout: false, quantity: 21,
+      emailSent: false, groupName: true, isSoldout: false, quantity: 12,
       pricePerPerson: 4000
     },
     {
@@ -1019,7 +1019,7 @@ export function useEvents() {
         t("GAME_OF_THRONES_QUIZ_DESC"),
       category: [t("QUIZ"), t("MOVIES")],
       eventDate: true,
-      emailSent: false, groupName: true, isSoldout: false, quantity: 24,
+      emailSent: false, groupName: true, isSoldout: false, quantity: 13,
       pricePerPerson: 4000
     },
     {
