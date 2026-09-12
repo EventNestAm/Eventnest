@@ -1019,7 +1019,7 @@ export function useEvents() {
         t("GAME_OF_THRONES_QUIZ_DESC"),
       category: [t("QUIZ"), t("MOVIES")],
       eventDate: true,
-      emailSent: false, groupName: true, isSoldout: false, quantity: 13,
+      emailSent: true, groupName: true, isSoldout: true, quantity: 0,
       pricePerPerson: 4000
     },
     {
@@ -1039,23 +1039,23 @@ export function useEvents() {
       emailSent: false, groupName: true, isSoldout: false, quantity: 35,
       pricePerPerson: 4000
     },
-    {
-      id: 60,
-      title: `${t("MEME")} ${t("QUIZ_TITLE")} #2`,
-      slug: "meme-quiz-2",
-      titleDesc: "An evening of emotions and people like you",
-      date: "2026-09-17",
-      time: "19:30",
-      price: "3000 AMD",
-      location: "Shamrock Yvn - Ghazar Parpetsi 26",
-      image: "/images/events/memequiz.jpg",
-      description:
-        t("MEME_DESC"),
-      category: [t("QUIZ")],
-      eventDate: true,
-      emailSent: false, groupName: true, isSoldout: false, quantity: 35,
-      pricePerPerson: 3000
-    },
+    // {
+    //   id: 60,
+    //   title: `${t("MEME")} ${t("QUIZ_TITLE")} #2`,
+    //   slug: "meme-quiz-2",
+    //   titleDesc: "An evening of emotions and people like you",
+    //   date: "2026-09-17",
+    //   time: "19:30",
+    //   price: "3000 AMD",
+    //   location: "Shamrock Yvn - Ghazar Parpetsi 26",
+    //   image: "/images/events/memequiz.jpg",
+    //   description:
+    //     t("MEME_DESC"),
+    //   category: [t("QUIZ")],
+    //   eventDate: true,
+    //   emailSent: false, groupName: true, isSoldout: false, quantity: 35,
+    //   pricePerPerson: 3000
+    // },
   ])
   const eventsWithStatus = computed(() =>
     events.value.map(event => {
