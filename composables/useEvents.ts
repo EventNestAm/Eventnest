@@ -1039,6 +1039,23 @@ export function useEvents() {
       emailSent: false, groupName: true, isSoldout: false, quantity: 35,
       pricePerPerson: 4000
     },
+    {
+      id: 60,
+      title: `Կարգին Սերիալ ${t("QUIZ_TITLE")}`,
+      slug: "kargin-serial-quiz-6",
+      titleDesc: "An evening of emotions and people like you",
+      date: "2026-09-26",
+      time: "19:30",
+      price: "4000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: KarginSerial,
+      description:
+        t("KARGIN_SERIAL_TITLE"),
+      category: [t("QUIZ"), t("KARGIN")],
+      eventDate: true,
+      emailSent: false, groupName: true, quantity: 35,
+      pricePerPerson: 4000
+    },
     // {
     //   id: 60,
     //   title: `${t("MEME")} ${t("QUIZ_TITLE")} #2`,
