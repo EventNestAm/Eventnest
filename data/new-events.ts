@@ -48,9 +48,16 @@ export const newEvents: NewEventAnnouncement[] = [
   },
   {
     id: 59,
-    title: "<MOVIE_QUIZ_TITLE> #1", // Russian movie quiz
+    title: "<MOVIE_QUIZ_TITLE> #1",
     date: "2026-09-14",
     location: "Shamrock Yvn - Ghazar Parpetsi 26",
     slug: "movie-quiz-russian-1",
+  },
+  {
+    id: 60,
+    title: `Կարգին Սերիալ ${t("QUIZ_TITLE")}`,
+    date: "2026-09-26",
+    location: "The Kond House - 46 Leo Street",
+    slug: "kargin-serial-quiz-6",
   },
 ]
