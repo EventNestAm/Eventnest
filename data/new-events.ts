@@ -63,7 +63,7 @@ export const newEvents: NewEventAnnouncement[] = [
   {
     id: 61,
     title: `Karaoke Battle`,
-    date: "2026-08-25",
+    date: "2026-09-25",
     location: "The Kond House - 46 Leo Street",
     slug: "karaoke-battle-7",
   },
