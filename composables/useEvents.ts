@@ -1056,6 +1056,23 @@ export function useEvents() {
       emailSent: false, groupName: true, quantity: 27,
       pricePerPerson: 2000
     },
+    {
+      id: 61,
+      title: `${t("KARAOKE_BATTLE_TITLE")}`,
+      slug: "karaoke-battle-7",
+      titleDesc: "An evening of emotions and people like you",
+      date: "2026-09-25",
+      time: "19:30",
+      price: "2000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: karaokeBattle,
+      description:
+        t("KARAOKE_BATTLE"),
+      category: t("KARAOKE"),
+      eventDate: true,
+      emailSent: false, groupName: false, isSoldout: false, quantity: 20,
+      pricePerPerson: 2000
+    },
     // {
     //   id: 60,
     //   title: `${t("MEME")} ${t("QUIZ_TITLE")} #2`,

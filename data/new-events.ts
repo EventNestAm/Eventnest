@@ -55,9 +55,16 @@ export const newEvents: NewEventAnnouncement[] = [
   },
   {
     id: 60,
-    title: `Կարգին Սերիալ Քվիզ)}`,
+    title: `Կարգին Սերիալ Քվիզ`,
     date: "2026-09-26",
     location: "The Kond House - 46 Leo Street",
     slug: "kargin-serial-quiz-6",
+  },
+  {
+    id: 61,
+    title: `Karaoke Battle`,
+    date: "2026-08-25",
+    location: "The Kond House - 46 Leo Street",
+    slug: "karaoke-battle-7",
   },
 ]
