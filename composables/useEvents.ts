@@ -1073,6 +1073,23 @@ export function useEvents() {
       emailSent: false, groupName: false, isSoldout: false, quantity: 14,
       pricePerPerson: 4000
     },
+    {
+      id: 62,
+      title: `${t("MOVIE_QUIZ_TITLE")} #2`,
+      slug: "movie-quiz-russian-2",
+      titleDesc: "An evening of emotions and people like you",
+      date: "2026-09-28",
+      time: "19:30",
+      price: "4000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: "/images/events/moviequiz.jpg",
+      description:
+        t("CINEMAQUIZTEXT"),
+      category: [t("QUIZ"), t("MOVIES")],
+      eventDate: true,
+      emailSent: false, groupName: true, isSoldout: false, quantity: 35,
+      pricePerPerson: 4000
+    },
     // {
     //   id: 60,
     //   title: `${t("MEME")} ${t("QUIZ_TITLE")} #2`,
