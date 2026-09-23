@@ -1048,12 +1048,12 @@ export function useEvents() {
       time: "19:30",
       price: "4000 AMD",
       location: "The Kond House - 46 Leo Street",
-      image: KarginSerial,
+      image: "/images/events/kargin.jpg",
       description:
         t("KARGIN_SERIAL_TITLE"),
       category: [t("QUIZ"), t("KARGIN")],
       eventDate: true,
-      emailSent: false, groupName: true, quantity: 22,
+      emailSent: false, groupName: true, quantity: 16,
       pricePerPerson: 4000
     },
     {
@@ -1070,7 +1070,7 @@ export function useEvents() {
         t("KARAOKE_BATTLE"),
       category: t("KARAOKE"),
       eventDate: true,
-      emailSent: false, groupName: false, isSoldout: false, quantity: 14,
+      emailSent: false, groupName: false, isSoldout: false, quantity: 12,
       pricePerPerson: 4000
     },
     {
@@ -1087,7 +1087,7 @@ export function useEvents() {
         t("CINEMAQUIZTEXT"),
       category: [t("QUIZ"), t("MOVIES")],
       eventDate: true,
-      emailSent: false, groupName: true, isSoldout: false, quantity: 35,
+      emailSent: false, groupName: true, isSoldout: false, quantity: 25,
       pricePerPerson: 4000
     },
     // {
