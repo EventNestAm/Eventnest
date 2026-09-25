@@ -67,4 +67,11 @@ export const newEvents: NewEventAnnouncement[] = [
     location: "The Kond House - 46 Leo Street",
     slug: "karaoke-battle-7",
   },
+  {
+    id: 63,
+    title: `Մեմ Քվիզ`,
+    date: "2026-10-03",
+    location: "The Kond House - 46 Leo Street",
+    slug: "meme-quiz-2",
+  },
 ]
