@@ -1070,7 +1070,7 @@ export function useEvents() {
         t("KARAOKE_BATTLE"),
       category: t("KARAOKE"),
       eventDate: true,
-      emailSent: false, groupName: false, isSoldout: false, quantity: 12,
+      emailSent: false, groupName: false, isSoldout: true, quantity: 12,
       pricePerPerson: 4000
     },
     {
