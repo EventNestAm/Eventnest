@@ -1053,8 +1053,8 @@ export function useEvents() {
         t("KARGIN_SERIAL_TITLE"),
       category: [t("QUIZ"), t("KARGIN")],
       eventDate: true,
-      emailSent: false, groupName: true, quantity: 16,
-      pricePerPerson: 4000
+      emailSent: false, groupName: true, quantity: 8,
+      pricePerPerson: 2000
     },
     {
       id: 61,
