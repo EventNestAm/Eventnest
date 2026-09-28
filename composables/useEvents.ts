@@ -1087,7 +1087,7 @@ export function useEvents() {
         t("CINEMAQUIZTEXT"),
       category: [t("QUIZ"), t("MOVIES")],
       eventDate: true,
-      emailSent: false, groupName: true, isSoldout: false, quantity: 25,
+      emailSent: false, groupName: true, isSoldout: true, quantity: 25,
       pricePerPerson: 4000
     },
     {
