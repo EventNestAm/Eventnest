@@ -1104,7 +1104,7 @@ export function useEvents() {
         t("MEME_DESC"),
       category: [t("QUIZ")],
       eventDate: true,
-      emailSent: false, groupName: true, isSoldout: false, quantity: 23,
+      emailSent: false, groupName: true, isSoldout: false, quantity: 14,
       pricePerPerson: 4000
     },
   ])
