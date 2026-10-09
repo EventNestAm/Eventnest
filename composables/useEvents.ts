@@ -1124,6 +1124,23 @@ export function useEvents() {
       emailSent: false, groupName: true, isSoldout: false, quantity: 12,
       pricePerPerson: 5000
     },
+    {
+      id: 65,
+      title: `${t("FULL_HOUSE")} ${t("QUIZ_TITLE")} #2`,
+      slug: "full-house-quiz-2",
+      titleDesc: "An evening of emotions and people like you",
+      date: "2026-10-17",
+      time: "19:30",
+      price: "5000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: "/images/events/fullhouse.jpg",
+      description:
+        t("FULL_HOUSE_DESC"),
+      category: [t("QUIZ"), t("SITCOMS")],
+      eventDate: true,
+      emailSent: false, groupName: true, isSoldout: false, quantity: 40,
+      pricePerPerson: 5000
+    },
   ])
   const eventsWithStatus = computed(() =>
     events.value.map(event => {
