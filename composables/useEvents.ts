@@ -1126,7 +1126,7 @@ export function useEvents() {
     },
     {
       id: 65,
-      title: `${t("FULL_HOUSE")} ${t("QUIZ_TITLE")} #2`,
+      title: `${t("FULL_HOUSE")} ${t("QUIZ_TITLE")} VOL.2`,
       slug: "full-house-quiz-2",
       titleDesc: "An evening of emotions and people like you",
       date: "2026-10-17",
