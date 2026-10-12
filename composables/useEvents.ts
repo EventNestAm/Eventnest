@@ -1138,7 +1138,7 @@ export function useEvents() {
         t("FULL_HOUSE_DESC"),
       category: [t("QUIZ"), t("SITCOMS")],
       eventDate: true,
-      emailSent: false, groupName: true, isSoldout: false, quantity: 40,
+      emailSent: false, groupName: true, isSoldout: false, quantity: 29,
       pricePerPerson: 5000
     },
   ])
