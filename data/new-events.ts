@@ -83,7 +83,7 @@ export const newEvents: NewEventAnnouncement[] = [
   },
   {
     id: 65,
-    title: `Ֆուլ Հաուս Քվիզ`,
+    title: `Ֆուլ Հաուս Քվիզ Vol2`,
     date: "2026-10-17",
     location: "The Kond House - 46 Leo Street",
     slug: "full-house-quiz-2",
