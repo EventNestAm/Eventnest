@@ -2,347 +2,497 @@
 import { ref, onMounted, onBeforeUnmount } from "vue";
 const { t } = useI18n();
 
-import what1 from "@/assets/img/whatWhereWhen/what1.jpg";
-import what2 from "@/assets/img/whatWhereWhen/what2.jpg";
-import what3 from "@/assets/img/whatWhereWhen/what3.jpg";
-import what4 from "@/assets/img/whatWhereWhen/what4.jpg";
-import what5 from "@/assets/img/whatWhereWhen/what5.jpg";
-import what6 from "@/assets/img/whatWhereWhen/what6.jpg";
-import what7 from "@/assets/img/whatWhereWhen/what7.jpg";
-import what8 from "@/assets/img/whatWhereWhen/what8.jpg";
-import what9 from "@/assets/img/whatWhereWhen/what9.jpg";
+const BASE = "/images/events";
+const EXT = "webp";
+const kargin = (n) => `${BASE}/KarginHaxordum/karginHaxordum${n}.${EXT}`;
+const fullhouse = (n) => `${BASE}/KarginHaxordum/karginHaxordum${n}.${EXT}`;
 
-import when1 from "@/assets/img/whatWhereWhen/when1.jpg";
-import when2 from "@/assets/img/whatWhereWhen/when2.jpg";
-import when3 from "@/assets/img/whatWhereWhen/when3.jpg";
-import when4 from "@/assets/img/whatWhereWhen/when4.jpg";
-import when5 from "@/assets/img/whatWhereWhen/when5.jpg";
-
-import KarginHaxordum from "@/assets/img/KarginHaxordum/karginHaxordum.jpg";
-import KarginHaxordum2 from "@/assets/img/KarginHaxordum/karginHaxordum2.jpg";
-import KarginHaxordum3 from "@/assets/img/KarginHaxordum/karginHaxordum3.jpg";
-import KarginHaxordum8 from "@/assets/img/KarginHaxordum/karginHaxordum8.jpg";
-import KarginHaxordum9 from "@/assets/img/KarginHaxordum/karginHaxordum9.jpg";
-import KarginHaxordum10 from "@/assets/img/KarginHaxordum/karginHaxordum10.jpg";
-import KarginHaxordum11 from "@/assets/img/KarginHaxordum/karginHaxordum11.jpg";
-import KarginHaxordum12 from "@/assets/img/KarginHaxordum/karginHaxordum12.jpg";
-import KarginHaxordum13 from "@/assets/img/KarginHaxordum/karginHaxordum13.jpg";
-
-const AUTOPLAY_MS = 3500;
+const AUTOPLAY_MS = 4000;
 
 const sections = [
-  {
-    tag: "QUIZ",
-    title: "KARGIN_SKETCH",
-    images: [
-      { src: KarginHaxordum, title: "Kargin Haxordum" },
-      { src: KarginHaxordum11, title: "Kargin Haxordum" },
-      { src: KarginHaxordum2, title: "Kargin Haxordum" },
-      { src: KarginHaxordum9, title: "Kargin Haxordum" },
-      { src: KarginHaxordum13, title: "Kargin Haxordum" },
-      { src: KarginHaxordum3, title: "Kargin Haxordum" },
-      { src: KarginHaxordum8, title: "Kargin Haxordum" },
-      { src: KarginHaxordum10, title: "Kargin Haxordum" },
-      { src: KarginHaxordum12, title: "Kargin Haxordum" },
-    ],
-  },
-  {
-    tag: "GAMES",
-    title: "MAFIA",
-    images: [
-      { src: what8, title: "Mafia" },
-      { src: what7, title: "Mafia" },
-      { src: what9, title: "Mafia" },
-      { src: what2, title: "Mafia" },
-      { src: what5, title: "Mafia" },
-      { src: what3, title: "Mafia" },
-      { src: what4, title: "Mafia" },
-      { src: what1, title: "Mafia" },
-      { src: what6, title: "Mafia" },
-    ],
-  },
-  {
-    tag: "QUIZ",
-    title: "WHAT_WHERE_WHEN",
-    images: [
-      { src: when4, title: "What Where When" },
-      { src: when1, title: "What Where When" },
-      { src: when3, title: "What Where When" },
-      { src: when2, title: "What Where When" },
-      { src: when5, title: "What Where When" },
-    ],
-  },
+	// {
+	// 	tag: "QUIZ",
+	// 	title: "FULL_HOUSE",
+	// 	label: "Full House",
+	// 	images: ["", 11, 2, 9, 13, 3, 8, 10, 12].map(fullhouse),
+	// },
+	{
+		tag: "QUIZ",
+		title: "KARGIN_SKETCH",
+		label: "Kargin Haxordum",
+		images: ["", 11, 2, 9, 13, 3, 8, 10, 12].map(kargin),
+	},
 ];
 
-const scrollers = [];
-const active = ref(sections.map(() => 0));
-const paused = sections.map(() => false);
-const visible = sections.map(() => false);
-const timers = [];
-const frames = [];
-let observer;
-let reduceMotion = false;
+const n = sections.length;
+const active = ref(Array(n).fill(0));
+const paused = ref(Array(n).fill(false));
+const visible = ref(Array(n).fill(false));
+const dragging = ref(Array(n).fill(false));
+const reduceMotion = ref(false);
 
-const setScroller = (el, i) => {
-  if (el) scrollers[i] = el;
+const tracks = [];
+const carousels = [];
+let slideObserver;
+let viewObserver;
+let drag = null;
+
+const setTrack = (el, i) => {
+	if (el) tracks[i] = el;
+};
+const setCarousel = (el, i) => {
+	if (el) carousels[i] = el;
 };
 
-function slideStep(el) {
-  const first = el.firstElementChild;
-  if (!first) return 0;
-  const gap = parseFloat(getComputedStyle(el).columnGap) || 0;
-  return first.getBoundingClientRect().width + gap;
-}
+const pad = (v) => String(v).padStart(2, "0");
 
-function onScroll(i) {
-  if (frames[i]) return;
-  frames[i] = requestAnimationFrame(() => {
-    frames[i] = 0;
-    const el = scrollers[i];
-    if (!el) return;
-    const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 4;
-    const idx = atEnd
-      ? sections[i].images.length - 1
-      : Math.round(el.scrollLeft / (slideStep(el) || 1));
-    if (active.value[i] !== idx) active.value[i] = idx;
-  });
-}
-
-function go(i, dir) {
-  const el = scrollers[i];
-  if (!el) return;
-  const atStart = el.scrollLeft <= 4;
-  const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 4;
-  const behavior = reduceMotion ? "auto" : "smooth";
-  if (dir > 0 && atEnd) el.scrollTo({ left: 0, behavior });
-  else if (dir < 0 && atStart) el.scrollTo({ left: el.scrollWidth, behavior });
-  else el.scrollBy({ left: dir * slideStep(el), behavior });
+function slideWidth(el) {
+	const first = el.firstElementChild;
+	if (!first) return 0;
+	const gap = parseFloat(getComputedStyle(el).columnGap) || 0;
+	return first.getBoundingClientRect().width + gap;
 }
 
 function goTo(i, idx) {
-  const el = scrollers[i];
-  if (!el) return;
-  el.scrollTo({
-    left: idx * slideStep(el),
-    behavior: reduceMotion ? "auto" : "smooth",
-  });
+	const el = tracks[i];
+	if (!el) return;
+	const count = sections[i].images.length;
+	const target = (idx + count) % count;
+	el.scrollTo({
+		left: target * slideWidth(el),
+		behavior: reduceMotion.value ? "auto" : "smooth",
+	});
+}
+
+const go = (i, dir) => goTo(i, active.value[i] + dir);
+
+/* ---------- mouse drag (touch uses native scrolling) ---------- */
+function onDown(e, i) {
+	if (e.pointerType !== "mouse" || e.button !== 0) return;
+	const el = tracks[i];
+	drag = { i, x: e.clientX, left: el.scrollLeft };
+	dragging.value[i] = true;
+	el.setPointerCapture(e.pointerId);
+}
+function onMove(e) {
+	if (!drag) return;
+	tracks[drag.i].scrollLeft = drag.left - (e.clientX - drag.x);
+}
+function onUp() {
+	if (!drag) return;
+	dragging.value[drag.i] = false; // scroll-snap re-engages and settles
+	drag = null;
+}
+
+function onKey(e, i) {
+	if (e.key === "ArrowRight") {
+		e.preventDefault();
+		go(i, 1);
+	} else if (e.key === "ArrowLeft") {
+		e.preventDefault();
+		go(i, -1);
+	}
 }
 
 onMounted(() => {
-  reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+	reduceMotion.value = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  observer = new IntersectionObserver(
-    (entries) => {
-      for (const e of entries) {
-        visible[scrollers.indexOf(e.target)] = e.isIntersecting;
-      }
-    },
-    { threshold: 0.3 }
-  );
+	// Active slide = the one crossing the horizontal centre line of its track
+	sections.forEach((_, i) => {
+		const root = tracks[i];
+		if (!root) return;
+		const io = new IntersectionObserver(
+			(entries) => {
+				for (const e of entries) {
+					if (e.isIntersecting) active.value[i] = Number(e.target.dataset.k);
+				}
+			},
+			{ root, rootMargin: "0px -49.5% 0px -49.5%", threshold: 0 },
+		);
+		root.querySelectorAll(".slide").forEach((s) => io.observe(s));
+		(slideObserver ||= []).push(io);
+	});
 
-  sections.forEach((_, i) => {
-    if (scrollers[i]) observer.observe(scrollers[i]);
-    if (!reduceMotion) {
-      timers[i] = setInterval(() => {
-        if (!paused[i] && visible[i] && !document.hidden) go(i, 1);
-      }, AUTOPLAY_MS);
-    }
-  });
+	// Autoplay only while the carousel is on screen
+	viewObserver = new IntersectionObserver(
+		(entries) => {
+			for (const e of entries) {
+				visible.value[carousels.indexOf(e.target)] = e.isIntersecting;
+			}
+		},
+		{ threshold: 0.35 },
+	);
+	carousels.forEach((c) => viewObserver.observe(c));
 });
 
 onBeforeUnmount(() => {
-  observer?.disconnect();
-  timers.forEach(clearInterval);
-  frames.forEach((f) => f && cancelAnimationFrame(f));
+	slideObserver?.forEach((o) => o.disconnect());
+	viewObserver?.disconnect();
 });
 </script>
 
 <template>
-  <div class="gallery space-y-16 sm:space-y-20">
-    <section v-for="(section, i) in sections" :key="i">
-      <p class="section-label">{{ t(section.tag) }}</p>
-      <h2 class="section-title">{{ t(section.title) }}</h2>
+	<div class="gallery">
+		<section v-for="(section, i) in sections" :key="i" class="block">
+			<header class="head">
+				<p class="section-label">{{ t(section.tag) }}</p>
+				<h2 class="section-title">{{ t(section.title) }}</h2>
+			</header>
 
-      <div
-        class="carousel"
-        @pointerenter="paused[i] = true"
-        @pointerleave="paused[i] = false"
-        @focusin="paused[i] = true"
-        @focusout="paused[i] = false"
-        @touchstart.passive="paused[i] = true"
-        @touchend.passive="paused[i] = false"
-      >
-        <ul
-          :ref="(el) => setScroller(el, i)"
-          class="track"
-          @scroll.passive="onScroll(i)"
-        >
-          <li v-for="(slide, k) in section.images" :key="slide.src" class="slide">
-            <div class="slide-inner">
-              <img
-                :src="slide.src"
-                :alt="slide.title"
-                :loading="i === 0 && k < 3 ? 'eager' : 'lazy'"
-                :fetchpriority="i === 0 && k === 0 ? 'high' : 'auto'"
-                decoding="async"
-                draggable="false"
-              />
-              <span class="slide-tag font-mono">{{ slide.title }}</span>
-            </div>
-          </li>
-        </ul>
+			<div
+				:ref="(el) => setCarousel(el, i)"
+				class="carousel"
+				@pointerenter="paused[i] = true"
+				@pointerleave="paused[i] = false"
+				@focusin="paused[i] = true"
+				@focusout="paused[i] = false"
+				@touchstart.passive="paused[i] = true"
+				@touchend.passive="paused[i] = false"
+			>
+				<ul
+					:ref="(el) => setTrack(el, i)"
+					class="track"
+					:class="{ dragging: dragging[i] }"
+					tabindex="0"
+					aria-roledescription="carousel"
+					:aria-label="section.label"
+					@keydown="onKey($event, i)"
+					@pointerdown="onDown($event, i)"
+					@pointermove="onMove"
+					@pointerup="onUp"
+					@pointercancel="onUp"
+				>
+					<li
+						v-for="(src, k) in section.images"
+						:key="src"
+						class="slide"
+						:class="{ current: active[i] === k }"
+						:data-k="k"
+						:aria-label="`${k + 1} / ${section.images.length}`"
+					>
+						<div class="card">
+							<img
+								:src="src"
+								:alt="section.label"
+								:loading="i === 0 && k < 2 ? 'eager' : 'lazy'"
+								:fetchpriority="i === 0 && k === 0 ? 'high' : 'auto'"
+								decoding="async"
+								draggable="false"
+							/>
+							<div class="shade" />
+							<span class="chip">{{ section.label }}</span>
+							<span class="num">{{ pad(k + 1) }}</span>
+						</div>
+					</li>
+				</ul>
 
-        <button class="nav prev" aria-label="Previous" @click="go(i, -1)">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
-        </button>
-        <button class="nav next" aria-label="Next" @click="go(i, 1)">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6" /></svg>
-        </button>
-      </div>
+				<button class="nav prev" aria-label="Previous" @click="go(i, -1)">
+					<svg
+						viewBox="0 0 24 24"
+						width="16"
+						height="16"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2.5"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					>
+						<path d="M15 18l-6-6 6-6" />
+					</svg>
+				</button>
+				<button class="nav next" aria-label="Next" @click="go(i, 1)">
+					<svg
+						viewBox="0 0 24 24"
+						width="16"
+						height="16"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2.5"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					>
+						<path d="M9 6l6 6-6 6" />
+					</svg>
+				</button>
+			</div>
 
-      <div class="dots" role="tablist">
-        <button
-          v-for="(_, k) in section.images"
-          :key="k"
-          class="dot"
-          :class="{ on: active[i] === k }"
-          :aria-label="`Slide ${k + 1}`"
-          :aria-selected="active[i] === k"
-          @click="goTo(i, k)"
-        />
-      </div>
-    </section>
-  </div>
+			<div class="foot">
+				<span class="count">
+					<b>{{ pad(active[i] + 1) }}</b> / {{ pad(section.images.length) }}
+				</span>
+				<div class="dots" role="tablist">
+					<button
+						v-for="(_, k) in section.images"
+						:key="k"
+						class="dot"
+						:class="{ on: active[i] === k }"
+						:aria-label="`Slide ${k + 1}`"
+						:aria-selected="active[i] === k"
+						@click="goTo(i, k)"
+					>
+						<!-- CSS-driven autoplay: when the fill finishes, go to next slide -->
+						<span
+							v-if="active[i] === k"
+							class="fill"
+							:class="{
+								halt: paused[i] || !visible[i] || reduceMotion || dragging[i],
+							}"
+							:style="{ animationDuration: AUTOPLAY_MS + 'ms' }"
+							@animationend="go(i, 1)"
+						/>
+					</button>
+				</div>
+			</div>
+		</section>
+	</div>
 </template>
 
 <style scoped>
-.font-mono { font-family: "JetBrains Mono", monospace; }
-
-.section-label {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 11px;
-  letter-spacing: 0.35em;
-  color: #7c5cfc;
-  text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 6px;
+.gallery {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: clamp(4rem, 9vw, 6.5rem);
+	width: 100%;
+	max-width: 100%;
+	min-width: 0;
+}
+.block {
+	min-width: 0;
+	max-width: 100%;
+	overflow-x: clip;
 }
 
+.head {
+	text-align: center;
+}
+.section-label {
+	font-family: "JetBrains Mono", monospace;
+	font-size: 11px;
+	letter-spacing: 0.35em;
+	color: #7c5cfc;
+	text-transform: uppercase;
+	margin-bottom: 6px;
+}
 .section-title {
-  font-family: "Space Grotesk", system-ui, sans-serif;
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
-  font-weight: 700;
-  color: #1c1530;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+	font-family: "Space Grotesk", system-ui, sans-serif;
+	font-size: clamp(1.4rem, 3.4vw, 2.1rem);
+	font-weight: 700;
+	color: #1c1530;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
 }
 
 .carousel {
-  position: relative;
-  margin-top: 1.5rem;
+	--w: min(74vw, 340px);
+	position: relative;
+	margin-top: 1.75rem;
+	min-width: 0;
+	max-width: 100%;
+}
+@media (min-width: 768px) {
+	.carousel {
+		--w: 360px;
+	}
+}
+@media (min-width: 1280px) {
+	.carousel {
+		--w: 400px;
+	}
 }
 
-/* Native scroll-snap: GPU-driven, zero JS in the scroll path */
+/* Native scroll-snap. No mask, no perspective, no filters = nothing repaints while scrolling */
 .track {
-  --per-view: 1.2;
-  --gap: 14px;
-  display: flex;
-  gap: var(--gap);
-  margin: 0;
-  padding: 4px;
-  list-style: none;
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
+	display: flex;
+	gap: 18px;
+	width: 100%;
+	min-width: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 24px calc(50% - var(--w) / 2) 32px;
+	list-style: none;
+	overflow-x: auto;
+	overscroll-behavior-x: contain;
+	scroll-snap-type: x mandatory;
+	scrollbar-width: none;
+	outline: none;
+	cursor: grab;
+	-webkit-overflow-scrolling: touch;
 }
-.track::-webkit-scrollbar { display: none; }
+.track::-webkit-scrollbar {
+	display: none;
+}
+.track.dragging {
+	scroll-snap-type: none;
+	cursor: grabbing;
+	user-select: none;
+}
+.track:focus-visible {
+	box-shadow: inset 0 0 0 2px #7c5cfc55;
+	border-radius: 20px;
+}
 
 .slide {
-  flex: 0 0 calc((100% - (var(--per-view) - 1) * var(--gap)) / var(--per-view));
-  scroll-snap-align: start;
-  content-visibility: auto;
-  contain-intrinsic-size: auto 300px;
+	flex: 0 0 var(--w);
+	scroll-snap-align: center;
+	scroll-snap-stop: always;
 }
 
-@media (min-width: 640px)  { .track { --per-view: 1.5; } }
-@media (min-width: 768px)  { .track { --per-view: 2.2; --gap: 16px; } }
-@media (min-width: 1024px) { .track { --per-view: 3;   --gap: 18px; } }
-
-.slide-inner {
-  position: relative;
-  border-radius: 14px;
-  overflow: hidden;
-  aspect-ratio: 4 / 3;
-  background: #f0ecff;
-  box-shadow: 0 8px 24px -10px rgba(20, 16, 43, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Only transform + opacity are animated (compositor-only). Shadow is static. */
+.card {
+	position: relative;
+	aspect-ratio: 4 / 5;
+	border-radius: 22px;
+	overflow: hidden;
+	background: #f0ecff;
+	box-shadow: 0 12px 24px -16px rgba(20, 16, 43, 0.5);
+	transform: scale(0.88) translateZ(0);
+	opacity: 0.6;
+	transition:
+		transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+		opacity 0.35s ease;
 }
-.slide-inner:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 32px -12px rgba(124, 92, 252, 0.3);
-}
-.slide-inner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  user-select: none;
+.slide.current .card {
+	transform: scale(1) translateZ(0);
+	opacity: 1;
 }
 
-.slide-tag {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  background: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  padding: 4px 10px;
-  border-radius: 999px;
-  backdrop-filter: blur(6px);
-  text-transform: uppercase;
+.card img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	user-select: none;
+	-webkit-user-drag: none;
+	pointer-events: none;
+}
+
+.shade {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(180deg, transparent 58%, rgba(14, 10, 32, 0.65));
+	pointer-events: none;
+}
+.chip {
+	position: absolute;
+	left: 14px;
+	bottom: 14px;
+	font-family: "JetBrains Mono", monospace;
+	font-size: 10px;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: #fff;
+	padding: 5px 12px;
+	border-radius: 999px;
+	background: rgba(20, 16, 43, 0.55);
+	border: 0.5px solid rgba(255, 255, 255, 0.3);
+}
+.num {
+	position: absolute;
+	top: 12px;
+	right: 16px;
+	font-family: "Space Grotesk", system-ui, sans-serif;
+	font-size: 28px;
+	font-weight: 700;
+	color: rgba(255, 255, 255, 0.9);
+	text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .nav {
-  position: absolute;
-  top: 50%;
-  translate: 0 -50%;
-  z-index: 2;
-  width: 36px;
-  height: 36px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: #fff;
-  color: #1c1530;
-  border: 0.5px solid rgba(20, 16, 43, 0.12);
-  box-shadow: 0 4px 12px -4px rgba(20, 16, 43, 0.2);
-  cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
+	position: absolute;
+	top: 50%;
+	translate: 0 -50%;
+	z-index: 2;
+	width: 42px;
+	height: 42px;
+	display: grid;
+	place-items: center;
+	border-radius: 50%;
+	background: #fff;
+	color: #1c1530;
+	border: 0.5px solid rgba(20, 16, 43, 0.12);
+	box-shadow: 0 6px 14px -8px rgba(20, 16, 43, 0.4);
+	cursor: pointer;
+	transition:
+		background 0.2s ease,
+		color 0.2s ease;
 }
-.nav:hover { background: #7c5cfc; color: #fff; }
-.nav.prev { left: 8px; }
-.nav.next { right: 8px; }
-@media (hover: none) { .nav { display: none; } }
+.nav:hover {
+	background: #7c5cfc;
+	color: #fff;
+}
+.nav.prev {
+	left: 12px;
+}
+.nav.next {
+	right: 12px;
+}
+@media (hover: none) {
+	.nav {
+		display: none;
+	}
+}
+
+.foot {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 18px;
+}
+.count {
+	font-family: "JetBrains Mono", monospace;
+	font-size: 12px;
+	letter-spacing: 0.1em;
+	color: #8a82a8;
+}
+.count b {
+	color: #1c1530;
+	font-weight: 700;
+}
 
 .dots {
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-  margin-top: 16px;
+	display: flex;
+	align-items: center;
+	gap: 6px;
 }
 .dot {
-  width: 8px;
-  height: 8px;
-  padding: 0;
-  border: 0;
-  border-radius: 999px;
-  background: #c9bdf7;
-  cursor: pointer;
-  transition: width 0.25s ease, background 0.25s ease;
+	position: relative;
+	width: 8px;
+	height: 8px;
+	padding: 0;
+	border: 0;
+	border-radius: 999px;
+	background: #d5cbfa;
+	overflow: hidden;
+	cursor: pointer;
+	transition: width 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
-.dot.on { width: 22px; background: #7c5cfc; }
+.dot.on {
+	width: 30px;
+}
+.fill {
+	position: absolute;
+	inset: 0;
+	background: #7c5cfc;
+	transform-origin: left center;
+	transform: scaleX(0);
+	animation: progress linear forwards;
+}
+.fill.halt {
+	animation-play-state: paused;
+}
+@keyframes progress {
+	to {
+		transform: scaleX(1);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.card {
+		transition: none;
+	}
+	.fill {
+		animation: none;
+		transform: scaleX(1);
+	}
+}
 </style>
