@@ -1,7 +1,5 @@
 <script setup>
-import Mafia from "@/assets/img/quizes/mafia.png?url";
-import whatWhere from "@/assets/img/quizes/whatWhere.png?url";
-import Football from "@/assets/img/quizes/football.png?url";
+import Fullhouse from "@/assets/img/quizes/fullhouse.png?url";
 import Movie from "@/assets/img/quizes/movie.png?url";
 import Music from "@/assets/img/quizes/music.png?url";
 import Kargincinema from "@/assets/img/quizes/Kargincinema.png?url";
@@ -26,14 +24,9 @@ const swiperImages = [
 		description: t("KARGIN_DESC"),
 	},
 	{
-		title: t("MAFIA"),
-		src: Mafia,
-		description: t("MAFIA_DESC"),
-	},
-	{
-		title: t("WHAT_WHERE_WHEN"),
-		src: whatWhere,
-		description: t("WHAT_WHERE_WHEN_DESC"),
+		title: t("FULL_HOUSE"),
+		src: Fullhouse,
+		description: t("KARGIN_DESC"),
 	},
 	{
 		title: t("MOVIE_QUIZ"),
@@ -45,11 +38,6 @@ const swiperImages = [
 		src: Music,
 		description: t("MUSIC_QUIZ_DESC"),
 	},
-	{
-		title: t("FOOTBALL_QUIZ"),
-		src: Football,
-		description: t("FOOTBALL_QUIZ_DESC"),
-	},
 ];
 
 const onSlideChange = (swiper) => {
@@ -59,14 +47,20 @@ const onSlideChange = (swiper) => {
 
 <template>
 	<section class="showcase">
-		<p class="font-mono text-[11px] tracking-[0.35em] text-[#7C5CFC] mb-2 uppercase text-center">
+		<p
+			class="font-mono text-[11px] tracking-[0.35em] text-[#7C5CFC] mb-2 uppercase text-center"
+		>
 			{{ t("QUIZ") }}
 		</p>
-		<h1 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-[#1C1530] text-center tracking-tight uppercase">
+		<h1
+			class="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-[#1C1530] text-center tracking-tight uppercase"
+		>
 			{{ t("YOU_WILL_FIND") }}
 		</h1>
 
-		<div class="flex flex-col md:flex-row gap-8 items-stretch justify-center mt-10 md:mt-14 overflow-hidden">
+		<div
+			class="flex flex-col md:flex-row gap-8 items-stretch justify-center mt-10 md:mt-14 overflow-hidden"
+		>
 			<div class="relative w-full md:w-1/2 flex justify-center items-center pb-5">
 				<button class="nav-btn nav-btn--prev swiper-button-prev-custom">←</button>
 
@@ -83,7 +77,11 @@ const onSlideChange = (swiper) => {
 						@slideChange="onSlideChange"
 					>
 						<SwiperSlide v-for="(item, index) in swiperImages" :key="index">
-							<img :src="item.src" :alt="item.title" class="object-cover w-full h-full rounded-xl" />
+							<img
+								:src="item.src"
+								:alt="item.title"
+								class="object-cover w-full h-full rounded-xl"
+							/>
 						</SwiperSlide>
 					</Swiper>
 				</ClientOnly>
@@ -93,9 +91,12 @@ const onSlideChange = (swiper) => {
 
 			<div class="w-full md:w-1/2 info-panel">
 				<span class="font-mono text-[10px] tracking-[0.3em] text-[#FF6F4D] uppercase">
-					{{ String(activeIndex + 1).padStart(2, "0") }} / {{ String(swiperImages.length).padStart(2, "0") }}
+					{{ String(activeIndex + 1).padStart(2, "0") }} /
+					{{ String(swiperImages.length).padStart(2, "0") }}
 				</span>
-				<h3 class="font-display font-bold text-2xl sm:text-3xl md:text-4xl mt-3 mb-4 text-white">
+				<h3
+					class="font-display font-bold text-2xl sm:text-3xl md:text-4xl mt-3 mb-4 text-white"
+				>
 					{{ swiperImages[activeIndex].title }}
 				</h3>
 				<p class="text-[#C7C1E0] leading-relaxed text-base sm:text-lg">

@@ -5,6 +5,10 @@ const logos = [
 		link: "https://www.instagram.com/loft.yerevan/",
 	},
 	{
+		src: "/partners/bloomhills.png",
+		link: "https://bloomhillscider.com/",
+	},
+	{
 		src: "/partners/kondhouse.png",
 		link: "https://www.facebook.com/kondhouse",
 	},
@@ -12,6 +16,7 @@ const logos = [
 		src: "/partners/rockfour.jpg",
 		link: "https://www.rockfour.am/hy",
 	},
+
 	{
 		src: "/partners/medines.jpg",
 		link: "https://medines.am/",
@@ -20,52 +25,16 @@ const logos = [
 		src: "/partners/yerevanacademy.jpg",
 		link: "https://yerevanacademy.com/",
 	},
-	{
-		src: "/partners/tomsarkx.png",
-		link: "https://www.tomsarkgh.am/",
-	},
-	{
-		src: "/partners/fast.jpg",
-		link: "https://fastticket.am/",
-	},
-	{
-		src: "/partners/eventhub.png",
-		link: "https://eventhub.am/",
-	},
-	{
-		src: "/partners/telcellWallet.jpg",
-		link: "https://telcell.am/hy/wallet",
-	},
-	{
-		src: "/partners/ticketSystem.png",
-		link: "https://www.ticketsystem.am/",
-	},
-	{
-		src: "/partners/ticketon.png",
-		link: "https://ticketon.am/hy/home",
-	},
-	{
-		src: "/partners/foresttea.jpg",
-		link: "https://www.instagram.com/forest.teaa/",
-	},
-	{ src: "/partners/73club.jpeg", link: "https://www.facebook.com/73clubevn" },
+
 	{
 		src: "/partners/trendiSalon.jpeg",
 		link: "https://www.instagram.com/trendi.salon/",
 	},
-	{
-		src: "/partners/show4me.png",
-		link: "https://show4me.com/interaction/feed/featured",
-	},
+
 	{
 		src: "/partners/trendibijoux.jpg",
 		link: "https://www.instagram.com/trendi.salon_bijoux/",
 	},
-	{
-		src: "/partners/davGarden.jpg",
-		link: "https://www.instagram.com/dav.garden/",
-	},
-	{ src: "/partners/rush.jpg", link: "https://www.facebook.com/RushPubYVN/" },
 ];
 
 const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
