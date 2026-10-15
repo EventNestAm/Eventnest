@@ -1,8 +1,12 @@
 <script setup>
 import Fullhouse from "@/assets/img/quizes/fullhouse.png?url";
-import Movie from "@/assets/img/quizes/movie.png?url";
 import Music from "@/assets/img/quizes/music.png?url";
-import Kargincinema from "@/assets/img/quizes/Kargincinema.png?url";
+import Gameofthrones from "@/assets/img/quizes/gameofthrones.jpg?url";
+import Karginserial from "@/assets/img/quizes/karginserial.jpg?url";
+import Karginhaxordum from "@/assets/img/quizes/karginhaxordum.jpg?url";
+import Harrypotter from "@/assets/img/quizes/harrypotter.jpg?url";
+import Domino from "@/assets/img/quizes/domino.jpg?url";
+import Karaokebattle from "@/assets/img/quizes/karaokebattle.jpg?url";
 
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
@@ -19,24 +23,44 @@ const activeIndex = ref(0);
 
 const swiperImages = [
 	{
-		title: t("KARGIN_SKETCH"),
-		src: Kargincinema,
-		description: t("KARGIN_DESC"),
-	},
-	{
 		title: t("FULL_HOUSE"),
 		src: Fullhouse,
-		description: t("KARGIN_DESC"),
+		description: t("FULL_HOUSE_DESC"),
 	},
 	{
-		title: t("MOVIE_QUIZ"),
-		src: Movie,
-		description: t("MOVIE_QUIZ_DESC"),
+		title: `Կարգին հաղորդման ${t("QUIZ_TITLE")}`,
+		src: Karginhaxordum,
+		description: t("KARGIN_QUIZ_TITLE"),
+	},
+	{
+		title: `Կարգին Սերիալ ${t("QUIZ_TITLE")}`,
+		src: Karginserial,
+		description: t("KARGIN_SERIAL_TITLE"),
+	},
+	{
+		title: `Game of Thrones ${t("QUIZ_TITLE")}`,
+		src: Gameofthrones,
+		description: t("GAME_OF_THRONES_QUIZ_DESC"),
 	},
 	{
 		title: t("MUSIC_QUIZ"),
 		src: Music,
-		description: t("MUSIC_QUIZ_DESC"),
+		description: t("MUSIC_QUIZ_TITLE"),
+	},
+	{
+		title: `${t("HARRY_POTTER_TITLE")} ${t("QUIZ_TITLE")}`,
+		src: Harrypotter,
+		description: t("HARRY_POTTER_DESC"),
+	},
+	{
+		title: `${t("KARAOKE_BATTLE_TITLE")}`,
+		src: Karaokebattle,
+		description: t("KARAOKE_BATTLE"),
+	},
+	{
+		title: `${t("DOMINO")} ${t("QUIZ_TITLE")}`,
+		src: Domino,
+		description: t("DOMINO_DESC"),
 	},
 ];
 
