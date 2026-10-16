@@ -5,22 +5,22 @@ const { t } = useI18n();
 const BASE = "/images/events";
 const EXT = "webp";
 const kargin = (n) => `${BASE}/KarginHaxordum/karginHaxordum${n}.${EXT}`;
-const fullhouse = (n) => `${BASE}/KarginHaxordum/karginHaxordum${n}.${EXT}`;
+const fullhouse = (n) => `${BASE}/FullHouse/fullhouse${n}.${EXT}`;
 
 const AUTOPLAY_MS = 4000;
 
 const sections = [
-	// {
-	// 	tag: "QUIZ",
-	// 	title: "FULL_HOUSE",
-	// 	label: "Full House",
-	// 	images: ["", 11, 2, 9, 13, 3, 8, 10, 12].map(fullhouse),
-	// },
+	{
+		tag: "QUIZ",
+		title: "FULL_HOUSE",
+		label: "Full House",
+		images: ["", 1, 2, 3, 4, 5, 6].map(fullhouse),
+	},
 	{
 		tag: "QUIZ",
 		title: "KARGIN_SKETCH",
 		label: "Kargin Haxordum",
-		images: ["", 11, 2, 9, 13, 3, 8, 10, 12].map(kargin),
+		images: [11, 9, 13, 8, 10, 12].map(kargin),
 	},
 ];
 
