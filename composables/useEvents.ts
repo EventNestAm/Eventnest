@@ -1150,7 +1150,7 @@ export function useEvents() {
       time: "19:30",
       price: "5000 AMD",
       location: "The Kond House - 46 Leo Street",
-      image: "/images/events/fullhouse3.png",
+      image: "/images/events/fullhouse3.jpg"
       description:
         t("FULL_HOUSE_DESC"),
       category: [t("QUIZ"), t("SITCOMS")],
