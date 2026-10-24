@@ -1148,15 +1148,15 @@ export function useEvents() {
       titleDesc: "An evening of emotions and people like you",
       date: "2026-10-24",
       time: "19:30",
-      price: "5000 AMD",
+      price: "2500 AMD",
       location: "The Kond House - 46 Leo Street",
       image: "/images/events/fullhouse3.jpg",
       description:
         t("FULL_HOUSE_DESC"),
       category: [t("QUIZ"), t("SITCOMS")],
       eventDate: true,
-      emailSent: false, groupName: true, isSoldout: false, quantity: 27,
-      pricePerPerson: 5000
+      emailSent: false, groupName: true, isSoldout: false, quantity: 12,
+      pricePerPerson: 2500
     },
     {
       id: 67,
