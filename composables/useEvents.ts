@@ -1161,7 +1161,7 @@ export function useEvents() {
     {
       id: 67,
       title: `Կարգին հաղորդման ${t("QUIZ_TITLE")} `,
-      slug: "kargin-haxordman-viktorina-20",
+      slug: "kargin-haxordman-quiz-20",
       titleDesc: "An evening of emotions and people like you",
       date: "2026-10-31",
       time: "19:30",
