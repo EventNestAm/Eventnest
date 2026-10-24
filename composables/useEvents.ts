@@ -1158,23 +1158,7 @@ export function useEvents() {
       emailSent: false, groupName: true, isSoldout: false, quantity: 12,
       pricePerPerson: 2500
     },
-    {
-      id: 67,
-      title: `Կարգին հաղորդման ${t("QUIZ_TITLE")} `,
-      slug: "kargin-haxordman-quiz-20",
-      titleDesc: "An evening of emotions and people like you",
-      date: "2026-10-31",
-      time: "19:30",
-      price: "5000 AMD",
-      location: "The Kond House - 46 Leo Street",
-      image: "/images/events/kargin31.png",
-      description:
-        t("KARGIN_QUIZ_TITLE"),
-      category: [t("QUIZ"), t("KARGIN")],
-      eventDate: true,
-      emailSent: false, groupName: true, isSoldout: false, quantity: 35,
-      pricePerPerson: 5000
-    },
+
   ])
   const eventsWithStatus = computed(() =>
     events.value.map(event => {
