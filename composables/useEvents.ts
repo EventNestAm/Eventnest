@@ -1167,7 +1167,7 @@ export function useEvents() {
       time: "19:30",
       price: "5000 AMD",
       location: "The Kond House - 46 Leo Street",
-      image: "/images/events/kargin31.png",
+      image: "/images/events/kargin07.png",
       description:
         t("KARGIN_QUIZ_TITLE"),
       category: [t("QUIZ"), t("KARGIN")],
