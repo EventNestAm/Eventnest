@@ -95,5 +95,11 @@ export const newEvents: NewEventAnnouncement[] = [
     location: "The Kond House - 46 Leo Street",
     slug: "full-house-quiz-3",
   },
-
+  {
+    id: 66,
+    title: `Կարգին հաղորդման Քվիզ`,
+    date: "2026-11-07",
+    location: "The Kond House - 46 Leo Street",
+    slug: "kargin-haxordman-quiz-20",
+  },
 ]
