@@ -1173,7 +1173,7 @@ export function useEvents() {
       category: [t("QUIZ"), t("KARGIN")],
       eventDate: true,
       emailSent: false, groupName: true, isSoldout: false, quantity: 21,
-      pricePerPerson: 5000
+      pricePerPerson: 4000
     },
   ])
   const eventsWithStatus = computed(() =>
