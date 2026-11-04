@@ -1165,7 +1165,7 @@ export function useEvents() {
       titleDesc: "An evening of emotions and people like you",
       date: "2026-11-07",
       time: "19:30",
-      price: "5000 AMD",
+      price: "4000 AMD",
       location: "The Kond House - 46 Leo Street",
       image: "/images/events/kargin07.png",
       description:
