@@ -1184,10 +1184,10 @@ export function useEvents() {
       time: "16:00",
       price: "4000 AMD",
       location: "The Kond House - 46 Leo Street",
-      image: "/images/events/trynottolaugh.png",
+      image: "/images/events/trynottoluagh.png",
       description:
         t("TRY_NOT_LAUGH"),
-      category: [t("QUIZ"), t("KARGIN")],
+      category: [t("EVENT")],
       eventDate: true,
       emailSent: false, groupName: true, isSoldout: false, quantity: 40,
       pricePerPerson: 4000
