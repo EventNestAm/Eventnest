@@ -1177,7 +1177,7 @@ export function useEvents() {
     },
     {
       id: 68,
-      title: `Փորձիր չծիծաղել `,
+      title: ` ${t("TRY_NOT_LAUGH_T")} `,
       slug: "try-not-to-laugh",
       titleDesc: "An evening of emotions and people like you",
       date: "2026-11-14",
