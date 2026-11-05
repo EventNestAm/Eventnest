@@ -1186,7 +1186,7 @@ export function useEvents() {
       location: "The Kond House - 46 Leo Street",
       image: "/images/events/trynottolaugh.png",
       description:
-        t("KARGIN_QUIZ_TITLE"),
+        t("TRY_NOT_LAUGH"),
       category: [t("QUIZ"), t("KARGIN")],
       eventDate: true,
       emailSent: false, groupName: true, isSoldout: false, quantity: 40,
