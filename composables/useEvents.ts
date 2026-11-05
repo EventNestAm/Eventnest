@@ -1175,6 +1175,23 @@ export function useEvents() {
       emailSent: false, groupName: true, isSoldout: false, quantity: 21,
       pricePerPerson: 4000
     },
+    {
+      id: 68,
+      title: `Փորձիր չծիծաղել `,
+      slug: "try-not-to-laugh",
+      titleDesc: "An evening of emotions and people like you",
+      date: "2026-11-14",
+      time: "16:00",
+      price: "4000 AMD",
+      location: "The Kond House - 46 Leo Street",
+      image: "/images/events/trynottolaugh.png",
+      description:
+        t("KARGIN_QUIZ_TITLE"),
+      category: [t("QUIZ"), t("KARGIN")],
+      eventDate: true,
+      emailSent: false, groupName: true, isSoldout: false, quantity: 40,
+      pricePerPerson: 4000
+    },
   ])
   const eventsWithStatus = computed(() =>
     events.value.map(event => {
