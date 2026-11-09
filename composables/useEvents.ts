@@ -1189,7 +1189,7 @@ export function useEvents() {
         t("TRY_NOT_LAUGH"),
       category: [t("EVENT")],
       eventDate: true,
-      emailSent: false, groupName: true, isSoldout: false, quantity: 40,
+      emailSent: false, groupName: true, isSoldout: false, quantity: 30,
       pricePerPerson: 4000
     },
   ])
