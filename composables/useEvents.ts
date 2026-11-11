@@ -1201,7 +1201,7 @@ export function useEvents() {
       time: "19:30",
       price: "4000 AMD",
       location: "Loft - Մոսկովյան 3Ա",
-      image: "/images/events/hogwarts-quiz.jpg",
+      image: "/images/events/harrypotter.jpg",
       description:
         t("HARRY_POTTER_DESC"),
       category: [t("QUIZ"), t("MOVIES")],
