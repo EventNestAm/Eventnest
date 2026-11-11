@@ -1192,6 +1192,23 @@ export function useEvents() {
       emailSent: false, groupName: true, isSoldout: false, quantity: 30,
       pricePerPerson: 4000
     },
+    {
+      id: 69,
+      title: `${t("HARRY_POTTER_TITLE")} ${t("QUIZ_TITLE")}`,
+      slug: "harry-potter-quiz-2",
+      titleDesc: "An evening of emotions and people like you",
+      date: "2026-11-21",
+      time: "19:30",
+      price: "4000 AMD",
+      location: "Loft - Մոսկովյան 3Ա",
+      image: "/images/events/hogwarts-quiz.jpg",
+      description:
+        t("HARRY_POTTER_DESC"),
+      category: [t("QUIZ"), t("MOVIES")],
+      eventDate: true,
+      emailSent: false, groupName: true, isSoldout: false, quantity: 40,
+      pricePerPerson: 4000
+    },
   ])
   const eventsWithStatus = computed(() =>
     events.value.map(event => {
