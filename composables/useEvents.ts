@@ -1206,7 +1206,7 @@ export function useEvents() {
         t("HARRY_POTTER_DESC"),
       category: [t("QUIZ"), t("MOVIES")],
       eventDate: true,
-      emailSent: false, groupName: true, isSoldout: false, quantity: 40,
+      emailSent: false, groupName: true, isSoldout: false, quantity: 36,
       pricePerPerson: 4000
     },
   ])

@@ -109,4 +109,11 @@ export const newEvents: NewEventAnnouncement[] = [
     location: "The Kond House - 46 Leo Street",
     slug: "try-not-to-laugh",
   },
+  {
+    id: 68,
+    title: `Հարրի Փոթեր քվիզ`,
+    date: "2026-11-21",
+    location: "Loft - Մոսկովյան 3Ա",
+    slug: "harry-potter-quiz-2",
+  },
 ]
