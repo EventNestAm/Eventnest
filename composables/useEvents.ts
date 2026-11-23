@@ -1218,7 +1218,7 @@ export function useEvents() {
       time: "19:30",
       price: "4000 AMD",
       location: "Loft - Մոսկովյան 3Ա",
-      image: "/images/events/kargin07.png",
+      image: "/images/events/karginserialhaxordum.jpeg",
       description:
         t("KARGIN_QUIZ_TITLE"),
       category: [t("QUIZ"), t("KARGIN")],
