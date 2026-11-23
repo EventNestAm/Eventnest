@@ -116,4 +116,11 @@ export const newEvents: NewEventAnnouncement[] = [
     location: "Loft - Մոսկովյան 3Ա",
     slug: "harry-potter-quiz-2",
   },
+  {
+    id: 69,
+    title: `Կարգին հաղորդման և Սերիալի Քվիզ`,
+    date: "2026-11-26",
+    location: "Loft - Մոսկովյան 3Ա",
+    slug: "kargin-haxordman-quiz-21",
+  },
 ]
