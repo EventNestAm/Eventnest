@@ -1212,7 +1212,7 @@ export function useEvents() {
     {
       id: 70,
       title: `Կարգին հաղորդման և Սերիալի ${t("QUIZ_TITLE")} `,
-      slug: "kargin-haxordman-quiz-20",
+      slug: "kargin-haxordman-quiz-21",
       titleDesc: "An evening of emotions and people like you",
       date: "2026-11-26",
       time: "19:30",
