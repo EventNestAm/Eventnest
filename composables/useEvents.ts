@@ -1209,6 +1209,23 @@ export function useEvents() {
       emailSent: false, groupName: true, isSoldout: false, quantity: 14,
       pricePerPerson: 4000
     },
+    {
+      id: 70,
+      title: `Կարգին հաղորդման և Սերիալի ${t("QUIZ_TITLE")} `,
+      slug: "kargin-haxordman-quiz-20",
+      titleDesc: "An evening of emotions and people like you",
+      date: "2026-11-26",
+      time: "19:30",
+      price: "4000 AMD",
+      location: "Loft - Մոսկովյան 3Ա",
+      image: "/images/events/kargin07.png",
+      description:
+        t("KARGIN_QUIZ_TITLE"),
+      category: [t("QUIZ"), t("KARGIN")],
+      eventDate: true,
+      emailSent: false, groupName: true, isSoldout: false, quantity: 35,
+      pricePerPerson: 4000
+    },
   ])
   const eventsWithStatus = computed(() =>
     events.value.map(event => {
