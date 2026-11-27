@@ -1226,6 +1226,40 @@ export function useEvents() {
       emailSent: false, groupName: true, isSoldout: false, quantity: 8,
       pricePerPerson: 4000
     },
+    {
+      id: 71,
+      title: `Կարգին հաղորդման ${t("QUIZ_TITLE")} `,
+      slug: "kargin-haxordman-quiz-22",
+      titleDesc: "An evening of emotions and people like you",
+      date: "2026-12-04",
+      time: "19:30",
+      price: "4000 AMD",
+      location: "Loft - Մոսկովյան 3Ա",
+      image: "/images/events/kargin07.png",
+      description:
+        t("KARGIN_QUIZ_TITLE"),
+      category: [t("QUIZ"), t("KARGIN")],
+      eventDate: true,
+      emailSent: false, groupName: true, isSoldout: false, quantity: 40,
+      pricePerPerson: 4000
+    },
+    {
+      id: 72,
+      title: `Կարգին Սերիալ ${t("QUIZ_TITLE")}`,
+      slug: "kargin-serial-quiz-7",
+      titleDesc: "An evening of emotions and people like you",
+      date: "2026-12-03",
+      time: "19:30",
+      price: "4000 AMD",
+      location: "Loft - Մոսկովյան 3Ա",
+      image: "/images/events/kargin.jpg",
+      description:
+        t("KARGIN_SERIAL_TITLE"),
+      category: [t("QUIZ"), t("KARGIN")],
+      eventDate: true,
+      emailSent: false, groupName: true, quantity: 40,
+      pricePerPerson: 4000
+    },
   ])
   const eventsWithStatus = computed(() =>
     events.value.map(event => {
