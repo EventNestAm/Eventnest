@@ -123,4 +123,18 @@ export const newEvents: NewEventAnnouncement[] = [
     location: "Loft - Մոսկովյան 3Ա",
     slug: "kargin-haxordman-quiz-21",
   },
+  {
+    id: 70,
+    title: `Կարգին հաղորդման Քվիզ`,
+    date: "2026-12-04",
+    location: "Loft - Մոսկովյան 3Ա",
+    slug: "kargin-haxordman-quiz-22",
+  },
+  {
+    id: 71,
+    title: `Կարգին Սերիալ Քվիզ`,
+    date: "2026-12-03",
+    location: "Loft - Մոսկովյան 3Ա",
+    slug: "kargin-serial-quiz-7",
+  },
 ]
